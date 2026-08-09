@@ -4,24 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>𝑺𝑶𝑪𝑯 — You Bring the Vision. We Bring It to Life.</title>
-
-<meta name="description" content="SOCH — Bespoke décor and craftsmanship. You bring the vision. We bring it to life.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.</title>
 
 <style>
-
-:root {
-    --bg: #0b0b0b;
-    --text: #f2f0eb;
-    --muted: rgba(242,240,235,0.58);
-    --line: rgba(242,240,235,0.12);
-    --hover: rgba(242,240,235,0.06);
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
 * {
     margin: 0;
@@ -34,12 +20,11 @@ html {
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Inter", sans-serif;
+    background: #0a0a09;
+    color: #eeeae1;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 a {
@@ -47,68 +32,64 @@ a {
     text-decoration: none;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
 }
 
 
 /* =========================
-   NAVIGATION
+   HEADER
 ========================= */
 
-nav {
-    position: fixed;
+header {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-
+    padding: 24px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 25px 6vw;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(11,11,11,0.85),
-        rgba(11,11,11,0)
-    );
+    z-index: 50;
 }
 
 .logo {
     display: flex;
-    align-items: center;
-    gap: 4px;
+    align-items: baseline;
+    gap: 7px;
+    color: #eeeae1;
+}
 
-    font-family: "Cormorant Garamond", serif;
-    font-size: 27px;
-    font-weight: 500;
-    letter-spacing: -0.04em;
+.logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 31px;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: -1px;
 }
 
 .logo-urdu {
     font-family: serif;
-    font-size: 25px;
-    margin-left: -1px;
+    font-size: 29px;
 }
 
-.nav-links {
+nav {
     display: flex;
-    gap: 34px;
-
-    font-size: 11px;
-    letter-spacing: 0.13em;
+    gap: 25px;
+    font-size: 9px;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.nav-links a {
-    opacity: 0.65;
-    transition: opacity 0.3s ease;
+nav a {
+    opacity: .75;
+    transition: .3s ease;
 }
 
-.nav-links a:hover {
+nav a:hover {
     opacity: 1;
 }
 
@@ -119,112 +100,154 @@ nav {
 
 .hero {
     min-height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
-    padding: 120px 24px 80px;
-
+    padding: 125px 25px 80px;
     position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(5,5,4,.43),
+            rgba(5,5,4,.84)
+        ),
+        url('37A2CC13-446E-4AAA-A0A4-DFF3AAFB59A9.png')
+        center center / cover no-repeat;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 18%,
+            rgba(0,0,0,.35) 100%
+        );
+
+    pointer-events: none;
 }
 
 .hero-content {
-    max-width: 1000px;
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
 }
 
-.hero-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.38em;
-    text-transform: uppercase;
-    opacity: 0.48;
+.brand-mark {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 9px;
     margin-bottom: 30px;
 }
 
-.hero h1 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(70px, 13vw, 170px);
-    font-weight: 400;
-    line-height: 0.78;
-    letter-spacing: -0.055em;
+.brand-mark .english {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: 1px;
 }
 
-.hero-subtitle {
-    margin-top: 40px;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(22px, 3vw, 34px);
-    font-weight: 400;
-
-    opacity: 0.85;
-}
-
-.hero-description {
-    max-width: 530px;
-    margin: 24px auto 0;
-
-    font-size: 14px;
-    line-height: 1.9;
-
-    color: var(--muted);
-}
-
-
-/* =========================
-   BUTTON
-========================= */
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-
-    margin-top: 38px;
-
-    padding: 15px 25px;
-
-    border: 1px solid rgba(242,240,235,0.2);
-    border-radius: 100px;
-
-    font-size: 11px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-
-    transition:
-        background 0.35s ease,
-        border-color 0.35s ease,
-        transform 0.35s ease;
-}
-
-.button:hover {
-    background: var(--hover);
-    border-color: rgba(242,240,235,0.45);
-    transform: translateY(-3px);
-}
-
-
-/* =========================
-   SECTION BASICS
-========================= */
-
-section {
-    padding: 130px 6vw;
-}
-
-.section-inner {
-    max-width: 1150px;
-    margin: 0 auto;
+.brand-mark .urdu {
+    font-family: serif;
+    font-size: 23px;
 }
 
 .eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.32em;
     text-transform: uppercase;
-    opacity: 0.45;
+    letter-spacing: 4px;
+    font-size: 9px;
+    color: #b5ad9c;
+    margin-bottom: 27px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 12vw, 105px);
+    font-weight: 400;
+    line-height: .9;
+    letter-spacing: -1.5px;
+    margin-bottom: 32px;
+}
+
+.hero h1 span {
+    color: #b8ad98;
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 580px;
+    margin: 0 auto 42px;
+    color: #b0aba1;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.button {
+    padding: 15px 25px;
+    border: 1px solid rgba(238,234,225,.45);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all .3s ease;
+}
+
+.button.primary {
+    background: #eeeae1;
+    color: #0a0a09;
+    border-color: #eeeae1;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    border-color: #eeeae1;
+}
+
+
+/* =========================
+   GENERAL
+========================= */
+
+.section {
+    padding: 115px 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #918876;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 8vw, 70px);
+    font-weight: 400;
+    line-height: .95;
     margin-bottom: 25px;
+}
+
+.section-intro {
+    color: #aaa59b;
+    max-width: 600px;
+    margin-bottom: 50px;
+    font-size: 14px;
+    line-height: 1.8;
 }
 
 
@@ -232,193 +255,374 @@ section {
    COLLECTION
 ========================= */
 
-.collection {
-    border-top: 1px solid var(--line);
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
 }
 
-.collection-heading {
+.product {
+    background: #121211;
+    min-height: 330px;
+    padding: 22px;
     display: flex;
-    justify-content: space-between;
-    align-items: end;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    transition: transform .4s ease;
+}
 
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(145deg, #292821, #11110f);
+
+    transition: transform .6s ease;
+}
+
+.product:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product:nth-child(2) .product-image {
+    background: linear-gradient(145deg, #1b1b19, #353127);
+}
+
+.product:nth-child(3) .product-image {
+    background: linear-gradient(145deg, #343128, #151513);
+}
+
+.product:nth-child(4) .product-image {
+    background: linear-gradient(145deg, #20201d, #39352d);
+}
+
+.product::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(0,0,0,.9)
+        );
+}
+
+.product-info {
+    position: relative;
+    z-index: 2;
+}
+
+.product h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.product p {
+    color: #aaa59b;
+    font-size: 10px;
+    margin-top: 3px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   BESPOKE
+========================= */
+
+.bespoke {
+    background: #eeeae1;
+    color: #10100e;
+    max-width: none;
+    padding: 115px 25px;
+}
+
+.bespoke-inner {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.bespoke .section-label {
+    color: #70695c;
+}
+
+.bespoke h2 {
+    max-width: 800px;
+}
+
+.bespoke p {
+    max-width: 620px;
+    color: #5d594f;
+    margin-bottom: 38px;
+    line-height: 1.8;
+}
+
+.bespoke-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.dark-button {
+    display: inline-block;
+    padding: 15px 25px;
+    background: #10100e;
+    color: #eeeae1;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .3s ease;
+}
+
+.dark-button:hover {
+    transform: translateY(-3px);
+}
+
+.text-link {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #403d37;
+}
+
+
+/* =========================
+   CUSTOM BUILDER
+========================= */
+
+.builder-section {
+    background: #0d0d0c;
+    padding: 120px 25px;
+}
+
+.builder-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.builder-heading {
+    max-width: 700px;
     margin-bottom: 55px;
 }
 
-.collection h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(45px, 6vw, 75px);
+.builder-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 8vw, 72px);
     font-weight: 400;
-    line-height: 0.95;
+    line-height: .95;
+    margin-bottom: 22px;
 }
 
-.collection-intro {
-    max-width: 330px;
-    font-size: 13px;
+.builder-heading p {
+    color: #99958d;
+    font-size: 14px;
     line-height: 1.8;
-    color: var(--muted);
 }
 
-.collection-grid {
+.builder {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    padding: 40px;
+    border: 1px solid #292824;
+    background: #11110f;
 }
 
-.collection-card {
-    min-height: 420px;
-
-    border: 1px solid var(--line);
-
+.builder-form {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 23px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #918876;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: #0a0a09;
+    border: 1px solid #34332e;
+    color: #eeeae1;
+    padding: 14px 15px;
+    font-size: 12px;
+    outline: none;
+    transition: .3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #918876;
+}
+
+.form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.form-group select {
+    appearance: none;
+}
+
+.builder-preview {
+    min-height: 100%;
+    border: 1px solid #292824;
+    background:
+        radial-gradient(
+            circle at center,
+            #24231f,
+            #0b0b0a 72%
+        );
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-
+    padding: 45px;
     text-align: center;
-
     position: relative;
     overflow: hidden;
-
-    transition: border-color 0.4s ease;
 }
 
-.collection-card:hover {
-    border-color: rgba(242,240,235,0.3);
+.builder-preview::before {
+    content: "سوچ";
+    position: absolute;
+    font-family: serif;
+    font-size: 210px;
+    color: rgba(238,234,225,.025);
+    transform: rotate(-10deg);
 }
 
-.collection-card span {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 27px;
-    opacity: 0.45;
+.preview-label {
+    position: relative;
+    z-index: 2;
+    color: #918876;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.preview-title {
+    position: relative;
+    z-index: 2;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 43px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.preview-text {
+    position: relative;
+    z-index: 2;
+    color: #aaa59b;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.builder-submit {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    padding: 17px;
+    background: #eeeae1;
+    color: #0a0a09;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 9px;
+    transition: .3s ease;
+}
+
+.builder-submit:hover {
+    transform: translateY(-3px);
 }
 
 
 /* =========================
-   YOUR VISION
+   PROCESS
 ========================= */
 
-.vision {
-    border-top: 1px solid var(--line);
-}
-
-.vision-inner {
-    max-width: 900px;
+.process-section {
+    max-width: 1200px;
     margin: auto;
-    text-align: center;
-}
-
-.vision h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(50px, 7vw, 90px);
-    font-weight: 400;
-    line-height: 0.92;
-    letter-spacing: -0.035em;
-}
-
-.vision-text {
-    max-width: 590px;
-    margin: 30px auto 0;
-
-    font-size: 14px;
-    line-height: 1.9;
-
-    color: var(--muted);
-}
-
-.vision .button {
-    margin-top: 40px;
-}
-
-
-/* =========================
-   APPROACH
-========================= */
-
-.approach {
-    border-top: 1px solid var(--line);
-}
-
-.approach-heading {
-    max-width: 750px;
-    margin-bottom: 70px;
-}
-
-.approach h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(50px, 7vw, 90px);
-    font-weight: 400;
-    line-height: 0.92;
+    padding: 115px 25px;
 }
 
 .process {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 35px;
+    gap: 1px;
+    background: #302f2b;
+    margin-top: 55px;
 }
 
 .process-item {
-    border-top: 1px solid var(--line);
-    padding-top: 20px;
+    background: #0a0a09;
+    padding: 35px 25px;
+    min-height: 230px;
 }
 
-.process-number {
+.number {
+    color: #918876;
     font-size: 10px;
-    letter-spacing: 0.2em;
-    opacity: 0.4;
+    letter-spacing: 2px;
 }
 
-.process-title {
-    margin-top: 30px;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 28px;
+.process h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 400;
+    margin: 18px 0 8px;
 }
 
-.process-text {
-    margin-top: 12px;
-
-    font-size: 12px;
-    line-height: 1.8;
-
-    color: var(--muted);
+.process p {
+    color: #969188;
+    font-size: 11px;
+    line-height: 1.7;
 }
 
 
 /* =========================
-   PHILOSOPHY
+   STORY
 ========================= */
 
-.philosophy {
-    min-height: 70vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.story {
     text-align: center;
-
-    border-top: 1px solid var(--line);
 }
 
-.philosophy-inner {
-    max-width: 950px;
+.story-content {
+    max-width: 720px;
+    margin: auto;
 }
 
-.philosophy h2 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(48px, 8vw, 105px);
-    font-weight: 400;
-    line-height: 0.9;
-    letter-spacing: -0.04em;
+.story h2 {
+    margin-bottom: 30px;
 }
 
-.philosophy p {
-    margin-top: 35px;
-
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
-    opacity: 0.45;
+.story p {
+    color: #aaa59b;
+    margin-bottom: 17px;
+    font-size: 14px;
+    line-height: 1.9;
 }
 
 
@@ -427,84 +631,95 @@ section {
 ========================= */
 
 .contact {
-    border-top: 1px solid var(--line);
+    max-width: none;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(17,17,15,.94),
+            rgba(10,10,9,.98)
+        );
+}
+
+.contact::before {
+    content: "𝑺𝑶𝑪𝑯";
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 220px;
+    color: rgba(238,234,225,.025);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
 }
 
 .contact-inner {
-    max-width: 760px;
-    margin: 0 auto;
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
 }
 
 .contact h2 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(45px, 6vw, 75px);
-    font-weight: 400;
-
-    line-height: 0.95;
-    letter-spacing: -0.03em;
+    font-size: clamp(50px, 9vw, 78px);
 }
 
-.contact-text {
-    max-width: 520px;
-    margin: 30px auto 48px;
-
-    font-size: 14px;
-    line-height: 1.8;
-
-    color: var(--muted);
+.contact .section-intro {
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-/* =========================
-   CONTACT ICONS
-========================= */
-
-.contact-icons {
+.contact-methods {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
 
-    gap: 16px;
+.contact-card {
+    min-width: 210px;
+    padding: 25px 22px;
+    border: 1px solid #393833;
+    background: rgba(18,18,16,.75);
+    transition: .3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    border-color: #918876;
 }
 
 .contact-icon {
-    display: inline-flex;
-    align-items: center;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 15px;
+    border: 1px solid #777164;
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    font-size: 18px;
+}
 
-    min-width: 155px;
+.contact-card strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    font-weight: 500;
+}
 
-    padding: 14px 22px;
-
-    border: 1px solid rgba(242,240,235,0.16);
-    border-radius: 100px;
-
-    font-size: 11px;
-    letter-spacing: 0.12em;
+.contact-card span {
+    display: block;
+    color: #8d8980;
+    font-size: 9px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-
-    transition:
-        background 0.35s ease,
-        border-color 0.35s ease,
-        transform 0.35s ease;
-}
-
-.contact-icon:hover {
-    background: var(--hover);
-    border-color: rgba(242,240,235,0.4);
-
-    transform: translateY(-3px);
-}
-
-.contact-icon svg {
-    width: 17px;
-    height: 17px;
-
-    fill: currentColor;
-    stroke: currentColor;
+    margin-top: 4px;
 }
 
 
@@ -513,19 +728,50 @@ section {
 ========================= */
 
 footer {
-    padding: 45px 6vw;
+    padding: 55px 24px;
+    border-top: 1px solid #272622;
+    text-align: center;
+}
 
-    border-top: 1px solid var(--line);
-
+.footer-brand {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: baseline;
+    gap: 7px;
+    margin-bottom: 12px;
+}
 
-    font-size: 10px;
-    letter-spacing: 0.12em;
+.footer-brand .english {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-style: italic;
+}
+
+.footer-brand .urdu {
+    font-family: serif;
+    font-size: 29px;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    color: #aaa59b;
+    font-size: 9px;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    transition: .3s ease;
+}
 
-    opacity: 0.4;
+.footer-social a:hover {
+    color: #eeeae1;
+}
+
+footer p {
+    color: #716e67;
+    font-size: 9px;
+    letter-spacing: 1px;
 }
 
 
@@ -533,85 +779,152 @@ footer {
    MOBILE
 ========================= */
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
+
+    header {
+        padding: 20px;
+    }
 
     nav {
-        padding: 20px 5vw;
+        gap: 14px;
     }
 
-    .nav-links {
-        gap: 16px;
-        font-size: 9px;
-    }
-
-    .logo {
-        font-size: 23px;
-    }
-
-    .logo-urdu {
-        font-size: 21px;
-    }
-
-    section {
-        padding: 95px 5vw;
-    }
-
-    .hero {
-        min-height: 92vh;
-    }
-
-    .hero h1 {
-        font-size: clamp(65px, 22vw, 110px);
-    }
-
-    .hero-subtitle {
-        font-size: 24px;
-        line-height: 1.1;
-    }
-
-    .collection-heading {
-        display: block;
-    }
-
-    .collection-intro {
-        margin-top: 25px;
-    }
-
-    .collection-grid {
+    .products {
         grid-template-columns: 1fr;
     }
 
-    .collection-card {
+    .builder {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .builder-preview {
         min-height: 300px;
     }
 
     .process {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    header {
+        padding: 18px 17px;
+    }
+
+    .logo-main {
+        font-size: 27px;
+    }
+
+    .logo-urdu {
+        font-size: 26px;
+    }
+
+    nav {
+        gap: 11px;
+        font-size: 7px;
+    }
+
+    nav a:nth-child(n+3) {
+        display: none;
+    }
+
+    .hero {
+        padding: 115px 20px 70px;
+    }
+
+    .brand-mark {
+        gap: 7px;
+    }
+
+    .brand-mark .english {
+        font-size: 22px;
+    }
+
+    .brand-mark .urdu {
+        font-size: 21px;
+    }
+
+    .eyebrow {
+        font-size: 7px;
+        letter-spacing: 2.5px;
+    }
+
+    .hero h1 {
+        font-size: 53px;
+        line-height: .92;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .section,
+    .process-section {
+        padding: 90px 20px;
+    }
+
+    .section h2 {
+        font-size: 48px;
+    }
+
+    .product {
+        min-height: 350px;
+    }
+
+    .process {
         grid-template-columns: 1fr;
-        gap: 45px;
     }
 
-    .philosophy {
-        min-height: 60vh;
+    .process-item {
+        min-height: auto;
     }
 
-    .contact-icons {
-        flex-direction: row;
-        gap: 10px;
+    .bespoke,
+    .builder-section {
+        padding: 90px 20px;
     }
 
-    .contact-icon {
-        min-width: 0;
-        width: auto;
-        flex: 1;
-        max-width: 180px;
-        padding: 13px 14px;
-        font-size: 9px;
-    }
-
-    footer {
+    .bespoke-actions {
         flex-direction: column;
-        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .dark-button {
+        width: 100%;
         text-align: center;
+    }
+
+    .builder {
+        padding: 18px;
+    }
+
+    .builder-preview {
+        padding: 30px 20px;
+    }
+
+    .preview-title {
+        font-size: 36px;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact-card {
+        min-width: 0;
+    }
+
+    .contact::before {
+        font-size: 110px;
     }
 }
 
@@ -623,111 +936,424 @@ footer {
 
 
 <!-- =========================
-     NAVIGATION
+     HEADER
 ========================= -->
 
-<nav>
+<header>
 
-    <a href="#top" class="logo">
-        𝑺𝑶𝑪𝑯
-        <span class="logo-urdu">سوچ</span>
+    <a href="#" class="logo">
+
+        <span class="logo-main">
+            𝑺𝑶𝑪𝑯
+        </span>
+
+        <span class="logo-urdu">
+            سوچ
+        </span>
+
     </a>
 
-    <div class="nav-links">
-        <a href="#collection">Collection</a>
-        <a href="#vision">Bespoke</a>
+    <nav>
+
+        <a href="#shop">Shop</a>
+
+        <a href="#bespoke">Bespoke</a>
+
+        <a href="#vision">Your Vision</a>
+
         <a href="#contact">Contact</a>
-    </div>
 
-</nav>
+    </nav>
 
+</header>
 
 
 <!-- =========================
      HERO
 ========================= -->
 
-<main id="top">
-
 <section class="hero">
 
     <div class="hero-content">
 
-        <div class="hero-eyebrow">
-            Premium Décor · Bespoke Craftsmanship
+        <div class="brand-mark">
+
+            <span class="english">
+                𝑺𝑶𝑪𝑯
+            </span>
+
+            <span class="urdu">
+                سوچ
+            </span>
+
+        </div>
+
+        <div class="eyebrow">
+            PREMIUM DÉCOR · BESPOKE CRAFTSMANSHIP
         </div>
 
         <h1>
-            𝑺𝑶𝑪𝑯
+            You Bring the <span>Vision.</span><br>
+            We Bring It to Life.
         </h1>
 
-        <div class="hero-subtitle">
-            You Bring the Vision.<br>
-            We Bring It to Life.
-        </div>
-
-        <p class="hero-description">
-            Thoughtful objects, crafted around your imagination.
-            Designed with intention. Made to exist nowhere else.
+        <p>
+            Distinctive pieces, crafted with intention.
+            From our collection to creations made exclusively around your vision.
         </p>
 
-        <a href="#vision" class="button">
-            Explore Bespoke
-            <span>→</span>
-        </a>
+        <div class="buttons">
+
+            <a href="#shop" class="button primary">
+                Explore Collection
+            </a>
+
+            <a href="#vision" class="button">
+                Create Your Vision
+            </a>
+
+        </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
      COLLECTION
 ========================= -->
 
-<section class="collection" id="collection">
+<section class="section" id="shop">
 
-    <div class="section-inner">
+    <div class="section-label">
+        The Collection
+    </div>
 
-        <div class="collection-heading">
+    <h2>
+        Made to Be Seen.
+    </h2>
 
-            <div>
+    <p class="section-intro">
+        Discover pieces designed and crafted by 𝑺𝑶𝑪𝑯.
+        Our collection will grow with every new creation.
+    </p>
 
-                <div class="eyebrow">
-                    Selected Work
-                </div>
 
-                <h2>
-                    The Collection
-                </h2>
+    <div class="products">
+
+        <article class="product">
+
+            <div class="product-image"></div>
+
+            <div class="product-info">
+
+                <h3>
+                    Collection I
+                </h3>
+
+                <p>
+                    Coming Soon
+                </p>
 
             </div>
 
-            <p class="collection-intro">
-                A growing collection of objects shaped by
-                craftsmanship, detail and imagination.
+        </article>
+
+
+        <article class="product">
+
+            <div class="product-image"></div>
+
+            <div class="product-info">
+
+                <h3>
+                    Collection II
+                </h3>
+
+                <p>
+                    Coming Soon
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="product">
+
+            <div class="product-image"></div>
+
+            <div class="product-info">
+
+                <h3>
+                    Collection III
+                </h3>
+
+                <p>
+                    Coming Soon
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="product">
+
+            <div class="product-image"></div>
+
+            <div class="product-info">
+
+                <h3>
+                    Collection IV
+                </h3>
+
+                <p>
+                    Coming Soon
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BESPOKE
+========================= -->
+
+<section class="bespoke" id="bespoke">
+
+    <div class="bespoke-inner">
+
+        <div class="section-label">
+            BESPOKE
+        </div>
+
+        <h2>
+            Your idea deserves to exist.
+        </h2>
+
+        <p>
+            No catalogue. No limitations.
+            Bring us your vision, reference, sketch, or simply an idea.
+            We design and craft it specifically for you.
+        </p>
+
+        <div class="bespoke-actions">
+
+            <a href="#vision" class="dark-button">
+                Start Your Project
+            </a>
+
+            <a href="#process" class="text-link">
+                See How It Works →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CUSTOM PRODUCT BUILDER
+========================= -->
+
+<section class="builder-section" id="vision">
+
+    <div class="builder-container">
+
+        <div class="builder-heading">
+
+            <div class="section-label">
+                YOUR VISION
+            </div>
+
+            <h2>
+                Create Something That Doesn't Exist Yet.
+            </h2>
+
+            <p>
+                Tell us what you're imagining.
+                Choose the basics below and describe the details.
+                You don't need a finished design — that's what we're here for.
             </p>
 
         </div>
 
 
-        <div class="collection-grid">
+        <div class="builder">
 
-            <div class="collection-card">
-                <span>Coming Soon</span>
-            </div>
+            <form
+                class="builder-form"
+                id="visionForm"
+                onsubmit="sendVision(event)"
+            >
 
-            <div class="collection-card">
-                <span>Coming Soon</span>
-            </div>
+                <div class="form-group">
 
-            <div class="collection-card">
-                <span>Coming Soon</span>
-            </div>
+                    <label for="clientName">
+                        Your Name
+                    </label>
 
-            <div class="collection-card">
-                <span>Coming Soon</span>
+                    <input
+                        type="text"
+                        id="clientName"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productType">
+                        What are you imagining?
+                    </label>
+
+                    <select id="productType" required>
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option>
+                            Wall Décor
+                        </option>
+
+                        <option>
+                            Furniture
+                        </option>
+
+                        <option>
+                            Lighting
+                        </option>
+
+                        <option>
+                            Signage
+                        </option>
+
+                        <option>
+                            Art / Statement Piece
+                        </option>
+
+                        <option>
+                            Custom Gift
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="material">
+                        Preferred Material
+                    </label>
+
+                    <select id="material">
+
+                        <option value="">
+                            Not sure yet
+                        </option>
+
+                        <option>
+                            Wood
+                        </option>
+
+                        <option>
+                            MDF
+                        </option>
+
+                        <option>
+                            Acrylic
+                        </option>
+
+                        <option>
+                            Metal
+                        </option>
+
+                        <option>
+                            Mixed Materials
+                        </option>
+
+                        <option>
+                            Let 𝑺𝑶𝑪𝑯 Recommend
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="size">
+                        Approximate Size
+                    </label>
+
+                    <input
+                        type="text"
+                        id="size"
+                        placeholder="e.g. 4ft × 2ft"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="details">
+                        Tell Us Your Vision
+                    </label>
+
+                    <textarea
+                        id="details"
+                        placeholder="Describe the design, colours, style, purpose, reference, or anything else you have in mind..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="builder-submit"
+                >
+                    Send My Vision on WhatsApp →
+                </button>
+
+            </form>
+
+
+            <div class="builder-preview">
+
+                <div class="preview-label">
+                    The 𝑺𝑶𝑪𝑯 Approach
+                </div>
+
+                <div class="preview-title">
+                    You imagine it.<br>
+                    We shape it.
+                </div>
+
+                <div class="preview-text">
+                    Your idea doesn't need to be perfect.
+                    Give us the thought behind it and we'll help
+                    turn it into something real.
+                </div>
+
             </div>
 
         </div>
@@ -737,299 +1363,230 @@ footer {
 </section>
 
 
-
 <!-- =========================
-     YOUR VISION
+     PROCESS
 ========================= -->
 
-<section class="vision" id="vision">
+<section class="process-section" id="process">
 
-    <div class="vision-inner">
+    <div class="section-label">
+        Our Process
+    </div>
 
-        <div class="eyebrow">
-            Bespoke
+    <h2>
+        From Thought to Form.
+    </h2>
+
+
+    <div class="process">
+
+        <div class="process-item">
+
+            <div class="number">
+                01
+            </div>
+
+            <h3>
+                Imagine
+            </h3>
+
+            <p>
+                Your idea begins with a thought.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="number">
+                02
+            </div>
+
+            <h3>
+                Design
+            </h3>
+
+            <p>
+                We shape your vision into a purposeful design.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="number">
+                03
+            </div>
+
+            <h3>
+                Craft
+            </h3>
+
+            <p>
+                Precision craftsmanship brings the design to life.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="number">
+                04
+            </div>
+
+            <h3>
+                Deliver
+            </h3>
+
+            <p>
+                Your finished creation arrives ready for its place.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STORY
+========================= -->
+
+<section class="section story" id="story">
+
+    <div class="story-content">
+
+        <div class="section-label">
+            The 𝑺𝑶𝑪𝑯 Philosophy
         </div>
 
         <h2>
-            Create Something<br>
-            That Doesn't Exist Yet.
-        </h2>
-
-        <p class="vision-text">
-            No catalogue. No limitations.
-            Bring us your vision, reference, sketch,
-            or simply an idea. We design and craft it
-            specifically for you.
-        </p>
-
-        <a href="custom-order.html" class="button">
-            Begin Your Vision
-            <span>→</span>
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     APPROACH
-========================= -->
-
-<section class="approach">
-
-    <div class="section-inner">
-
-        <div class="approach-heading">
-
-            <div class="eyebrow">
-                The SOCH Approach
-            </div>
-
-            <h2>
-                From Thought<br>
-                to Form.
-            </h2>
-
-        </div>
-
-
-        <div class="process">
-
-            <div class="process-item">
-
-                <div class="process-number">
-                    01
-                </div>
-
-                <div class="process-title">
-                    Imagine
-                </div>
-
-                <p class="process-text">
-                    You bring the idea.
-                    A thought, reference,
-                    sketch or feeling.
-                </p>
-
-            </div>
-
-
-            <div class="process-item">
-
-                <div class="process-number">
-                    02
-                </div>
-
-                <div class="process-title">
-                    Design
-                </div>
-
-                <p class="process-text">
-                    We refine the idea
-                    and shape it into
-                    something tangible.
-                </p>
-
-            </div>
-
-
-            <div class="process-item">
-
-                <div class="process-number">
-                    03
-                </div>
-
-                <div class="process-title">
-                    Craft
-                </div>
-
-                <p class="process-text">
-                    Every detail is made
-                    with precision,
-                    patience and purpose.
-                </p>
-
-            </div>
-
-
-            <div class="process-item">
-
-                <div class="process-number">
-                    04
-                </div>
-
-                <div class="process-title">
-                    Deliver
-                </div>
-
-                <p class="process-text">
-                    Your vision becomes
-                    a physical piece
-                    made uniquely for you.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     PHILOSOPHY
-========================= -->
-
-<section class="philosophy">
-
-    <div class="philosophy-inner">
-
-        <div class="eyebrow">
-            Philosophy
-        </div>
-
-        <h2>
-            Every creation<br>
-            begins with a thought.
+            Every creation begins with a thought.
         </h2>
 
         <p>
-            سوچ — Thought · Idea · Imagination
+            سوچ means thought — the place where every vision begins.
+        </p>
+
+        <p>
+            We believe the most meaningful pieces aren't simply bought.
+            They're imagined, designed and brought into existence.
+        </p>
+
+        <p>
+            That's what 𝑺𝑶𝑪𝑯 exists to do.
         </p>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
      CONTACT
 ========================= -->
 
-<section class="contact" id="contact">
+<section class="section contact" id="contact">
 
     <div class="contact-inner">
 
-        <div class="eyebrow">
-            Contact
+        <div class="section-label">
+            LET'S CREATE
         </div>
 
         <h2>
-            Let's Create Something<br>
-            Worth Remembering.
+            Have a Vision?
         </h2>
 
-        <p class="contact-text">
-            Have a vision in mind?
-            We'd love to hear it.
-            Reach out and let's bring it to life.
+        <p class="section-intro">
+            Have a question, a custom idea, or simply want to talk
+            about something you're imagining?
+            We're one message away.
         </p>
 
 
-        <div class="contact-icons">
+        <div class="contact-methods">
 
 
-            <!-- =====================
-                 WHATSAPP
-                 ===================== -->
-
-            <!--
-            IMPORTANT:
-            Replace 923001234567 below
-            with your real WhatsApp number.
-
-            Format:
-            923XXXXXXXXX
-
-            Do NOT use +, spaces or dashes.
-            -->
+            <!-- WHATSAPP -->
 
             <a
-                href="https://wa.me/923001234567"
-                class="contact-icon"
+                href="https://wa.me/923150674347"
+                class="contact-card"
                 target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Contact SOCH on WhatsApp"
+                rel="noopener"
             >
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
+                <div class="contact-icon">
+                    ◉
+                </div>
 
-                    <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .4 5.2.4 11.7c0 2.1.6 4.1 1.6 5.8L.3 24l6.6-1.7c1.6.9 3.4 1.4 5.2 1.4h.1c6.5 0 11.7-5.2 11.7-11.7 0-3.1-1.2-6.2-3.4-8.5Zm-8.4 18.2h-.1c-1.6 0-3.2-.4-4.6-1.2l-.3-.2-3.9 1 1-3.8-.2-.4a9.7 9.7 0 0 1-1.5-5.2C2.5 6.5 6.8 2.2 12.1 2.2c2.6 0 5.1 1 7 2.9 1.9 1.9 2.9 4.3 2.9 7 0 5.3-4.3 9.6-9.9 9.6Zm5.3-7.2c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.8-2.1-.2-.3 0-.5.1-.7.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.5-.4Z"/>
-
-                </svg>
+                <strong>
+                    WhatsApp
+                </strong>
 
                 <span>
-                    WhatsApp
+                    Start a conversation
                 </span>
 
             </a>
 
 
+            <!-- PHONE -->
 
-            <!-- =====================
-                 INSTAGRAM
-                 ===================== -->
+            <a
+                href="tel:+923150674347"
+                class="contact-card"
+            >
+
+                <div class="contact-icon">
+                    ☎
+                </div>
+
+                <strong>
+                    Call Us
+                </strong>
+
+                <span>
+                    +92 315 0674347
+                </span>
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
 
             <a
                 href="https://www.instagram.com/soch.pk/"
-                class="contact-icon"
+                class="contact-card"
                 target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow SOCH on Instagram"
+                rel="noopener"
             >
 
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                >
+                <div class="contact-icon">
+                    ◎
+                </div>
 
-                    <rect
-                        x="3"
-                        y="3"
-                        width="18"
-                        height="18"
-                        rx="5"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="4"
-                    />
-
-                    <circle
-                        cx="17.5"
-                        cy="6.5"
-                        r="1"
-                        fill="currentColor"
-                        stroke="none"
-                    />
-
-                </svg>
+                <strong>
+                    Instagram
+                </strong>
 
                 <span>
-                    Instagram
+                    @soch.pk
                 </span>
 
             </a>
+
 
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -1038,18 +1595,111 @@ footer {
 
 <footer>
 
-    <span>
-        © 2026 SOCH — سوچ
-    </span>
+    <div class="footer-brand">
 
-    <span>
-        Crafted with intention.
-    </span>
+        <span class="english">
+            𝑺𝑶𝑪𝑯
+        </span>
+
+        <span class="urdu">
+            سوچ
+        </span>
+
+    </div>
+
+    <p>
+        You Bring the Vision. We Bring It to Life.
+    </p>
+
+
+    <div class="footer-social">
+
+        <a
+            href="https://www.instagram.com/soch.pk/"
+            target="_blank"
+            rel="noopener"
+        >
+            Instagram · @soch.pk
+        </a>
+
+    </div>
+
+
+    <p style="margin-top:20px;">
+        © 2026 𝑺𝑶𝑪𝑯 - سوچ. All Rights Reserved.
+    </p>
 
 </footer>
 
 
-</main>
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function sendVision(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("clientName").value.trim();
+
+    const product =
+        document.getElementById("productType").value;
+
+    const material =
+        document.getElementById("material").value || "Not specified";
+
+    const size =
+        document.getElementById("size").value.trim() || "Not specified";
+
+    const details =
+        document.getElementById("details").value.trim();
+
+
+    const message =
+`Hello 𝑺𝑶𝑪𝑯 - سوچ,
+
+I'd like to create something custom.
+
+Name: ${name}
+
+What I'm imagining:
+${product}
+
+Preferred Material:
+${material}
+
+Approximate Size:
+${size}
+
+My Vision:
+${details}
+
+I'd like to discuss the design and possibilities.
+
+Thank you.`;
+
+
+    const whatsappNumber = "923150674347";
+
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+</script>
+
 
 </body>
 </html>
