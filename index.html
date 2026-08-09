@@ -4,10 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>سوچ — You Bring the Vision. We Bring It to Life.</title>
+<title>𝑺𝑶𝑪𝑯 — سوچ | You Bring the Vision. We Bring It to Life.</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
 
 * {
     margin: 0;
@@ -43,23 +49,38 @@ header {
     left: 0;
     width: 100%;
     padding: 24px 28px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     z-index: 20;
 }
 
 .logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
+    font-size: 27px;
     font-weight: 500;
     color: #eeeae1;
+    letter-spacing: 1px;
     line-height: 1;
 }
+
+.logo span {
+    opacity: .65;
+    margin: 0 5px;
+}
+
+.logo-urdu {
+    font-family: serif;
+    font-size: 25px;
+}
+
 
 nav {
     display: flex;
     gap: 25px;
+
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -81,11 +102,15 @@ nav a:hover {
 
 .hero {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     padding: 120px 25px 80px;
+
     position: relative;
     overflow: hidden;
 
@@ -98,80 +123,142 @@ nav a:hover {
         center center / cover no-repeat;
 }
 
+
 .hero::after {
     content: "";
+
     position: absolute;
     inset: 0;
 
-    background: radial-gradient(
-        circle at center,
-        transparent 20%,
-        rgba(0,0,0,.28) 100%
-    );
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 20%,
+            rgba(0,0,0,.28) 100%
+        );
 
     pointer-events: none;
 }
 
+
 .hero-content {
     max-width: 850px;
+
     position: relative;
     z-index: 2;
 }
 
+
 .eyebrow {
     text-transform: uppercase;
+
     letter-spacing: 4px;
+
     font-size: 9px;
+
     color: #b5ad9c;
+
     margin-bottom: 28px;
 }
 
+
+.hero-brand {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(30px, 6vw, 48px);
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+
+    color: #eeeae1;
+}
+
+
+.hero-brand .urdu {
+    font-family: serif;
+
+    letter-spacing: 0;
+
+    margin-left: 7px;
+
+    opacity: .8;
+}
+
+
 .hero h1 {
     font-family: 'Cormorant Garamond', serif;
+
     font-size: clamp(52px, 12vw, 105px);
+
     font-weight: 400;
+
     line-height: .9;
+
     letter-spacing: -1px;
+
     margin-bottom: 30px;
 }
 
+
 .hero h1 span {
     color: #b8ad98;
+
     font-style: italic;
 }
 
+
 .hero p {
     max-width: 560px;
+
     margin: 0 auto 40px;
+
     color: #b0aba1;
+
     font-size: 14px;
+
     line-height: 1.8;
 }
 
+
 .buttons {
     display: flex;
+
     justify-content: center;
+
     gap: 12px;
+
     flex-wrap: wrap;
 }
 
+
 .button {
     padding: 15px 24px;
+
     border: 1px solid rgba(238,234,225,.45);
+
     font-size: 9px;
+
     letter-spacing: 2px;
+
     text-transform: uppercase;
+
     transition: all .3s ease;
 }
 
+
 .button.primary {
     background: #eeeae1;
+
     color: #0a0a09;
+
     border-color: #eeeae1;
 }
 
+
 .button:hover {
     transform: translateY(-3px);
+
     border-color: #eeeae1;
 }
 
@@ -182,31 +269,48 @@ nav a:hover {
 
 .section {
     padding: 115px 25px;
+
     max-width: 1200px;
+
     margin: auto;
 }
 
+
 .section-label {
     font-size: 9px;
+
     letter-spacing: 3px;
+
     text-transform: uppercase;
+
     color: #918876;
+
     margin-bottom: 20px;
 }
 
+
 .section h2 {
     font-family: 'Cormorant Garamond', serif;
+
     font-size: clamp(42px, 8vw, 70px);
+
     font-weight: 400;
+
     line-height: .95;
+
     margin-bottom: 25px;
 }
 
+
 .section-intro {
     color: #aaa59b;
+
     max-width: 600px;
+
     margin-bottom: 50px;
+
     font-size: 14px;
+
     line-height: 1.8;
 }
 
@@ -217,28 +321,42 @@ nav a:hover {
 
 .products {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 14px;
 }
 
+
 .product {
     background: #121211;
+
     min-height: 330px;
+
     padding: 22px;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: flex-end;
+
     position: relative;
+
     overflow: hidden;
+
     transition: transform .4s ease;
 }
+
 
 .product:hover {
     transform: translateY(-4px);
 }
 
+
 .product-image {
     position: absolute;
+
     inset: 0;
 
     background:
@@ -251,9 +369,11 @@ nav a:hover {
     transition: transform .6s ease;
 }
 
+
 .product:hover .product-image {
     transform: scale(1.04);
 }
+
 
 .product:nth-child(2) .product-image {
     background:
@@ -264,6 +384,7 @@ nav a:hover {
         );
 }
 
+
 .product:nth-child(3) .product-image {
     background:
         linear-gradient(
@@ -272,6 +393,7 @@ nav a:hover {
             #151513
         );
 }
+
 
 .product:nth-child(4) .product-image {
     background:
@@ -282,9 +404,12 @@ nav a:hover {
         );
 }
 
+
 .product::after {
     content: "";
+
     position: absolute;
+
     inset: 0;
 
     background:
@@ -294,22 +419,32 @@ nav a:hover {
         );
 }
 
+
 .product-info {
     position: relative;
+
     z-index: 2;
 }
 
+
 .product h3 {
     font-family: 'Cormorant Garamond', serif;
+
     font-size: 28px;
+
     font-weight: 500;
 }
 
+
 .product p {
     color: #aaa59b;
+
     font-size: 10px;
+
     margin-top: 3px;
+
     letter-spacing: 1px;
+
     text-transform: uppercase;
 }
 
@@ -320,57 +455,85 @@ nav a:hover {
 
 .bespoke {
     background: #eeeae1;
+
     color: #10100e;
+
     max-width: none;
+
     padding: 115px 25px;
 }
 
+
 .bespoke-inner {
     max-width: 1200px;
+
     margin: auto;
 }
+
 
 .bespoke .section-label {
     color: #70695c;
 }
 
+
 .bespoke h2 {
     max-width: 800px;
 }
 
+
 .bespoke p {
     max-width: 620px;
+
     color: #5d594f;
+
     margin-bottom: 38px;
+
     line-height: 1.8;
 }
 
+
 .bespoke-actions {
     display: flex;
+
     align-items: center;
+
     gap: 25px;
+
     flex-wrap: wrap;
 }
 
+
 .dark-button {
     display: inline-block;
+
     padding: 15px 25px;
+
     background: #10100e;
+
     color: #eeeae1;
+
     font-size: 9px;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
+
     transition: .3s ease;
 }
+
 
 .dark-button:hover {
     transform: translateY(-3px);
 }
 
+
 .text-link {
     font-size: 10px;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
+
     color: #403d37;
 }
 
@@ -381,40 +544,60 @@ nav a:hover {
 
 .process-section {
     max-width: 1200px;
+
     margin: auto;
+
     padding: 115px 25px;
 }
 
+
 .process {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 1px;
+
     background: #302f2b;
+
     margin-top: 55px;
 }
 
+
 .process-item {
     background: #0a0a09;
+
     padding: 35px 25px;
+
     min-height: 230px;
 }
 
+
 .number {
     color: #918876;
+
     font-size: 10px;
+
     letter-spacing: 2px;
 }
 
+
 .process h3 {
     font-family: 'Cormorant Garamond', serif;
+
     font-size: 29px;
+
     font-weight: 400;
+
     margin: 18px 0 8px;
 }
 
+
 .process p {
     color: #969188;
+
     font-size: 11px;
+
     line-height: 1.7;
 }
 
@@ -427,86 +610,212 @@ nav a:hover {
     text-align: center;
 }
 
+
 .story-content {
     max-width: 720px;
+
     margin: auto;
 }
+
 
 .story h2 {
     margin-bottom: 30px;
 }
 
+
 .story p {
     color: #aaa59b;
+
     margin-bottom: 17px;
+
     font-size: 14px;
+
     line-height: 1.9;
 }
 
 
 /* =========================
-   CONTACT
+   CONTACT / FINAL CTA
 ========================= */
 
 .contact {
-    text-align: center;
-    background: #11110f;
     max-width: none;
+
+    padding: 150px 25px 135px;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #292821 0%,
+            #11110f 45%,
+            #080807 100%
+        );
+
+    border-top: 1px solid #2c2b27;
+
+    border-bottom: 1px solid #2c2b27;
 }
 
-.contact-inner {
-    max-width: 720px;
-    margin: auto;
+
+.contact::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border: 1px solid rgba(238,234,225,.08);
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
 }
+
+
+.contact::after {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    border: 1px solid rgba(238,234,225,.035);
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+.contact-inner {
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.contact .section-label {
+    color: #a99f8c;
+
+    margin-bottom: 25px;
+}
+
+
+.contact h2 {
+    font-size: clamp(55px, 10vw, 100px);
+
+    margin-bottom: 25px;
+}
+
+
+.contact-tagline {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(22px, 4vw, 32px);
+
+    color: #b8ad98;
+
+    margin-bottom: 20px;
+
+    font-style: italic;
+}
+
 
 .contact .section-intro {
     margin-left: auto;
+
     margin-right: auto;
+
+    max-width: 560px;
+
+    color: #aaa59b;
+
+    margin-bottom: 40px;
 }
+
+
+.contact-actions {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
 
 .whatsapp {
     display: inline-block;
-    margin-top: 10px;
-    padding: 16px 30px;
 
-    border: 1px solid #777164;
+    padding: 17px 30px;
+
+    background: #eeeae1;
+
+    color: #10100e;
+
+    border: 1px solid #eeeae1;
 
     text-transform: uppercase;
+
     letter-spacing: 2px;
+
     font-size: 9px;
 
     transition: .3s ease;
 }
 
+
 .whatsapp:hover {
-    background: #eeeae1;
-    color: #10100e;
-    border-color: #eeeae1;
+    transform: translateY(-3px);
+
+    background: #ffffff;
 }
 
-
-/* =========================
-   SOCIAL
-========================= */
 
 .social-link {
     display: inline-block;
-    margin-top: 18px;
-    padding: 12px 22px;
 
-    border: 1px solid #3c3b36;
+    padding: 17px 30px;
+
+    border: 1px solid #777164;
+
+    color: #eeeae1;
 
     font-size: 9px;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
 
     transition: .3s ease;
 }
 
+
 .social-link:hover {
+    transform: translateY(-3px);
+
     border-color: #eeeae1;
-    background: #eeeae1;
-    color: #10100e;
 }
 
 
@@ -516,35 +825,64 @@ nav a:hover {
 
 footer {
     padding: 55px 24px;
+
     border-top: 1px solid #272622;
+
     text-align: center;
 }
 
+
 .footer-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
+
+    font-size: 32px;
+
     margin-bottom: 12px;
 }
+
+
+.footer-logo span {
+    opacity: .65;
+
+    margin: 0 5px;
+}
+
+
+.footer-urdu {
+    font-family: serif;
+
+    font-size: 27px;
+}
+
 
 .footer-social {
     margin-top: 18px;
 }
 
+
 .footer-social a {
     color: #aaa59b;
+
     font-size: 9px;
+
     letter-spacing: 2px;
+
     text-transform: uppercase;
+
     transition: .3s ease;
 }
+
 
 .footer-social a:hover {
     color: #eeeae1;
 }
 
+
 footer p {
     color: #716e67;
+
     font-size: 9px;
+
     letter-spacing: 1px;
 }
 
@@ -559,33 +897,63 @@ footer p {
         padding: 20px;
     }
 
+
     .logo {
-        font-size: 34px;
+        font-size: 23px;
     }
+
+
+    .logo-urdu {
+        font-size: 21px;
+    }
+
 
     nav {
         gap: 15px;
+
         font-size: 8px;
     }
+
 
     .hero {
         min-height: 92vh;
     }
 
+
     .hero h1 {
         font-size: clamp(48px, 14vw, 78px);
     }
+
 
     .products {
         grid-template-columns: 1fr;
     }
 
+
     .product {
         min-height: 350px;
     }
 
+
     .process {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .contact {
+        padding: 120px 20px;
+    }
+
+
+    .contact::before {
+        width: 350px;
+        height: 350px;
+    }
+
+
+    .contact::after {
+        width: 500px;
+        height: 500px;
     }
 }
 
@@ -596,67 +964,148 @@ footer p {
         padding: 18px 17px;
     }
 
+
+    .logo {
+        font-size: 20px;
+    }
+
+
+    .logo-urdu {
+        font-size: 19px;
+    }
+
+
     nav {
         gap: 12px;
     }
+
 
     nav a:nth-child(n+3) {
         display: none;
     }
 
+
     .hero {
         padding: 110px 20px 70px;
     }
 
+
+    .hero-brand {
+        font-size: 30px;
+
+        letter-spacing: 2px;
+    }
+
+
     .eyebrow {
         font-size: 8px;
+
         letter-spacing: 3px;
     }
 
+
     .hero h1 {
         font-size: 53px;
+
         line-height: .92;
     }
+
 
     .hero p {
         font-size: 13px;
     }
 
+
     .button {
         width: 100%;
+
         max-width: 280px;
     }
+
 
     .section,
     .process-section {
         padding: 90px 20px;
     }
 
+
     .section h2 {
         font-size: 48px;
     }
+
 
     .process {
         grid-template-columns: 1fr;
     }
 
+
     .process-item {
         min-height: auto;
     }
+
 
     .bespoke {
         padding: 90px 20px;
     }
 
+
     .bespoke-actions {
         flex-direction: column;
+
         align-items: flex-start;
     }
 
+
     .dark-button {
         width: 100%;
+
         text-align: center;
     }
+
+
+    .contact {
+        padding: 105px 20px 100px;
+    }
+
+
+    .contact h2 {
+        font-size: 62px;
+    }
+
+
+    .contact-tagline {
+        font-size: 25px;
+    }
+
+
+    .contact-actions {
+        flex-direction: column;
+    }
+
+
+    .whatsapp,
+    .social-link {
+        width: 100%;
+
+        max-width: 300px;
+
+        text-align: center;
+    }
+
+
+    .contact::before {
+        width: 300px;
+
+        height: 300px;
+    }
+
+
+    .contact::after {
+        width: 430px;
+
+        height: 430px;
+    }
+
 }
 
 </style>
@@ -673,8 +1122,17 @@ footer p {
 <header>
 
     <a href="#" class="logo">
-        سوچ
+
+        𝑺𝑶𝑪𝑯
+
+        <span>—</span>
+
+        <span class="logo-urdu">
+            سوچ
+        </span>
+
     </a>
+
 
     <nav>
 
@@ -707,29 +1165,57 @@ footer p {
 
     <div class="hero-content">
 
+
         <div class="eyebrow">
             PREMIUM DÉCOR · BESPOKE CRAFTSMANSHIP
         </div>
 
+
+        <div class="hero-brand">
+
+            𝑺𝑶𝑪𝑯
+
+            <span class="urdu">
+                سوچ
+            </span>
+
+        </div>
+
+
         <h1>
+
             You Bring the <span>Vision.</span><br>
+
             We Bring It to Life.
+
         </h1>
 
+
         <p>
+
             Distinctive pieces, crafted with intention.
+
             From our collection to creations made exclusively for you.
+
         </p>
+
 
         <div class="buttons">
 
+
             <a href="#shop" class="button primary">
+
                 Shop Collection
+
             </a>
 
+
             <a href="#bespoke" class="button">
+
                 Create Something Custom
+
             </a>
+
 
         </div>
 
@@ -744,17 +1230,27 @@ footer p {
 
 <section class="section" id="shop">
 
+
     <div class="section-label">
+
         The Collection
+
     </div>
 
+
     <h2>
+
         Made to Be Seen.
+
     </h2>
 
+
     <p class="section-intro">
-        Discover pieces designed and crafted by سوچ.
+
+        Discover pieces designed and crafted by 𝑺𝑶𝑪𝑯 — سوچ.
+
         Our collection will grow with every new creation.
+
     </p>
 
 
@@ -848,31 +1344,51 @@ footer p {
 
 <section class="bespoke" id="bespoke">
 
+
     <div class="bespoke-inner">
 
+
         <div class="section-label">
+
             BESPOKE
+
         </div>
 
+
         <h2>
+
             Your idea deserves to exist.
+
         </h2>
 
+
         <p>
+
             No catalogue. No limitations.
+
             Bring us your vision, reference, sketch, or simply an idea.
+
             We design and craft it specifically for you.
+
         </p>
+
 
         <div class="bespoke-actions">
 
+
             <a href="#contact" class="dark-button">
+
                 Start Your Project
+
             </a>
 
+
             <a href="#process" class="text-link">
+
                 See How It Works →
+
             </a>
+
 
         </div>
 
@@ -887,12 +1403,18 @@ footer p {
 
 <section class="process-section" id="process">
 
+
     <div class="section-label">
+
         Our Process
+
     </div>
 
+
     <h2>
+
         From Thought to Form.
+
     </h2>
 
 
@@ -978,28 +1500,46 @@ footer p {
 
 <section class="section story" id="story">
 
+
     <div class="story-content">
 
+
         <div class="section-label">
-            The سوچ Philosophy
+
+            The 𝑺𝑶𝑪𝑯 Philosophy
+
         </div>
 
+
         <h2>
+
             Every creation begins with a thought.
+
         </h2>
 
+
         <p>
+
             سوچ means thought — the place where every vision begins.
+
         </p>
 
+
         <p>
+
             We believe the most meaningful pieces aren't simply bought.
+
             They're imagined, designed and brought into existence.
+
         </p>
 
+
         <p>
-            That's what سوچ exists to do.
+
+            That's what 𝑺𝑶𝑪𝑯 exists to do.
+
         </p>
+
 
     </div>
 
@@ -1007,52 +1547,80 @@ footer p {
 
 
 <!-- =========================
-     CONTACT
+     CONTACT / FINAL CTA
 ========================= -->
 
 <section class="section contact" id="contact">
 
+
     <div class="contact-inner">
 
+
         <div class="section-label">
-            Let's Create
+
+            LET'S CREATE
+
         </div>
 
+
         <h2>
+
             Have a vision?
+
         </h2>
 
+
+        <div class="contact-tagline">
+
+            Let's turn it into something real.
+
+        </div>
+
+
         <p class="section-intro">
-            Whether you want something from our collection
-            or something made entirely around your idea,
-            we'd love to hear from you.
+
+            Tell us what you're imagining.
+
+            A piece for your home, a statement for your space,
+
+            or something that exists nowhere else.
+
         </p>
 
 
-        <!-- WHATSAPP -->
-
-        <a
-            href="https://wa.me/923150674347"
-            class="whatsapp"
-            target="_blank"
-            rel="noopener"
-        >
-            Start a Conversation on WhatsApp
-        </a>
+        <div class="contact-actions">
 
 
-        <!-- INSTAGRAM -->
+            <!-- WHATSAPP -->
 
-        <br>
+            <a
+                href="https://wa.me/923150674347"
+                class="whatsapp"
+                target="_blank"
+                rel="noopener"
+            >
 
-        <a
-            href="https://www.instagram.com/soch.pk/"
-            class="social-link"
-            target="_blank"
-            rel="noopener"
-        >
-            Follow @soch.pk on Instagram
-        </a>
+                Start a Conversation
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://www.instagram.com/soch.pk/"
+                class="social-link"
+                target="_blank"
+                rel="noopener"
+            >
+
+                Follow @soch.pk
+
+            </a>
+
+
+        </div>
+
 
     </div>
 
@@ -1065,31 +1633,50 @@ footer p {
 
 <footer>
 
+
     <div class="footer-logo">
-        سوچ
+
+        𝑺𝑶𝑪𝑯
+
+        <span>—</span>
+
+        <span class="footer-urdu">
+            سوچ
+        </span>
+
     </div>
 
+
     <p>
+
         You Bring the Vision. We Bring It to Life.
+
     </p>
 
 
     <div class="footer-social">
+
 
         <a
             href="https://www.instagram.com/soch.pk/"
             target="_blank"
             rel="noopener"
         >
+
             Instagram · @soch.pk
+
         </a>
+
 
     </div>
 
 
     <p style="margin-top:20px;">
-        © 2026 سوچ. All Rights Reserved.
+
+        © 2026 𝑺𝑶𝑪𝑯 — سوچ. All Rights Reserved.
+
     </p>
+
 
 </footer>
 
