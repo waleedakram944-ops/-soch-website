@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>سوچ — You Bring the Vision. We Bring It to Life.</title>
+<title>𝑺𝑶𝑪𝑯 — You Bring the Vision. We Bring It to Life.</title>
 
 <meta name="description" content="SOCH — Bespoke décor and craftsmanship. You bring the vision. We bring it to life.">
 
@@ -80,17 +80,18 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 4px;
 
     font-family: "Cormorant Garamond", serif;
     font-size: 27px;
     font-weight: 500;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
 }
 
 .logo-urdu {
     font-family: serif;
     font-size: 25px;
+    margin-left: -1px;
 }
 
 .nav-links {
@@ -456,14 +457,16 @@ section {
 }
 
 
-/* CONTACT ICONS */
+/* =========================
+   CONTACT ICONS
+========================= */
 
 .contact-icons {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    gap: 15px;
+    gap: 16px;
 }
 
 .contact-icon {
@@ -472,7 +475,7 @@ section {
     justify-content: center;
     gap: 10px;
 
-    min-width: 150px;
+    min-width: 155px;
 
     padding: 14px 22px;
 
@@ -592,12 +595,17 @@ footer {
     }
 
     .contact-icons {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 10px;
     }
 
     .contact-icon {
-        width: 100%;
-        max-width: 260px;
+        min-width: 0;
+        width: auto;
+        flex: 1;
+        max-width: 180px;
+        padding: 13px 14px;
+        font-size: 9px;
     }
 
     footer {
@@ -685,6 +693,7 @@ footer {
         <div class="collection-heading">
 
             <div>
+
                 <div class="eyebrow">
                     Selected Work
                 </div>
@@ -692,6 +701,7 @@ footer {
                 <h2>
                     The Collection
                 </h2>
+
             </div>
 
             <p class="collection-intro">
@@ -924,12 +934,19 @@ footer {
         <div class="contact-icons">
 
 
-            <!-- WHATSAPP -->
+            <!-- =====================
+                 WHATSAPP
+                 ===================== -->
 
             <!--
             IMPORTANT:
-            Replace 923001234567 with your real
-            WhatsApp number.
+            Replace 923001234567 below
+            with your real WhatsApp number.
+
+            Format:
+            923XXXXXXXXX
+
+            Do NOT use +, spaces or dashes.
             -->
 
             <a
@@ -957,7 +974,9 @@ footer {
 
 
 
-            <!-- INSTAGRAM -->
+            <!-- =====================
+                 INSTAGRAM
+                 ===================== -->
 
             <a
                 href="https://www.instagram.com/soch.pk/"
@@ -970,6 +989,9 @@ footer {
                 <svg
                     viewBox="0 0 24 24"
                     aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
                 >
 
                     <rect
@@ -978,20 +1000,19 @@ footer {
                         width="18"
                         height="18"
                         rx="5"
-                        fill="none"
                     />
 
                     <circle
                         cx="12"
                         cy="12"
                         r="4"
-                        fill="none"
                     />
 
                     <circle
                         cx="17.5"
                         cy="6.5"
                         r="1"
+                        fill="currentColor"
                         stroke="none"
                     />
 
