@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.</title>
-
-<meta
-    name="description"
-    content="SOCH — Bespoke décor and craftsmanship. You bring the vision. We bring it to life."
->
 
 <style>
 
@@ -66,7 +60,6 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-
     padding: 24px 30px;
 
     display: flex;
@@ -80,17 +73,14 @@ header {
     display: flex;
     align-items: baseline;
     gap: 7px;
-
     color: #eeeae1;
 }
 
 .logo-main {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 31px;
     font-style: italic;
     font-weight: 600;
-
     letter-spacing: -1px;
 }
 
@@ -102,7 +92,6 @@ header {
 nav {
     display: flex;
     gap: 25px;
-
     font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -147,7 +136,6 @@ nav a:hover {
 
 .hero::after {
     content: "";
-
     position: absolute;
     inset: 0;
 
@@ -163,28 +151,22 @@ nav a:hover {
 
 .hero-content {
     max-width: 900px;
-
     position: relative;
     z-index: 2;
 }
 
 .brand-mark {
     display: flex;
-
     justify-content: center;
     align-items: baseline;
-
     gap: 9px;
-
     margin-bottom: 30px;
 }
 
 .brand-mark .english {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 25px;
     font-style: italic;
-
     letter-spacing: 1px;
 }
 
@@ -195,27 +177,18 @@ nav a:hover {
 
 .eyebrow {
     text-transform: uppercase;
-
     letter-spacing: 4px;
-
     font-size: 9px;
-
     color: #b5ad9c;
-
     margin-bottom: 27px;
 }
 
 .hero h1 {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: clamp(52px, 12vw, 105px);
-
     font-weight: 400;
-
     line-height: .9;
-
     letter-spacing: -1.5px;
-
     margin-bottom: 32px;
 }
 
@@ -226,23 +199,18 @@ nav a:hover {
 
 .hero p {
     max-width: 580px;
-
     margin: 0 auto 42px;
 
     color: #b0aba1;
 
     font-size: 14px;
-
     line-height: 1.9;
 }
 
 .buttons {
     display: flex;
-
     justify-content: center;
-
     gap: 12px;
-
     flex-wrap: wrap;
 }
 
@@ -252,9 +220,7 @@ nav a:hover {
     border: 1px solid rgba(238,234,225,.45);
 
     font-size: 9px;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 
     transition: all .3s ease;
@@ -262,40 +228,31 @@ nav a:hover {
 
 .button.primary {
     background: #eeeae1;
-
     color: #0a0a09;
-
     border-color: #eeeae1;
 }
 
 .button:hover {
     transform: translateY(-3px);
-
     border-color: #eeeae1;
 }
 
 
 /* =========================================================
-   GENERAL
+   GENERAL SECTIONS
 ========================================================= */
 
 .section {
     padding: 115px 25px;
-
     max-width: 1200px;
-
     margin: auto;
 }
 
 .section-label {
     font-size: 9px;
-
     letter-spacing: 3px;
-
     text-transform: uppercase;
-
     color: #918876;
-
     margin-bottom: 20px;
 }
 
@@ -305,7 +262,6 @@ nav a:hover {
     font-size: clamp(42px, 8vw, 70px);
 
     font-weight: 400;
-
     line-height: .95;
 
     margin-bottom: 25px;
@@ -313,13 +269,10 @@ nav a:hover {
 
 .section-intro {
     color: #aaa59b;
-
     max-width: 600px;
-
     margin-bottom: 50px;
 
     font-size: 14px;
-
     line-height: 1.8;
 }
 
@@ -331,31 +284,28 @@ nav a:hover {
 .products {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
-    gap: 14px;
+    gap: 18px;
 }
 
+
+/* PRODUCT CARD */
+
 .product {
-    background: #121211;
+    min-height: 470px;
 
-    min-height: 430px;
-
-    padding: 22px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: flex-end;
+    padding: 24px;
 
     position: relative;
-
     overflow: hidden;
+
+    background: #121211;
 
     cursor: pointer;
 
-    border: 1px solid transparent;
+    border: 1px solid #25241f;
 
     transition:
         transform .4s ease,
@@ -363,39 +313,61 @@ nav a:hover {
 }
 
 .product:hover {
-    transform: translateY(-5px);
-
-    border-color: #6f695c;
+    transform: translateY(-6px);
+    border-color: #666052;
 }
+
+
+/* IMAGE WRAPPER */
 
 .product-image {
     position: absolute;
 
     inset: 0;
 
-    background: #11110f;
+    display: flex;
 
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+    padding: 28px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #25231f 0%,
+            #11110f 75%
+        );
+
+    transition: transform .6s ease;
 }
+
+
+/*
+IMPORTANT:
+The actual image is contained rather than cropped.
+This keeps the complete product visible.
+*/
 
 .product-image img {
     width: 100%;
     height: 100%;
 
-    display: block;
-
-    object-fit: cover;
+    object-fit: contain;
 
     object-position: center;
 
-    transition:
-        transform .7s ease,
-        opacity .4s ease;
+    display: block;
+
+    transition: transform .6s ease;
 }
 
 .product:hover .product-image img {
-    transform: scale(1.045);
+    transform: scale(1.025);
 }
+
+
+/* DARK GRADIENT AT BOTTOM */
 
 .product::after {
     content: "";
@@ -406,15 +378,24 @@ nav a:hover {
 
     background:
         linear-gradient(
-            transparent 30%,
-            rgba(0,0,0,.92)
+            to bottom,
+            transparent 35%,
+            rgba(0,0,0,.08) 48%,
+            rgba(0,0,0,.88) 100%
         );
 
     pointer-events: none;
 }
 
+
+/* PRODUCT TEXT */
+
 .product-info {
-    position: relative;
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
 
     z-index: 2;
 }
@@ -422,50 +403,62 @@ nav a:hover {
 .product h3 {
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: 30px;
+    font-size: 31px;
 
     font-weight: 500;
+
+    line-height: 1.1;
+
+    margin-bottom: 5px;
 }
 
 .product p {
     color: #aaa59b;
 
-    font-size: 10px;
+    font-size: 9px;
 
     margin-top: 3px;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.8px;
 
     text-transform: uppercase;
 }
 
 .product-price {
-    color: #eeeae1 !important;
+    margin-top: 10px;
 
-    font-size: 11px !important;
+    color: #eeeae1;
 
-    letter-spacing: 1.5px !important;
+    font-family: 'Cormorant Garamond', serif;
 
-    margin-top: 7px !important;
+    font-size: 20px;
+
+    letter-spacing: .5px;
 }
 
-.product-hint {
-    margin-top: 13px;
 
-    font-size: 8px;
+/* COMING SOON */
 
-    letter-spacing: 2px;
+.product.coming-soon {
+    cursor: default;
+}
 
-    text-transform: uppercase;
+.product.coming-soon:hover {
+    transform: none;
+}
 
-    color: #918876;
-
-    opacity: .85;
+.product.coming-soon .product-image {
+    background:
+        linear-gradient(
+            145deg,
+            #292821,
+            #11110f
+        );
 }
 
 
 /* =========================================================
-   PRODUCT DETAIL MODAL
+   PRODUCT MODAL
 ========================================================= */
 
 .product-modal {
@@ -482,9 +475,11 @@ nav a:hover {
 
     padding: 25px;
 
-    background: rgba(0,0,0,.82);
+    background:
+        rgba(0,0,0,.78);
 
     backdrop-filter: blur(12px);
+
     -webkit-backdrop-filter: blur(12px);
 }
 
@@ -492,18 +487,21 @@ nav a:hover {
     display: flex;
 }
 
-.modal-panel {
-    width: min(1050px, 100%);
+
+/* MODAL BOX */
+
+.product-modal-box {
+    width: min(900px, 100%);
 
     max-height: 92vh;
 
     overflow-y: auto;
 
+    position: relative;
+
     background: #11110f;
 
-    border: 1px solid #38362f;
-
-    position: relative;
+    border: 1px solid #3a3831;
 
     box-shadow:
         0 30px 100px rgba(0,0,0,.65);
@@ -515,7 +513,7 @@ nav a:hover {
 
     from {
         opacity: 0;
-        transform: translateY(20px) scale(.985);
+        transform: translateY(20px) scale(.98);
     }
 
     to {
@@ -525,189 +523,156 @@ nav a:hover {
 
 }
 
+
+/* CLOSE BUTTON */
+
 .modal-close {
     position: absolute;
 
-    top: 17px;
-    right: 17px;
+    top: 16px;
+    right: 18px;
 
-    width: 42px;
-    height: 42px;
+    z-index: 5;
+
+    width: 38px;
+    height: 38px;
 
     border-radius: 50%;
 
-    border: 1px solid rgba(238,234,225,.35);
+    border: 1px solid rgba(238,234,225,.3);
 
-    background: rgba(10,10,9,.75);
+    background: rgba(0,0,0,.45);
 
     color: #eeeae1;
 
     cursor: pointer;
 
-    z-index: 10;
-
     font-size: 20px;
 
-    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transition: .3s ease;
 }
 
 .modal-close:hover {
     background: #eeeae1;
-
-    color: #0a0a09;
-
-    transform: rotate(90deg);
+    color: #11110f;
 }
 
-.modal-grid {
-    display: grid;
 
-    grid-template-columns: 1.1fr .9fr;
+/* MODAL IMAGE */
 
-    min-height: 580px;
-}
+.modal-product-image {
+    width: 100%;
 
-.modal-image {
-    background: #0b0b0a;
-
-    min-height: 580px;
+    height: min(60vh, 570px);
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    overflow: hidden;
+    padding: 35px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #292720,
+            #0c0c0b 75%
+        );
+
+    border-bottom: 1px solid #2d2b26;
 }
 
-.modal-image img {
+.modal-product-image img {
     width: 100%;
     height: 100%;
-
-    display: block;
 
     object-fit: contain;
 
     object-position: center;
 
-    background: #0b0b0a;
+    display: block;
 }
 
-.modal-details {
-    padding: 65px 50px;
 
-    display: flex;
+/* MODAL INFORMATION */
 
-    flex-direction: column;
-
-    justify-content: center;
+.modal-product-info {
+    padding: 40px;
 }
 
-.modal-eyebrow {
+.modal-label {
+    color: #918876;
+
     font-size: 9px;
-
-    letter-spacing: 3px;
 
     text-transform: uppercase;
 
-    color: #918876;
+    letter-spacing: 3px;
 
-    margin-bottom: 16px;
+    margin-bottom: 13px;
 }
 
-.modal-title {
+.modal-product-info h2 {
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: clamp(42px, 5vw, 62px);
+    font-size: clamp(42px, 7vw, 62px);
 
     font-weight: 400;
 
-    line-height: .95;
+    line-height: 1;
 
     margin-bottom: 18px;
 }
 
 .modal-description {
+    max-width: 650px;
+
     color: #aaa59b;
 
     font-size: 13px;
 
     line-height: 1.9;
 
-    margin-bottom: 28px;
+    margin-bottom: 25px;
 }
 
-.modal-price-label {
-    font-size: 8px;
 
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    color: #918876;
-
-    margin-bottom: 4px;
-}
+/* PRICE */
 
 .modal-price {
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: 35px;
+    font-size: 32px;
 
     color: #eeeae1;
 
     margin-bottom: 28px;
 }
 
-.modal-meta {
-    border-top: 1px solid #292824;
 
-    border-bottom: 1px solid #292824;
+/* ORDER BUTTON */
 
-    padding: 18px 0;
+.order-now {
+    display: inline-flex;
 
-    margin-bottom: 28px;
-}
+    align-items: center;
+    justify-content: center;
 
-.modal-meta-row {
-    display: flex;
+    min-width: 210px;
 
-    justify-content: space-between;
-
-    gap: 20px;
-
-    padding: 6px 0;
-
-    font-size: 10px;
-}
-
-.modal-meta-row span:first-child {
-    color: #777269;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1.5px;
-}
-
-.modal-meta-row span:last-child {
-    color: #c8c3b9;
-
-    text-align: right;
-}
-
-.modal-order {
-    width: 100%;
-
-    border: none;
-
-    padding: 17px 20px;
+    padding: 16px 25px;
 
     background: #eeeae1;
 
-    color: #0a0a09;
+    color: #10100e;
+
+    border: 1px solid #eeeae1;
+
+    cursor: pointer;
 
     text-transform: uppercase;
 
@@ -715,27 +680,15 @@ nav a:hover {
 
     font-size: 9px;
 
-    cursor: pointer;
-
     transition: .3s ease;
 }
 
-.modal-order:hover {
+.order-now:hover {
     transform: translateY(-3px);
 
-    background: #fffdf7;
-}
+    background: transparent;
 
-.modal-note {
-    margin-top: 13px;
-
-    color: #6f6b63;
-
-    font-size: 9px;
-
-    line-height: 1.6;
-
-    text-align: center;
+    color: #eeeae1;
 }
 
 
@@ -745,7 +698,6 @@ nav a:hover {
 
 .bespoke {
     background: #eeeae1;
-
     color: #10100e;
 
     max-width: none;
@@ -755,7 +707,6 @@ nav a:hover {
 
 .bespoke-inner {
     max-width: 1200px;
-
     margin: auto;
 }
 
@@ -1063,7 +1014,8 @@ nav a:hover {
 .process {
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
     gap: 1px;
 
@@ -1170,10 +1122,10 @@ nav a:hover {
     color: rgba(238,234,225,.025);
 
     left: 50%;
-
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     white-space: nowrap;
 
@@ -1196,7 +1148,6 @@ nav a:hover {
 
 .contact .section-intro {
     margin-left: auto;
-
     margin-right: auto;
 }
 
@@ -1232,7 +1183,6 @@ nav a:hover {
 
 .contact-icon {
     width: 45px;
-
     height: 45px;
 
     margin: 0 auto 15px;
@@ -1244,7 +1194,6 @@ nav a:hover {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     font-size: 18px;
@@ -1360,6 +1309,10 @@ footer p {
         grid-template-columns: 1fr;
     }
 
+    .product {
+        min-height: 460px;
+    }
+
     .builder {
         grid-template-columns: 1fr;
 
@@ -1371,25 +1324,20 @@ footer p {
     }
 
     .process {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .modal-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-image {
-        min-height: 420px;
-
-        max-height: 55vh;
-    }
-
-    .modal-details {
-        padding: 45px 35px;
+    .modal-product-image {
+        height: 50vh;
     }
 
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media (max-width: 550px) {
 
@@ -1464,6 +1412,22 @@ footer p {
 
     .product {
         min-height: 390px;
+
+        padding: 18px;
+    }
+
+    .product-image {
+        padding: 20px;
+    }
+
+    .product-info {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .product h3 {
+        font-size: 28px;
     }
 
     .process {
@@ -1517,47 +1481,53 @@ footer p {
         font-size: 110px;
     }
 
+    /* PRODUCT MODAL MOBILE */
+
     .product-modal {
         padding: 10px;
     }
 
-    .modal-panel {
+    .product-modal-box {
         max-height: 95vh;
     }
 
-    .modal-image {
-        min-height: 320px;
+    .modal-product-image {
+        height: 42vh;
+
+        padding: 22px;
     }
 
-    .modal-details {
-        padding: 35px 24px;
+    .modal-product-info {
+        padding: 30px 22px;
     }
 
-    .modal-title {
-        font-size: 46px;
+    .modal-product-info h2 {
+        font-size: 45px;
+    }
+
+    .modal-price {
+        font-size: 29px;
+    }
+
+    .order-now {
+        width: 100%;
     }
 
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   ACCESSIBILITY
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+.product:focus-visible,
+.button:focus-visible,
+.order-now:focus-visible,
+.modal-close:focus-visible,
+.contact-card:focus-visible {
+    outline: 1px solid #eeeae1;
 
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-
+    outline-offset: 4px;
 }
 
 </style>
@@ -1619,6 +1589,7 @@ footer p {
 
     <div class="hero-content">
 
+
         <div class="brand-mark">
 
             <span class="english">
@@ -1638,23 +1609,15 @@ footer p {
 
 
         <h1>
-
-            You Bring the
-            <span>Vision.</span>
-
-            <br>
-
+            You Bring the <span>Vision.</span><br>
             We Bring It to Life.
-
         </h1>
 
 
         <p>
-
             Distinctive pieces, crafted with intention.
             From our collection to creations made exclusively
             around your vision.
-
         </p>
 
 
@@ -1692,6 +1655,7 @@ footer p {
     id="shop"
 >
 
+
     <div class="section-label">
         The Collection
     </div>
@@ -1710,28 +1674,27 @@ footer p {
     </p>
 
 
+
     <div class="products">
 
 
         <!-- =================================================
              PRODUCT 1
-        ================================================== -->
+        ================================================= -->
 
         <article
             class="product"
-            onclick="openProduct('product1')"
             tabindex="0"
             role="button"
-            aria-label="View Product 1"
-            onkeydown="handleProductKey(event, 'product1')"
+            onclick="openProduct('volume1')"
+            onkeydown="productKey(event, 'volume1')"
         >
 
             <div class="product-image">
 
                 <img
                     src="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png"
-                    alt="SOCH Product 1"
-                    loading="lazy"
+                    alt="𝑺𝑶𝑪𝑯 Volume I"
                 >
 
             </div>
@@ -1740,19 +1703,15 @@ footer p {
             <div class="product-info">
 
                 <h3>
-                    The Contour Piece
+                    Volume I
                 </h3>
 
                 <p>
                     Statement Décor
                 </p>
 
-                <p class="product-price">
+                <div class="product-price">
                     PKR 19,999
-                </p>
-
-                <div class="product-hint">
-                    Tap to view details →
                 </div>
 
             </div>
@@ -1763,23 +1722,21 @@ footer p {
 
         <!-- =================================================
              PRODUCT 2
-        ================================================== -->
+        ================================================= -->
 
         <article
             class="product"
-            onclick="openProduct('product2')"
             tabindex="0"
             role="button"
-            aria-label="View Product 2"
-            onkeydown="handleProductKey(event, 'product2')"
+            onclick="openProduct('volume2')"
+            onkeydown="productKey(event, 'volume2')"
         >
 
             <div class="product-image">
 
                 <img
                     src="EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png"
-                    alt="SOCH Product 2"
-                    loading="lazy"
+                    alt="𝑺𝑶𝑪𝑯 Volume II"
                 >
 
             </div>
@@ -1788,19 +1745,15 @@ footer p {
             <div class="product-info">
 
                 <h3>
-                    The Form Study
+                    Volume II
                 </h3>
 
                 <p>
                     Statement Décor
                 </p>
 
-                <p class="product-price">
+                <div class="product-price">
                     PKR 14,999
-                </p>
-
-                <div class="product-hint">
-                    Tap to view details →
                 </div>
 
             </div>
@@ -1811,11 +1764,14 @@ footer p {
 
         <!-- =================================================
              PRODUCT 3
-        ================================================== -->
+        ================================================= -->
 
-        <article class="product">
+        <article
+            class="product coming-soon"
+        >
 
             <div class="product-image"></div>
+
 
             <div class="product-info">
 
@@ -1835,11 +1791,14 @@ footer p {
 
         <!-- =================================================
              PRODUCT 4
-        ================================================== -->
+        ================================================= -->
 
-        <article class="product">
+        <article
+            class="product coming-soon"
+        >
 
             <div class="product-image"></div>
+
 
             <div class="product-info">
 
@@ -1855,6 +1814,7 @@ footer p {
 
         </article>
 
+
     </div>
 
 </section>
@@ -1862,150 +1822,87 @@ footer p {
 
 
 <!-- =========================================================
-     PRODUCT MODAL
+     PRODUCT DETAIL MODAL
 ========================================================= -->
 
 <div
     class="product-modal"
     id="productModal"
-    aria-hidden="true"
+    onclick="closeProductOutside(event)"
 >
 
+
     <div
-        class="modal-panel"
+        class="product-modal-box"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="modalTitle"
+        aria-labelledby="modalProductTitle"
     >
 
 
         <button
             class="modal-close"
             type="button"
-            onclick="closeProduct()"
             aria-label="Close product"
+            onclick="closeProduct()"
         >
             ×
         </button>
 
 
-        <div class="modal-grid">
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="modal-product-image">
+
+            <img
+                id="modalProductImage"
+                src=""
+                alt=""
+            >
+
+        </div>
 
 
-            <div class="modal-image">
 
-                <img
-                    id="modalProductImage"
-                    src=""
-                    alt=""
-                >
+        <!-- PRODUCT INFORMATION -->
 
+        <div class="modal-product-info">
+
+
+            <div class="modal-label">
+                𝑺𝑶𝑪𝑯 · THE COLLECTION
             </div>
 
 
-            <div class="modal-details">
+            <h2 id="modalProductTitle">
+                Volume I
+            </h2>
 
 
-                <div
-                    class="modal-eyebrow"
-                    id="modalEyebrow"
-                >
-                    SOCH COLLECTION
-                </div>
+            <p
+                class="modal-description"
+                id="modalProductDescription"
+            >
+            </p>
 
 
-                <h2
-                    class="modal-title"
-                    id="modalTitle"
-                >
-                    Product
-                </h2>
-
-
-                <p
-                    class="modal-description"
-                    id="modalDescription"
-                >
-                    Product description.
-                </p>
-
-
-                <div class="modal-price-label">
-                    Price
-                </div>
-
-
-                <div
-                    class="modal-price"
-                    id="modalPrice"
-                >
-                    PKR 0
-                </div>
-
-
-                <div class="modal-meta">
-
-
-                    <div class="modal-meta-row">
-
-                        <span>
-                            Brand
-                        </span>
-
-                        <span>
-                            𝑺𝑶𝑪𝑯 - سوچ
-                        </span>
-
-                    </div>
-
-
-                    <div class="modal-meta-row">
-
-                        <span>
-                            Category
-                        </span>
-
-                        <span id="modalCategory">
-                            Statement Décor
-                        </span>
-
-                    </div>
-
-
-                    <div class="modal-meta-row">
-
-                        <span>
-                            Availability
-                        </span>
-
-                        <span>
-                            Available to Order
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-                <button
-                    class="modal-order"
-                    type="button"
-                    id="modalOrderButton"
-                    onclick="orderCurrentProduct()"
-                >
-                    Order on WhatsApp →
-                </button>
-
-
-                <div class="modal-note">
-
-                    Your order request will open WhatsApp
-                    with the complete product details.
-
-                </div>
-
+            <div
+                class="modal-price"
+                id="modalProductPrice"
+            >
+                PKR 19,999
             </div>
+
+
+            <button
+                class="order-now"
+                type="button"
+                onclick="orderCurrentProduct()"
+            >
+                Order Now →
+            </button>
+
 
         </div>
 
@@ -2042,7 +1939,6 @@ footer p {
             No catalogue. No limitations.
             Bring us your vision, reference, sketch,
             or simply an idea.
-
             We design and craft it specifically for you.
 
         </p>
@@ -2065,6 +1961,7 @@ footer p {
             >
                 See How It Works →
             </a>
+
 
         </div>
 
@@ -2103,11 +2000,11 @@ footer p {
 
                 Tell us what you're imagining.
                 Choose the basics below and describe the details.
-
                 You don't need a finished design —
                 that's what we're here for.
 
             </p>
+
 
         </div>
 
@@ -2289,8 +2186,7 @@ footer p {
 
                 <div class="preview-title">
 
-                    You imagine it.
-                    <br>
+                    You imagine it.<br>
                     We shape it.
 
                 </div>
@@ -2299,13 +2195,14 @@ footer p {
                 <div class="preview-text">
 
                     Your idea doesn't need to be perfect.
-                    Give us the thought behind it and we'll help
-                    turn it into something real.
+                    Give us the thought behind it and we'll
+                    help turn it into something real.
 
                 </div>
 
 
             </div>
+
 
         </div>
 
@@ -2324,6 +2221,7 @@ footer p {
     id="process"
 >
 
+
     <div class="section-label">
         Our Process
     </div>
@@ -2332,6 +2230,7 @@ footer p {
     <h2>
         From Thought to Form.
     </h2>
+
 
 
     <div class="process">
@@ -2407,6 +2306,7 @@ footer p {
 
         </div>
 
+
     </div>
 
 </section>
@@ -2442,9 +2342,8 @@ footer p {
 
         <p>
 
-            We believe the most meaningful pieces aren't
-            simply bought.
-
+            We believe the most meaningful pieces
+            aren't simply bought.
             They're imagined, designed and brought
             into existence.
 
@@ -2471,6 +2370,7 @@ footer p {
     id="contact"
 >
 
+
     <div class="contact-inner">
 
 
@@ -2489,7 +2389,6 @@ footer p {
             Have a question, a custom idea,
             or simply want to talk about something
             you're imagining?
-
             We're one message away.
 
         </p>
@@ -2512,11 +2411,9 @@ footer p {
                     ◉
                 </div>
 
-
                 <strong>
                     WhatsApp
                 </strong>
-
 
                 <span>
                     Start a conversation
@@ -2537,11 +2434,9 @@ footer p {
                     ☎
                 </div>
 
-
                 <strong>
                     Call Us
                 </strong>
-
 
                 <span>
                     +92 315 0674347
@@ -2564,11 +2459,9 @@ footer p {
                     ◎
                 </div>
 
-
                 <strong>
                     Instagram
                 </strong>
-
 
                 <span>
                     @soch.pk
@@ -2598,7 +2491,6 @@ footer p {
             𝑺𝑶𝑪𝑯
         </span>
 
-
         <span class="urdu">
             سوچ
         </span>
@@ -2609,6 +2501,7 @@ footer p {
     <p>
         You Bring the Vision. We Bring It to Life.
     </p>
+
 
 
     <div class="footer-social">
@@ -2624,11 +2517,9 @@ footer p {
     </div>
 
 
+
     <p style="margin-top:20px;">
-
-        © 2026 𝑺𝑶𝑪𝑯 - سوچ.
-        All Rights Reserved.
-
+        © 2026 𝑺𝑶𝑪𝑯 - سوچ. All Rights Reserved.
     </p>
 
 
@@ -2649,40 +2540,39 @@ footer p {
 
 const products = {
 
-    product1: {
+    volume1: {
 
-        name: "The Contour Piece",
-
-        price: "PKR 19,999",
-
-        category: "Statement Décor",
+        name: "Volume I",
 
         image:
             "FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
 
+        price:
+            "PKR 19,999",
+
         description:
-            "A distinctive statement piece designed to bring depth, character and visual presence into a space. The Contour Piece combines sculptural form with a refined aesthetic, making it an ideal focal point for interiors that value individuality and thoughtful design."
+            "A distinctive statement piece designed to bring character, depth and presence to its surroundings. Crafted with attention to proportion, finish and detail, Volume I is made for spaces where the décor should be noticed."
 
     },
 
 
-    product2: {
+    volume2: {
 
-        name: "The Form Study",
-
-        price: "PKR 14,999",
-
-        category: "Statement Décor",
+        name: "Volume II",
 
         image:
             "EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
 
+        price:
+            "PKR 14,999",
+
         description:
-            "A refined decorative form created to add understated character to a space. The Form Study is designed around balance, proportion and visual simplicity — a piece that works beautifully on its own or as part of a curated interior."
+            "A refined statement piece created for interiors that value simplicity, character and thoughtful design. Volume II combines a distinctive visual presence with the craftsmanship that defines the 𝑺𝑶𝑪𝑯 collection."
 
     }
 
 };
+
 
 
 /* =========================================================
@@ -2690,6 +2580,7 @@ const products = {
 ========================================================= */
 
 let currentProduct = null;
+
 
 
 /* =========================================================
@@ -2707,48 +2598,40 @@ function openProduct(productId) {
     currentProduct = product;
 
 
-    document.getElementById("modalProductImage").src =
-        product.image;
+    document.getElementById(
+        "modalProductImage"
+    ).src = product.image;
 
 
-    document.getElementById("modalProductImage").alt =
-        product.name;
+    document.getElementById(
+        "modalProductImage"
+    ).alt = product.name;
 
 
-    document.getElementById("modalTitle").textContent =
-        product.name;
+    document.getElementById(
+        "modalProductTitle"
+    ).textContent = product.name;
 
 
-    document.getElementById("modalPrice").textContent =
-        product.price;
+    document.getElementById(
+        "modalProductDescription"
+    ).textContent = product.description;
 
 
-    document.getElementById("modalDescription").textContent =
-        product.description;
+    document.getElementById(
+        "modalProductPrice"
+    ).textContent = product.price;
 
 
-    document.getElementById("modalCategory").textContent =
-        product.category;
-
-
-    const modal =
-        document.getElementById("productModal");
-
-
-    modal.classList.add("active");
-
-    modal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+    document.getElementById(
+        "productModal"
+    ).classList.add("active");
 
 
     document.body.classList.add("modal-open");
 
-
-    modal.querySelector(".modal-close").focus();
-
 }
+
 
 
 /* =========================================================
@@ -2757,28 +2640,44 @@ function openProduct(productId) {
 
 function closeProduct() {
 
-    const modal =
-        document.getElementById("productModal");
-
-
-    modal.classList.remove("active");
-
-    modal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+    document.getElementById(
+        "productModal"
+    ).classList.remove("active");
 
 
     document.body.classList.remove("modal-open");
 
+
+    currentProduct = null;
+
 }
 
 
+
 /* =========================================================
-   KEYBOARD PRODUCT ACCESS
+   CLOSE WHEN CLICKING OUTSIDE
 ========================================================= */
 
-function handleProductKey(event, productId) {
+function closeProductOutside(event) {
+
+    if (
+        event.target ===
+        document.getElementById("productModal")
+    ) {
+
+        closeProduct();
+
+    }
+
+}
+
+
+
+/* =========================================================
+   KEYBOARD ACCESS
+========================================================= */
+
+function productKey(event, productId) {
 
     if (
         event.key === "Enter" ||
@@ -2794,27 +2693,6 @@ function handleProductKey(event, productId) {
 }
 
 
-/* =========================================================
-   CLOSE WHEN CLICKING BACKDROP
-========================================================= */
-
-document
-    .getElementById("productModal")
-    .addEventListener(
-        "click",
-        function(event) {
-
-            if (
-                event.target === this
-            ) {
-
-                closeProduct();
-
-            }
-
-        }
-    );
-
 
 /* =========================================================
    ESCAPE KEY
@@ -2824,9 +2702,7 @@ document.addEventListener(
     "keydown",
     function(event) {
 
-        if (
-            event.key === "Escape"
-        ) {
+        if (event.key === "Escape") {
 
             closeProduct();
 
@@ -2836,45 +2712,12 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   WHATSAPP ORDER MESSAGE
-========================================================= */
-
-function createProductMessage(product) {
-
-    return `Hello 𝑺𝑶𝑪𝑯 - سوچ,
-
-I'd like to order the following piece:
-
-PRODUCT
-${product.name}
-
-CATEGORY
-${product.category}
-
-PRICE
-${product.price}
-
-DESCRIPTION
-${product.description}
-
-PRODUCT IMAGE
-${window.location.origin}/${product.image}
-
-Please confirm availability and the next steps for my order.
-
-Thank you.
-𝑺𝑶𝑪𝑯
-You Bring the Vision. We Bring It to Life.`;
-
-}
-
 
 /* =========================================================
    ORDER PRODUCT
 ========================================================= */
 
-async function orderCurrentProduct() {
+function orderCurrentProduct() {
 
     if (!currentProduct) {
         return;
@@ -2882,114 +2725,23 @@ async function orderCurrentProduct() {
 
 
     const message =
-        createProductMessage(currentProduct);
+`Hello 𝑺𝑶𝑪𝑯 - سوچ,
 
+I'd like to order a product from your collection.
 
-    /*
-       WhatsApp cannot be forced by a normal wa.me URL
-       to attach a local image file.
+PRODUCT:
+${currentProduct.name}
 
-       Therefore we first attempt to use the device's
-       native Share Sheet with the actual image file.
+PRICE:
+${currentProduct.price}
 
-       If the browser does not support file sharing,
-       we fall back to WhatsApp with the complete
-       product information and image URL.
-    */
+PRODUCT DETAILS:
+${currentProduct.description}
 
+Please confirm availability and let me know the next steps for placing my order.
 
-    try {
+Thank you.`;
 
-        const response =
-            await fetch(currentProduct.image);
-
-
-        if (!response.ok) {
-            throw new Error(
-                "Image could not be loaded."
-            );
-        }
-
-
-        const blob =
-            await response.blob();
-
-
-        const extension =
-            currentProduct.image
-                .split(".")
-                .pop()
-                .toLowerCase();
-
-
-        const file =
-            new File(
-                [blob],
-                currentProduct.name
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")
-                    + "." +
-                    extension,
-                {
-                    type:
-                        blob.type ||
-                        "image/png"
-                }
-            );
-
-
-        const shareData = {
-
-            title:
-                currentProduct.name,
-
-            text:
-                message,
-
-            files:
-                [file]
-
-        };
-
-
-        if (
-            navigator.share &&
-            navigator.canShare &&
-            navigator.canShare({
-                files: [file]
-            })
-        ) {
-
-            await navigator.share(
-                shareData
-            );
-
-            return;
-
-        }
-
-    } catch (error) {
-
-        /*
-           If native sharing is cancelled or unsupported,
-           continue to the WhatsApp fallback below.
-        */
-
-    }
-
-
-    openWhatsAppFallback(
-        message
-    );
-
-}
-
-
-/* =========================================================
-   WHATSAPP FALLBACK
-========================================================= */
-
-function openWhatsAppFallback(message) {
 
     const whatsappNumber =
         "923150674347";
@@ -3004,15 +2756,15 @@ function openWhatsAppFallback(message) {
 
     window.open(
         whatsappURL,
-        "_blank",
-        "noopener"
+        "_blank"
     );
 
 }
 
 
+
 /* =========================================================
-   CUSTOM VISION FORM
+   CUSTOM VISION WHATSAPP
 ========================================================= */
 
 function sendVision(event) {
@@ -3022,39 +2774,38 @@ function sendVision(event) {
 
     const name =
         document
-            .getElementById("clientName")
-            .value
-            .trim();
+        .getElementById("clientName")
+        .value
+        .trim();
 
 
     const product =
         document
-            .getElementById("productType")
-            .value;
+        .getElementById("productType")
+        .value;
 
 
     const material =
         document
-            .getElementById("material")
-            .value
-        ||
+        .getElementById("material")
+        .value ||
         "Not specified";
 
 
     const size =
         document
-            .getElementById("size")
-            .value
-            .trim()
-        ||
+        .getElementById("size")
+        .value
+        .trim() ||
         "Not specified";
 
 
     const details =
         document
-            .getElementById("details")
-            .value
-            .trim();
+        .getElementById("details")
+        .value
+        .trim();
+
 
 
     const message =
@@ -3062,26 +2813,25 @@ function sendVision(event) {
 
 I'd like to create something custom.
 
-NAME
+Name:
 ${name}
 
-WHAT I'M IMAGINING
+What I'm imagining:
 ${product}
 
-PREFERRED MATERIAL
+Preferred Material:
 ${material}
 
-APPROXIMATE SIZE
+Approximate Size:
 ${size}
 
-MY VISION
+My Vision:
 ${details}
 
 I'd like to discuss the design and possibilities.
 
-Thank you.
-𝑺𝑶𝑪𝑯
-You Bring the Vision. We Bring It to Life.`;
+Thank you.`;
+
 
 
     const whatsappNumber =
@@ -3097,16 +2847,13 @@ You Bring the Vision. We Bring It to Life.`;
 
     window.open(
         whatsappURL,
-        "_blank",
-        "noopener"
+        "_blank"
     );
 
 }
-
 
 </script>
 
 
 </body>
-
 </html>
