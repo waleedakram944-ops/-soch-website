@@ -221,26 +221,53 @@ nav a:hover::after {
     max-width: 1050px;
 }
 
+
+/* =========================================================
+   REAL SOCH LOGO
+   ========================================================= */
+
 .hero-brand {
     display: flex;
     justify-content: center;
-    align-items: baseline;
-    gap: 6px;
-    margin-bottom: 28px;
-    opacity: .94;
+    align-items: center;
+
+    width: 300px;
+    height: 260px;
+
+    margin: 0 auto 12px;
+
+    overflow: hidden;
+
+    position: relative;
 }
 
-.hero-brand .english {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 25px;
-    font-style: italic;
-    letter-spacing: .5px;
+.hero-logo {
+    display: block;
+
+    width: 300px;
+    height: 400px;
+
+    max-width: none;
+
+    object-fit: cover;
+    object-position: center 42%;
+
+    mix-blend-mode: screen;
+
+    filter:
+        drop-shadow(0 8px 18px rgba(0,0,0,.35));
+
+    transform: translateY(0);
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
 }
 
-.hero-brand .urdu {
-    font-family: "Noto Naskh Arabic", serif;
-    font-size: 23px;
-}
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
 
 .eyebrow {
     color: #b9b09e;
@@ -422,13 +449,6 @@ nav a:hover::after {
     opacity: .42;
 }
 
-
-/*
-   IMPORTANT:
-   The image itself uses contain so the artwork is NEVER cropped.
-   Padding has been removed so the available product area is larger.
-*/
-
 .product-image img {
     position: absolute;
 
@@ -451,23 +471,6 @@ nav a:hover::after {
         transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
-
-/*
-   Individual image scaling.
-
-   Product 1:
-   Slightly larger because its source image has more empty canvas.
-
-   Product 2:
-   Slightly larger.
-
-   Product 3:
-   Slightly larger.
-
-   Product 4:
-   Left at 1.00 because this one was already fitting correctly.
-*/
-
 .product:nth-child(1) .product-image img {
     transform: translate(-50%, -50%) scale(1.16);
 }
@@ -484,11 +487,6 @@ nav a:hover::after {
     transform: translate(-50%, -50%) scale(1);
 }
 
-
-/*
-   Hover scaling preserves each product's individual base scale.
-*/
-
 .product:nth-child(1):hover .product-image img {
     transform: translate(-50%, -50%) scale(1.195);
 }
@@ -504,9 +502,6 @@ nav a:hover::after {
 .product:nth-child(4):hover .product-image img {
     transform: translate(-50%, -50%) scale(1.035);
 }
-
-
-/* image gradient */
 
 .product-image::after {
     content: "";
@@ -1340,6 +1335,22 @@ footer p {
         font-size: 21px;
     }
 
+
+    /* HERO LOGO */
+
+    .hero-brand {
+        width: 260px;
+        height: 225px;
+        margin-bottom: 8px;
+    }
+
+    .hero-logo {
+        width: 260px;
+        height: 347px;
+        object-position: center 42%;
+    }
+
+
     .collection-heading {
         display: block;
     }
@@ -1414,17 +1425,25 @@ footer p {
     }
 
     .hero {
-        padding: 135px 20px 80px;
+        padding: 125px 20px 80px;
         background-position: center;
     }
 
-    .hero-brand .english {
-        font-size: 22px;
+
+    /* MOBILE REAL LOGO */
+
+    .hero-brand {
+        width: 235px;
+        height: 205px;
+        margin-bottom: 2px;
     }
 
-    .hero-brand .urdu {
-        font-size: 20px;
+    .hero-logo {
+        width: 235px;
+        height: 313px;
+        object-position: center 42%;
     }
+
 
     .eyebrow {
         font-size: 6.5px;
@@ -1467,11 +1486,6 @@ footer p {
     .product h3 {
         font-size: 34px;
     }
-
-    /*
-       Mobile needs slightly less scaling because
-       the product cards become narrower.
-    */
 
     .product:nth-child(1) .product-image img {
         transform: translate(-50%, -50%) scale(1.10);
@@ -1659,15 +1673,19 @@ footer p {
 
     <div class="hero-content">
 
+
+        <!-- =================================================
+             ACTUAL GOLD SOCH LOGO
+             File must be in the same folder as index.html
+             ================================================= -->
+
         <div class="hero-brand">
 
-            <span class="english">
-                𝑺𝑶𝑪𝑯
-            </span>
-
-            <span class="urdu">
-                سوچ
-            </span>
+            <img
+                src="IMG_7695.jpeg"
+                alt="SOCH - سوچ"
+                class="hero-logo"
+            >
 
         </div>
 
