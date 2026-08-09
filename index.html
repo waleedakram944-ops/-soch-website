@@ -1,929 +1,1632 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>𝑺𝑶𝑪𝑯 — سوچ | You Bring the Vision. We Bring It to Life.</title>
+<title>𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.</title>
 
-<meta name="description"
-content="SOCH — Bespoke décor and craftsmanship. You bring the vision. We bring it to life.">
+<meta
+name="description"
+content="SOCH — Bespoke décor and craftsmanship. You bring the vision. We bring it to life."
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap"
+rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   SOCH — PREMIUM LUXURY SYSTEM
-========================================================= */
-
-:root{
-    --black:#050505;
-    --deep:#090908;
-    --cream:#eee9df;
-    --muted:#9b9892;
-    --gold:#c9a15a;
-    --gold-light:#e2bd72;
-    --line:rgba(238,233,223,.18);
-    --max:1320px;
+:root {
+    --black: #080807;
+    --black-2: #0d0d0c;
+    --panel: #11110f;
+    --cream: #eeeae1;
+    --muted: #9c988f;
+    --soft: #c0b9aa;
+    --gold: #b9a06c;
+    --line: rgba(238,234,225,.11);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-    background:#050505;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    background:#050505;
-    color:var(--cream);
-    font-family:Inter,sans-serif;
-    font-weight:300;
-    overflow-x:hidden;
+body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
 }
 
-img{
-    max-width:100%;
-    display:block;
+body.modal-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 button,
-a{
-    -webkit-tap-highlight-color:transparent;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
+input,
+select,
+textarea {
+    font-family: inherit;
 }
 
 
 /* =========================================================
    NAVIGATION
-========================================================= */
+   ========================================================= */
 
-.site-nav{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:92px;
-    z-index:50;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 86px;
+    padding: 0 5.5vw;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid transparent;
+    transition:
+        background .45s ease,
+        border-color .45s ease,
+        height .45s ease;
+}
 
-    display:grid;
-    grid-template-columns:1fr auto 1fr;
-    align-items:center;
-
-    padding:0 42px;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,.78),
-        rgba(0,0,0,0)
-    );
+header.scrolled {
+    height: 72px;
+    background: rgba(8,8,7,.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-color: var(--line);
 }
 
 .nav-left,
-.nav-right{
-    display:flex;
-    align-items:center;
-    gap:34px;
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 31px;
 }
 
-.nav-right{
-    justify-content:flex-end;
+.nav-left {
+    justify-content: flex-start;
 }
 
-.nav-link{
-    font-size:10px;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    color:rgba(238,233,223,.7);
-    transition:.35s ease;
+.nav-right {
+    justify-content: flex-end;
 }
 
-.nav-link:hover{
-    color:#fff;
+nav a {
+    position: relative;
+    color: rgba(238,234,225,.68);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    transition: color .3s ease;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    white-space:nowrap;
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width .3s ease;
 }
 
-.brand-soch{
-    font-family:"Cormorant Garamond",serif;
-    font-size:26px;
-    font-weight:600;
-    font-style:italic;
-    letter-spacing:.03em;
+nav a:hover {
+    color: var(--cream);
 }
 
-.brand-urdu{
-    font-family:"Noto Nastaliq Urdu","Times New Roman",serif;
-    font-size:25px;
-    margin-left:4px;
-    position:relative;
-    top:1px;
+nav a:hover::after {
+    width: 100%;
+}
+
+.center-logo {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.center-logo .logo-main {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 29px;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -.7px;
+}
+
+.center-logo .logo-urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 24px;
 }
 
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
-.hero{
-    position:relative;
-    min-height:100svh;
-    width:100%;
-    overflow:hidden;
-    background:#050505;
+.hero {
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 150px 25px 100px;
 
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-}
-
-
-/* =========================================================
-   HERO BACKGROUND
-========================================================= */
-
-.hero-background{
-    position:absolute;
-    inset:0;
-
-    background-image:
+    background:
         linear-gradient(
-            to bottom,
-            rgba(0,0,0,.35) 0%,
-            rgba(0,0,0,.12) 38%,
-            rgba(0,0,0,.45) 72%,
-            rgba(0,0,0,.94) 100%
+            rgba(5,5,4,.30),
+            rgba(5,5,4,.77)
         ),
-        url("hero.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+        url("37A2CC13-446E-4AAA-A0A4-DFF3AAFB59A9.png")
+        center / cover no-repeat;
 }
 
-
-/* =========================================================
-   CINEMATIC VIGNETTE
-========================================================= */
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:1;
-    pointer-events:none;
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
 
     background:
         radial-gradient(
             ellipse at center,
-            transparent 30%,
-            rgba(0,0,0,.38) 75%,
-            rgba(0,0,0,.8) 100%
+            transparent 8%,
+            rgba(0,0,0,.25) 58%,
+            rgba(0,0,0,.75) 100%
         );
 }
 
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 35%;
 
-/* =========================================================
-   LOGO GLOW
-========================================================= */
-
-.hero-logo-glow{
-    position:absolute;
-    z-index:2;
-
-    width:430px;
-    height:250px;
-
-    left:50%;
-    top:31%;
-
-    transform:translate(-50%,-50%);
-
-    background:radial-gradient(
-        ellipse,
-        rgba(201,161,90,.10) 0%,
-        rgba(201,161,90,.025) 45%,
-        transparent 72%
-    );
-
-    filter:blur(25px);
-
-    pointer-events:none;
+    background:
+        linear-gradient(
+            transparent,
+            #080807
+        );
 }
 
-
-/* =========================================================
-   ACTUAL SOCH LOGO
-========================================================= */
-
-.hero-logo{
-    position:absolute;
-    z-index:3;
-
-    width:500px;
-    max-width:72vw;
-
-    left:50%;
-    top:31%;
-
-    transform:translate(-50%,-50%);
-
-    /*
-       The JPEG contains a black background.
-       Screen blending removes the black visually
-       while retaining the brighter gold artwork.
-    */
-
-    mix-blend-mode:screen;
-
-    opacity:.96;
-
-    filter:
-        brightness(1.02)
-        contrast(1.08)
-        saturate(1.05);
-
-    pointer-events:none;
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1050px;
 }
 
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.hero-content{
-    position:relative;
-    z-index:6;
-
-    width:min(100% - 48px,1050px);
-
-    text-align:center;
-
-    padding-bottom:72px;
+.hero-brand {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 28px;
+    opacity: .94;
 }
 
-.eyebrow{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    gap:13px;
-
-    margin-bottom:28px;
-
-    font-size:9px;
-    letter-spacing:.32em;
-    text-transform:uppercase;
-
-    color:rgba(238,233,223,.62);
+.hero-brand .english {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: .5px;
 }
 
-.eyebrow::before,
-.eyebrow::after{
-    content:"";
-
-    width:42px;
-    height:1px;
-
-    background:rgba(201,161,90,.62);
+.hero-brand .urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 23px;
 }
 
-
-.hero-title{
-    font-family:"Cormorant Garamond",serif;
-
-    font-size:clamp(55px,8vw,104px);
-
-    line-height:.88;
-
-    font-weight:400;
-
-    letter-spacing:-.035em;
-
-    margin:0 auto;
-
-    max-width:1050px;
+.eyebrow {
+    color: #b9b09e;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
 }
 
-.hero-title .gold{
-    color:#dfba6b;
-    font-style:italic;
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(58px, 9vw, 110px);
+    font-weight: 300;
+    line-height: .82;
+    letter-spacing: -2.5px;
+    margin-bottom: 35px;
 }
 
-
-.hero-description{
-    max-width:680px;
-
-    margin:40px auto 0;
-
-    font-size:15px;
-
-    line-height:1.85;
-
-    color:rgba(238,233,223,.60);
+.hero h1 span {
+    color: #c1ae83;
+    font-style: italic;
 }
 
-
-.hero-actions{
-    margin-top:46px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:16px;
+.hero p {
+    max-width: 530px;
+    margin: auto;
+    color: rgba(238,234,225,.64);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 38px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
 
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn{
-    min-width:250px;
-    height:62px;
-
-    padding:0 30px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border:1px solid rgba(238,233,223,.28);
-
-    font-size:10px;
-    letter-spacing:.30em;
-    text-transform:uppercase;
-
+.button {
+    min-width: 180px;
+    padding: 15px 24px;
+    border: 1px solid rgba(238,234,225,.30);
+    color: var(--cream);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
     transition:
         background .35s ease,
         color .35s ease,
-        border-color .35s ease,
-        transform .35s ease;
+        transform .35s ease,
+        border-color .35s ease;
 }
 
-.btn:hover{
-    transform:translateY(-2px);
+.button:hover {
+    transform: translateY(-3px);
+    border-color: rgba(238,234,225,.75);
 }
 
-.btn-primary{
-    background:var(--cream);
-    color:#0a0a09;
-    border-color:var(--cream);
+.button.primary {
+    background: var(--cream);
+    color: #090908;
+    border-color: var(--cream);
 }
 
-.btn-primary:hover{
-    background:#fff;
-}
-
-.btn-secondary{
-    background:transparent;
-    color:var(--cream);
-}
-
-.btn-secondary:hover{
-    border-color:rgba(238,233,223,.65);
+.button.primary:hover {
+    background: transparent;
+    color: var(--cream);
 }
 
 
 /* =========================================================
    SECTION SYSTEM
-========================================================= */
+   ========================================================= */
 
-.section{
-    position:relative;
-    padding:140px 32px;
-    background:#050505;
+.section {
+    max-width: 1220px;
+    margin: auto;
+    padding: 135px 5.5vw;
 }
 
-.section-inner{
-    width:min(100%,var(--max));
-    margin:auto;
+.section-label {
+    color: var(--gold);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    margin-bottom: 20px;
 }
 
-.section-heading{
-    text-align:center;
-    margin-bottom:70px;
+.section h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(50px, 6.5vw, 78px);
+    font-weight: 300;
+    line-height: .88;
+    letter-spacing: -1px;
 }
 
-.section-kicker{
-    font-size:9px;
-    letter-spacing:.34em;
-    text-transform:uppercase;
-    color:var(--gold);
-
-    margin-bottom:18px;
-}
-
-.section-title{
-    font-family:"Cormorant Garamond",serif;
-    font-size:clamp(45px,6vw,80px);
-    line-height:.95;
-    font-weight:400;
-}
-
-.section-description{
-    max-width:620px;
-    margin:24px auto 0;
-
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.8;
+.section-intro {
+    color: var(--muted);
+    max-width: 570px;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 24px;
 }
 
 
 /* =========================================================
    COLLECTION
-========================================================= */
+   ========================================================= */
 
-.collection-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
+.collection-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 50px;
+    margin-bottom: 70px;
 }
 
-.collection-card{
-    position:relative;
-    overflow:hidden;
-
-    background:#0b0b0a;
-
-    min-height:560px;
+.collection-heading .section-intro {
+    margin-bottom: 0;
 }
 
-.collection-card img{
-    width:100%;
-    height:100%;
-    min-height:560px;
+.collection-mark {
+    color: #68645d;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
 
-    object-fit:cover;
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.product {
+    position: relative;
+    min-height: 590px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #11110f;
+    border: 1px solid rgba(238,234,225,.09);
 
     transition:
-        transform 1s cubic-bezier(.2,.7,.2,1),
-        filter 1s ease;
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        border-color .45s ease;
 }
 
-.collection-card:hover img{
-    transform:scale(1.035);
-    filter:brightness(1.08);
+.product:hover {
+    transform: translateY(-7px);
+    border-color: rgba(185,160,108,.45);
 }
 
-.collection-overlay{
-    position:absolute;
-    inset:0;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
+/* =========================================================
+   PRODUCT IMAGE — FINAL FIT
+   ========================================================= */
 
-    padding:38px;
+.product-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: #151512;
+}
+
+.product-image::before {
+    content: "";
+    position: absolute;
+    inset: -35px;
+
+    background-image: var(--product-image);
+    background-position: center;
+    background-size: cover;
+
+    filter: blur(32px);
+    transform: scale(1.12);
+
+    opacity: .42;
+}
+
+
+/*
+   IMPORTANT:
+   The image itself uses contain so the artwork is NEVER cropped.
+   Padding has been removed so the available product area is larger.
+*/
+
+.product-image img {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    padding: 0;
+
+    z-index: 1;
+
+    transform: translate(-50%, -50%) scale(1);
+
+    transition:
+        transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+
+/*
+   Individual image scaling.
+
+   Product 1:
+   Slightly larger because its source image has more empty canvas.
+
+   Product 2:
+   Slightly larger.
+
+   Product 3:
+   Slightly larger.
+
+   Product 4:
+   Left at 1.00 because this one was already fitting correctly.
+*/
+
+.product:nth-child(1) .product-image img {
+    transform: translate(-50%, -50%) scale(1.16);
+}
+
+.product:nth-child(2) .product-image img {
+    transform: translate(-50%, -50%) scale(1.14);
+}
+
+.product:nth-child(3) .product-image img {
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+.product:nth-child(4) .product-image img {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/*
+   Hover scaling preserves each product's individual base scale.
+*/
+
+.product:nth-child(1):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.195);
+}
+
+.product:nth-child(2):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.175);
+}
+
+.product:nth-child(3):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.185);
+}
+
+.product:nth-child(4):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.035);
+}
+
+
+/* image gradient */
+
+.product-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
 
     background:
         linear-gradient(
-            to top,
-            rgba(0,0,0,.86),
-            rgba(0,0,0,.05) 65%
+            to bottom,
+            rgba(5,5,4,.02) 25%,
+            rgba(5,5,4,.10) 46%,
+            rgba(5,5,4,.90) 100%
         );
 }
 
-.collection-number{
-    font-size:9px;
-    letter-spacing:.3em;
-    color:var(--gold);
-    margin-bottom:10px;
+
+/* =========================================================
+   PRODUCT INFORMATION
+   ========================================================= */
+
+.product-info {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+    z-index: 5;
 }
 
-.collection-name{
-    font-family:"Cormorant Garamond",serif;
-    font-size:40px;
-    font-weight:400;
+.product-number {
+    color: #aa9161;
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-bottom: 9px;
 }
 
-.collection-link{
-    margin-top:16px;
-    font-size:9px;
-    letter-spacing:.28em;
-    text-transform:uppercase;
-    color:rgba(238,233,223,.68);
+.product h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 39px;
+    line-height: .95;
+    font-weight: 400;
+    margin-bottom: 7px;
+}
+
+.product-tagline {
+    color: #aaa295;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    color: #d0bb8d;
+}
+
+.view-product {
+    color: #c4b9a5;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #635943;
+    padding-bottom: 4px;
+}
+
+
+/* =========================================================
+   PRODUCT MODAL
+   ========================================================= */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(4,4,3,.94);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+.product-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    position: relative;
+    width: min(1040px, 100%);
+    max-height: 91vh;
+    overflow-y: auto;
+
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+
+    background: #11110f;
+    border: 1px solid rgba(238,234,225,.14);
+
+    box-shadow: 0 40px 120px rgba(0,0,0,.65);
+}
+
+.close-modal {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(238,234,225,.25);
+    background: rgba(5,5,4,.7);
+
+    color: var(--cream);
+    cursor: pointer;
+    font-size: 19px;
+
+    transition: .3s ease;
+}
+
+.close-modal:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+.modal-image {
+    min-height: 620px;
+    position: relative;
+    overflow: hidden;
+    background: #151512;
+}
+
+.modal-image::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+
+    background-image: var(--modal-image);
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(32px);
+    opacity: .4;
+    transform: scale(1.12);
+}
+
+.modal-image img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    padding: 25px;
+
+    z-index: 2;
+}
+
+.modal-content {
+    padding: 72px 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-volume {
+    color: var(--gold);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 17px;
+}
+
+.modal-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 6vw, 74px);
+    font-weight: 300;
+    line-height: .86;
+    margin-bottom: 11px;
+}
+
+.modal-subtitle {
+    color: #ae9563;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.modal-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.95;
+    margin-bottom: 27px;
+}
+
+.modal-details {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    margin-bottom: 28px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 6px 0;
+    font-size: 9px;
+}
+
+.detail-row span:first-child {
+    color: #706d66;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.detail-row span:last-child {
+    color: #cec4b4;
+    text-align: right;
+}
+
+.modal-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 35px;
+    color: #d0bb8d;
+    margin-bottom: 25px;
+}
+
+.order-button {
+    width: 100%;
+    border: 1px solid var(--cream);
+    background: var(--cream);
+    color: #090908;
+    padding: 17px;
+    cursor: pointer;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .3s ease;
+}
+
+.order-button:hover {
+    background: transparent;
+    color: var(--cream);
 }
 
 
 /* =========================================================
    BESPOKE
-========================================================= */
+   ========================================================= */
 
-.bespoke{
+.bespoke {
+    max-width: none;
+    padding: 145px 5.5vw;
+
     background:
         radial-gradient(
-            ellipse at center,
-            rgba(201,161,90,.065),
-            transparent 55%
+            circle at 80% 35%,
+            rgba(190,159,101,.08),
+            transparent 28%
         ),
-        #080807;
+        #eeeae1;
+
+    color: #10100e;
 }
 
-.bespoke-box{
-    border:1px solid var(--line);
-    padding:70px 45px;
-    text-align:center;
+.bespoke-inner {
+    max-width: 1220px;
+    margin: auto;
 }
 
-.bespoke-title{
-    font-family:"Cormorant Garamond",serif;
-    font-size:clamp(50px,7vw,88px);
-    font-weight:400;
-    line-height:.9;
+.bespoke .section-label {
+    color: #716a5e;
 }
 
-.bespoke-title span{
-    color:var(--gold-light);
-    font-style:italic;
+.bespoke h2 {
+    max-width: 900px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(58px, 8vw, 105px);
+    line-height: .82;
+    font-weight: 300;
+    letter-spacing: -2px;
 }
 
-.bespoke-text{
-    max-width:620px;
-    margin:30px auto;
+.bespoke p {
+    max-width: 620px;
+    margin-top: 30px;
 
-    font-size:14px;
-    line-height:1.9;
-    color:var(--muted);
+    color: #5c584f;
+    font-size: 13px;
+    line-height: 1.9;
 }
 
-.bespoke-form{
-    display:none;
-
-    max-width:720px;
-    margin:50px auto 0;
-
-    text-align:left;
+.bespoke-actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 38px;
 }
 
-.bespoke-form.active{
-    display:block;
+.dark-button {
+    padding: 16px 25px;
+    background: #10100e;
+    color: var(--cream);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .35s ease;
 }
 
-.field{
-    margin-bottom:22px;
+.dark-button:hover {
+    transform: translateY(-3px);
 }
 
-.field label{
-    display:block;
-
-    margin-bottom:9px;
-
-    font-size:9px;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-
-    color:rgba(238,233,223,.55);
+.text-link {
+    color: #4f4b43;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.field input,
-.field textarea,
-.field select{
-    width:100%;
 
-    background:#0d0d0c;
-    border:1px solid rgba(238,233,223,.16);
+/* =========================================================
+   VISION BUILDER
+   ========================================================= */
 
-    color:var(--cream);
-
-    padding:17px;
-
-    outline:none;
-
-    font-family:Inter,sans-serif;
-    font-size:13px;
-
-    transition:border-color .3s ease;
+.builder-section {
+    padding: 140px 5.5vw;
+    background: #0c0c0b;
 }
 
-.field textarea{
-    min-height:150px;
-    resize:vertical;
+.builder-container {
+    max-width: 1220px;
+    margin: auto;
 }
 
-.field input:focus,
-.field textarea:focus,
-.field select:focus{
-    border-color:rgba(201,161,90,.65);
+.builder-heading {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.builder-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 7vw, 82px);
+    font-weight: 300;
+    line-height: .86;
+    letter-spacing: -1.5px;
+}
+
+.builder-heading p {
+    max-width: 570px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 24px;
+}
+
+.builder {
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+    gap: 70px;
+    align-items: stretch;
+}
+
+.builder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #817b70;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 14px;
+
+    background: transparent;
+    color: var(--cream);
+
+    border: 1px solid rgba(238,234,225,.13);
+
+    outline: none;
+
+    font-size: 11px;
+
+    transition: border-color .3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #55534e;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: rgba(185,160,108,.65);
+}
+
+.form-group select option {
+    background: #11110f;
+    color: var(--cream);
+}
+
+.form-group textarea {
+    min-height: 145px;
+    resize: vertical;
+}
+
+.builder-submit {
+    border: 1px solid var(--cream);
+    background: var(--cream);
+    color: #090908;
+
+    padding: 17px;
+
+    cursor: pointer;
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    transition: .35s ease;
+}
+
+.builder-submit:hover {
+    background: transparent;
+    color: var(--cream);
+}
+
+.builder-preview {
+    position: relative;
+    min-height: 500px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 50px;
+
+    border: 1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at center,
+            #24231f,
+            #090908 72%
+        );
+
+    text-align: center;
+}
+
+.builder-preview::before {
+    content: "سوچ";
+
+    position: absolute;
+
+    font-family: "Noto Naskh Arabic", serif;
+
+    font-size: 250px;
+
+    color: rgba(238,234,225,.025);
+
+    transform: rotate(-8deg);
+}
+
+.preview-label {
+    position: relative;
+    z-index: 2;
+
+    color: var(--gold);
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    margin-bottom: 24px;
+}
+
+.preview-title {
+    position: relative;
+    z-index: 2;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 48px;
+    line-height: .9;
+}
+
+.preview-text {
+    position: relative;
+    z-index: 2;
+
+    max-width: 330px;
+
+    margin: 23px auto 0;
+
+    color: #858178;
+
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-section {
+    max-width: 1220px;
+    margin: auto;
+    padding: 140px 5.5vw;
+}
+
+.process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+
+    background: #292824;
+
+    margin-top: 65px;
+}
+
+.process-item {
+    min-height: 250px;
+    padding: 34px 28px;
+    background: #0a0a09;
+}
+
+.number {
+    color: var(--gold);
+    font-size: 8px;
+    letter-spacing: 2.5px;
+}
+
+.process h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 400;
+    margin: 25px 0 10px;
+}
+
+.process p {
+    max-width: 190px;
+    color: #77736c;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   STORY
+   ========================================================= */
+
+.story {
+    text-align: center;
+}
+
+.story-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.story h2 {
+    margin-bottom: 30px;
+}
+
+.story p {
+    max-width: 620px;
+    margin: 0 auto 15px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.95;
 }
 
 
 /* =========================================================
    CONTACT
-========================================================= */
+   ========================================================= */
 
-.contact{
-    padding-bottom:110px;
+.contact {
+    max-width: none;
+
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(185,160,108,.08),
+            transparent 35%
+        ),
+        #0a0a09;
 }
 
-.contact-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
+.contact::before {
+    content: "𝑺𝑶𝑪𝑯";
 
-    background:var(--line);
+    position: absolute;
 
-    border:1px solid var(--line);
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    white-space: nowrap;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(120px, 20vw, 260px);
+
+    font-style: italic;
+
+    color: rgba(238,234,225,.025);
+
+    pointer-events: none;
 }
 
-.contact-card{
-    background:#070706;
-    padding:48px 30px;
-    text-align:center;
+.contact-inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+    margin: auto;
 }
 
-.contact-icon{
-    color:var(--gold);
-    font-size:22px;
-    margin-bottom:18px;
+.contact h2 {
+    font-size: clamp(58px, 8vw, 100px);
 }
 
-.contact-label{
-    font-size:9px;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-    color:var(--muted);
-
-    margin-bottom:12px;
+.contact .section-intro {
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.contact-value{
-    font-family:"Cormorant Garamond",serif;
-    font-size:25px;
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+
+    margin-top: 40px;
 }
 
-.contact-value a:hover{
-    color:var(--gold-light);
+.contact-card {
+    min-width: 220px;
+
+    padding: 27px 25px;
+
+    background: rgba(17,17,15,.72);
+
+    border: 1px solid rgba(238,234,225,.11);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(185,160,108,.5);
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto 15px;
+
+    border: 1px solid #625a49;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #c4b083;
+}
+
+.contact-card strong {
+    display: block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.contact-card span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #74716a;
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
 }
 
 
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
-footer{
-    padding:45px 30px 55px;
+footer {
+    padding: 55px 25px;
 
-    border-top:1px solid rgba(238,233,223,.08);
+    text-align: center;
 
-    text-align:center;
+    border-top: 1px solid var(--line);
+
+    background: #080807;
 }
 
-.footer-brand{
-    font-family:"Cormorant Garamond",serif;
-    font-size:30px;
-    font-style:italic;
+.footer-brand {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    gap: 4px;
+
+    margin-bottom: 14px;
 }
 
-.footer-tagline{
-    margin-top:12px;
-
-    font-size:8px;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-
-    color:rgba(238,233,223,.42);
+.footer-brand .english {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 31px;
+    font-style: italic;
 }
 
-.footer-copy{
-    margin-top:28px;
+.footer-brand .urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 27px;
+}
 
-    font-size:9px;
-    color:rgba(238,233,223,.3);
+footer p {
+    color: #65625b;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.footer-social {
+    margin-top: 18px;
+}
+
+.footer-social a {
+    color: #a19a8d;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
 }
 
 
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
-@media(max-width:700px){
+@media (max-width: 850px) {
 
-    .site-nav{
-        height:76px;
-        padding:0 24px;
-
-        grid-template-columns:1fr auto 1fr;
+    header {
+        padding: 0 22px;
     }
 
     .nav-left,
-    .nav-right{
-        gap:0;
+    .nav-right {
+        gap: 17px;
     }
 
-    .nav-left .nav-link:not(:first-child),
-    .nav-right .nav-link:not(:last-child){
-        display:none;
+    nav a {
+        font-size: 7px;
+        letter-spacing: 1.5px;
     }
 
-    .nav-link{
-        font-size:8px;
-        letter-spacing:.22em;
+    .center-logo .logo-main {
+        font-size: 25px;
     }
 
-    .brand-soch{
-        font-size:20px;
+    .center-logo .logo-urdu {
+        font-size: 21px;
     }
 
-    .brand-urdu{
-        font-size:20px;
+    .collection-heading {
+        display: block;
     }
 
-
-    /* =====================================================
-       CORRECTED MOBILE HERO
-    ===================================================== */
-
-    .hero{
-        min-height:100svh;
+    .collection-mark {
+        margin-top: 25px;
     }
 
-
-    .hero-logo{
-        width:500px;
-        max-width:76vw;
-
-        top:29%;
-
-        opacity:.95;
+    .products {
+        grid-template-columns: 1fr;
     }
 
-
-    .hero-logo-glow{
-        width:82vw;
-        height:230px;
-
-        top:29%;
+    .product {
+        min-height: 540px;
     }
 
-
-    .hero-content{
-        width:calc(100% - 34px);
-
-        padding-bottom:58px;
+    .modal-box {
+        grid-template-columns: 1fr;
+        max-height: 94vh;
     }
 
-
-    .eyebrow{
-        font-size:7px;
-
-        letter-spacing:.27em;
-
-        gap:9px;
-
-        margin-bottom:27px;
+    .modal-image {
+        min-height: 380px;
     }
 
-
-    .eyebrow::before,
-    .eyebrow::after{
-        width:27px;
+    .modal-content {
+        padding: 45px 32px;
     }
 
+    .builder {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .builder-preview {
+        min-height: 360px;
+    }
+
+    .process {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    header {
+        height: 72px;
+        padding: 0 15px;
+    }
+
+    header.scrolled {
+        height: 65px;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 6.5px;
+        letter-spacing: 1.1px;
+    }
+
+    .center-logo .logo-main {
+        font-size: 22px;
+    }
+
+    .center-logo .logo-urdu {
+        font-size: 19px;
+    }
+
+    .hero {
+        padding: 135px 20px 80px;
+        background-position: center;
+    }
+
+    .hero-brand .english {
+        font-size: 22px;
+    }
+
+    .hero-brand .urdu {
+        font-size: 20px;
+    }
+
+    .eyebrow {
+        font-size: 6.5px;
+        letter-spacing: 2.4px;
+    }
+
+    .hero h1 {
+        font-size: 54px;
+        letter-spacing: -1.2px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 285px;
+    }
+
+    .section,
+    .process-section {
+        padding: 95px 20px;
+    }
+
+    .section h2 {
+        font-size: 50px;
+    }
+
+    .product {
+        min-height: 455px;
+    }
+
+    .product-info {
+        left: 20px;
+        right: 20px;
+        bottom: 21px;
+    }
+
+    .product h3 {
+        font-size: 34px;
+    }
 
     /*
-       Exact 3-line structure:
-       You Bring the
-       Vision.
-       We Bring It to Life.
+       Mobile needs slightly less scaling because
+       the product cards become narrower.
     */
 
-    .hero-title{
-        font-size:clamp(51px,13.5vw,78px);
-
-        line-height:.88;
-
-        letter-spacing:-.035em;
-
-        max-width:680px;
+    .product:nth-child(1) .product-image img {
+        transform: translate(-50%, -50%) scale(1.10);
     }
 
-
-    .hero-description{
-        max-width:610px;
-
-        margin-top:31px;
-
-        font-size:13px;
-
-        line-height:1.75;
+    .product:nth-child(2) .product-image img {
+        transform: translate(-50%, -50%) scale(1.09);
     }
 
-
-    .hero-actions{
-        flex-direction:column;
-
-        gap:12px;
-
-        margin-top:35px;
+    .product:nth-child(3) .product-image img {
+        transform: translate(-50%, -50%) scale(1.10);
     }
 
-
-    .btn{
-        width:100%;
-
-        min-width:0;
-
-        height:58px;
+    .product:nth-child(4) .product-image img {
+        transform: translate(-50%, -50%) scale(1);
     }
 
-
-    .section{
-        padding:100px 18px;
+    .product:nth-child(1):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.13);
     }
 
-    .collection-grid{
-        grid-template-columns:1fr;
+    .product:nth-child(2):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.12);
     }
 
-    .collection-card,
-    .collection-card img{
-        min-height:480px;
+    .product:nth-child(3):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.13);
     }
 
-    .bespoke-box{
-        padding:55px 22px;
+    .product:nth-child(4):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.025);
     }
 
-    .contact-grid{
-        grid-template-columns:1fr;
+    .bespoke {
+        padding: 100px 20px;
     }
 
+    .bespoke h2 {
+        font-size: 61px;
+    }
+
+    .bespoke-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dark-button {
+        text-align: center;
+    }
+
+    .builder-section {
+        padding: 100px 20px;
+    }
+
+    .builder {
+        padding: 0;
+    }
+
+    .builder-preview {
+        padding: 30px 20px;
+    }
+
+    .preview-title {
+        font-size: 38px;
+    }
+
+    .process {
+        grid-template-columns: 1fr;
+    }
+
+    .process-item {
+        min-height: 190px;
+    }
+
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+    }
+
+    .contact-card {
+        min-width: 0;
+    }
+
+    .modal-image {
+        min-height: 310px;
+    }
+
+    .modal-image img {
+        padding: 20px;
+    }
+
+    .modal-content {
+        padding: 35px 23px 40px;
+    }
 }
 
 
 /* =========================================================
-   REDUCE MOTION
-========================================================= */
+   SCROLLBAR
+   ========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+::-webkit-scrollbar {
+    width: 5px;
+}
 
-    *,
-    *::before,
-    *::after{
-        scroll-behavior:auto!important;
-        transition:none!important;
-        animation:none!important;
-    }
+::-webkit-scrollbar-track {
+    background: #080807;
+}
 
+::-webkit-scrollbar-thumb {
+    background: #37342d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6d6048;
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =======================================================
-     NAV
-======================================================= -->
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
-<header class="site-nav">
+<header id="header">
 
     <nav class="nav-left">
 
-        <a class="nav-link" href="#collection">
+        <a href="#shop">
             Shop
         </a>
 
-        <a class="nav-link" href="#bespoke">
+        <a href="#bespoke">
             Bespoke
         </a>
 
     </nav>
 
 
-    <a
-        class="brand"
-        href="#top"
-        aria-label="SOCH home"
-    >
+    <a href="#home" class="center-logo">
 
-        <span class="brand-soch">
-            SOCH
+        <span class="logo-main">
+            𝑺𝑶𝑪𝑯
         </span>
 
-        <span class="brand-urdu">
+        <span class="logo-urdu">
             سوچ
         </span>
 
@@ -932,11 +1635,11 @@ footer{
 
     <nav class="nav-right">
 
-        <a class="nav-link" href="#bespoke">
+        <a href="#vision">
             Your Vision
         </a>
 
-        <a class="nav-link" href="#contact">
+        <a href="#contact">
             Contact
         </a>
 
@@ -945,96 +1648,65 @@ footer{
 </header>
 
 
-<main id="top">
-
-
-<!-- =======================================================
+<!-- =========================================================
      HERO
-======================================================= -->
+     ========================================================= -->
 
-<section class="hero">
-
-
-    <div class="hero-background"></div>
-
-
-    <!-- ===================================================
-         CORRECTED SOCH LOGO
-    ==================================================== -->
-
-    <div class="hero-logo-glow"></div>
-
-
-    <img
-        class="hero-logo"
-        src="IMG_7695.jpeg"
-        alt="سوچ — SOCH"
-    >
-
-
-    <!-- ===================================================
-         HERO CONTENT
-    ==================================================== -->
+<section
+    class="hero"
+    id="home"
+>
 
     <div class="hero-content">
 
+        <div class="hero-brand">
 
-        <div class="eyebrow">
+            <span class="english">
+                𝑺𝑶𝑪𝑯
+            </span>
 
-            Premium Décor
-
-            <span>·</span>
-
-            Bespoke Craftsmanship
+            <span class="urdu">
+                سوچ
+            </span>
 
         </div>
 
 
-        <!-- =================================================
-             EXACT CORRECTED 3-LINE SLOGAN
-        ================================================== -->
+        <div class="eyebrow">
+            PREMIUM DÉCOR · BESPOKE CRAFTSMANSHIP
+        </div>
 
-        <h1 class="hero-title">
 
-            You Bring the<br>
-
-            <span class="gold">
-                Vision.
-            </span><br>
-
+        <h1>
+            You Bring the <span>Vision.</span><br>
             We Bring It to Life.
-
         </h1>
 
 
-        <p class="hero-description">
-
+        <p>
             Distinctive pieces, crafted with intention.
             From our collection to creations made exclusively
             around your vision.
-
         </p>
 
 
-        <div class="hero-actions">
-
+        <div class="buttons">
 
             <a
-                href="#collection"
-                class="btn btn-primary"
+                href="#shop"
+                class="button primary"
             >
                 Explore Collection
             </a>
 
 
             <a
-                href="#bespoke"
-                class="btn btn-secondary"
+                href="#vision"
+                class="button"
             >
                 Create Your Vision
             </a>
 
-
         </div>
 
     </div>
@@ -1042,113 +1714,421 @@ footer{
 </section>
 
 
-<!-- =======================================================
+<!-- =========================================================
      COLLECTION
-======================================================= -->
+     ========================================================= -->
 
 <section
     class="section"
-    id="collection"
+    id="shop"
 >
 
-    <div class="section-inner">
+    <div class="collection-heading">
 
+        <div>
 
-        <div class="section-heading">
-
-
-            <div class="section-kicker">
-                The Collection
+            <div class="section-label">
+                THE COLLECTION
             </div>
 
 
-            <h2 class="section-title">
-                Made to be noticed.
+            <h2>
+                Made to Be Seen.
             </h2>
 
 
-            <p class="section-description">
+            <p class="section-intro">
 
-                Curated statement pieces designed for interiors
-                that deserve something different.
+                Distinctive pieces, crafted with intention.
+                Every creation carries its own character,
+                story and presence.
 
             </p>
 
         </div>
 
 
-        <div class="collection-grid">
+        <div class="collection-mark">
+            VOLUME I — IV
+        </div>
+
+    </div>
 
 
-            <!-- PRODUCT 01 -->
+    <div class="products">
 
-            <article class="collection-card">
 
+        <!-- PRODUCT 1 -->
+
+        <article
+            class="product"
+            onclick="openProduct(0)"
+        >
+
+            <div
+                class="product-image"
+                style="--product-image:url('FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png');"
+            >
 
                 <img
-                    src="product-1.jpg"
-                    alt="SOCH Collection Piece"
-                    loading="lazy"
+                    src="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png"
+                    alt="Al-Bayan decorative wall art"
                 >
 
+            </div>
 
-                <div class="collection-overlay">
 
+            <div class="product-info">
 
-                    <div class="collection-number">
-                        01
+                <div class="product-number">
+                    VOLUME I
+                </div>
+
+                <h3>
+                    Al-Bayan
+                </h3>
+
+                <div class="product-tagline">
+                    The Expression Piece
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 19,999
                     </div>
 
-
-                    <h3 class="collection-name">
-                        Signature Piece
-                    </h3>
-
-
-                    <div class="collection-link">
-                        Discover Piece →
+                    <div class="view-product">
+                        View Piece →
                     </div>
-
 
                 </div>
 
-            </article>
+            </div>
+
+        </article>
 
 
-            <!-- PRODUCT 02 -->
+        <!-- PRODUCT 2 -->
 
-            <article class="collection-card">
+        <article
+            class="product"
+            onclick="openProduct(1)"
+        >
 
+            <div
+                class="product-image"
+                style="--product-image:url('EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png');"
+            >
 
                 <img
-                    src="product-2.jpg"
-                    alt="SOCH Collection Piece"
-                    loading="lazy"
+                    src="EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png"
+                    alt="Noor-e-Sukhan decorative wall art"
                 >
 
+            </div>
 
-                <div class="collection-overlay">
 
+            <div class="product-info">
 
-                    <div class="collection-number">
-                        02
+                <div class="product-number">
+                    VOLUME II
+                </div>
+
+                <h3>
+                    Noor-e-Sukhan
+                </h3>
+
+                <div class="product-tagline">
+                    The Words of Light
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 14,999
                     </div>
 
-
-                    <h3 class="collection-name">
-                        Sculptural Form
-                    </h3>
-
-
-                    <div class="collection-link">
-                        Discover Piece →
+                    <div class="view-product">
+                        View Piece →
                     </div>
-
 
                 </div>
 
-            </article>
+            </div>
 
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+
+        <article
+            class="product"
+            onclick="openProduct(2)"
+        >
+
+            <div
+                class="product-image"
+                style="--product-image:url('61F3AE47-AC22-4892-BF90-85C53564A037.png');"
+            >
+
+                <img
+                    src="61F3AE47-AC22-4892-BF90-85C53564A037.png"
+                    alt="Khatt-e-Wafa Arabic calligraphy"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME III
+                </div>
+
+                <h3>
+                    Khatt-e-Wafa
+                </h3>
+
+                <div class="product-tagline">
+                    The Calligraphy Statement
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 16,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 4 -->
+
+        <article
+            class="product"
+            onclick="openProduct(3)"
+        >
+
+            <div
+                class="product-image"
+                style="--product-image:url('E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png');"
+            >
+
+                <img
+                    src="E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png"
+                    alt="Asil equestrian wood relief"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME IV
+                </div>
+
+                <h3>
+                    Asil
+                </h3>
+
+                <div class="product-tagline">
+                    The Equestrian Relief
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 24,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCT MODAL
+     ========================================================= -->
+
+<div
+    class="product-modal"
+    id="productModal"
+    onclick="closeProductOutside(event)"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeProduct()"
+        >
+            ×
+        </button>
+
+
+        <div
+            class="modal-image"
+            id="modalImageContainer"
+        >
+
+            <img
+                id="modalImage"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+
+        <div class="modal-content">
+
+            <div
+                class="modal-volume"
+                id="modalVolume"
+            ></div>
+
+
+            <h2 id="modalTitle"></h2>
+
+
+            <div
+                class="modal-subtitle"
+                id="modalSubtitle"
+            ></div>
+
+
+            <p
+                class="modal-description"
+                id="modalDescription"
+            ></p>
+
+
+            <div class="modal-details">
+
+                <div class="detail-row">
+
+                    <span>
+                        Material
+                    </span>
+
+                    <span id="modalMaterial"></span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Category
+                    </span>
+
+                    <span id="modalCategory"></span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Collection
+                    </span>
+
+                    <span>
+                        SOCH — سوچ
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="modal-price"
+                id="modalPrice"
+            ></div>
+
+
+            <button
+                class="order-button"
+                onclick="orderProduct()"
+            >
+                Order Now →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     BESPOKE
+     ========================================================= -->
+
+<section
+    class="bespoke"
+    id="bespoke"
+>
+
+    <div class="bespoke-inner">
+
+        <div class="section-label">
+            BESPOKE
+        </div>
+
+
+        <h2>
+            Your idea deserves to exist.
+        </h2>
+
+
+        <p>
+            No catalogue. No limitations.
+            Bring us your vision, reference, sketch,
+            or simply an idea.
+
+            We design and craft it specifically for you.
+        </p>
+
+
+        <div class="bespoke-actions">
+
+            <a
+                href="#vision"
+                class="dark-button"
+            >
+                Start Your Project
+            </a>
+
+
+            <a
+                href="#process"
+                class="text-link"
+            >
+                See How It Works →
+            </a>
 
         </div>
 
@@ -1157,128 +2137,171 @@ footer{
 </section>
 
 
-<!-- =======================================================
-     BESPOKE
-======================================================= -->
+<!-- =========================================================
+     YOUR VISION
+     ========================================================= -->
 
 <section
-    class="section bespoke"
-    id="bespoke"
+    class="builder-section"
+    id="vision"
 >
 
+    <div class="builder-container">
 
-    <div class="section-inner">
+        <div class="builder-heading">
 
-
-        <div class="bespoke-box">
-
-
-            <div class="section-kicker">
-                Bespoke
+            <div class="section-label">
+                YOUR VISION
             </div>
 
 
-            <h2 class="bespoke-title">
-
-                Have a
-                <span>
-                    Vision?
-                </span>
-
+            <h2>
+                Create Something That Doesn't Exist Yet.
             </h2>
 
 
-            <p class="bespoke-text">
-
+            <p>
                 Tell us what you're imagining.
-                Size, material, finish, mood or simply an idea.
-                We'll turn the thought into something tangible.
-
+                You don't need a finished design —
+                that's what we're here for.
             </p>
 
+        </div>
 
-            <button
-                class="btn btn-primary"
-                id="visionButton"
-                type="button"
-            >
-                Start Your Vision
-            </button>
 
+        <div class="builder">
 
             <form
-                class="bespoke-form"
-                id="visionForm"
+                class="builder-form"
+                onsubmit="sendVision(event)"
             >
 
+                <div class="form-group">
 
-                <div class="field">
-
-
-                    <label for="name">
+                    <label for="clientName">
                         Your Name
                     </label>
 
-
                     <input
-                        id="name"
-                        name="name"
                         type="text"
+                        id="clientName"
+                        placeholder="Your name"
                         required
                     >
-
 
                 </div>
 
 
-                <div class="field">
+                <div class="form-group">
 
-
-                    <label for="contactInfo">
-                        WhatsApp / Contact
+                    <label for="productType">
+                        What are you imagining?
                     </label>
 
-
-                    <input
-                        id="contactInfo"
-                        name="contact"
-                        type="text"
+                    <select
+                        id="productType"
                         required
                     >
 
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option>Wall Décor</option>
+                        <option>Wood Art</option>
+                        <option>Calligraphy</option>
+                        <option>Custom Logo / Nameplate</option>
+                        <option>Art / Statement Piece</option>
+                        <option>Custom Gift</option>
+                        <option>Other</option>
+
+                    </select>
 
                 </div>
 
 
-                <div class="field">
+                <div class="form-group">
 
-
-                    <label for="vision">
-                        Tell Us About Your Vision
+                    <label for="material">
+                        Preferred Material
                     </label>
 
+                    <select id="material">
+
+                        <option value="Not sure yet">
+                            Not sure yet
+                        </option>
+
+                        <option>Wood</option>
+                        <option>Lasani Sheet</option>
+                        <option>Mixed Wood & Lasani</option>
+                        <option>Let 𝑺𝑶𝑪𝑯 Recommend</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="size">
+                        Approximate Size
+                    </label>
+
+                    <input
+                        type="text"
+                        id="size"
+                        placeholder="e.g. 4ft × 2ft"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="details">
+                        Tell Us Your Vision
+                    </label>
 
                     <textarea
-                        id="vision"
-                        name="vision"
-                        placeholder="Describe the piece, dimensions, materials, colours or anything else you have in mind..."
+                        id="details"
+                        placeholder="Describe the design, colours, style, purpose, reference, or anything else you have in mind..."
                         required
                     ></textarea>
-
 
                 </div>
 
 
                 <button
                     type="submit"
-                    class="btn btn-primary"
+                    class="builder-submit"
                 >
-                    Send Vision
+                    Send My Vision on WhatsApp →
                 </button>
-
 
             </form>
 
+
+            <div class="builder-preview">
+
+                <div class="preview-label">
+                    THE 𝑺𝑶𝑪𝑯 APPROACH
+                </div>
+
+
+                <div class="preview-title">
+                    You imagine it.<br>
+                    We shape it.
+                </div>
+
+
+                <div class="preview-text">
+                    Your idea doesn't need to be perfect.
+                    Give us the thought behind it and we'll
+                    help turn it into something real.
+                </div>
+
+            </div>
 
         </div>
 
@@ -1287,129 +2310,222 @@ footer{
 </section>
 
 
-<!-- =======================================================
+<!-- =========================================================
+     PROCESS
+     ========================================================= -->
+
+<section
+    class="process-section"
+    id="process"
+>
+
+    <div class="section-label">
+        OUR PROCESS
+    </div>
+
+
+    <h2>
+        From Thought to Form.
+    </h2>
+
+
+    <div class="process">
+
+        <div class="process-item">
+
+            <div class="number">01</div>
+
+            <h3>Imagine</h3>
+
+            <p>
+                Your idea begins with a thought.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="number">02</div>
+
+            <h3>Design</h3>
+
+            <p>
+                We shape your vision into a purposeful design.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="number">03</div>
+
+            <h3>Craft</h3>
+
+            <p>
+                Precision craftsmanship brings the design to life.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="number">04</div>
+
+            <h3>Deliver</h3>
+
+            <p>
+                Your finished creation arrives ready for its place.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STORY
+     ========================================================= -->
+
+<section
+    class="section story"
+    id="story"
+>
+
+    <div class="story-content">
+
+        <div class="section-label">
+            THE 𝑺𝑶𝑪𝑯 PHILOSOPHY
+        </div>
+
+
+        <h2>
+            Every creation begins with a thought.
+        </h2>
+
+
+        <p>
+            سوچ means thought —
+            the place where every vision begins.
+        </p>
+
+
+        <p>
+            We believe the most meaningful pieces
+            aren't simply bought.
+
+            They're imagined, designed and brought
+            into existence.
+        </p>
+
+
+        <p>
+            That's what 𝑺𝑶𝑪𝑯 exists to do.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
      CONTACT
-======================================================= -->
+     ========================================================= -->
 
 <section
     class="section contact"
     id="contact"
 >
 
+    <div class="contact-inner">
 
-    <div class="section-inner">
-
-
-        <div class="section-heading">
-
-
-            <div class="section-kicker">
-                Contact
-            </div>
-
-
-            <h2 class="section-title">
-                Let's create something.
-            </h2>
-
-
-            <p class="section-description">
-
-                Whether you're looking for a piece from our
-                collection or have something entirely your own
-                in mind, we'd love to hear from you.
-
-            </p>
-
-
+        <div class="section-label">
+            LET'S CREATE
         </div>
 
 
-        <div class="contact-grid">
+        <h2>
+            Have a Vision?
+        </h2>
 
 
-            <div class="contact-card">
+        <p class="section-intro">
+            Have a question, a custom idea,
+            or simply want to talk about something
+            you're imagining?
 
+            We're one message away.
+        </p>
+
+
+        <div class="contact-methods">
+
+            <a
+                href="https://wa.me/923150674347"
+                class="contact-card"
+                target="_blank"
+                rel="noopener"
+            >
 
                 <div class="contact-icon">
+                    ◉
+                </div>
+
+                <strong>
                     WhatsApp
-                </div>
+                </strong>
+
+                <span>
+                    Start a conversation
+                </span>
+
+            </a>
 
 
-                <div class="contact-label">
-                    Message Us
-                </div>
-
-
-                <div class="contact-value">
-
-
-                    <a
-                        href="https://wa.me/923000000000"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        WhatsApp
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-
-            <div class="contact-card">
-
+            <a
+                href="tel:+923150674347"
+                class="contact-card"
+            >
 
                 <div class="contact-icon">
+                    ☎
+                </div>
+
+                <strong>
+                    Call Us
+                </strong>
+
+                <span>
+                    +92 315 0674347
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/soch.pk/"
+                class="contact-card"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <div class="contact-icon">
+                    ◎
+                </div>
+
+                <strong>
                     Instagram
-                </div>
+                </strong>
 
+                <span>
+                    @soch.pk
+                </span>
 
-                <div class="contact-label">
-                    Follow SOCH
-                </div>
-
-
-                <div class="contact-value">
-
-
-                    <a
-                        href="https://instagram.com/soch.pk"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        @soch.pk
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-
-            <div class="contact-card">
-
-
-                <div class="contact-icon">
-                    ✦
-                </div>
-
-
-                <div class="contact-label">
-                    Bespoke
-                </div>
-
-
-                <div class="contact-value">
-                    Your Vision
-                </div>
-
-
-            </div>
-
+            </a>
 
         </div>
 
@@ -1418,251 +2534,373 @@ footer{
 </section>
 
 
-</main>
-
-
-<!-- =======================================================
+<!-- =========================================================
      FOOTER
-======================================================= -->
+     ========================================================= -->
 
 <footer>
 
-
     <div class="footer-brand">
-        𝑺𝑶𝑪𝑯 — سوچ
+
+        <span class="english">
+            𝑺𝑶𝑪𝑯
+        </span>
+
+        <span class="urdu">
+            سوچ
+        </span>
+
     </div>
 
 
-    <div class="footer-tagline">
+    <p>
         You Bring the Vision. We Bring It to Life.
+    </p>
+
+
+    <div class="footer-social">
+
+        <a
+            href="https://www.instagram.com/soch.pk/"
+            target="_blank"
+            rel="noopener"
+        >
+            Instagram · @soch.pk
+        </a>
+
     </div>
 
 
-    <div class="footer-copy">
-
-        ©
-        <span id="year"></span>
-        SOCH. All rights reserved.
-
-    </div>
-
+    <p style="margin-top:20px;">
+        © 2026 𝑺𝑶𝑪𝑯 - سوچ. All Rights Reserved.
+    </p>
 
 </footer>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
 <script>
 
+const header = document.getElementById("header");
 
-/* =========================================================
-   YEAR
-========================================================= */
+window.addEventListener("scroll", () => {
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-
-/* =========================================================
-   BESPOKE FORM
-========================================================= */
-
-const visionButton =
-    document.getElementById("visionButton");
-
-const visionForm =
-    document.getElementById("visionForm");
-
-
-visionButton.addEventListener("click", () => {
-
-
-    visionForm.classList.toggle("active");
-
-
-    if(
-        visionForm.classList.contains("active")
-    ){
-
-        visionButton.textContent =
-            "Close Vision Form";
-
-
-        setTimeout(() => {
-
-            visionForm.scrollIntoView({
-
-                behavior:"smooth",
-
-                block:"center"
-
-            });
-
-        },100);
-
-
-    }else{
-
-
-        visionButton.textContent =
-            "Start Your Vision";
-
+    if (window.scrollY > 35) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
     }
 
 });
 
 
 /* =========================================================
-   WHATSAPP BESPOKE SUBMISSION
-========================================================= */
+   PRODUCT DATA
+   ========================================================= */
 
-visionForm.addEventListener(
-    "submit",
-    (event)=>{
+const products = [
+
+    {
+        volume: "VOLUME I",
+        title: "Al-Bayan",
+        subtitle: "The Expression Piece",
+        price: "PKR 19,999",
+        material: "Wood / Lasani",
+        category: "Statement Wall Art",
+        image:
+            "FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
+        description:
+            "A distinctive statement piece crafted to give the wall presence, depth and character. Al-Bayan brings together artistic form and refined craftsmanship in a piece designed to become a focal point within its surroundings."
+    },
+
+    {
+        volume: "VOLUME II",
+        title: "Noor-e-Sukhan",
+        subtitle: "The Words of Light",
+        price: "PKR 14,999",
+        material: "Wood / Lasani",
+        category: "Calligraphic Wall Art",
+        image:
+            "EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
+        description:
+            "A refined calligraphic statement created to bring meaning and elegance into the space. Noor-e-Sukhan combines expressive lettering with a timeless decorative presence."
+    },
+
+    {
+        volume: "VOLUME III",
+        title: "Khatt-e-Wafa",
+        subtitle: "The Calligraphy Statement",
+        price: "PKR 16,999",
+        material: "Wood / Lasani",
+        category: "Arabic Calligraphy",
+        image:
+            "61F3AE47-AC22-4892-BF90-85C53564A037.png",
+        description:
+            "An expressive statement in contemporary Arabic calligraphy, crafted to bring depth, character and timeless elegance to the wall. Khatt-e-Wafa is designed to command attention without overwhelming the space."
+    },
+
+    {
+        volume: "VOLUME IV",
+        title: "Asil",
+        subtitle: "The Equestrian Relief",
+        price: "PKR 24,999",
+        material: "Wood",
+        category: "Carved Wood Relief",
+        image:
+            "E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png",
+        description:
+            "A richly detailed equestrian relief celebrating the strength and beauty of the horse. Asil combines sculptural carving, flowing ornamental detail and warm wood character into a commanding statement piece."
+    }
+
+];
+
+let currentProduct = null;
 
 
-        event.preventDefault();
+/* =========================================================
+   PRODUCT MODAL
+   ========================================================= */
 
+function openProduct(index) {
 
-        const name =
-            document
-                .getElementById("name")
-                .value
-                .trim();
+    const product = products[index];
 
+    currentProduct = product;
 
-        const contact =
-            document
-                .getElementById("contactInfo")
-                .value
-                .trim();
+    document.getElementById("modalVolume").textContent =
+        product.volume;
 
+    document.getElementById("modalTitle").textContent =
+        product.title;
 
-        const vision =
-            document
-                .getElementById("vision")
-                .value
-                .trim();
+    document.getElementById("modalSubtitle").textContent =
+        product.subtitle;
 
+    document.getElementById("modalDescription").textContent =
+        product.description;
 
-        /*
-           Replace this number with the real
-           SOCH WhatsApp number.
-        */
+    document.getElementById("modalMaterial").textContent =
+        product.material;
 
-        const whatsappNumber =
-            "923000000000";
+    document.getElementById("modalCategory").textContent =
+        product.category;
 
+    document.getElementById("modalPrice").textContent =
+        product.price;
 
-        const message =
-            `Hello SOCH,%0A%0A` +
-            `I have a vision I'd like to discuss.%0A%0A` +
-            `Name: ${encodeURIComponent(name)}%0A` +
-            `Contact: ${encodeURIComponent(contact)}%0A%0A` +
-            `Vision:%0A${encodeURIComponent(vision)}`;
+    const image =
+        document.getElementById("modalImage");
 
+    image.src = product.image;
+    image.alt = product.title;
 
-        window.open(
-
-            `https://wa.me/${whatsappNumber}?text=${message}`,
-
-            "_blank"
-
+    document
+        .getElementById("modalImageContainer")
+        .style
+        .setProperty(
+            "--modal-image",
+            `url('${product.image}')`
         );
 
+    document
+        .getElementById("productModal")
+        .classList
+        .add("active");
+
+    document
+        .body
+        .classList
+        .add("modal-open");
+
+}
+
+
+function closeProduct() {
+
+    document
+        .getElementById("productModal")
+        .classList
+        .remove("active");
+
+    document
+        .body
+        .classList
+        .remove("modal-open");
+
+    currentProduct = null;
+
+}
+
+
+function closeProductOutside(event) {
+
+    if (
+        event.target ===
+        document.getElementById("productModal")
+    ) {
+        closeProduct();
     }
-);
+
+}
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "Escape" &&
+        document
+            .getElementById("productModal")
+            .classList
+            .contains("active")
+    ) {
+        closeProduct();
+    }
+
+});
 
 
 /* =========================================================
-   HERO IMAGE FALLBACK
-========================================================= */
+   PRODUCT → WHATSAPP
+   ========================================================= */
 
-const heroBackground =
-    document.querySelector(".hero-background");
+function orderProduct() {
 
+    if (!currentProduct) return;
 
-heroBackground.addEventListener(
-    "error",
-    ()=>{
+    const message =
+`Hello 𝑺𝑶𝑪𝑯 - سوچ,
 
+I'd like to order a piece from your collection.
 
-        heroBackground.style.backgroundImage =
-            "linear-gradient(180deg,#070707,#020202)";
+Product:
+${currentProduct.title}
 
+Volume:
+${currentProduct.volume}
 
-    }
-);
+Material:
+${currentProduct.material}
+
+Category:
+${currentProduct.category}
+
+Price:
+${currentProduct.price}
+
+I'd like to confirm availability and discuss the order.
+
+Thank you.`;
+
+    const url =
+        "https://wa.me/923150674347?text=" +
+        encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+}
 
 
 /* =========================================================
-   IMAGE LOADING POLISH
-========================================================= */
+   CUSTOM VISION → WHATSAPP
+   ========================================================= */
+
+function sendVision(event) {
+
+    event.preventDefault();
+
+    const name =
+        document
+            .getElementById("clientName")
+            .value
+            .trim();
+
+    const product =
+        document
+            .getElementById("productType")
+            .value;
+
+    const material =
+        document
+            .getElementById("material")
+            .value ||
+        "Not specified";
+
+    const size =
+        document
+            .getElementById("size")
+            .value
+            .trim() ||
+        "Not specified";
+
+    const details =
+        document
+            .getElementById("details")
+            .value
+            .trim();
+
+    const message =
+`Hello 𝑺𝑶𝑪𝑯 - سوچ,
+
+I'd like to create something custom.
+
+Name:
+${name}
+
+What I'm imagining:
+${product}
+
+Preferred Material:
+${material}
+
+Approximate Size:
+${size}
+
+My Vision:
+${details}
+
+I'd like to discuss the design and possibilities.
+
+Thank you.`;
+
+    const url =
+        "https://wa.me/923150674347?text=" +
+        encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+}
+
+
+/* =========================================================
+   MOBILE NAV
+   ========================================================= */
 
 document
-    .querySelectorAll("img")
-    .forEach(image => {
+    .querySelectorAll("header a")
+    .forEach(link => {
 
+        link.addEventListener("click", () => {
 
-        image.addEventListener(
-            "error",
-            ()=>{
+            if (
+                window.innerWidth <= 550 &&
+                link.getAttribute("href") === "#home"
+            ) {
 
-
-                image.style.background =
-                    "linear-gradient(135deg,#111,#050505)";
-
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
             }
-        );
 
+        });
 
     });
 
-
-/* =========================================================
-   NAVIGATION FADE
-========================================================= */
-
-const nav =
-    document.querySelector(".site-nav");
-
-
-window.addEventListener(
-    "scroll",
-    ()=>{
-
-
-        if(window.scrollY > 30){
-
-
-            nav.style.background =
-                "rgba(5,5,5,.82)";
-
-
-            nav.style.backdropFilter =
-                "blur(16px)";
-
-
-        }else{
-
-
-            nav.style.background =
-                "linear-gradient(to bottom,rgba(0,0,0,.78),rgba(0,0,0,0))";
-
-
-            nav.style.backdropFilter =
-                "none";
-
-
-        }
-
-
-    },
-    {passive:true}
-);
-
-
 </script>
-
 
 </body>
 </html>
