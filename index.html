@@ -65,6 +65,7 @@ a{
     text-decoration:none;
 }
 
+
 /* =========================================================
    NAVIGATION
 ========================================================= */
@@ -136,6 +137,7 @@ a{
     top:1px;
 }
 
+
 /* =========================================================
    HERO
 ========================================================= */
@@ -145,21 +147,17 @@ a{
     min-height:100svh;
     width:100%;
     overflow:hidden;
+    background:#050505;
 
     display:flex;
     justify-content:center;
     align-items:flex-end;
-
-    background:#050505;
 }
 
-/*
-   IMPORTANT:
-   Replace ONLY this filename if your actual hero background
-   has a different filename.
 
-   Keep IMG_7695.jpeg exactly as the logo file.
-*/
+/* =========================================================
+   HERO BACKGROUND
+========================================================= */
 
 .hero-background{
     position:absolute;
@@ -168,21 +166,22 @@ a{
     background-image:
         linear-gradient(
             to bottom,
-            rgba(0,0,0,.46) 0%,
-            rgba(0,0,0,.12) 35%,
-            rgba(0,0,0,.28) 65%,
-            rgba(0,0,0,.92) 100%
+            rgba(0,0,0,.35) 0%,
+            rgba(0,0,0,.12) 38%,
+            rgba(0,0,0,.45) 72%,
+            rgba(0,0,0,.94) 100%
         ),
         url("hero.jpg");
 
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-
-    transform:scale(1.015);
 }
 
-/* subtle cinematic vignette */
+
+/* =========================================================
+   CINEMATIC VIGNETTE
+========================================================= */
 
 .hero::after{
     content:"";
@@ -200,77 +199,70 @@ a{
         );
 }
 
+
 /* =========================================================
-   THE ACTUAL LOGO
+   LOGO GLOW
 ========================================================= */
-
-/*
-   THIS is the important fix.
-
-   IMG_7695.jpeg contains a black textured background.
-   Instead of displaying it normally, we blend the image
-   into the hero.
-
-   Screen makes black effectively disappear while retaining
-   the brighter gold artwork.
-*/
-
-.hero-logo{
-    position:absolute;
-    z-index:5;
-
-    width:min(560px,72vw);
-
-    left:50%;
-    top:38%;
-
-    transform:translate(-50%,-50%);
-
-    mix-blend-mode:screen;
-
-    filter:
-        contrast(1.12)
-        brightness(1.08)
-        saturate(1.08);
-
-    opacity:.98;
-
-    pointer-events:none;
-
-    /*
-      Prevent the JPEG rectangle from behaving visually
-      like a separate card.
-    */
-    background:transparent;
-}
-
-/*
-   A very subtle glow behind the logo.
-   This helps the gold feel physically present in the scene.
-*/
 
 .hero-logo-glow{
     position:absolute;
-    z-index:4;
+    z-index:2;
 
-    width:440px;
-    height:260px;
+    width:430px;
+    height:250px;
 
     left:50%;
-    top:38%;
+    top:31%;
 
     transform:translate(-50%,-50%);
 
     background:radial-gradient(
         ellipse,
-        rgba(205,161,83,.13) 0%,
-        rgba(205,161,83,.035) 38%,
+        rgba(201,161,90,.10) 0%,
+        rgba(201,161,90,.025) 45%,
         transparent 72%
     );
 
     filter:blur(25px);
+
     pointer-events:none;
 }
+
+
+/* =========================================================
+   ACTUAL SOCH LOGO
+========================================================= */
+
+.hero-logo{
+    position:absolute;
+    z-index:3;
+
+    width:500px;
+    max-width:72vw;
+
+    left:50%;
+    top:31%;
+
+    transform:translate(-50%,-50%);
+
+    /*
+       The JPEG contains a black background.
+       Screen blending removes the black visually
+       while retaining the brighter gold artwork.
+    */
+
+    mix-blend-mode:screen;
+
+    opacity:.96;
+
+    filter:
+        brightness(1.02)
+        contrast(1.08)
+        saturate(1.05);
+
+    pointer-events:none;
+}
+
 
 /* =========================================================
    HERO CONTENT
@@ -291,60 +283,78 @@ a{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:14px;
+
+    gap:13px;
 
     margin-bottom:28px;
 
     font-size:9px;
-    letter-spacing:.34em;
+    letter-spacing:.32em;
     text-transform:uppercase;
 
-    color:rgba(238,233,223,.66);
+    color:rgba(238,233,223,.62);
 }
 
 .eyebrow::before,
 .eyebrow::after{
     content:"";
+
     width:42px;
     height:1px;
-    background:rgba(201,161,90,.65);
+
+    background:rgba(201,161,90,.62);
 }
+
 
 .hero-title{
     font-family:"Cormorant Garamond",serif;
 
-    font-size:clamp(55px,8vw,108px);
+    font-size:clamp(55px,8vw,104px);
 
-    line-height:.83;
+    line-height:.88;
+
     font-weight:400;
+
     letter-spacing:-.035em;
 
-    text-wrap:balance;
+    margin:0 auto;
+
+    max-width:1050px;
 }
 
 .hero-title .gold{
-    color:var(--gold-light);
+    color:#dfba6b;
     font-style:italic;
 }
 
-.hero-description{
-    max-width:720px;
 
-    margin:42px auto 0;
+.hero-description{
+    max-width:680px;
+
+    margin:40px auto 0;
 
     font-size:15px;
-    line-height:1.9;
 
-    color:rgba(238,233,223,.62);
+    line-height:1.85;
+
+    color:rgba(238,233,223,.60);
 }
+
 
 .hero-actions{
-    margin-top:48px;
+    margin-top:46px;
 
     display:flex;
+
     justify-content:center;
+
     gap:16px;
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .btn{
     min-width:250px;
@@ -392,6 +402,7 @@ a{
     border-color:rgba(238,233,223,.65);
 }
 
+
 /* =========================================================
    SECTION SYSTEM
 ========================================================= */
@@ -436,6 +447,7 @@ a{
     font-size:14px;
     line-height:1.8;
 }
+
 
 /* =========================================================
    COLLECTION
@@ -511,6 +523,7 @@ a{
     text-transform:uppercase;
     color:rgba(238,233,223,.68);
 }
+
 
 /* =========================================================
    BESPOKE
@@ -613,6 +626,7 @@ a{
     border-color:rgba(201,161,90,.65);
 }
 
+
 /* =========================================================
    CONTACT
 ========================================================= */
@@ -661,6 +675,7 @@ a{
     color:var(--gold-light);
 }
 
+
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -695,6 +710,7 @@ footer{
     font-size:9px;
     color:rgba(238,233,223,.3);
 }
+
 
 /* =========================================================
    MOBILE
@@ -732,61 +748,104 @@ footer{
         font-size:20px;
     }
 
+
+    /* =====================================================
+       CORRECTED MOBILE HERO
+    ===================================================== */
+
     .hero{
         min-height:100svh;
     }
 
-    /*
-       Logo becomes larger on mobile but remains centered.
-    */
 
     .hero-logo{
-        width:92vw;
-        top:33%;
+        width:500px;
+        max-width:76vw;
+
+        top:29%;
+
+        opacity:.95;
     }
+
 
     .hero-logo-glow{
-        width:85vw;
-        top:33%;
+        width:82vw;
+        height:230px;
+
+        top:29%;
     }
 
+
     .hero-content{
-        width:calc(100% - 32px);
-        padding-bottom:55px;
+        width:calc(100% - 34px);
+
+        padding-bottom:58px;
     }
+
 
     .eyebrow{
         font-size:7px;
+
         letter-spacing:.27em;
+
         gap:9px;
+
+        margin-bottom:27px;
     }
+
 
     .eyebrow::before,
     .eyebrow::after{
         width:27px;
     }
 
+
+    /*
+       Exact 3-line structure:
+       You Bring the
+       Vision.
+       We Bring It to Life.
+    */
+
     .hero-title{
-        font-size:clamp(51px,14vw,78px);
-        line-height:.86;
+        font-size:clamp(51px,13.5vw,78px);
+
+        line-height:.88;
+
+        letter-spacing:-.035em;
+
+        max-width:680px;
     }
 
+
     .hero-description{
+        max-width:610px;
+
+        margin-top:31px;
+
         font-size:13px;
+
         line-height:1.75;
-        margin-top:28px;
     }
+
 
     .hero-actions{
         flex-direction:column;
-        margin-top:34px;
+
+        gap:12px;
+
+        margin-top:35px;
     }
+
 
     .btn{
         width:100%;
+
         min-width:0;
+
         height:58px;
     }
+
 
     .section{
         padding:100px 18px;
@@ -811,6 +870,7 @@ footer{
 
 }
 
+
 /* =========================================================
    REDUCE MOTION
 ========================================================= */
@@ -830,7 +890,9 @@ footer{
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =======================================================
      NAV
@@ -839,18 +901,45 @@ footer{
 <header class="site-nav">
 
     <nav class="nav-left">
-        <a class="nav-link" href="#collection">Shop</a>
-        <a class="nav-link" href="#bespoke">Bespoke</a>
+
+        <a class="nav-link" href="#collection">
+            Shop
+        </a>
+
+        <a class="nav-link" href="#bespoke">
+            Bespoke
+        </a>
+
     </nav>
 
-    <a class="brand" href="#top" aria-label="SOCH home">
-        <span class="brand-soch">SOCH</span>
-        <span class="brand-urdu">سوچ</span>
+
+    <a
+        class="brand"
+        href="#top"
+        aria-label="SOCH home"
+    >
+
+        <span class="brand-soch">
+            SOCH
+        </span>
+
+        <span class="brand-urdu">
+            سوچ
+        </span>
+
     </a>
 
+
     <nav class="nav-right">
-        <a class="nav-link" href="#bespoke">Your Vision</a>
-        <a class="nav-link" href="#contact">Contact</a>
+
+        <a class="nav-link" href="#bespoke">
+            Your Vision
+        </a>
+
+        <a class="nav-link" href="#contact">
+            Contact
+        </a>
+
     </nav>
 
 </header>
@@ -858,34 +947,23 @@ footer{
 
 <main id="top">
 
+
 <!-- =======================================================
      HERO
 ======================================================= -->
 
 <section class="hero">
 
-    <!--
-        YOUR HERO BACKGROUND
-
-        If your existing CNC/workshop hero image has a
-        different filename, change ONLY "hero.jpg".
-    -->
 
     <div class="hero-background"></div>
 
 
-    <!--
-        GOLD LOGO
-
-        This is IMG_7695.jpeg.
-
-        DO NOT change this to a normal card/image container.
-        mix-blend-mode:screen is what removes the visible
-        black JPEG background and allows the logo to sit
-        directly over the hero.
-    -->
+    <!-- ===================================================
+         CORRECTED SOCH LOGO
+    ==================================================== -->
 
     <div class="hero-logo-glow"></div>
+
 
     <img
         class="hero-logo"
@@ -894,30 +972,52 @@ footer{
     >
 
 
+    <!-- ===================================================
+         HERO CONTENT
+    ==================================================== -->
+
     <div class="hero-content">
 
+
         <div class="eyebrow">
+
             Premium Décor
+
             <span>·</span>
+
             Bespoke Craftsmanship
+
         </div>
 
 
+        <!-- =================================================
+             EXACT CORRECTED 3-LINE SLOGAN
+        ================================================== -->
+
         <h1 class="hero-title">
+
             You Bring the<br>
-            <span class="gold">Vision.</span><br>
+
+            <span class="gold">
+                Vision.
+            </span><br>
+
             We Bring It to Life.
+
         </h1>
 
 
         <p class="hero-description">
+
             Distinctive pieces, crafted with intention.
             From our collection to creations made exclusively
             around your vision.
+
         </p>
 
 
         <div class="hero-actions">
+
 
             <a
                 href="#collection"
@@ -926,12 +1026,14 @@ footer{
                 Explore Collection
             </a>
 
+
             <a
                 href="#bespoke"
                 class="btn btn-secondary"
             >
                 Create Your Vision
             </a>
+
 
         </div>
 
@@ -944,23 +1046,32 @@ footer{
      COLLECTION
 ======================================================= -->
 
-<section class="section" id="collection">
+<section
+    class="section"
+    id="collection"
+>
 
     <div class="section-inner">
 
+
         <div class="section-heading">
+
 
             <div class="section-kicker">
                 The Collection
             </div>
 
+
             <h2 class="section-title">
                 Made to be noticed.
             </h2>
 
+
             <p class="section-description">
+
                 Curated statement pieces designed for interiors
                 that deserve something different.
+
             </p>
 
         </div>
@@ -968,9 +1079,11 @@ footer{
 
         <div class="collection-grid">
 
+
             <!-- PRODUCT 01 -->
 
             <article class="collection-card">
+
 
                 <img
                     src="product-1.jpg"
@@ -978,19 +1091,24 @@ footer{
                     loading="lazy"
                 >
 
+
                 <div class="collection-overlay">
+
 
                     <div class="collection-number">
                         01
                     </div>
 
+
                     <h3 class="collection-name">
                         Signature Piece
                     </h3>
 
+
                     <div class="collection-link">
                         Discover Piece →
                     </div>
+
 
                 </div>
 
@@ -1001,29 +1119,36 @@ footer{
 
             <article class="collection-card">
 
+
                 <img
                     src="product-2.jpg"
                     alt="SOCH Collection Piece"
                     loading="lazy"
                 >
 
+
                 <div class="collection-overlay">
+
 
                     <div class="collection-number">
                         02
                     </div>
 
+
                     <h3 class="collection-name">
                         Sculptural Form
                     </h3>
+
 
                     <div class="collection-link">
                         Discover Piece →
                     </div>
 
+
                 </div>
 
             </article>
+
 
         </div>
 
@@ -1036,25 +1161,41 @@ footer{
      BESPOKE
 ======================================================= -->
 
-<section class="section bespoke" id="bespoke">
+<section
+    class="section bespoke"
+    id="bespoke"
+>
+
 
     <div class="section-inner">
 
+
         <div class="bespoke-box">
+
 
             <div class="section-kicker">
                 Bespoke
             </div>
 
+
             <h2 class="bespoke-title">
-                Have a <span>Vision?</span>
+
+                Have a
+                <span>
+                    Vision?
+                </span>
+
             </h2>
 
+
             <p class="bespoke-text">
+
                 Tell us what you're imagining.
                 Size, material, finish, mood or simply an idea.
                 We'll turn the thought into something tangible.
+
             </p>
+
 
             <button
                 class="btn btn-primary"
@@ -1070,11 +1211,14 @@ footer{
                 id="visionForm"
             >
 
+
                 <div class="field">
+
 
                     <label for="name">
                         Your Name
                     </label>
+
 
                     <input
                         id="name"
@@ -1083,14 +1227,17 @@ footer{
                         required
                     >
 
+
                 </div>
 
 
                 <div class="field">
 
+
                     <label for="contactInfo">
                         WhatsApp / Contact
                     </label>
+
 
                     <input
                         id="contactInfo"
@@ -1099,14 +1246,17 @@ footer{
                         required
                     >
 
+
                 </div>
 
 
                 <div class="field">
 
+
                     <label for="vision">
                         Tell Us About Your Vision
                     </label>
+
 
                     <textarea
                         id="vision"
@@ -1114,6 +1264,7 @@ footer{
                         placeholder="Describe the piece, dimensions, materials, colours or anything else you have in mind..."
                         required
                     ></textarea>
+
 
                 </div>
 
@@ -1125,7 +1276,9 @@ footer{
                     Send Vision
                 </button>
 
+
             </form>
+
 
         </div>
 
@@ -1138,44 +1291,59 @@ footer{
      CONTACT
 ======================================================= -->
 
-<section class="section contact" id="contact">
+<section
+    class="section contact"
+    id="contact"
+>
+
 
     <div class="section-inner">
 
+
         <div class="section-heading">
+
 
             <div class="section-kicker">
                 Contact
             </div>
 
+
             <h2 class="section-title">
                 Let's create something.
             </h2>
 
+
             <p class="section-description">
+
                 Whether you're looking for a piece from our
                 collection or have something entirely your own
                 in mind, we'd love to hear from you.
+
             </p>
+
 
         </div>
 
 
         <div class="contact-grid">
 
+
             <div class="contact-card">
+
 
                 <div class="contact-icon">
                     WhatsApp
                 </div>
 
+
                 <div class="contact-label">
                     Message Us
                 </div>
 
-                <!-- Replace number with your actual SOCH WhatsApp number -->
 
                 <div class="contact-value">
+
+
                     <a
                         href="https://wa.me/923000000000"
                         target="_blank"
@@ -1183,22 +1351,29 @@ footer{
                     >
                         WhatsApp
                     </a>
+
+
                 </div>
+
 
             </div>
 
 
             <div class="contact-card">
 
+
                 <div class="contact-icon">
                     Instagram
                 </div>
+
 
                 <div class="contact-label">
                     Follow SOCH
                 </div>
 
+
                 <div class="contact-value">
+
 
                     <a
                         href="https://instagram.com/soch.pk"
@@ -1208,32 +1383,40 @@ footer{
                         @soch.pk
                     </a>
 
+
                 </div>
+
 
             </div>
 
 
             <div class="contact-card">
 
+
                 <div class="contact-icon">
                     ✦
                 </div>
+
 
                 <div class="contact-label">
                     Bespoke
                 </div>
 
+
                 <div class="contact-value">
                     Your Vision
                 </div>
 
+
             </div>
+
 
         </div>
 
     </div>
 
 </section>
+
 
 </main>
 
@@ -1244,22 +1427,31 @@ footer{
 
 <footer>
 
+
     <div class="footer-brand">
         𝑺𝑶𝑪𝑯 — سوچ
     </div>
+
 
     <div class="footer-tagline">
         You Bring the Vision. We Bring It to Life.
     </div>
 
+
     <div class="footer-copy">
-        © <span id="year"></span> SOCH. All rights reserved.
+
+        ©
+        <span id="year"></span>
+        SOCH. All rights reserved.
+
     </div>
+
 
 </footer>
 
 
 <script>
+
 
 /* =========================================================
    YEAR
@@ -1282,23 +1474,33 @@ const visionForm =
 
 visionButton.addEventListener("click", () => {
 
+
     visionForm.classList.toggle("active");
 
-    if(visionForm.classList.contains("active")){
+
+    if(
+        visionForm.classList.contains("active")
+    ){
 
         visionButton.textContent =
             "Close Vision Form";
 
+
         setTimeout(() => {
 
             visionForm.scrollIntoView({
+
                 behavior:"smooth",
+
                 block:"center"
+
             });
 
         },100);
 
+
     }else{
+
 
         visionButton.textContent =
             "Start Your Vision";
@@ -1312,44 +1514,62 @@ visionButton.addEventListener("click", () => {
    WHATSAPP BESPOKE SUBMISSION
 ========================================================= */
 
-visionForm.addEventListener("submit",(event)=>{
-
-    event.preventDefault();
-
-    const name =
-        document.getElementById("name").value.trim();
-
-    const contact =
-        document.getElementById("contactInfo").value.trim();
-
-    const vision =
-        document.getElementById("vision").value.trim();
+visionForm.addEventListener(
+    "submit",
+    (event)=>{
 
 
-    /*
-       IMPORTANT:
-       Replace this number with the real SOCH WhatsApp
-       number before publishing.
-    */
-
-    const whatsappNumber =
-        "923000000000";
+        event.preventDefault();
 
 
-    const message =
-        `Hello SOCH,%0A%0A` +
-        `I have a vision I'd like to discuss.%0A%0A` +
-        `Name: ${encodeURIComponent(name)}%0A` +
-        `Contact: ${encodeURIComponent(contact)}%0A%0A` +
-        `Vision:%0A${encodeURIComponent(vision)}`;
+        const name =
+            document
+                .getElementById("name")
+                .value
+                .trim();
 
 
-    window.open(
-        `https://wa.me/${whatsappNumber}?text=${message}`,
-        "_blank"
-    );
+        const contact =
+            document
+                .getElementById("contactInfo")
+                .value
+                .trim();
 
-});
+
+        const vision =
+            document
+                .getElementById("vision")
+                .value
+                .trim();
+
+
+        /*
+           Replace this number with the real
+           SOCH WhatsApp number.
+        */
+
+        const whatsappNumber =
+            "923000000000";
+
+
+        const message =
+            `Hello SOCH,%0A%0A` +
+            `I have a vision I'd like to discuss.%0A%0A` +
+            `Name: ${encodeURIComponent(name)}%0A` +
+            `Contact: ${encodeURIComponent(contact)}%0A%0A` +
+            `Vision:%0A${encodeURIComponent(vision)}`;
+
+
+        window.open(
+
+            `https://wa.me/${whatsappNumber}?text=${message}`,
+
+            "_blank"
+
+        );
+
+    }
+);
 
 
 /* =========================================================
@@ -1360,33 +1580,42 @@ const heroBackground =
     document.querySelector(".hero-background");
 
 
-heroBackground.addEventListener("error",()=>{
+heroBackground.addEventListener(
+    "error",
+    ()=>{
 
-    /*
-       If hero.jpg is missing, keep the page elegant instead
-       of displaying a broken image.
-    */
 
-    heroBackground.style.backgroundImage =
-        "linear-gradient(180deg,#070707,#020202)";
+        heroBackground.style.backgroundImage =
+            "linear-gradient(180deg,#070707,#020202)";
 
-});
+
+    }
+);
 
 
 /* =========================================================
    IMAGE LOADING POLISH
 ========================================================= */
 
-document.querySelectorAll("img").forEach(image => {
+document
+    .querySelectorAll("img")
+    .forEach(image => {
 
-    image.addEventListener("error",()=>{
 
-        image.style.background =
-            "linear-gradient(135deg,#111,#050505)";
+        image.addEventListener(
+            "error",
+            ()=>{
+
+
+                image.style.background =
+                    "linear-gradient(135deg,#111,#050505)";
+
+
+            }
+        );
+
 
     });
-
-});
 
 
 /* =========================================================
@@ -1397,30 +1626,43 @@ const nav =
     document.querySelector(".site-nav");
 
 
-window.addEventListener("scroll",()=>{
+window.addEventListener(
+    "scroll",
+    ()=>{
 
-    if(window.scrollY > 30){
 
-        nav.style.background =
-            "rgba(5,5,5,.82)";
+        if(window.scrollY > 30){
 
-        nav.style.backdropFilter =
-            "blur(16px)";
 
-    }else{
+            nav.style.background =
+                "rgba(5,5,5,.82)";
 
-        nav.style.background =
-            "linear-gradient(to bottom,rgba(0,0,0,.78),rgba(0,0,0,0))";
 
-        nav.style.backdropFilter =
-            "none";
+            nav.style.backdropFilter =
+                "blur(16px)";
 
-    }
 
-},{passive:true});
+        }else{
+
+
+            nav.style.background =
+                "linear-gradient(to bottom,rgba(0,0,0,.78),rgba(0,0,0,0))";
+
+
+            nav.style.backdropFilter =
+                "none";
+
+
+        }
+
+
+    },
+    {passive:true}
+);
 
 
 </script>
+
 
 </body>
 </html>
