@@ -1,469 +1,3482 @@
-from pathlib import Path
-
-html = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.</title>
-<meta name="description" content="SOCH — Bespoke décor and craftsmanship. You bring the vision. We bring it to life.">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:#0a0a09;color:#eeeae1;font-family:Inter,sans-serif;font-weight:300;line-height:1.6}
-body.modal-open{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button,input,select,textarea{font-family:inherit}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-header{position:absolute;top:0;left:0;width:100%;padding:24px 30px;display:flex;justify-content:space-between;align-items:center;z-index:50}
-.logo{display:flex;align-items:baseline;gap:7px;color:#eeeae1}
-.logo-main{font-family:'Cormorant Garamond',serif;font-size:31px;font-style:italic;font-weight:600;letter-spacing:-1px}
-.logo-urdu{font-family:serif;font-size:29px}
-nav{display:flex;gap:25px;font-size:9px;text-transform:uppercase;letter-spacing:2px}
-nav a{opacity:.75;transition:.3s ease}
-nav a:hover{opacity:1}
-
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:125px 25px 80px;position:relative;overflow:hidden;background:linear-gradient(rgba(5,5,4,.43),rgba(5,5,4,.84)),url('37A2CC13-446E-4AAA-A0A4-DFF3AAFB59A9.png') center/cover no-repeat}
-.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,transparent 18%,rgba(0,0,0,.35) 100%);pointer-events:none}
-.hero-content{max-width:900px;position:relative;z-index:2}
-.brand-mark{display:flex;justify-content:center;align-items:baseline;gap:9px;margin-bottom:30px}
-.brand-mark .english{font-family:'Cormorant Garamond',serif;font-size:25px;font-style:italic;letter-spacing:1px}
-.brand-mark .urdu{font-family:serif;font-size:23px}
-.eyebrow{text-transform:uppercase;letter-spacing:4px;font-size:9px;color:#b5ad9c;margin-bottom:27px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,12vw,105px);font-weight:400;line-height:.9;letter-spacing:-1.5px;margin-bottom:32px}
-.hero h1 span{color:#b8ad98;font-style:italic}
-.hero p{max-width:580px;margin:0 auto 42px;color:#b0aba1;font-size:14px;line-height:1.9}
-.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.button{padding:15px 25px;border:1px solid rgba(238,234,225,.45);font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:.3s ease}
-.button.primary{background:#eeeae1;color:#0a0a09;border-color:#eeeae1}
-.button:hover{transform:translateY(-3px);border-color:#eeeae1}
-
-.section{padding:115px 25px;max-width:1200px;margin:auto}
-.section-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#918876;margin-bottom:20px}
-.section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,8vw,70px);font-weight:400;line-height:.95;margin-bottom:25px}
-.section-intro{color:#aaa59b;max-width:600px;margin-bottom:50px;font-size:14px;line-height:1.8}
-
-/* COLLECTION */
-.products{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.product{min-height:520px;padding:0;cursor:pointer;position:relative;overflow:hidden;background:#11110f;border:1px solid #292824;transition:transform .45s ease,border-color .45s ease}
-.product:hover{transform:translateY(-6px);border-color:#777164}
-.product-image{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.product:hover .product-image{transform:scale(1.045)}
-.product-one-image{background-image:linear-gradient(to bottom,rgba(0,0,0,.02) 35%,rgba(0,0,0,.82) 100%),url('FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png')}
-.product-two-image{background-image:linear-gradient(to bottom,rgba(0,0,0,.02) 35%,rgba(0,0,0,.82) 100%),url('EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png')}
-.product:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.18) 48%,transparent 75%);pointer-events:none}
-.product-info{position:absolute;left:28px;right:28px;bottom:26px;z-index:3}
-.product-number{color:#aaa18f;font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-.product h3{font-family:'Cormorant Garamond',serif;font-size:36px;line-height:1;font-weight:500;margin-bottom:7px}
-.product p{color:#b7b2a8;font-size:9px;letter-spacing:1.8px;text-transform:uppercase}
-.view-product{display:inline-block;margin-top:18px;padding-bottom:5px;border-bottom:1px solid rgba(238,234,225,.45);font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:#eeeae1}
-
-/* PRODUCT MODAL */
-.product-modal{position:fixed;inset:0;z-index:200;background:rgba(5,5,4,.97);display:flex;align-items:center;justify-content:center;padding:25px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,visibility .35s ease;overflow-y:auto}
-.product-modal.active{opacity:1;visibility:visible;pointer-events:auto}
-.product-modal-inner{width:min(1100px,100%);max-height:92vh;overflow-y:auto;display:grid;grid-template-columns:1.05fr .95fr;background:#11110f;border:1px solid #302f2b;position:relative;transform:translateY(25px);transition:transform .45s ease}
-.product-modal.active .product-modal-inner{transform:translateY(0)}
-.product-modal-image{min-height:650px;background-position:center;background-size:cover;background-repeat:no-repeat}
-.product-modal-content{padding:65px 50px;display:flex;flex-direction:column;justify-content:center}
-.modal-label{color:#918876;font-size:8px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
-.product-modal-content h2{font-family:'Cormorant Garamond',serif;font-size:clamp(45px,6vw,68px);font-weight:400;line-height:.92;margin-bottom:25px}
-.modal-description{color:#aaa59b;font-size:13px;line-height:1.9;margin-bottom:30px}
-.modal-specs{border-top:1px solid #302f2b;border-bottom:1px solid #302f2b;padding:18px 0;margin-bottom:30px}
-.modal-spec{display:flex;justify-content:space-between;gap:20px;padding:7px 0;font-size:10px}
-.modal-spec span:first-child{color:#77736b;text-transform:uppercase;letter-spacing:1.5px}
-.modal-spec span:last-child{color:#d6d1c7;text-align:right}
-.modal-price{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:25px}
-.modal-order{display:block;width:100%;padding:17px;text-align:center;background:#eeeae1;color:#0a0a09;font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:.3s ease}
-.modal-order:hover{transform:translateY(-3px)}
-.modal-custom{display:block;text-align:center;margin-top:15px;color:#aaa59b;font-size:9px;letter-spacing:1.5px;text-transform:uppercase}
-.modal-close{position:absolute;top:18px;right:20px;z-index:5;width:38px;height:38px;border:1px solid #555149;background:rgba(10,10,9,.75);color:#eeeae1;cursor:pointer;font-size:18px;line-height:1;transition:.3s ease}
-.modal-close:hover{background:#eeeae1;color:#0a0a09}
-
-.bespoke{background:#eeeae1;color:#10100e;max-width:none;padding:115px 25px}
-.bespoke-inner{max-width:1200px;margin:auto}
-.bespoke .section-label{color:#70695c}
-.bespoke h2{max-width:800px}
-.bespoke p{max-width:620px;color:#5d594f;margin-bottom:38px;line-height:1.8}
-.bespoke-actions{display:flex;align-items:center;gap:25px;flex-wrap:wrap}
-.dark-button{display:inline-block;padding:15px 25px;background:#10100e;color:#eeeae1;font-size:9px;text-transform:uppercase;letter-spacing:2px;transition:.3s ease}
-.dark-button:hover{transform:translateY(-3px)}
-.text-link{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#403d37}
-
-.builder-section{background:#0d0d0c;padding:120px 25px}
-.builder-container{max-width:1100px;margin:auto}
-.builder-heading{max-width:700px;margin-bottom:55px}
-.builder-heading h2{font-family:'Cormorant Garamond',serif;font-size:clamp(45px,8vw,72px);font-weight:400;line-height:.95;margin-bottom:22px}
-.builder-heading p{color:#99958d;font-size:14px;line-height:1.8}
-.builder{display:grid;grid-template-columns:1fr 1fr;gap:45px;padding:40px;border:1px solid #292824;background:#11110f}
-.builder-form{display:flex;flex-direction:column;gap:23px}
-.form-group{display:flex;flex-direction:column;gap:8px}
-.form-group label{font-size:9px;text-transform:uppercase;letter-spacing:2px;color:#918876}
-.form-group input,.form-group select,.form-group textarea{width:100%;background:#0a0a09;border:1px solid #34332e;color:#eeeae1;padding:14px 15px;font-size:12px;outline:none;transition:.3s ease}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#918876}
-.form-group textarea{min-height:130px;resize:vertical}
-.form-group select{appearance:none}
-.builder-preview{min-height:100%;border:1px solid #292824;background:radial-gradient(circle at center,#24231f,#0b0b0a 72%);display:flex;flex-direction:column;justify-content:center;padding:45px;text-align:center;position:relative;overflow:hidden}
-.builder-preview:before{content:"سوچ";position:absolute;font-family:serif;font-size:210px;color:rgba(238,234,225,.025);transform:rotate(-10deg)}
-.preview-label,.preview-title,.preview-text{position:relative;z-index:2}
-.preview-label{color:#918876;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:22px}
-.preview-title{font-family:'Cormorant Garamond',serif;font-size:43px;line-height:1;margin-bottom:20px}
-.preview-text{color:#aaa59b;font-size:12px;line-height:1.8}
-.builder-submit{width:100%;border:none;cursor:pointer;padding:17px;background:#eeeae1;color:#0a0a09;text-transform:uppercase;letter-spacing:2px;font-size:9px;transition:.3s ease}
-.builder-submit:hover{transform:translateY(-3px)}
-
-.process-section{max-width:1200px;margin:auto;padding:115px 25px}
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#302f2b;margin-top:55px}
-.process-item{background:#0a0a09;padding:35px 25px;min-height:230px}
-.number{color:#918876;font-size:10px;letter-spacing:2px}
-.process h3{font-family:'Cormorant Garamond',serif;font-size:29px;font-weight:400;margin:18px 0 8px}
-.process p{color:#969188;font-size:11px;line-height:1.7}
-
-.story{text-align:center}
-.story-content{max-width:720px;margin:auto}
-.story h2{margin-bottom:30px}
-.story p{color:#aaa59b;margin-bottom:17px;font-size:14px;line-height:1.9}
-
-.contact{max-width:none;text-align:center;position:relative;overflow:hidden;background:linear-gradient(rgba(17,17,15,.94),rgba(10,10,9,.98))}
-.contact:before{content:"𝑺𝑶𝑪𝑯";position:absolute;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:220px;color:rgba(238,234,225,.025);left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
-.contact-inner{max-width:850px;margin:auto;position:relative;z-index:2}
-.contact h2{font-size:clamp(50px,9vw,78px)}
-.contact .section-intro{margin-left:auto;margin-right:auto}
-.contact-methods{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:35px}
-.contact-card{min-width:210px;padding:25px 22px;border:1px solid #393833;background:rgba(18,18,16,.75);transition:.3s ease}
-.contact-card:hover{transform:translateY(-4px);border-color:#918876}
-.contact-icon{width:45px;height:45px;margin:0 auto 15px;border:1px solid #777164;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:18px}
-.contact-card strong{display:block;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:500}
-.contact-card span{display:block;color:#8d8980;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
-
-footer{padding:55px 24px;border-top:1px solid #272622;text-align:center}
-.footer-brand{display:flex;justify-content:center;align-items:baseline;gap:7px;margin-bottom:12px}
-.footer-brand .english{font-family:'Cormorant Garamond',serif;font-size:32px;font-style:italic}
-.footer-brand .urdu{font-family:serif;font-size:29px}
-.footer-social{margin-top:20px}
-.footer-social a{color:#aaa59b;font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:.3s ease}
-.footer-social a:hover{color:#eeeae1}
-footer p{color:#716e67;font-size:9px;letter-spacing:1px}
-
-@media(max-width:850px){
-header{padding:20px}
-nav{gap:14px}
-.builder{grid-template-columns:1fr;padding:25px}
-.builder-preview{min-height:300px}
-.process{grid-template-columns:repeat(2,1fr)}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-@media(max-width:700px){
-.products{grid-template-columns:1fr}
-.product{min-height:460px}
-.product-modal{padding:10px;align-items:flex-start}
-.product-modal-inner{grid-template-columns:1fr;max-height:96vh}
-.product-modal-image{min-height:430px}
-.product-modal-content{padding:40px 25px 35px}
-.product-modal-content h2{font-size:48px}
+
+html {
+    scroll-behavior: smooth;
 }
-@media(max-width:550px){
-header{padding:18px 17px}
-.logo-main{font-size:27px}
-.logo-urdu{font-size:26px}
-nav{gap:11px;font-size:7px}
-nav a:nth-child(n+3){display:none}
-.hero{padding:115px 20px 70px}
-.brand-mark{gap:7px}
-.brand-mark .english{font-size:22px}
-.brand-mark .urdu{font-size:21px}
-.eyebrow{font-size:7px;letter-spacing:2.5px}
-.hero h1{font-size:53px;line-height:.92}
-.hero p{font-size:13px}
-.button{width:100%;max-width:280px}
-.section,.process-section{padding:90px 20px}
-.section h2{font-size:48px}
-.bespoke,.builder-section{padding:90px 20px}
-.bespoke-actions{flex-direction:column;align-items:flex-start}
-.dark-button{width:100%;text-align:center}
-.builder{padding:18px}
-.builder-preview{padding:30px 20px}
-.preview-title{font-size:36px}
-.process{grid-template-columns:1fr}
-.process-item{min-height:auto}
-.contact-methods{flex-direction:column;align-items:stretch}
-.contact-card{min-width:0}
-.contact:before{font-size:110px}
+
+body {
+    background: #0a0a09;
+    color: #eeeae1;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
 }
+
+body.modal-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 50;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    color: #eeeae1;
+}
+
+.logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 31px;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.logo-urdu {
+    font-family: serif;
+    font-size: 29px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav a {
+    opacity: .75;
+    transition: .3s ease;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 125px 25px 80px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(5,5,4,.43),
+            rgba(5,5,4,.84)
+        ),
+        url('37A2CC13-446E-4AAA-A0A4-DFF3AAFB59A9.png')
+        center center / cover no-repeat;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 18%,
+            rgba(0,0,0,.35) 100%
+        );
+
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 900px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.brand-mark {
+    display: flex;
+
+    justify-content: center;
+    align-items: baseline;
+
+    gap: 9px;
+
+    margin-bottom: 30px;
+}
+
+.brand-mark .english {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.brand-mark .urdu {
+    font-family: serif;
+    font-size: 23px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    font-size: 9px;
+
+    color: #b5ad9c;
+
+    margin-bottom: 27px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(52px, 12vw, 105px);
+
+    font-weight: 400;
+
+    line-height: .9;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 32px;
+}
+
+.hero h1 span {
+    color: #b8ad98;
+
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 580px;
+
+    margin: 0 auto 42px;
+
+    color: #b0aba1;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.button {
+    padding: 15px 25px;
+
+    border: 1px solid rgba(238,234,225,.45);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: all .3s ease;
+}
+
+.button.primary {
+    background: #eeeae1;
+
+    color: #0a0a09;
+
+    border-color: #eeeae1;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+
+    border-color: #eeeae1;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.section {
+    padding: 115px 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.section-label {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #918876;
+
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(42px, 8vw, 70px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    margin-bottom: 25px;
+}
+
+.section-intro {
+    color: #aaa59b;
+
+    max-width: 600px;
+
+    margin-bottom: 50px;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   COLLECTION
+========================================================= */
+
+.products {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+
+/* PRODUCT CARD */
+
+.product {
+    background: #121211;
+
+    min-height: 430px;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease;
+
+    border: 1px solid transparent;
+}
+
+.product:hover {
+    transform: translateY(-6px);
+
+    border-color: #625d50;
+}
+
+
+/* PRODUCT IMAGE */
+
+.product-image {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292821,
+            #11110f
+        );
+
+    transition:
+        transform .7s ease,
+        filter .5s ease;
+}
+
+.product:hover .product-image {
+    transform: scale(1.045);
+
+    filter: brightness(1.08);
+}
+
+
+/* REAL PRODUCT IMAGE 1 */
+
+.product-image.product-one {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.75)
+        ),
+        url('FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png')
+        center center / cover no-repeat;
+}
+
+
+/* REAL PRODUCT IMAGE 2 */
+
+.product-image.product-two {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.75)
+        ),
+        url('EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png')
+        center center / cover no-repeat;
+}
+
+
+/* PLACEHOLDER PRODUCTS */
+
+.product-image.product-three {
+    background:
+        linear-gradient(
+            145deg,
+            #343128,
+            #151513
+        );
+}
+
+.product-image.product-four {
+    background:
+        linear-gradient(
+            145deg,
+            #20201d,
+            #39352d
+        );
+}
+
+
+/* PRODUCT OVERLAY */
+
+.product::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 25%,
+            rgba(0,0,0,.12) 45%,
+            rgba(0,0,0,.9) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* PRODUCT INFO */
+
+.product-info {
+    position: relative;
+
+    z-index: 2;
+}
+
+.product-category {
+    color: #b4aa96;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 5px;
+}
+
+.product h3 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+
+    font-weight: 500;
+
+    line-height: 1.05;
+}
+
+.product p {
+    color: #aaa59b;
+
+    font-size: 10px;
+
+    margin-top: 6px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.product-price {
+    margin-top: 10px;
+
+    color: #eeeae1;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+.product-view {
+    margin-top: 13px;
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    color: #c5bcaa;
+
+    opacity: .85;
+}
+
+
+/* =========================================================
+   PRODUCT DETAIL MODAL
+========================================================= */
+
+.product-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(0,0,0,.82);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+.product-modal.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.product-modal-box {
+    width: 100%;
+
+    max-width: 1000px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #11110f;
+
+    border: 1px solid #3a3831;
+
+    position: relative;
+
+    transform: translateY(25px) scale(.98);
+
+    transition: transform .4s ease;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.55);
+}
+
+.product-modal.active .product-modal-box {
+    transform: translateY(0) scale(1);
+}
+
+
+/* CLOSE */
+
+.modal-close {
+    position: absolute;
+
+    top: 17px;
+
+    right: 17px;
+
+    z-index: 10;
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(238,234,225,.35);
+
+    background: rgba(10,10,9,.72);
+
+    color: #eeeae1;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: .3s ease;
+}
+
+.modal-close:hover {
+    background: #eeeae1;
+
+    color: #0a0a09;
+}
+
+
+/* MODAL CONTENT */
+
+.modal-content {
+    display: grid;
+
+    grid-template-columns: 1.05fr .95fr;
+
+    min-height: 560px;
+}
+
+
+/* MODAL IMAGE */
+
+.modal-image {
+    min-height: 560px;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+.modal-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 55%,
+            rgba(17,17,15,.22)
+        );
+}
+
+
+/* PRODUCT 1 MODAL */
+
+.modal-image.product-one-modal {
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.05)
+        ),
+        url('FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png');
+}
+
+
+/* PRODUCT 2 MODAL */
+
+.modal-image.product-two-modal {
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.05)
+        ),
+        url('EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png');
+}
+
+
+/* MODAL DETAILS */
+
+.modal-details {
+    padding: 65px 48px 48px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.modal-number {
+    color: #918876;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 17px;
+}
+
+.modal-title {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(42px, 6vw, 64px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    margin-bottom: 15px;
+}
+
+.modal-subtitle {
+    color: #918876;
+
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 30px;
+}
+
+.modal-description {
+    color: #aaa59b;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    margin-bottom: 30px;
+}
+
+
+/* DETAILS */
+
+.modal-specs {
+    border-top: 1px solid #302e29;
+
+    border-bottom: 1px solid #302e29;
+
+    padding: 17px 0;
+
+    margin-bottom: 30px;
+}
+
+.spec-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 7px 0;
+
+    font-size: 10px;
+}
+
+.spec-label {
+    color: #77736a;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+}
+
+.spec-value {
+    color: #d4cec1;
+
+    text-align: right;
+}
+
+
+/* PRICE */
+
+.modal-price-label {
+    color: #77736a;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 5px;
+}
+
+.modal-price {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+
+    color: #eeeae1;
+
+    margin-bottom: 25px;
+}
+
+
+/* MODAL ACTIONS */
+
+.modal-actions {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.modal-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 21px;
+
+    border: 1px solid #5d584d;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    transition: .3s ease;
+
+    cursor: pointer;
+}
+
+.modal-button.primary {
+    background: #eeeae1;
+
+    color: #0a0a09;
+
+    border-color: #eeeae1;
+}
+
+.modal-button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   BESPOKE
+========================================================= */
+
+.bespoke {
+    background: #eeeae1;
+
+    color: #10100e;
+
+    max-width: none;
+
+    padding: 115px 25px;
+}
+
+.bespoke-inner {
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.bespoke .section-label {
+    color: #70695c;
+}
+
+.bespoke h2 {
+    max-width: 800px;
+}
+
+.bespoke p {
+    max-width: 620px;
+
+    color: #5d594f;
+
+    margin-bottom: 38px;
+
+    line-height: 1.8;
+}
+
+.bespoke-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.dark-button {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    background: #10100e;
+
+    color: #eeeae1;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    transition: .3s ease;
+}
+
+.dark-button:hover {
+    transform: translateY(-3px);
+}
+
+.text-link {
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #403d37;
+}
+
+
+/* =========================================================
+   CUSTOM BUILDER
+========================================================= */
+
+.builder-section {
+    background: #0d0d0c;
+
+    padding: 120px 25px;
+}
+
+.builder-container {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.builder-heading {
+    max-width: 700px;
+
+    margin-bottom: 55px;
+}
+
+.builder-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(45px, 8vw, 72px);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    margin-bottom: 22px;
+}
+
+.builder-heading p {
+    color: #99958d;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.builder {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px;
+
+    padding: 40px;
+
+    border: 1px solid #292824;
+
+    background: #11110f;
+}
+
+.builder-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 23px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #918876;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    background: #0a0a09;
+
+    border: 1px solid #34332e;
+
+    color: #eeeae1;
+
+    padding: 14px 15px;
+
+    font-size: 12px;
+
+    outline: none;
+
+    transition: .3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #918876;
+}
+
+.form-group textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+.form-group select {
+    appearance: none;
+}
+
+.builder-preview {
+    min-height: 100%;
+
+    border: 1px solid #292824;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #24231f,
+            #0b0b0a 72%
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 45px;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.builder-preview::before {
+    content: "سوچ";
+
+    position: absolute;
+
+    font-family: serif;
+
+    font-size: 210px;
+
+    color: rgba(238,234,225,.025);
+
+    transform: rotate(-10deg);
+}
+
+.preview-label {
+    position: relative;
+
+    z-index: 2;
+
+    color: #918876;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+}
+
+.preview-title {
+    position: relative;
+
+    z-index: 2;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 43px;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+}
+
+.preview-text {
+    position: relative;
+
+    z-index: 2;
+
+    color: #aaa59b;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+.builder-submit {
+    width: 100%;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 17px;
+
+    background: #eeeae1;
+
+    color: #0a0a09;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 9px;
+
+    transition: .3s ease;
+}
+
+.builder-submit:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 115px 25px;
+}
+
+.process {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1px;
+
+    background: #302f2b;
+
+    margin-top: 55px;
+}
+
+.process-item {
+    background: #0a0a09;
+
+    padding: 35px 25px;
+
+    min-height: 230px;
+}
+
+.number {
+    color: #918876;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.process h3 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 29px;
+
+    font-weight: 400;
+
+    margin: 18px 0 8px;
+}
+
+.process p {
+    color: #969188;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story {
+    text-align: center;
+}
+
+.story-content {
+    max-width: 720px;
+
+    margin: auto;
+}
+
+.story h2 {
+    margin-bottom: 30px;
+}
+
+.story p {
+    color: #aaa59b;
+
+    margin-bottom: 17px;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    max-width: none;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(17,17,15,.94),
+            rgba(10,10,9,.98)
+        );
+}
+
+.contact::before {
+    content: "𝑺𝑶𝑪𝑯";
+
+    position: absolute;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-style: italic;
+
+    font-size: 220px;
+
+    color: rgba(238,234,225,.025);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+.contact-inner {
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.contact h2 {
+    font-size: clamp(50px, 9vw, 78px);
+}
+
+.contact .section-intro {
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+.contact-methods {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 35px;
+}
+
+.contact-card {
+    min-width: 210px;
+
+    padding: 25px 22px;
+
+    border: 1px solid #393833;
+
+    background: rgba(18,18,16,.75);
+
+    transition: .3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #918876;
+}
+
+.contact-icon {
+    width: 45px;
+
+    height: 45px;
+
+    margin: 0 auto 15px;
+
+    border: 1px solid #777164;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 18px;
+}
+
+.contact-card strong {
+    display: block;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
+    font-weight: 500;
+}
+
+.contact-card span {
+    display: block;
+
+    color: #8d8980;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 55px 24px;
+
+    border-top: 1px solid #272622;
+
+    text-align: center;
+}
+
+.footer-brand {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: baseline;
+
+    gap: 7px;
+
+    margin-bottom: 12px;
+}
+
+.footer-brand .english {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+
+    font-style: italic;
+}
+
+.footer-brand .urdu {
+    font-family: serif;
+
+    font-size: 29px;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    color: #aaa59b;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: .3s ease;
+}
+
+.footer-social a:hover {
+    color: #eeeae1;
+}
+
+footer p {
+    color: #716e67;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    header {
+        padding: 20px;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .builder {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+    }
+
+    .builder-preview {
+        min-height: 300px;
+    }
+
+    .process {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-image {
+        min-height: 390px;
+    }
+
+    .modal-details {
+        padding: 45px 35px 40px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    header {
+        padding: 18px 17px;
+    }
+
+    .logo-main {
+        font-size: 27px;
+    }
+
+    .logo-urdu {
+        font-size: 26px;
+    }
+
+    nav {
+        gap: 11px;
+
+        font-size: 7px;
+    }
+
+    nav a:nth-child(n+3) {
+        display: none;
+    }
+
+    .hero {
+        padding: 115px 20px 70px;
+    }
+
+    .brand-mark {
+        gap: 7px;
+    }
+
+    .brand-mark .english {
+        font-size: 22px;
+    }
+
+    .brand-mark .urdu {
+        font-size: 21px;
+    }
+
+    .eyebrow {
+        font-size: 7px;
+
+        letter-spacing: 2.5px;
+    }
+
+    .hero h1 {
+        font-size: 53px;
+
+        line-height: .92;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .button {
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+    .section,
+    .process-section {
+        padding: 90px 20px;
+    }
+
+    .section h2 {
+        font-size: 48px;
+    }
+
+    .product {
+        min-height: 390px;
+    }
+
+    .process {
+        grid-template-columns: 1fr;
+    }
+
+    .process-item {
+        min-height: auto;
+    }
+
+    .bespoke,
+    .builder-section {
+        padding: 90px 20px;
+    }
+
+    .bespoke-actions {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .dark-button {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .builder {
+        padding: 18px;
+    }
+
+    .builder-preview {
+        padding: 30px 20px;
+    }
+
+    .preview-title {
+        font-size: 36px;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .contact-card {
+        min-width: 0;
+    }
+
+    .contact::before {
+        font-size: 110px;
+    }
+
+    .product-modal {
+        padding: 12px;
+    }
+
+    .product-modal-box {
+        max-height: 96vh;
+    }
+
+    .modal-image {
+        min-height: 300px;
+    }
+
+    .modal-details {
+        padding: 35px 24px 30px;
+    }
+
+    .modal-title {
+        font-size: 45px;
+    }
+
+    .modal-description {
+        font-size: 12px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.product-modal-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.product-modal-box::-webkit-scrollbar-track {
+    background: #11110f;
+}
+
+.product-modal-box::-webkit-scrollbar-thumb {
+    background: #4b483f;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: #eeeae1;
+    color: #0a0a09;
+}
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
 <header>
-<a href="#" class="logo"><span class="logo-main">𝑺𝑶𝑪𝑯</span><span class="logo-urdu">سوچ</span></a>
-<nav>
-<a href="#shop">Shop</a>
-<a href="#bespoke">Bespoke</a>
-<a href="#vision">Your Vision</a>
-<a href="#contact">Contact</a>
-</nav>
+
+    <a href="#" class="logo">
+
+        <span class="logo-main">
+            𝑺𝑶𝑪𝑯
+        </span>
+
+        <span class="logo-urdu">
+            سوچ
+        </span>
+
+    </a>
+
+
+    <nav>
+
+        <a href="#shop">
+            Shop
+        </a>
+
+        <a href="#bespoke">
+            Bespoke
+        </a>
+
+        <a href="#vision">
+            Your Vision
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
+
 </header>
 
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
 <section class="hero">
-<div class="hero-content">
-<div class="brand-mark"><span class="english">𝑺𝑶𝑪𝑯</span><span class="urdu">سوچ</span></div>
-<div class="eyebrow">PREMIUM DÉCOR · BESPOKE CRAFTSMANSHIP</div>
-<h1>You Bring the <span>Vision.</span><br>We Bring It to Life.</h1>
-<p>Distinctive pieces, crafted with intention. From our collection to creations made exclusively around your vision.</p>
-<div class="buttons">
-<a href="#shop" class="button primary">Explore Collection</a>
-<a href="#vision" class="button">Create Your Vision</a>
-</div>
-</div>
+
+    <div class="hero-content">
+
+
+        <div class="brand-mark">
+
+            <span class="english">
+                𝑺𝑶𝑪𝑯
+            </span>
+
+            <span class="urdu">
+                سوچ
+            </span>
+
+        </div>
+
+
+        <div class="eyebrow">
+
+            PREMIUM DÉCOR · BESPOKE CRAFTSMANSHIP
+
+        </div>
+
+
+        <h1>
+
+            You Bring the
+            <span>Vision.</span>
+
+            <br>
+
+            We Bring It to Life.
+
+        </h1>
+
+
+        <p>
+
+            Distinctive pieces, crafted with intention.
+            From our collection to creations made exclusively
+            around your vision.
+
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="#shop"
+                class="button primary"
+            >
+
+                Explore Collection
+
+            </a>
+
+
+            <a
+                href="#vision"
+                class="button"
+            >
+
+                Create Your Vision
+
+            </a>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section class="section" id="shop">
-<div class="section-label">The Collection</div>
-<h2>Made to Be Seen.</h2>
-<p class="section-intro">Distinctive pieces crafted with intention. Explore the first SOCH creations, or commission something entirely your own.</p>
 
-<div class="products">
+<!-- =======================================================
+     COLLECTION
+======================================================= -->
 
-<article class="product" onclick="openProduct('product1')" tabindex="0" role="button" aria-label="View The Contour Piece">
-<div class="product-image product-one-image"></div>
-<div class="product-info">
-<div class="product-number">01 · SOCH ORIGINAL</div>
-<h3>The Contour Piece</h3>
-<p>Sculptural wall décor</p>
-<span class="view-product">View Piece →</span>
-</div>
-</article>
+<section
+    class="section"
+    id="shop"
+>
 
-<article class="product" onclick="openProduct('product2')" tabindex="0" role="button" aria-label="View The Form Study">
-<div class="product-image product-two-image"></div>
-<div class="product-info">
-<div class="product-number">02 · SOCH ORIGINAL</div>
-<h3>The Form Study</h3>
-<p>Contemporary statement décor</p>
-<span class="view-product">View Piece →</span>
-</div>
-</article>
 
-</div>
+    <div class="section-label">
+
+        The Collection
+
+    </div>
+
+
+    <h2>
+
+        Made to Be Seen.
+
+    </h2>
+
+
+    <p class="section-intro">
+
+        Discover pieces designed and crafted by 𝑺𝑶𝑪𝑯.
+        Our collection will grow with every new creation.
+
+    </p>
+
+
+    <div class="products">
+
+
+        <!-- =================================================
+             PRODUCT 1
+        ================================================== -->
+
+        <article
+            class="product"
+            onclick="openProduct('productOne')"
+            tabindex="0"
+            role="button"
+            aria-label="View Product One"
+            onkeydown="handleProductKey(event, 'productOne')"
+        >
+
+            <div
+                class="product-image product-one"
+            ></div>
+
+
+            <div class="product-info">
+
+                <div class="product-category">
+
+                    SOCH COLLECTION · 01
+
+                </div>
+
+
+                <h3>
+
+                    Statement Piece I
+
+                </h3>
+
+
+                <p>
+
+                    Signature Décor
+
+                </p>
+
+
+                <div class="product-price">
+
+                    Price on Request
+
+                </div>
+
+
+                <div class="product-view">
+
+                    View Piece →
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PRODUCT 2
+        ================================================== -->
+
+        <article
+            class="product"
+            onclick="openProduct('productTwo')"
+            tabindex="0"
+            role="button"
+            aria-label="View Product Two"
+            onkeydown="handleProductKey(event, 'productTwo')"
+        >
+
+            <div
+                class="product-image product-two"
+            ></div>
+
+
+            <div class="product-info">
+
+                <div class="product-category">
+
+                    SOCH COLLECTION · 02
+
+                </div>
+
+
+                <h3>
+
+                    Statement Piece II
+
+                </h3>
+
+
+                <p>
+
+                    Signature Décor
+
+                </p>
+
+
+                <div class="product-price">
+
+                    Price on Request
+
+                </div>
+
+
+                <div class="product-view">
+
+                    View Piece →
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PRODUCT 3
+        ================================================== -->
+
+        <article class="product">
+
+            <div
+                class="product-image product-three"
+            ></div>
+
+
+            <div class="product-info">
+
+                <div class="product-category">
+
+                    SOCH COLLECTION · 03
+
+                </div>
+
+
+                <h3>
+
+                    Collection III
+
+                </h3>
+
+
+                <p>
+
+                    Coming Soon
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             PRODUCT 4
+        ================================================== -->
+
+        <article class="product">
+
+            <div
+                class="product-image product-four"
+            ></div>
+
+
+            <div class="product-info">
+
+                <div class="product-category">
+
+                    SOCH COLLECTION · 04
+
+                </div>
+
+
+                <h3>
+
+                    Collection IV
+
+                </h3>
+
+
+                <p>
+
+                    Coming Soon
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
 </section>
 
-<section class="bespoke" id="bespoke">
-<div class="bespoke-inner">
-<div class="section-label">BESPOKE</div>
-<h2>Your idea deserves to exist.</h2>
-<p>No catalogue. No limitations. Bring us your vision, reference, sketch, or simply an idea. We design and craft it specifically for you.</p>
-<div class="bespoke-actions">
-<a href="#vision" class="dark-button">Start Your Project</a>
-<a href="#process" class="text-link">See How It Works →</a>
+
+<!-- =======================================================
+     PRODUCT DETAIL MODAL
+======================================================= -->
+
+
+<div
+    class="product-modal"
+    id="productModal"
+    aria-hidden="true"
+>
+
+
+    <div
+        class="product-modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+
+
+        <button
+            class="modal-close"
+            onclick="closeProduct()"
+            aria-label="Close product"
+        >
+
+            ×
+
+        </button>
+
+
+        <div class="modal-content">
+
+
+            <!-- PRODUCT IMAGE -->
+
+            <div
+                class="modal-image"
+                id="modalImage"
+            ></div>
+
+
+            <!-- PRODUCT DETAILS -->
+
+            <div class="modal-details">
+
+
+                <div
+                    class="modal-number"
+                    id="modalNumber"
+                >
+
+                    SOCH COLLECTION · 01
+
+                </div>
+
+
+                <h2
+                    class="modal-title"
+                    id="modalTitle"
+                >
+
+                    Statement Piece I
+
+                </h2>
+
+
+                <div
+                    class="modal-subtitle"
+                    id="modalSubtitle"
+                >
+
+                    Signature Décor
+
+                </div>
+
+
+                <p
+                    class="modal-description"
+                    id="modalDescription"
+                >
+
+                    A distinctive statement piece created to
+                    bring character, depth and presence to an
+                    interior. Designed with the SOCH philosophy
+                    of turning ideas into tangible forms.
+
+                </p>
+
+
+                <div class="modal-specs">
+
+
+                    <div class="spec-row">
+
+                        <span class="spec-label">
+                            Category
+                        </span>
+
+                        <span
+                            class="spec-value"
+                            id="modalCategory"
+                        >
+                            Statement Décor
+                        </span>
+
+                    </div>
+
+
+                    <div class="spec-row">
+
+                        <span class="spec-label">
+                            Material
+                        </span>
+
+                        <span
+                            class="spec-value"
+                            id="modalMaterial"
+                        >
+                            Crafted to Order
+                        </span>
+
+                    </div>
+
+
+                    <div class="spec-row">
+
+                        <span class="spec-label">
+                            Finish
+                        </span>
+
+                        <span
+                            class="spec-value"
+                            id="modalFinish"
+                        >
+                            Custom Options
+                        </span>
+
+                    </div>
+
+
+                    <div class="spec-row">
+
+                        <span class="spec-label">
+                            Production
+                        </span>
+
+                        <span
+                            class="spec-value"
+                            id="modalProduction"
+                        >
+                            Made to Order
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="modal-price-label">
+
+                    PRICE
+
+                </div>
+
+
+                <div
+                    class="modal-price"
+                    id="modalPrice"
+                >
+
+                    Price on Request
+
+                </div>
+
+
+                <div class="modal-actions">
+
+
+                    <a
+                        href="#"
+                        class="modal-button primary"
+                        id="modalOrderButton"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        Order / Enquire →
+
+                    </a>
+
+
+                    <a
+                        href="#vision"
+                        class="modal-button"
+                        onclick="closeProduct()"
+                    >
+
+                        Customise This Piece
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
-</div>
+
+
+<!-- =======================================================
+     BESPOKE
+======================================================= -->
+
+<section
+    class="bespoke"
+    id="bespoke"
+>
+
+
+    <div class="bespoke-inner">
+
+
+        <div class="section-label">
+
+            BESPOKE
+
+        </div>
+
+
+        <h2>
+
+            Your idea deserves to exist.
+
+        </h2>
+
+
+        <p>
+
+            No catalogue. No limitations.
+            Bring us your vision, reference, sketch,
+            or simply an idea.
+            We design and craft it specifically for you.
+
+        </p>
+
+
+        <div class="bespoke-actions">
+
+
+            <a
+                href="#vision"
+                class="dark-button"
+            >
+
+                Start Your Project
+
+            </a>
+
+
+            <a
+                href="#process"
+                class="text-link"
+            >
+
+                See How It Works →
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
 </section>
 
-<section class="builder-section" id="vision">
-<div class="builder-container">
-<div class="builder-heading">
-<div class="section-label">YOUR VISION</div>
-<h2>Create Something That Doesn't Exist Yet.</h2>
-<p>Tell us what you're imagining. Choose the basics below and describe the details. You don't need a finished design — that's what we're here for.</p>
-</div>
 
-<div class="builder">
-<form class="builder-form" id="visionForm" onsubmit="sendVision(event)">
+<!-- =======================================================
+     CUSTOM PRODUCT BUILDER
+======================================================= -->
 
-<div class="form-group"><label for="clientName">Your Name</label><input type="text" id="clientName" placeholder="Your name" required></div>
+<section
+    class="builder-section"
+    id="vision"
+>
 
-<div class="form-group"><label for="productType">What are you imagining?</label>
-<select id="productType" required>
-<option value="">Select a category</option>
-<option>Wall Décor</option><option>Furniture</option><option>Lighting</option><option>Signage</option><option>Art / Statement Piece</option><option>Custom Gift</option><option>Other</option>
-</select></div>
 
-<div class="form-group"><label for="material">Preferred Material</label>
-<select id="material">
-<option value="">Not sure yet</option><option>Wood</option><option>MDF</option><option>Acrylic</option><option>Metal</option><option>Mixed Materials</option><option>Let 𝑺𝑶𝑪𝑯 Recommend</option>
-</select></div>
+    <div class="builder-container">
 
-<div class="form-group"><label for="size">Approximate Size</label><input type="text" id="size" placeholder="e.g. 4ft × 2ft"></div>
 
-<div class="form-group"><label for="details">Tell Us Your Vision</label><textarea id="details" placeholder="Describe the design, colours, style, purpose, reference, or anything else you have in mind..." required></textarea></div>
+        <div class="builder-heading">
 
-<button type="submit" class="builder-submit">Send My Vision on WhatsApp →</button>
-</form>
 
-<div class="builder-preview">
-<div class="preview-label">The 𝑺𝑶𝑪𝑯 Approach</div>
-<div class="preview-title">You imagine it.<br>We shape it.</div>
-<div class="preview-text">Your idea doesn't need to be perfect. Give us the thought behind it and we'll help turn it into something real.</div>
-</div>
-</div>
-</div>
+            <div class="section-label">
+
+                YOUR VISION
+
+            </div>
+
+
+            <h2>
+
+                Create Something
+                That Doesn't Exist Yet.
+
+            </h2>
+
+
+            <p>
+
+                Tell us what you're imagining.
+                Choose the basics below and describe the details.
+                You don't need a finished design —
+                that's what we're here for.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="builder">
+
+
+            <form
+                class="builder-form"
+                id="visionForm"
+                onsubmit="sendVision(event)"
+            >
+
+
+                <div class="form-group">
+
+
+                    <label for="clientName">
+
+                        Your Name
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="clientName"
+                        placeholder="Your name"
+                        required
+                    >
+
+
+                </div>
+
+
+                <div class="form-group">
+
+
+                    <label for="productType">
+
+                        What are you imagining?
+
+                    </label>
+
+
+                    <select
+                        id="productType"
+                        required
+                    >
+
+                        <option value="">
+
+                            Select a category
+
+                        </option>
+
+
+                        <option>
+
+                            Wall Décor
+
+                        </option>
+
+
+                        <option>
+
+                            Furniture
+
+                        </option>
+
+
+                        <option>
+
+                            Lighting
+
+                        </option>
+
+
+                        <option>
+
+                            Signage
+
+                        </option>
+
+
+                        <option>
+
+                            Art / Statement Piece
+
+                        </option>
+
+
+                        <option>
+
+                            Custom Gift
+
+                        </option>
+
+
+                        <option>
+
+                            Other
+
+                        </option>
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+
+                    <label for="material">
+
+                        Preferred Material
+
+                    </label>
+
+
+                    <select id="material">
+
+
+                        <option value="">
+
+                            Not sure yet
+
+                        </option>
+
+
+                        <option>
+
+                            Wood
+
+                        </option>
+
+
+                        <option>
+
+                            MDF
+
+                        </option>
+
+
+                        <option>
+
+                            Acrylic
+
+                        </option>
+
+
+                        <option>
+
+                            Metal
+
+                        </option>
+
+
+                        <option>
+
+                            Mixed Materials
+
+                        </option>
+
+
+                        <option>
+
+                            Let 𝑺𝑶𝑪𝑯 Recommend
+
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+                <div class="form-group">
+
+
+                    <label for="size">
+
+                        Approximate Size
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="size"
+                        placeholder="e.g. 4ft × 2ft"
+                    >
+
+
+                </div>
+
+
+                <div class="form-group">
+
+
+                    <label for="details">
+
+                        Tell Us Your Vision
+
+                    </label>
+
+
+                    <textarea
+                        id="details"
+                        placeholder="Describe the design, colours, style, purpose, reference, or anything else you have in mind..."
+                        required
+                    ></textarea>
+
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="builder-submit"
+                >
+
+                    Send My Vision on WhatsApp →
+
+                </button>
+
+
+            </form>
+
+
+            <div class="builder-preview">
+
+
+                <div class="preview-label">
+
+                    The 𝑺𝑶𝑪𝑯 Approach
+
+                </div>
+
+
+                <div class="preview-title">
+
+                    You imagine it.
+                    <br>
+                    We shape it.
+
+                </div>
+
+
+                <div class="preview-text">
+
+                    Your idea doesn't need to be perfect.
+                    Give us the thought behind it and we'll help
+                    turn it into something real.
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
 </section>
 
-<section class="process-section" id="process">
-<div class="section-label">Our Process</div>
-<h2>From Thought to Form.</h2>
-<div class="process">
-<div class="process-item"><div class="number">01</div><h3>Imagine</h3><p>Your idea begins with a thought.</p></div>
-<div class="process-item"><div class="number">02</div><h3>Design</h3><p>We shape your vision into a purposeful design.</p></div>
-<div class="process-item"><div class="number">03</div><h3>Craft</h3><p>Precision craftsmanship brings the design to life.</p></div>
-<div class="process-item"><div class="number">04</div><h3>Deliver</h3><p>Your finished creation arrives ready for its place.</p></div>
-</div>
+
+<!-- =======================================================
+     PROCESS
+======================================================= -->
+
+<section
+    class="process-section"
+    id="process"
+>
+
+
+    <div class="section-label">
+
+        Our Process
+
+    </div>
+
+
+    <h2>
+
+        From Thought to Form.
+
+    </h2>
+
+
+    <div class="process">
+
+
+        <div class="process-item">
+
+
+            <div class="number">
+
+                01
+
+            </div>
+
+
+            <h3>
+
+                Imagine
+
+            </h3>
+
+
+            <p>
+
+                Your idea begins with a thought.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="process-item">
+
+
+            <div class="number">
+
+                02
+
+            </div>
+
+
+            <h3>
+
+                Design
+
+            </h3>
+
+
+            <p>
+
+                We shape your vision into a purposeful design.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="process-item">
+
+
+            <div class="number">
+
+                03
+
+            </div>
+
+
+            <h3>
+
+                Craft
+
+            </h3>
+
+
+            <p>
+
+                Precision craftsmanship brings the design to life.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="process-item">
+
+
+            <div class="number">
+
+                04
+
+            </div>
+
+
+            <h3>
+
+                Deliver
+
+            </h3>
+
+
+            <p>
+
+                Your finished creation arrives ready for its place.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
 </section>
 
-<section class="section story" id="story">
-<div class="story-content">
-<div class="section-label">The 𝑺𝑶𝑪𝑯 Philosophy</div>
-<h2>Every creation begins with a thought.</h2>
-<p>سوچ means thought — the place where every vision begins.</p>
-<p>We believe the most meaningful pieces aren't simply bought. They're imagined, designed and brought into existence.</p>
-<p>That's what 𝑺𝑶𝑪𝑯 exists to do.</p>
-</div>
+
+<!-- =======================================================
+     STORY
+======================================================= -->
+
+<section
+    class="section story"
+    id="story"
+>
+
+
+    <div class="story-content">
+
+
+        <div class="section-label">
+
+            The 𝑺𝑶𝑪𝑯 Philosophy
+
+        </div>
+
+
+        <h2>
+
+            Every creation begins with a thought.
+
+        </h2>
+
+
+        <p>
+
+            سوچ means thought —
+            the place where every vision begins.
+
+        </p>
+
+
+        <p>
+
+            We believe the most meaningful pieces
+            aren't simply bought.
+            They're imagined, designed and brought
+            into existence.
+
+        </p>
+
+
+        <p>
+
+            That's what 𝑺𝑶𝑪𝑯 exists to do.
+
+        </p>
+
+
+    </div>
+
+
 </section>
 
-<section class="section contact" id="contact">
-<div class="contact-inner">
-<div class="section-label">LET'S CREATE</div>
-<h2>Have a Vision?</h2>
-<p class="section-intro">Have a question, a custom idea, or simply want to talk about something you're imagining? We're one message away.</p>
-<div class="contact-methods">
 
-<a href="https://wa.me/923150674347" class="contact-card" target="_blank" rel="noopener">
-<div class="contact-icon">◉</div><strong>WhatsApp</strong><span>Start a conversation</span>
-</a>
+<!-- =======================================================
+     CONTACT
+======================================================= -->
 
-<a href="tel:+923150674347" class="contact-card">
-<div class="contact-icon">☎</div><strong>Call Us</strong><span>+92 315 0674347</span>
-</a>
+<section
+    class="section contact"
+    id="contact"
+>
 
-<a href="https://www.instagram.com/soch.pk/" class="contact-card" target="_blank" rel="noopener">
-<div class="contact-icon">◎</div><strong>Instagram</strong><span>@soch.pk</span>
-</a>
 
-</div>
-</div>
+    <div class="contact-inner">
+
+
+        <div class="section-label">
+
+            LET'S CREATE
+
+        </div>
+
+
+        <h2>
+
+            Have a Vision?
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Have a question, a custom idea,
+            or simply want to talk about something
+            you're imagining?
+            We're one message away.
+
+        </p>
+
+
+        <div class="contact-methods">
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/923150674347"
+                class="contact-card"
+                target="_blank"
+                rel="noopener"
+            >
+
+
+                <div class="contact-icon">
+
+                    ◉
+
+                </div>
+
+
+                <strong>
+
+                    WhatsApp
+
+                </strong>
+
+
+                <span>
+
+                    Start a conversation
+
+                </span>
+
+
+            </a>
+
+
+            <!-- PHONE -->
+
+            <a
+                href="tel:+923150674347"
+                class="contact-card"
+            >
+
+
+                <div class="contact-icon">
+
+                    ☎
+
+                </div>
+
+
+                <strong>
+
+                    Call Us
+
+                </strong>
+
+
+                <span>
+
+                    +92 315 0674347
+
+                </span>
+
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://www.instagram.com/soch.pk/"
+                class="contact-card"
+                target="_blank"
+                rel="noopener"
+            >
+
+
+                <div class="contact-icon">
+
+                    ◎
+
+                </div>
+
+
+                <strong>
+
+                    Instagram
+
+                </strong>
+
+
+                <span>
+
+                    @soch.pk
+
+                </span>
+
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
 </section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
-<div class="footer-brand"><span class="english">𝑺𝑶𝑪𝑯</span><span class="urdu">سوچ</span></div>
-<p>You Bring the Vision. We Bring It to Life.</p>
-<div class="footer-social"><a href="https://www.instagram.com/soch.pk/" target="_blank" rel="noopener">Instagram · @soch.pk</a></div>
-<p style="margin-top:20px;">© 2026 𝑺𝑶𝑪𝑯 - سوچ. All Rights Reserved.</p>
+
+
+    <div class="footer-brand">
+
+
+        <span class="english">
+
+            𝑺𝑶𝑪𝑯
+
+        </span>
+
+
+        <span class="urdu">
+
+            سوچ
+
+        </span>
+
+
+    </div>
+
+
+    <p>
+
+        You Bring the Vision. We Bring It to Life.
+
+    </p>
+
+
+    <div class="footer-social">
+
+
+        <a
+            href="https://www.instagram.com/soch.pk/"
+            target="_blank"
+            rel="noopener"
+        >
+
+            Instagram · @soch.pk
+
+        </a>
+
+
+    </div>
+
+
+    <p style="margin-top:20px;">
+
+        © 2026 𝑺𝑶𝑪𝑯 - سوچ.
+        All Rights Reserved.
+
+    </p>
+
+
 </footer>
 
-<!-- PRODUCT DETAIL MODAL -->
-<div class="product-modal" id="productModal" onclick="closeProduct(event)">
-<div class="product-modal-inner" onclick="event.stopPropagation()">
 
-<button class="modal-close" onclick="closeProduct()" aria-label="Close product">×</button>
-<div class="product-modal-image" id="modalProductImage"></div>
-
-<div class="product-modal-content">
-<div class="modal-label" id="modalLabel">SOCH ORIGINAL</div>
-<h2 id="modalTitle">The Contour Piece</h2>
-<p class="modal-description" id="modalDescription"></p>
-
-<div class="modal-specs">
-<div class="modal-spec"><span>Category</span><span id="modalCategory">Wall Décor</span></div>
-<div class="modal-spec"><span>Material</span><span id="modalMaterial">Crafted to specification</span></div>
-<div class="modal-spec"><span>Availability</span><span>Made to order</span></div>
-</div>
-
-<div class="modal-price" id="modalPrice">Price on Request</div>
-
-<a href="#" class="modal-order" id="modalOrder" target="_blank" rel="noopener">Order This Piece →</a>
-<a href="#vision" class="modal-custom" onclick="closeProduct()">Want a different size or finish? Request Customisation →</a>
-</div>
-</div>
-</div>
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
 
 <script>
+
+
+/* =========================================================
+   PRODUCT DATA
+========================================================= */
+
 const products = {
-product1:{
-title:"The Contour Piece",
-label:"01 · SOCH ORIGINAL",
-category:"Sculptural Wall Décor",
-material:"Crafted to specification",
-price:"Price on Request",
-image:"FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
-description:"A sculptural statement piece designed to bring depth, movement and character into a space. The composition plays with form and shadow, creating a piece that feels equally at home in a refined interior or as the focal point of a carefully curated wall."
-},
-product2:{
-title:"The Form Study",
-label:"02 · SOCH ORIGINAL",
-category:"Contemporary Statement Décor",
-material:"Crafted to specification",
-price:"Price on Request",
-image:"EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
-description:"A contemporary study in shape, proportion and texture. Designed to stand apart without overpowering its surroundings, this piece brings an architectural quality to the interior while retaining the unmistakable character of handmade craftsmanship."
-}
+
+
+    productOne: {
+
+        number:
+            "SOCH COLLECTION · 01",
+
+        title:
+            "Statement Piece I",
+
+        subtitle:
+            "Signature Décor",
+
+        description:
+            "A distinctive statement piece created to bring character, depth and presence to an interior. Designed with the SOCH philosophy of turning ideas into tangible forms.",
+
+        category:
+            "Statement Décor",
+
+        material:
+            "Crafted to Order",
+
+        finish:
+            "Custom Options",
+
+        production:
+            "Made to Order",
+
+        price:
+            "Price on Request",
+
+        imageClass:
+            "product-one-modal"
+
+    },
+
+
+    productTwo: {
+
+        number:
+            "SOCH COLLECTION · 02",
+
+        title:
+            "Statement Piece II",
+
+        subtitle:
+            "Signature Décor",
+
+        description:
+            "A refined decorative piece designed to become part of the space rather than simply occupy it. Every detail is considered to create a distinctive SOCH presence.",
+
+        category:
+            "Statement Décor",
+
+        material:
+            "Crafted to Order",
+
+        finish:
+            "Custom Options",
+
+        production:
+            "Made to Order",
+
+        price:
+            "Price on Request",
+
+        imageClass:
+            "product-two-modal"
+
+    }
+
 };
 
-function openProduct(productId){
-const product=products[productId];
-if(!product)return;
 
-document.getElementById("modalProductImage").style.backgroundImage="url('"+product.image+"')";
-document.getElementById("modalTitle").textContent=product.title;
-document.getElementById("modalLabel").textContent=product.label;
-document.getElementById("modalDescription").textContent=product.description;
-document.getElementById("modalCategory").textContent=product.category;
-document.getElementById("modalMaterial").textContent=product.material;
-document.getElementById("modalPrice").textContent=product.price;
+/* =========================================================
+   OPEN PRODUCT
+========================================================= */
 
-const message=`Hello 𝑺𝑶𝑪𝑯 - سوچ,
+function openProduct(productId) {
 
-I'd like to order:
 
-Product: ${product.title}
+    const product =
+        products[productId];
 
-Please share the availability, pricing and ordering details.
+
+    if (!product) {
+        return;
+    }
+
+
+    const modal =
+        document.getElementById("productModal");
+
+
+    const modalImage =
+        document.getElementById("modalImage");
+
+
+    const modalNumber =
+        document.getElementById("modalNumber");
+
+
+    const modalTitle =
+        document.getElementById("modalTitle");
+
+
+    const modalSubtitle =
+        document.getElementById("modalSubtitle");
+
+
+    const modalDescription =
+        document.getElementById("modalDescription");
+
+
+    const modalCategory =
+        document.getElementById("modalCategory");
+
+
+    const modalMaterial =
+        document.getElementById("modalMaterial");
+
+
+    const modalFinish =
+        document.getElementById("modalFinish");
+
+
+    const modalProduction =
+        document.getElementById("modalProduction");
+
+
+    const modalPrice =
+        document.getElementById("modalPrice");
+
+
+    const modalOrderButton =
+        document.getElementById("modalOrderButton");
+
+
+    modalNumber.textContent =
+        product.number;
+
+
+    modalTitle.textContent =
+        product.title;
+
+
+    modalSubtitle.textContent =
+        product.subtitle;
+
+
+    modalDescription.textContent =
+        product.description;
+
+
+    modalCategory.textContent =
+        product.category;
+
+
+    modalMaterial.textContent =
+        product.material;
+
+
+    modalFinish.textContent =
+        product.finish;
+
+
+    modalProduction.textContent =
+        product.production;
+
+
+    modalPrice.textContent =
+        product.price;
+
+
+    modalImage.className =
+        "modal-image " +
+        product.imageClass;
+
+
+    const whatsappMessage =
+        `Hello 𝑺𝑶𝑪𝑯 - سوچ,
+
+I'd like to enquire about:
+
+${product.title}
+
+${product.number}
+
+Please share the availability, final price and details.
 
 Thank you.`;
 
-document.getElementById("modalOrder").href="https://wa.me/923150674347?text="+encodeURIComponent(message);
-document.getElementById("productModal").classList.add("active");
-document.body.classList.add("modal-open");
+
+    modalOrderButton.href =
+        "https://wa.me/923150674347?text=" +
+        encodeURIComponent(whatsappMessage);
+
+
+    modal.classList.add("active");
+
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+
+    setTimeout(function() {
+
+        modal.querySelector(
+            ".modal-close"
+        ).focus();
+
+    }, 100);
+
 }
 
-function closeProduct(event){
-if(event && event.target!==document.getElementById("productModal"))return;
-document.getElementById("productModal").classList.remove("active");
-document.body.classList.remove("modal-open");
+
+/* =========================================================
+   CLOSE PRODUCT
+========================================================= */
+
+function closeProduct() {
+
+
+    const modal =
+        document.getElementById("productModal");
+
+
+    modal.classList.remove(
+        "active"
+    );
+
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
 }
 
-document.addEventListener("keydown",function(event){
-if(event.key==="Escape"){
-document.getElementById("productModal").classList.remove("active");
-document.body.classList.remove("modal-open");
+
+/* =========================================================
+   KEYBOARD ACCESS
+========================================================= */
+
+function handleProductKey(
+    event,
+    productId
+) {
+
+
+    if (
+        event.key === "Enter" ||
+        event.key === " "
+    ) {
+
+        event.preventDefault();
+
+        openProduct(productId);
+
+    }
+
 }
-});
 
-document.querySelectorAll(".product").forEach(function(product){
-product.addEventListener("keydown",function(event){
-if(event.key==="Enter" || event.key===" "){
-event.preventDefault();
-product.click();
-}
-});
-});
 
-function sendVision(event){
-event.preventDefault();
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING BACKDROP
+========================================================= */
 
-const name=document.getElementById("clientName").value.trim();
-const product=document.getElementById("productType").value;
-const material=document.getElementById("material").value||"Not specified";
-const size=document.getElementById("size").value.trim()||"Not specified";
-const details=document.getElementById("details").value.trim();
+document
+    .getElementById("productModal")
+    .addEventListener(
+        "click",
+        function(event) {
 
-const message=`Hello 𝑺𝑶𝑪𝑯 - سوچ,
+
+            if (
+                event.target === this
+            ) {
+
+                closeProduct();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            const modal =
+                document.getElementById(
+                    "productModal"
+                );
+
+
+            if (
+                modal.classList.contains(
+                    "active"
+                )
+            ) {
+
+                closeProduct();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CUSTOM VISION → WHATSAPP
+========================================================= */
+
+function sendVision(event) {
+
+
+    event.preventDefault();
+
+
+    const name =
+        document
+            .getElementById(
+                "clientName"
+            )
+            .value
+            .trim();
+
+
+    const product =
+        document
+            .getElementById(
+                "productType"
+            )
+            .value;
+
+
+    const material =
+        document
+            .getElementById(
+                "material"
+            )
+            .value ||
+        "Not specified";
+
+
+    const size =
+        document
+            .getElementById(
+                "size"
+            )
+            .value
+            .trim() ||
+        "Not specified";
+
+
+    const details =
+        document
+            .getElementById(
+                "details"
+            )
+            .value
+            .trim();
+
+
+    const message =
+`Hello 𝑺𝑶𝑪𝑯 - سوچ,
 
 I'd like to create something custom.
 
-Name: ${name}
+Name:
+${name}
 
 What I'm imagining:
 ${product}
@@ -481,14 +3494,30 @@ I'd like to discuss the design and possibilities.
 
 Thank you.`;
 
-window.open("https://wa.me/923150674347?text="+encodeURIComponent(message),"_blank");
+
+    const whatsappNumber =
+        "923150674347";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
 }
+
+
 </script>
+
 
 </body>
 </html>
-'''
-
-path = Path("/mnt/data/SOCH_website_product_detail_v1.html")
-path.write_text(html, encoding="utf-8")
-print(f"Created: {path}")
