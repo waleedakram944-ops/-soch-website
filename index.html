@@ -25,7 +25,6 @@ rel="stylesheet">
 
 /* =========================================================
    SOCH — PREMIUM INTERFACE
-   Functional baseline preserved
    ========================================================= */
 
 :root {
@@ -271,8 +270,6 @@ nav a:hover::after {
 
 }
 
-
-/* cinematic overlay */
 
 .hero::before {
 
@@ -632,7 +629,9 @@ nav a:hover::after {
 }
 
 
-/* image */
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
 
 .product-image {
 
@@ -668,6 +667,13 @@ nav a:hover::after {
 
 }
 
+
+/*
+   All artwork sits inside the same visual frame.
+   Individual products receive slight scale adjustments
+   because their source images have different proportions.
+*/
+
 .product-image img {
 
     position: absolute;
@@ -682,18 +688,70 @@ nav a:hover::after {
 
     object-position: center;
 
-    padding: 28px;
+    padding: 55px;
 
     z-index: 1;
+
+    transform: scale(.88);
 
     transition:
         transform .8s cubic-bezier(.2,.7,.2,1);
 
 }
 
-.product:hover .product-image img {
 
-    transform: scale(1.035);
+/* =========================================================
+   PRODUCT IMAGE VISUAL BALANCE
+   ========================================================= */
+
+.product:nth-child(1) .product-image img {
+
+    transform: scale(.88);
+
+}
+
+.product:nth-child(2) .product-image img {
+
+    transform: scale(.82);
+
+}
+
+.product:nth-child(3) .product-image img {
+
+    transform: scale(.86);
+
+}
+
+.product:nth-child(4) .product-image img {
+
+    transform: scale(.88);
+
+}
+
+
+/* hover */
+
+.product:nth-child(1):hover .product-image img {
+
+    transform: scale(.92);
+
+}
+
+.product:nth-child(2):hover .product-image img {
+
+    transform: scale(.86);
+
+}
+
+.product:nth-child(3):hover .product-image img {
+
+    transform: scale(.90);
+
+}
+
+.product:nth-child(4):hover .product-image img {
+
+    transform: scale(.92);
 
 }
 
@@ -2087,6 +2145,67 @@ footer p {
         min-height: 455px;
 
     }
+
+
+    /* =====================================================
+       MOBILE PRODUCT IMAGE BALANCE
+       ===================================================== */
+
+    .product-image img {
+
+        padding: 35px;
+
+    }
+
+    .product:nth-child(1) .product-image img {
+
+        transform: scale(.88);
+
+    }
+
+    .product:nth-child(2) .product-image img {
+
+        transform: scale(.82);
+
+    }
+
+    .product:nth-child(3) .product-image img {
+
+        transform: scale(.86);
+
+    }
+
+    .product:nth-child(4) .product-image img {
+
+        transform: scale(.88);
+
+    }
+
+
+    .product:nth-child(1):hover .product-image img {
+
+        transform: scale(.92);
+
+    }
+
+    .product:nth-child(2):hover .product-image img {
+
+        transform: scale(.86);
+
+    }
+
+    .product:nth-child(3):hover .product-image img {
+
+        transform: scale(.90);
+
+    }
+
+    .product:nth-child(4):hover .product-image img {
+
+        transform: scale(.92);
+
+    }
+
 
     .product-info {
 
