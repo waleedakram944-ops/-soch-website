@@ -1,126 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سوچ — You Bring the Vision. We Bring It to Life.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<title>سوچ — You Bring the Vision. We Bring It to Life.</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0a0a09;
+    color: #eeeae1;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-family: serif;
+    font-size: 34px;
+    color: #eeeae1;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+nav a {
+    opacity: .8;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 110px 25px 70px;
+    background:
+        radial-gradient(circle at 50% 40%, #25231d 0%, #0a0a09 55%);
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 10px;
+    color: #a99f8c;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 13vw, 92px);
+    font-weight: 400;
+    line-height: .95;
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: #a99f8c;
+}
+
+.hero p {
+    max-width: 540px;
+    margin: 0 auto 38px;
+    color: #aaa59b;
+    font-size: 14px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.button {
+    padding: 14px 22px;
+    border: 1px solid #777164;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.button.primary {
+    background: #eeeae1;
+    color: #0a0a09;
+    border-color: #eeeae1;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.section {
+    padding: 100px 24px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #918876;
+    margin-bottom: 18px;
+}
+
+.section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 9vw, 64px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 22px;
+}
+
+.section-intro {
+    color: #aaa59b;
+    max-width: 600px;
+    margin-bottom: 45px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.product {
+    background: #121211;
+    min-height: 260px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #292821, #11110f);
+}
+
+.product:nth-child(2) .product-image {
+    background: linear-gradient(145deg, #1b1b19, #353127);
+}
+
+.product:nth-child(3) .product-image {
+    background: linear-gradient(145deg, #343128, #151513);
+}
+
+.product:nth-child(4) .product-image {
+    background: linear-gradient(145deg, #20201d, #39352d);
+}
+
+.product-info {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(transparent, rgba(0,0,0,.85));
+    margin: -20px;
+    padding: 70px 20px 20px;
+}
+
+.product h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.product p {
+    color: #aaa59b;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.bespoke {
+    background: #eeeae1;
+    color: #10100e;
+    max-width: none;
+    padding: 100px 24px;
+}
+
+.bespoke-inner {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.bespoke .section-label {
+    color: #70695c;
+}
+
+.bespoke h2 {
+    max-width: 750px;
+}
+
+.bespoke p {
+    max-width: 600px;
+    color: #5d594f;
+    margin-bottom: 35px;
+}
+
+.dark-button {
+    display: inline-block;
+    padding: 14px 24px;
+    background: #10100e;
+    color: #eeeae1;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.process {
+    display: grid;
+    gap: 1px;
+    background: #302f2b;
+    margin-top: 45px;
+}
+
+.process-item {
+    background: #0a0a09;
+    padding: 28px 22px;
+}
+
+.number {
+    color: #918876;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.process h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 400;
+    margin: 12px 0 5px;
+}
+
+.process p {
+    color: #969188;
+    font-size: 12px;
+}
+
+.story {
+    text-align: center;
+}
+
+.story-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.story h2 {
+    margin-bottom: 25px;
+}
+
+.story p {
+    color: #aaa59b;
+    margin-bottom: 15px;
+}
+
+.contact {
+    text-align: center;
+    background: #11110f;
+    max-width: none;
+}
+
+.contact-inner {
+    max-width: 700px;
+    margin: auto;
+}
+
+.whatsapp {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 16px 28px;
+    border: 1px solid #777164;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+}
+
+footer {
+    padding: 45px 24px;
+    border-top: 1px solid #272622;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: serif;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: #716e67;
+    font-size: 10px;
+}
+
+@media (max-width: 650px) {
+
+    nav a:nth-child(n+3) {
+        display: none;
     }
 
-    body {
-      background: #0b0b0b;
-      color: #f5f2ea;
-      font-family: Arial, sans-serif;
+    .products {
+        grid-template-columns: 1fr;
     }
 
-    header {
-      padding: 24px;
-      text-align: center;
-      border-bottom: 1px solid #292929;
+    .product {
+        min-height: 330px;
     }
-
-    .logo {
-      font-size: 42px;
-      letter-spacing: 4px;
-    }
-
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 30px;
-    }
-
-    .hero h1 {
-      font-size: 46px;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      color: #b8b5ad;
-      max-width: 550px;
-      line-height: 1.7;
-      margin-bottom: 35px;
-    }
-
-    .button {
-      display: inline-block;
-      border: 1px solid #f5f2ea;
-      padding: 15px 30px;
-      color: #f5f2ea;
-      text-decoration: none;
-    }
-
-    .section {
-      padding: 80px 25px;
-      text-align: center;
-    }
-
-    .section h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      color: #aaa;
-      max-width: 650px;
-      margin: auto;
-      line-height: 1.7;
-    }
-
-    footer {
-      padding: 30px;
-      text-align: center;
-      border-top: 1px solid #292929;
-      color: #777;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">سوچ</div>
-  </header>
+<header>
+    <a href="#" class="logo">سوچ</a>
 
-  <section class="hero">
-    <h1>
-      You Bring the Vision.<br>
-      We Bring It to Life.
-    </h1>
+    <nav>
+        <a href="#shop">Shop</a>
+        <a href="#bespoke">Bespoke</a>
+        <a href="#story">Story</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <p>
-      Premium custom décor and craftsmanship,
-      created around your vision.
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Custom Craftsmanship · Designed With Intention
+        </div>
+
+        <h1>
+            You Bring the <span>Vision.</span><br>
+            We Bring It to Life.
+        </h1>
+
+        <p>
+            A premium décor and craftsmanship studio creating
+            distinctive pieces for spaces that deserve something
+            extraordinary.
+        </p>
+
+        <div class="buttons">
+            <a href="#shop" class="button primary">
+                Explore Collection
+            </a>
+
+            <a href="#bespoke" class="button">
+                Create Something Custom
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="shop">
+
+    <div class="section-label">
+        The Collection
+    </div>
+
+    <h2>Made to Be Seen.</h2>
+
+    <p class="section-intro">
+        Discover pieces designed and crafted by سوچ.
+        Our collection will grow with every new creation.
     </p>
 
-    <a href="#shop" class="button">
-      Explore Our Work
-    </a>
-  </section>
+    <div class="products">
 
-  <section class="section" id="shop">
-    <h2>Crafted With Purpose</h2>
+        <article class="product">
+            <div class="product-image"></div>
+            <div class="product-info">
+                <h3>Collection I</h3>
+                <p>Coming soon</p>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image"></div>
+            <div class="product-info">
+                <h3>Collection II</h3>
+                <p>Coming soon</p>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image"></div>
+            <div class="product-info">
+                <h3>Collection III</h3>
+                <p>Coming soon</p>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image"></div>
+            <div class="product-info">
+                <h3>Collection IV</h3>
+                <p>Coming soon</p>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="bespoke" id="bespoke">
+
+    <div class="bespoke-inner">
+
+        <div class="section-label">
+            Bespoke
+        </div>
+
+        <h2>Your idea deserves to exist.</h2>
+
+        <p>
+            Have something specific in mind?
+            Bring us your vision, reference, sketch or simply an idea.
+            We'll transform it into a carefully crafted piece made
+            specifically for you.
+        </p>
+
+        <a href="#contact" class="dark-button">
+            Start Your Project
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-label">
+        Our Process
+    </div>
+
+    <h2>From Thought to Form.</h2>
+
+    <div class="process">
+
+        <div class="process-item">
+            <div class="number">01</div>
+            <h3>Imagine</h3>
+            <p>Your idea begins with a thought.</p>
+        </div>
+
+        <div class="process-item">
+            <div class="number">02</div>
+            <h3>Design</h3>
+            <p>We shape the vision into a purposeful design.</p>
+        </div>
+
+        <div class="process-item">
+            <div class="number">03</div>
+            <h3>Craft</h3>
+            <p>Precision craftsmanship brings the design to life.</p>
+        </div>
+
+        <div class="process-item">
+            <div class="number">04</div>
+            <h3>Deliver</h3>
+            <p>The finished creation arrives ready for its place.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section story" id="story">
+
+    <div class="story-content">
+
+        <div class="section-label">
+            The سوچ Philosophy
+        </div>
+
+        <h2>Every creation begins with a thought.</h2>
+
+        <p>
+            سوچ means thought — the place where every vision begins.
+        </p>
+
+        <p>
+            We believe the most meaningful pieces aren't simply bought.
+            They're imagined, designed and brought into existence.
+        </p>
+
+        <p>
+            That's what سوچ exists to do.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section contact" id="contact">
+
+    <div class="contact-inner">
+
+        <div class="section-label">
+            Let's Create
+        </div>
+
+        <h2>Have a vision?</h2>
+
+        <p class="section-intro" style="margin-left:auto;margin-right:auto;">
+            Whether you want something from our collection
+            or something made entirely around your idea,
+            we'd love to hear from you.
+        </p>
+
+        <a href="https://wa.me/" class="whatsapp">
+            Start a Conversation
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-logo">سوچ</div>
 
     <p>
-      Every piece begins with an idea.
-      We transform that idea into something
-      designed, crafted and made uniquely for you.
+        You Bring the Vision. We Bring It to Life.
     </p>
-  </section>
 
-  <footer>
-    © 2026 سوچ — All Rights Reserved.
-  </footer>
+    <p style="margin-top:15px;">
+        © 2026 سوچ. All Rights Reserved.
+    </p>
+
+</footer>
 
 </body>
 </html>
