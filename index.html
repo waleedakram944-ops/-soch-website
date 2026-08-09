@@ -284,6 +284,9 @@ nav a:hover {
     background:
         linear-gradient(145deg, #292821, #11110f);
 
+    background-size: cover;
+    background-position: center;
+
     transition: transform .6s ease;
 }
 
@@ -291,9 +294,7 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-.product:nth-child(2) .product-image {
-    background: linear-gradient(145deg, #1b1b19, #353127);
-}
+/* Placeholder backgrounds only */
 
 .product:nth-child(3) .product-image {
     background: linear-gradient(145deg, #343128, #151513);
@@ -1035,24 +1036,37 @@ footer p {
 
     <p class="section-intro">
         Discover pieces designed and crafted by 𝑺𝑶𝑪𝑯.
-        Our collection will grow with every new creation.
+        Each creation is made with intention, precision and character.
     </p>
 
 
     <div class="products">
 
+
+        <!-- =========================
+             PRODUCT 01
+        ========================= -->
+
         <article class="product">
 
-            <div class="product-image"></div>
+            <div
+                class="product-image"
+                style="
+                    background-image:
+                    url('FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png');
+                    background-size: cover;
+                    background-position: center;
+                "
+            ></div>
 
             <div class="product-info">
 
                 <h3>
-                    Collection I
+                    The Horse
                 </h3>
 
                 <p>
-                    Coming Soon
+                    Illuminated Statement Art
                 </p>
 
             </div>
@@ -1060,24 +1074,40 @@ footer p {
         </article>
 
 
+        <!-- =========================
+             PRODUCT 02
+        ========================= -->
+
         <article class="product">
 
-            <div class="product-image"></div>
+            <div
+                class="product-image"
+                style="
+                    background-image:
+                    url('EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png');
+                    background-size: cover;
+                    background-position: center;
+                "
+            ></div>
 
             <div class="product-info">
 
                 <h3>
-                    Collection II
+                    The Tree of Life
                 </h3>
 
                 <p>
-                    Coming Soon
+                    Sculptural Wall Art
                 </p>
 
             </div>
 
         </article>
 
+
+        <!-- =========================
+             PRODUCT 03
+        ========================= -->
 
         <article class="product">
 
@@ -1098,6 +1128,10 @@ footer p {
         </article>
 
 
+        <!-- =========================
+             PRODUCT 04
+        ========================= -->
+
         <article class="product">
 
             <div class="product-image"></div>
@@ -1115,6 +1149,7 @@ footer p {
             </div>
 
         </article>
+
 
     </div>
 
