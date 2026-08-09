@@ -20,13 +20,7 @@ content="SOCH — Bespoke décor and craftsmanship. You bring the vision. We bri
 href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap"
 rel="stylesheet">
 
-
 <style>
-
-/* =========================================================
-   SOCH — PREMIUM INTERFACE
-   FINAL BASELINE
-   ========================================================= */
 
 :root {
     --black: #080807;
@@ -38,11 +32,6 @@ rel="stylesheet">
     --gold: #b9a06c;
     --line: rgba(238,234,225,.11);
 }
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
 
 * {
     margin: 0;
@@ -151,11 +140,6 @@ nav a:hover {
 nav a:hover::after {
     width: 100%;
 }
-
-
-/* =========================================================
-   LOGO
-   ========================================================= */
 
 .center-logo {
     display: flex;
@@ -304,7 +288,6 @@ nav a:hover::after {
     font-size: 8px;
     text-transform: uppercase;
     letter-spacing: 2.3px;
-
     transition:
         background .35s ease,
         color .35s ease,
@@ -394,11 +377,6 @@ nav a:hover::after {
     gap: 20px;
 }
 
-
-/* =========================================================
-   PRODUCT BOXES
-   ========================================================= */
-
 .product {
     position: relative;
     min-height: 590px;
@@ -419,7 +397,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   PRODUCT IMAGE AREA
+   PRODUCT IMAGE — FINAL FIT
    ========================================================= */
 
 .product-image {
@@ -440,19 +418,22 @@ nav a:hover::after {
 
     filter: blur(32px);
     transform: scale(1.12);
+
     opacity: .42;
 }
 
 
-/* =========================================================
-   FINAL IMAGE FIT FIX
-   Products 1–3 enlarged.
-   Product 4 remains at original scale.
-   ========================================================= */
+/*
+   IMPORTANT:
+   The image itself uses contain so the artwork is NEVER cropped.
+   Padding has been removed so the available product area is larger.
+*/
 
 .product-image img {
     position: absolute;
-    inset: 0;
+
+    left: 50%;
+    top: 50%;
 
     width: 100%;
     height: 100%;
@@ -464,44 +445,68 @@ nav a:hover::after {
 
     z-index: 1;
 
+    transform: translate(-50%, -50%) scale(1);
+
     transition:
         transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
 
-/* PRODUCTS 1–3 */
+/*
+   Individual image scaling.
 
-.product:nth-child(1) .product-image img,
-.product:nth-child(2) .product-image img,
-.product:nth-child(3) .product-image img {
-    transform: scale(1.28);
+   Product 1:
+   Slightly larger because its source image has more empty canvas.
+
+   Product 2:
+   Slightly larger.
+
+   Product 3:
+   Slightly larger.
+
+   Product 4:
+   Left at 1.00 because this one was already fitting correctly.
+*/
+
+.product:nth-child(1) .product-image img {
+    transform: translate(-50%, -50%) scale(1.16);
 }
 
+.product:nth-child(2) .product-image img {
+    transform: translate(-50%, -50%) scale(1.14);
+}
 
-/* PRODUCT 4 — ALREADY PERFECT */
+.product:nth-child(3) .product-image img {
+    transform: translate(-50%, -50%) scale(1.15);
+}
 
 .product:nth-child(4) .product-image img {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 
-/* HOVER — PRODUCTS 1–3 */
+/*
+   Hover scaling preserves each product's individual base scale.
+*/
 
-.product:nth-child(1):hover .product-image img,
-.product:nth-child(2):hover .product-image img,
+.product:nth-child(1):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.195);
+}
+
+.product:nth-child(2):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.175);
+}
+
 .product:nth-child(3):hover .product-image img {
-    transform: scale(1.32);
+    transform: translate(-50%, -50%) scale(1.185);
 }
-
-
-/* HOVER — PRODUCT 4 */
 
 .product:nth-child(4):hover .product-image img {
-    transform: scale(1.035);
+    transform: translate(-50%, -50%) scale(1.035);
 }
 
 
-/* IMAGE GRADIENT */
+/* image gradient */
 
 .product-image::after {
     content: "";
@@ -611,17 +616,14 @@ nav a:hover::after {
 
 .modal-box {
     position: relative;
-
     width: min(1040px, 100%);
     max-height: 91vh;
-
     overflow-y: auto;
 
     display: grid;
     grid-template-columns: 1.05fr .95fr;
 
     background: #11110f;
-
     border: 1px solid rgba(238,234,225,.14);
 
     box-shadow: 0 40px 120px rgba(0,0,0,.65);
@@ -631,20 +633,16 @@ nav a:hover::after {
     position: absolute;
     top: 18px;
     right: 18px;
-
     z-index: 10;
 
     width: 38px;
     height: 38px;
 
     border: 1px solid rgba(238,234,225,.25);
-
     background: rgba(5,5,4,.7);
 
     color: var(--cream);
-
     cursor: pointer;
-
     font-size: 19px;
 
     transition: .3s ease;
@@ -654,11 +652,6 @@ nav a:hover::after {
     color: var(--gold);
     border-color: var(--gold);
 }
-
-
-/* =========================================================
-   MODAL IMAGE — FITTED
-   ========================================================= */
 
 .modal-image {
     min-height: 620px;
@@ -678,7 +671,6 @@ nav a:hover::after {
 
     filter: blur(32px);
     opacity: .4;
-
     transform: scale(1.12);
 }
 
@@ -692,15 +684,10 @@ nav a:hover::after {
     object-fit: contain;
     object-position: center;
 
-    padding: 0;
+    padding: 25px;
 
     z-index: 2;
 }
-
-
-/* =========================================================
-   MODAL CONTENT
-   ========================================================= */
 
 .modal-content {
     padding: 72px 55px;
@@ -744,7 +731,6 @@ nav a:hover::after {
 .modal-details {
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-
     padding: 16px 0;
     margin-bottom: 28px;
 }
@@ -777,19 +763,14 @@ nav a:hover::after {
 
 .order-button {
     width: 100%;
-
     border: 1px solid var(--cream);
     background: var(--cream);
     color: #090908;
-
     padding: 17px;
-
     cursor: pointer;
-
     font-size: 8px;
     text-transform: uppercase;
     letter-spacing: 2px;
-
     transition: .3s ease;
 }
 
@@ -805,7 +786,6 @@ nav a:hover::after {
 
 .bespoke {
     max-width: none;
-
     padding: 145px 5.5vw;
 
     background:
@@ -814,7 +794,6 @@ nav a:hover::after {
             rgba(190,159,101,.08),
             transparent 28%
         ),
-
         #eeeae1;
 
     color: #10100e;
@@ -833,23 +812,17 @@ nav a:hover::after {
     max-width: 900px;
 
     font-family: "Cormorant Garamond", serif;
-
     font-size: clamp(58px, 8vw, 105px);
-
     line-height: .82;
-
     font-weight: 300;
-
     letter-spacing: -2px;
 }
 
 .bespoke p {
     max-width: 620px;
-
     margin-top: 30px;
 
     color: #5c584f;
-
     font-size: 13px;
     line-height: 1.9;
 }
@@ -863,14 +836,11 @@ nav a:hover::after {
 
 .dark-button {
     padding: 16px 25px;
-
     background: #10100e;
     color: var(--cream);
-
     font-size: 8px;
     text-transform: uppercase;
     letter-spacing: 2px;
-
     transition: .35s ease;
 }
 
@@ -880,7 +850,6 @@ nav a:hover::after {
 
 .text-link {
     color: #4f4b43;
-
     font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -908,33 +877,24 @@ nav a:hover::after {
 
 .builder-heading h2 {
     font-family: "Cormorant Garamond", serif;
-
     font-size: clamp(52px, 7vw, 82px);
-
     font-weight: 300;
-
     line-height: .86;
-
     letter-spacing: -1.5px;
 }
 
 .builder-heading p {
     max-width: 570px;
-
     color: var(--muted);
-
     font-size: 13px;
     line-height: 1.9;
-
     margin-top: 24px;
 }
 
 .builder {
     display: grid;
     grid-template-columns: 1fr .8fr;
-
     gap: 70px;
-
     align-items: stretch;
 }
 
@@ -952,7 +912,6 @@ nav a:hover::after {
 
 .form-group label {
     color: #817b70;
-
     font-size: 8px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -962,7 +921,6 @@ nav a:hover::after {
 .form-group select,
 .form-group textarea {
     width: 100%;
-
     padding: 15px 14px;
 
     background: transparent;
@@ -1000,7 +958,6 @@ nav a:hover::after {
 
 .builder-submit {
     border: 1px solid var(--cream);
-
     background: var(--cream);
     color: #090908;
 
@@ -1022,7 +979,6 @@ nav a:hover::after {
 
 .builder-preview {
     position: relative;
-
     min-height: 500px;
 
     overflow: hidden;
@@ -1109,9 +1065,7 @@ nav a:hover::after {
 
 .process {
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     gap: 1px;
 
     background: #292824;
@@ -1121,33 +1075,26 @@ nav a:hover::after {
 
 .process-item {
     min-height: 250px;
-
     padding: 34px 28px;
-
     background: #0a0a09;
 }
 
 .number {
     color: var(--gold);
-
     font-size: 8px;
     letter-spacing: 2.5px;
 }
 
 .process h3 {
     font-family: "Cormorant Garamond", serif;
-
     font-size: 34px;
     font-weight: 400;
-
     margin: 25px 0 10px;
 }
 
 .process p {
     max-width: 190px;
-
     color: #77736c;
-
     font-size: 10px;
     line-height: 1.8;
 }
@@ -1172,7 +1119,6 @@ nav a:hover::after {
 
 .story p {
     max-width: 620px;
-
     margin: 0 auto 15px;
 
     color: var(--muted);
@@ -1200,7 +1146,6 @@ nav a:hover::after {
             rgba(185,160,108,.08),
             transparent 35%
         ),
-
         #0a0a09;
 }
 
@@ -1246,11 +1191,8 @@ nav a:hover::after {
 
 .contact-methods {
     display: flex;
-
     justify-content: center;
-
     gap: 13px;
-
     flex-wrap: wrap;
 
     margin-top: 40px;
@@ -1272,7 +1214,6 @@ nav a:hover::after {
 
 .contact-card:hover {
     transform: translateY(-5px);
-
     border-color: rgba(185,160,108,.5);
 }
 
@@ -1287,7 +1228,6 @@ nav a:hover::after {
     border-radius: 50%;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -1300,7 +1240,6 @@ nav a:hover::after {
     font-family: "Cormorant Garamond", serif;
 
     font-size: 25px;
-
     font-weight: 400;
 }
 
@@ -1312,9 +1251,7 @@ nav a:hover::after {
     color: #74716a;
 
     font-size: 8px;
-
     text-transform: uppercase;
-
     letter-spacing: 1.7px;
 }
 
@@ -1335,7 +1272,6 @@ footer {
 
 .footer-brand {
     display: flex;
-
     justify-content: center;
     align-items: baseline;
 
@@ -1346,23 +1282,18 @@ footer {
 
 .footer-brand .english {
     font-family: "Cormorant Garamond", serif;
-
     font-size: 31px;
-
     font-style: italic;
 }
 
 .footer-brand .urdu {
     font-family: "Noto Naskh Arabic", serif;
-
     font-size: 27px;
 }
 
 footer p {
     color: #65625b;
-
     font-size: 8px;
-
     letter-spacing: 1px;
 }
 
@@ -1447,12 +1378,11 @@ footer p {
         min-height: 360px;
     }
 
+    .process {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-
-/* =========================================================
-   MOBILE — SMALL
-   ========================================================= */
 
 @media (max-width: 550px) {
 
@@ -1538,6 +1468,43 @@ footer p {
         font-size: 34px;
     }
 
+    /*
+       Mobile needs slightly less scaling because
+       the product cards become narrower.
+    */
+
+    .product:nth-child(1) .product-image img {
+        transform: translate(-50%, -50%) scale(1.10);
+    }
+
+    .product:nth-child(2) .product-image img {
+        transform: translate(-50%, -50%) scale(1.09);
+    }
+
+    .product:nth-child(3) .product-image img {
+        transform: translate(-50%, -50%) scale(1.10);
+    }
+
+    .product:nth-child(4) .product-image img {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .product:nth-child(1):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.13);
+    }
+
+    .product:nth-child(2):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    .product:nth-child(3):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.13);
+    }
+
+    .product:nth-child(4):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.025);
+    }
+
     .bespoke {
         padding: 100px 20px;
     }
@@ -1597,13 +1564,12 @@ footer p {
     }
 
     .modal-image img {
-        padding: 0;
+        padding: 20px;
     }
 
     .modal-content {
         padding: 35px 23px 40px;
     }
-
 }
 
 
@@ -1693,7 +1659,6 @@ footer p {
 
     <div class="hero-content">
 
-
         <div class="hero-brand">
 
             <span class="english">
@@ -1708,27 +1673,20 @@ footer p {
 
 
         <div class="eyebrow">
-
             PREMIUM DÉCOR · BESPOKE CRAFTSMANSHIP
-
         </div>
 
 
         <h1>
-
             You Bring the <span>Vision.</span><br>
-
             We Bring It to Life.
-
         </h1>
 
 
         <p>
-
             Distinctive pieces, crafted with intention.
             From our collection to creations made exclusively
             around your vision.
-
         </p>
 
 
@@ -1751,7 +1709,6 @@ footer p {
 
         </div>
 
-
     </div>
 
 </section>
@@ -1765,7 +1722,6 @@ footer p {
     class="section"
     id="shop"
 >
-
 
     <div class="collection-heading">
 
@@ -1793,9 +1749,7 @@ footer p {
 
 
         <div class="collection-mark">
-
             VOLUME I — IV
-
         </div>
 
     </div>
@@ -2023,9 +1977,7 @@ footer p {
     onclick="closeProductOutside(event)"
 >
 
-
     <div class="modal-box">
-
 
         <button
             class="close-modal"
@@ -2051,16 +2003,13 @@ footer p {
 
         <div class="modal-content">
 
-
             <div
                 class="modal-volume"
                 id="modalVolume"
             ></div>
 
 
-            <h2
-                id="modalTitle"
-            ></h2>
+            <h2 id="modalTitle"></h2>
 
 
             <div
@@ -2076,7 +2025,6 @@ footer p {
 
 
             <div class="modal-details">
-
 
                 <div class="detail-row">
 
@@ -2112,7 +2060,6 @@ footer p {
 
                 </div>
 
-
             </div>
 
 
@@ -2126,11 +2073,8 @@ footer p {
                 class="order-button"
                 onclick="orderProduct()"
             >
-
                 Order Now →
-
             </button>
-
 
         </div>
 
@@ -2148,9 +2092,7 @@ footer p {
     id="bespoke"
 >
 
-
     <div class="bespoke-inner">
-
 
         <div class="section-label">
             BESPOKE
@@ -2163,18 +2105,15 @@ footer p {
 
 
         <p>
-
             No catalogue. No limitations.
             Bring us your vision, reference, sketch,
             or simply an idea.
 
             We design and craft it specifically for you.
-
         </p>
 
 
         <div class="bespoke-actions">
-
 
             <a
                 href="#vision"
@@ -2190,7 +2129,6 @@ footer p {
             >
                 See How It Works →
             </a>
-
 
         </div>
 
@@ -2208,12 +2146,9 @@ footer p {
     id="vision"
 >
 
-
     <div class="builder-container">
 
-
         <div class="builder-heading">
-
 
             <div class="section-label">
                 YOUR VISION
@@ -2226,11 +2161,9 @@ footer p {
 
 
             <p>
-
                 Tell us what you're imagining.
                 You don't need a finished design —
                 that's what we're here for.
-
             </p>
 
         </div>
@@ -2238,12 +2171,10 @@ footer p {
 
         <div class="builder">
 
-
             <form
                 class="builder-form"
                 onsubmit="sendVision(event)"
             >
-
 
                 <div class="form-group">
 
@@ -2348,12 +2279,10 @@ footer p {
                     Send My Vision on WhatsApp →
                 </button>
 
-
             </form>
 
 
             <div class="builder-preview">
-
 
                 <div class="preview-label">
                     THE 𝑺𝑶𝑪𝑯 APPROACH
@@ -2367,16 +2296,12 @@ footer p {
 
 
                 <div class="preview-text">
-
                     Your idea doesn't need to be perfect.
                     Give us the thought behind it and we'll
                     help turn it into something real.
-
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -2394,7 +2319,6 @@ footer p {
     id="process"
 >
 
-
     <div class="section-label">
         OUR PROCESS
     </div>
@@ -2406,7 +2330,6 @@ footer p {
 
 
     <div class="process">
-
 
         <div class="process-item">
 
@@ -2459,7 +2382,6 @@ footer p {
 
         </div>
 
-
     </div>
 
 </section>
@@ -2474,9 +2396,7 @@ footer p {
     id="story"
 >
 
-
     <div class="story-content">
-
 
         <div class="section-label">
             THE 𝑺𝑶𝑪𝑯 PHILOSOPHY
@@ -2507,7 +2427,6 @@ footer p {
             That's what 𝑺𝑶𝑪𝑯 exists to do.
         </p>
 
-
     </div>
 
 </section>
@@ -2522,9 +2441,7 @@ footer p {
     id="contact"
 >
 
-
     <div class="contact-inner">
-
 
         <div class="section-label">
             LET'S CREATE
@@ -2537,18 +2454,15 @@ footer p {
 
 
         <p class="section-intro">
-
             Have a question, a custom idea,
             or simply want to talk about something
             you're imagining?
 
             We're one message away.
-
         </p>
 
 
         <div class="contact-methods">
-
 
             <a
                 href="https://wa.me/923150674347"
@@ -2613,7 +2527,6 @@ footer p {
 
             </a>
 
-
         </div>
 
     </div>
@@ -2626,7 +2539,6 @@ footer p {
      ========================================================= -->
 
 <footer>
-
 
     <div class="footer-brand">
 
@@ -2663,7 +2575,6 @@ footer p {
         © 2026 𝑺𝑶𝑪𝑯 - سوچ. All Rights Reserved.
     </p>
 
-
 </footer>
 
 
@@ -2673,22 +2584,14 @@ footer p {
 
 <script>
 
-/* =========================================================
-   HEADER SCROLL
-   ========================================================= */
-
 const header = document.getElementById("header");
 
 window.addEventListener("scroll", () => {
 
     if (window.scrollY > 35) {
-
         header.classList.add("scrolled");
-
     } else {
-
         header.classList.remove("scrolled");
-
     }
 
 });
@@ -2815,10 +2718,6 @@ function openProduct(index) {
 }
 
 
-/* =========================================================
-   CLOSE MODAL
-   ========================================================= */
-
 function closeProduct() {
 
     document
@@ -2842,9 +2741,7 @@ function closeProductOutside(event) {
         event.target ===
         document.getElementById("productModal")
     ) {
-
         closeProduct();
-
     }
 
 }
@@ -2859,9 +2756,7 @@ document.addEventListener("keydown", function(event) {
             .classList
             .contains("active")
     ) {
-
         closeProduct();
-
     }
 
 });
@@ -2980,7 +2875,7 @@ Thank you.`;
 
 
 /* =========================================================
-   MOBILE NAV — SIMPLE SCROLL BEHAVIOUR
+   MOBILE NAV
    ========================================================= */
 
 document
@@ -3006,7 +2901,6 @@ document
     });
 
 </script>
-
 
 </body>
 </html>
