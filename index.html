@@ -198,7 +198,6 @@ nav a:hover::after {
             rgba(5,5,4,.30),
             rgba(5,5,4,.77)
         ),
-
         url("37A2CC13-446E-4AAA-A0A4-DFF3AAFB59A9.png")
         center / cover no-repeat;
 }
@@ -397,7 +396,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   PRODUCT BOX
+   PRODUCT BOXES
    ========================================================= */
 
 .product {
@@ -406,7 +405,6 @@ nav a:hover::after {
     overflow: hidden;
     cursor: pointer;
     background: #11110f;
-
     border: 1px solid rgba(238,234,225,.09);
 
     transition:
@@ -421,8 +419,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   PRODUCT IMAGE
-   Larger + properly fitted
+   PRODUCT IMAGE AREA
    ========================================================= */
 
 .product-image {
@@ -442,18 +439,16 @@ nav a:hover::after {
     background-size: cover;
 
     filter: blur(32px);
-
     transform: scale(1.12);
-
     opacity: .42;
 }
 
 
-/*
-   IMPORTANT:
-   The product BOX size remains unchanged.
-   Only the artwork is made larger inside it.
-*/
+/* =========================================================
+   FINAL IMAGE FIT FIX
+   Products 1–3 enlarged.
+   Product 4 remains at original scale.
+   ========================================================= */
 
 .product-image img {
     position: absolute;
@@ -465,25 +460,48 @@ nav a:hover::after {
     object-fit: contain;
     object-position: center;
 
-    padding: 8px;
+    padding: 0;
 
     z-index: 1;
-
-    transform: scale(1.10);
 
     transition:
         transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
 
-/* Hover image */
+/* PRODUCTS 1–3 */
 
-.product:hover .product-image img {
-    transform: scale(1.15);
+.product:nth-child(1) .product-image img,
+.product:nth-child(2) .product-image img,
+.product:nth-child(3) .product-image img {
+    transform: scale(1.28);
 }
 
 
-/* image gradient */
+/* PRODUCT 4 — ALREADY PERFECT */
+
+.product:nth-child(4) .product-image img {
+    transform: scale(1);
+}
+
+
+/* HOVER — PRODUCTS 1–3 */
+
+.product:nth-child(1):hover .product-image img,
+.product:nth-child(2):hover .product-image img,
+.product:nth-child(3):hover .product-image img {
+    transform: scale(1.32);
+}
+
+
+/* HOVER — PRODUCT 4 */
+
+.product:nth-child(4):hover .product-image img {
+    transform: scale(1.035);
+}
+
+
+/* IMAGE GRADIENT */
 
 .product-image::after {
     content: "";
@@ -596,6 +614,7 @@ nav a:hover::after {
 
     width: min(1040px, 100%);
     max-height: 91vh;
+
     overflow-y: auto;
 
     display: grid;
@@ -636,6 +655,11 @@ nav a:hover::after {
     border-color: var(--gold);
 }
 
+
+/* =========================================================
+   MODAL IMAGE — FITTED
+   ========================================================= */
+
 .modal-image {
     min-height: 620px;
     position: relative;
@@ -653,7 +677,6 @@ nav a:hover::after {
     background-position: center;
 
     filter: blur(32px);
-
     opacity: .4;
 
     transform: scale(1.12);
@@ -667,11 +690,17 @@ nav a:hover::after {
     height: 100%;
 
     object-fit: contain;
+    object-position: center;
 
-    padding: 40px;
+    padding: 0;
 
     z-index: 2;
 }
+
+
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
 
 .modal-content {
     padding: 72px 55px;
@@ -715,6 +744,7 @@ nav a:hover::after {
 .modal-details {
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+
     padding: 16px 0;
     margin-bottom: 28px;
 }
@@ -749,9 +779,7 @@ nav a:hover::after {
     width: 100%;
 
     border: 1px solid var(--cream);
-
     background: var(--cream);
-
     color: #090908;
 
     padding: 17px;
@@ -759,9 +787,7 @@ nav a:hover::after {
     cursor: pointer;
 
     font-size: 8px;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
 
     transition: .3s ease;
@@ -825,7 +851,6 @@ nav a:hover::after {
     color: #5c584f;
 
     font-size: 13px;
-
     line-height: 1.9;
 }
 
@@ -840,13 +865,10 @@ nav a:hover::after {
     padding: 16px 25px;
 
     background: #10100e;
-
     color: var(--cream);
 
     font-size: 8px;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
 
     transition: .35s ease;
@@ -860,9 +882,7 @@ nav a:hover::after {
     color: #4f4b43;
 
     font-size: 9px;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
 }
 
@@ -904,7 +924,6 @@ nav a:hover::after {
     color: var(--muted);
 
     font-size: 13px;
-
     line-height: 1.9;
 
     margin-top: 24px;
@@ -912,7 +931,6 @@ nav a:hover::after {
 
 .builder {
     display: grid;
-
     grid-template-columns: 1fr .8fr;
 
     gap: 70px;
@@ -936,9 +954,7 @@ nav a:hover::after {
     color: #817b70;
 
     font-size: 8px;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
 }
 
@@ -950,7 +966,6 @@ nav a:hover::after {
     padding: 15px 14px;
 
     background: transparent;
-
     color: var(--cream);
 
     border: 1px solid rgba(238,234,225,.13);
@@ -987,7 +1002,6 @@ nav a:hover::after {
     border: 1px solid var(--cream);
 
     background: var(--cream);
-
     color: #090908;
 
     padding: 17px;
@@ -995,9 +1009,7 @@ nav a:hover::after {
     cursor: pointer;
 
     font-size: 8px;
-
     text-transform: uppercase;
-
     letter-spacing: 2px;
 
     transition: .35s ease;
@@ -1016,9 +1028,7 @@ nav a:hover::after {
     overflow: hidden;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
 
     padding: 50px;
@@ -1056,9 +1066,7 @@ nav a:hover::after {
     color: var(--gold);
 
     font-size: 8px;
-
     text-transform: uppercase;
-
     letter-spacing: 3px;
 
     margin-bottom: 24px;
@@ -1071,7 +1079,6 @@ nav a:hover::after {
     font-family: "Cormorant Garamond", serif;
 
     font-size: 48px;
-
     line-height: .9;
 }
 
@@ -1086,7 +1093,6 @@ nav a:hover::after {
     color: #858178;
 
     font-size: 11px;
-
     line-height: 1.8;
 }
 
@@ -1097,9 +1103,7 @@ nav a:hover::after {
 
 .process-section {
     max-width: 1220px;
-
     margin: auto;
-
     padding: 140px 5.5vw;
 }
 
@@ -1127,7 +1131,6 @@ nav a:hover::after {
     color: var(--gold);
 
     font-size: 8px;
-
     letter-spacing: 2.5px;
 }
 
@@ -1135,7 +1138,6 @@ nav a:hover::after {
     font-family: "Cormorant Garamond", serif;
 
     font-size: 34px;
-
     font-weight: 400;
 
     margin: 25px 0 10px;
@@ -1147,7 +1149,6 @@ nav a:hover::after {
     color: #77736c;
 
     font-size: 10px;
-
     line-height: 1.8;
 }
 
@@ -1177,7 +1178,6 @@ nav a:hover::after {
     color: var(--muted);
 
     font-size: 13px;
-
     line-height: 1.95;
 }
 
@@ -1190,7 +1190,6 @@ nav a:hover::after {
     max-width: none;
 
     position: relative;
-
     overflow: hidden;
 
     text-align: center;
@@ -1233,7 +1232,6 @@ nav a:hover::after {
     z-index: 2;
 
     max-width: 900px;
-
     margin: auto;
 }
 
@@ -1291,7 +1289,6 @@ nav a:hover::after {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     color: #c4b083;
@@ -1340,7 +1337,6 @@ footer {
     display: flex;
 
     justify-content: center;
-
     align-items: baseline;
 
     gap: 4px;
@@ -1450,13 +1446,13 @@ footer p {
     .builder-preview {
         min-height: 360px;
     }
-    
-    .process {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
 }
 
+
+/* =========================================================
+   MOBILE — SMALL
+   ========================================================= */
 
 @media (max-width: 550px) {
 
@@ -1532,20 +1528,6 @@ footer p {
         min-height: 455px;
     }
 
-    /*
-       Mobile artwork:
-       larger inside the same product box.
-    */
-
-    .product-image img {
-        padding: 5px;
-        transform: scale(1.08);
-    }
-
-    .product:hover .product-image img {
-        transform: scale(1.12);
-    }
-
     .product-info {
         left: 20px;
         right: 20px;
@@ -1615,7 +1597,7 @@ footer p {
     }
 
     .modal-image img {
-        padding: 20px;
+        padding: 0;
     }
 
     .modal-content {
@@ -2998,7 +2980,7 @@ Thank you.`;
 
 
 /* =========================================================
-   MOBILE NAV
+   MOBILE NAV — SIMPLE SCROLL BEHAVIOUR
    ========================================================= */
 
 document
