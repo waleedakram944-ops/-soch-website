@@ -221,6 +221,75 @@ nav a:hover::after {
     max-width: 1050px;
 }
 
+
+/* =========================================================
+   SOCH HERO LOGO — TRANSPARENT PNG + COIN FLIP
+   ========================================================= */
+
+.hero-logo-wrap {
+    position: relative;
+    z-index: 4;
+
+    width: clamp(180px, 25vw, 310px);
+    height: clamp(110px, 15vw, 180px);
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1000px;
+}
+
+.hero-logo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 8px 18px rgba(0,0,0,.45))
+        drop-shadow(0 0 12px rgba(185,160,108,.12));
+
+    transform-style: preserve-3d;
+
+    animation:
+        sochCoinFlip 5.5s cubic-bezier(.45,.05,.55,.95) infinite;
+
+    will-change: transform;
+}
+
+
+/* 3D COIN FLIP */
+
+@keyframes sochCoinFlip {
+
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    18% {
+        transform: rotateY(0deg);
+    }
+
+    42% {
+        transform: rotateY(180deg);
+    }
+
+    58% {
+        transform: rotateY(360deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+
+}
+
+
 .hero-brand {
     display: flex;
     justify-content: center;
@@ -422,13 +491,6 @@ nav a:hover::after {
     opacity: .42;
 }
 
-
-/*
-   IMPORTANT:
-   The image itself uses contain so the artwork is NEVER cropped.
-   Padding has been removed so the available product area is larger.
-*/
-
 .product-image img {
     position: absolute;
 
@@ -451,23 +513,6 @@ nav a:hover::after {
         transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
-
-/*
-   Individual image scaling.
-
-   Product 1:
-   Slightly larger because its source image has more empty canvas.
-
-   Product 2:
-   Slightly larger.
-
-   Product 3:
-   Slightly larger.
-
-   Product 4:
-   Left at 1.00 because this one was already fitting correctly.
-*/
-
 .product:nth-child(1) .product-image img {
     transform: translate(-50%, -50%) scale(1.16);
 }
@@ -484,11 +529,6 @@ nav a:hover::after {
     transform: translate(-50%, -50%) scale(1);
 }
 
-
-/*
-   Hover scaling preserves each product's individual base scale.
-*/
-
 .product:nth-child(1):hover .product-image img {
     transform: translate(-50%, -50%) scale(1.195);
 }
@@ -504,9 +544,6 @@ nav a:hover::after {
 .product:nth-child(4):hover .product-image img {
     transform: translate(-50%, -50%) scale(1.035);
 }
-
-
-/* image gradient */
 
 .product-image::after {
     content: "";
@@ -1381,6 +1418,7 @@ footer p {
     .process {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 
@@ -1417,6 +1455,16 @@ footer p {
         padding: 135px 20px 80px;
         background-position: center;
     }
+
+
+    /* MOBILE HERO LOGO */
+
+    .hero-logo-wrap {
+        width: 205px;
+        height: 125px;
+        margin-bottom: 12px;
+    }
+
 
     .hero-brand .english {
         font-size: 22px;
@@ -1467,11 +1515,6 @@ footer p {
     .product h3 {
         font-size: 34px;
     }
-
-    /*
-       Mobile needs slightly less scaling because
-       the product cards become narrower.
-    */
 
     .product:nth-child(1) .product-image img {
         transform: translate(-50%, -50%) scale(1.10);
@@ -1570,6 +1613,7 @@ footer p {
     .modal-content {
         padding: 35px 23px 40px;
     }
+
 }
 
 
@@ -1658,6 +1702,22 @@ footer p {
 >
 
     <div class="hero-content">
+
+
+        <!-- NEW TRANSPARENT SOCH LOGO -->
+
+        <div class="hero-logo-wrap">
+
+            <img
+                src="D14F44D6-93B4-4E04-8871-E823876743A8.png"
+                alt="SOCH — سوچ"
+                class="hero-logo"
+            >
+
+        </div>
+
+
+        <!-- EXISTING HERO BRAND -->
 
         <div class="hero-brand">
 
