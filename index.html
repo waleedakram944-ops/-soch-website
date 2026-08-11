@@ -223,7 +223,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   SOCH HERO LOGO — TRANSPARENT PNG + COIN FLIP
+   SOCH HERO LOGO — COIN FLIP
    ========================================================= */
 
 .hero-logo-wrap {
@@ -261,9 +261,6 @@ nav a:hover::after {
 
     will-change: transform;
 }
-
-
-/* 3D COIN FLIP */
 
 @keyframes sochCoinFlip {
 
@@ -466,7 +463,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   PRODUCT IMAGE — FINAL FIT
+   PRODUCT IMAGE
    ========================================================= */
 
 .product-image {
@@ -1014,107 +1011,6 @@ nav a:hover::after {
     color: var(--cream);
 }
 
-
-/* =========================================================
-   POLISH / FINISH COLOUR SWATCHES
-   ========================================================= */
-
-.finish-options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.finish-option {
-    position: relative;
-}
-
-.finish-option input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.finish-option label {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-
-    width: 100%;
-    min-height: 50px;
-
-    padding: 10px 12px;
-
-    border: 1px solid rgba(238,234,225,.13);
-
-    background: rgba(255,255,255,.01);
-
-    color: #aaa59b;
-
-    font-size: 10px;
-
-    text-transform: none;
-    letter-spacing: .3px;
-
-    cursor: pointer;
-
-    transition:
-        border-color .3s ease,
-        background .3s ease,
-        color .3s ease;
-}
-
-.finish-option label:hover {
-    border-color: rgba(185,160,108,.45);
-    color: var(--cream);
-}
-
-.finish-option input:checked + label {
-    border-color: var(--gold);
-    background: rgba(185,160,108,.07);
-    color: var(--cream);
-}
-
-.finish-swatch {
-    flex: 0 0 22px;
-
-    width: 22px;
-    height: 22px;
-
-    border-radius: 3px;
-
-    border: 1px solid rgba(238,234,225,.28);
-
-    box-shadow:
-        inset 0 0 0 1px rgba(0,0,0,.18),
-        0 2px 8px rgba(0,0,0,.25);
-}
-
-.swatch-coffee {
-    background: #6b432b;
-}
-
-.swatch-dark-brown {
-    background: #3b2115;
-}
-
-.swatch-light-brown {
-    background: #a8784f;
-}
-
-.swatch-black {
-    background: #080807;
-}
-
-.finish-name {
-    flex: 1;
-}
-
-
-/* =========================================================
-   BUILDER PREVIEW
-   ========================================================= */
-
 .builder-preview {
     position: relative;
     min-height: 500px;
@@ -1516,6 +1412,10 @@ footer p {
         min-height: 360px;
     }
 
+    .process {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
 
@@ -1553,15 +1453,11 @@ footer p {
         background-position: center;
     }
 
-
-    /* MOBILE HERO LOGO */
-
     .hero-logo-wrap {
         width: 205px;
         height: 125px;
         margin-bottom: 12px;
     }
-
 
     .hero-brand .english {
         font-size: 22px;
@@ -1676,10 +1572,6 @@ footer p {
 
     .preview-title {
         font-size: 38px;
-    }
-
-    .finish-options {
-        grid-template-columns: 1fr;
     }
 
     .process {
@@ -1803,7 +1695,6 @@ footer p {
 >
 
     <div class="hero-content">
-
 
         <div class="hero-logo-wrap">
 
@@ -2319,8 +2210,8 @@ footer p {
 
             <p>
                 Tell us what you're imagining.
-                You don't need a finished design —
-                that's what we're here for.
+                You don't need a finished design.
+                That's what we're here for.
             </p>
 
         </div>
@@ -2332,6 +2223,8 @@ footer p {
                 class="builder-form"
                 onsubmit="sendVision(event)"
             >
+
+                <!-- NAME -->
 
                 <div class="form-group">
 
@@ -2401,110 +2294,32 @@ footer p {
                 </div>
 
 
-                <!-- FINISH / POLISH COLOUR -->
+                <!-- PREFERRED FINISH -->
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="finish">
                         Preferred Finish
                     </label>
 
-                    <div class="finish-options">
+                    <select id="finish">
 
-                        <div class="finish-option">
+                        <option value="Not sure yet">
+                            Not sure yet
+                        </option>
 
-                            <input
-                                type="radio"
-                                name="finish"
-                                id="finishCoffee"
-                                value="Coffee"
-                                checked
-                            >
+                        <option>Coffee</option>
+                        <option>Dark Brown</option>
+                        <option>Light Brown</option>
+                        <option>Black</option>
+                        <option>Let 𝑺𝑶𝑪𝑯 Recommend</option>
 
-                            <label for="finishCoffee">
-
-                                <span class="finish-swatch swatch-coffee"></span>
-
-                                <span class="finish-name">
-                                    Coffee
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                        <div class="finish-option">
-
-                            <input
-                                type="radio"
-                                name="finish"
-                                id="finishDarkBrown"
-                                value="Dark Brown"
-                            >
-
-                            <label for="finishDarkBrown">
-
-                                <span class="finish-swatch swatch-dark-brown"></span>
-
-                                <span class="finish-name">
-                                    Dark Brown
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                        <div class="finish-option">
-
-                            <input
-                                type="radio"
-                                name="finish"
-                                id="finishLightBrown"
-                                value="Light Brown"
-                            >
-
-                            <label for="finishLightBrown">
-
-                                <span class="finish-swatch swatch-light-brown"></span>
-
-                                <span class="finish-name">
-                                    Light Brown
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                        <div class="finish-option">
-
-                            <input
-                                type="radio"
-                                name="finish"
-                                id="finishBlack"
-                                value="Black"
-                            >
-
-                            <label for="finishBlack">
-
-                                <span class="finish-swatch swatch-black"></span>
-
-                                <span class="finish-name">
-                                    Black
-                                </span>
-
-                            </label>
-
-                        </div>
-
-                    </div>
+                    </select>
 
                 </div>
 
 
-                <!-- APPROXIMATE SIZE -->
+                <!-- SIZE -->
 
                 <div class="form-group">
 
@@ -3094,15 +2909,11 @@ function sendVision(event) {
             .value ||
         "Not specified";
 
-    const finishElement =
-        document.querySelector(
-            'input[name="finish"]:checked'
-        );
-
     const finish =
-        finishElement
-            ? finishElement.value
-            : "Not specified";
+        document
+            .getElementById("finish")
+            .value ||
+        "Not specified";
 
     const size =
         document
