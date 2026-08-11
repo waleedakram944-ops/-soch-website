@@ -10,7 +10,7 @@
 
 <meta
 name="description"
-content="SOCH — Custom décor and craftsmanship. You bring the vision. We bring it to life."
+content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring it to life."
 >
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,7 +223,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   SOCH HERO LOGO — COIN FLIP
+   SOCH HERO LOGO
    ========================================================= */
 
 .hero-logo-wrap {
@@ -261,6 +261,9 @@ nav a:hover::after {
 
     will-change: transform;
 }
+
+
+/* 3D COIN FLIP */
 
 @keyframes sochCoinFlip {
 
@@ -1011,6 +1014,147 @@ nav a:hover::after {
     color: var(--cream);
 }
 
+
+/* =========================================================
+   PREFERRED FINISH
+   ========================================================= */
+
+.finish-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.finish-selected {
+    width: 100%;
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 14px;
+
+    background: transparent;
+    color: var(--cream);
+
+    border: 1px solid rgba(238,234,225,.13);
+
+    cursor: pointer;
+    outline: none;
+
+    font-size: 11px;
+    text-align: left;
+
+    transition: border-color .3s ease;
+}
+
+.finish-selected:hover,
+.finish-dropdown.open .finish-selected {
+    border-color: rgba(185,160,108,.65);
+}
+
+.finish-selected-text {
+    color: #aaa49a;
+}
+
+.finish-arrow {
+    color: var(--gold);
+    font-size: 16px;
+    line-height: 1;
+
+    transition: transform .3s ease;
+}
+
+.finish-dropdown.open .finish-arrow {
+    transform: rotate(180deg);
+}
+
+.finish-options {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+
+    z-index: 50;
+
+    background: #11110f;
+
+    border: 1px solid rgba(238,234,225,.16);
+
+    box-shadow: 0 18px 45px rgba(0,0,0,.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-6px);
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease;
+}
+
+.finish-dropdown.open .finish-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.finish-option {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px;
+
+    background: transparent;
+    color: #c9c2b6;
+
+    border: none;
+    border-bottom: 1px solid rgba(238,234,225,.07);
+
+    cursor: pointer;
+
+    font-size: 10px;
+    text-align: left;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.finish-option:last-child {
+    border-bottom: none;
+}
+
+.finish-option:hover {
+    background: rgba(185,160,108,.08);
+    color: var(--cream);
+}
+
+.finish-swatch {
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 18px;
+
+    border-radius: 2px;
+
+    border: 1px solid rgba(238,234,225,.28);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.08),
+        0 2px 7px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   BUILDER PREVIEW
+   ========================================================= */
+
 .builder-preview {
     position: relative;
     min-height: 500px;
@@ -1700,7 +1844,7 @@ footer p {
 
             <img
                 src="D14F44D6-93B4-4E04-8871-E823876743A8.png"
-                alt="SOCH — سوچ"
+                alt="SOCH - سوچ"
                 class="hero-logo"
             >
 
@@ -1797,7 +1941,7 @@ footer p {
 
 
         <div class="collection-mark">
-            VOLUME I — IV
+            VOLUME I - IV
         </div>
 
     </div>
@@ -2103,7 +2247,7 @@ footer p {
                     </span>
 
                     <span>
-                        SOCH — سوچ
+                        SOCH - سوچ
                     </span>
 
                 </div>
@@ -2224,8 +2368,6 @@ footer p {
                 onsubmit="sendVision(event)"
             >
 
-                <!-- NAME -->
-
                 <div class="form-group">
 
                     <label for="clientName">
@@ -2241,8 +2383,6 @@ footer p {
 
                 </div>
 
-
-                <!-- WHAT ARE YOU IMAGINING -->
 
                 <div class="form-group">
 
@@ -2271,8 +2411,6 @@ footer p {
                 </div>
 
 
-                <!-- PREFERRED MATERIAL -->
-
                 <div class="form-group">
 
                     <label for="material">
@@ -2286,7 +2424,7 @@ footer p {
                         </option>
 
                         <option>Lasani Sheet</option>
-                        <option>Mixed Wood & Lasani</option>
+                        <option>Mixed Materials</option>
                         <option>Let 𝑺𝑶𝑪𝑯 Recommend</option>
 
                     </select>
@@ -2294,32 +2432,124 @@ footer p {
                 </div>
 
 
-                <!-- PREFERRED FINISH -->
+                <!-- =====================================================
+                     PREFERRED FINISH
+                     ===================================================== -->
 
                 <div class="form-group">
 
-                    <label for="finish">
+                    <label>
                         Preferred Finish
                     </label>
 
-                    <select id="finish">
+                    <div
+                        class="finish-dropdown"
+                        id="finishDropdown"
+                    >
 
-                        <option value="Not sure yet">
-                            Not sure yet
-                        </option>
+                        <button
+                            type="button"
+                            class="finish-selected"
+                            onclick="toggleFinishDropdown()"
+                        >
 
-                        <option>Coffee</option>
-                        <option>Dark Brown</option>
-                        <option>Light Brown</option>
-                        <option>Black</option>
-                        <option>Let 𝑺𝑶𝑪𝑯 Recommend</option>
+                            <span class="finish-selected-text">
+                                Select a finish
+                            </span>
 
-                    </select>
+                            <span class="finish-arrow">
+                                ⌄
+                            </span>
+
+                        </button>
+
+
+                        <div class="finish-options">
+
+                            <button
+                                type="button"
+                                class="finish-option"
+                                onclick="selectFinish('Coffee', '#6F4E37')"
+                            >
+
+                                <span
+                                    class="finish-swatch"
+                                    style="background:#6F4E37;"
+                                ></span>
+
+                                <span>
+                                    Coffee
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="finish-option"
+                                onclick="selectFinish('Dark Brown', '#3B2416')"
+                            >
+
+                                <span
+                                    class="finish-swatch"
+                                    style="background:#3B2416;"
+                                ></span>
+
+                                <span>
+                                    Dark Brown
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="finish-option"
+                                onclick="selectFinish('Light Brown', '#A67B5B')"
+                            >
+
+                                <span
+                                    class="finish-swatch"
+                                    style="background:#A67B5B;"
+                                ></span>
+
+                                <span>
+                                    Light Brown
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="finish-option"
+                                onclick="selectFinish('Black', '#090909')"
+                            >
+
+                                <span
+                                    class="finish-swatch"
+                                    style="background:#090909;"
+                                ></span>
+
+                                <span>
+                                    Black
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <input
+                        type="hidden"
+                        id="finish"
+                        value=""
+                    >
 
                 </div>
 
-
-                <!-- SIZE -->
 
                 <div class="form-group">
 
@@ -2335,8 +2565,6 @@ footer p {
 
                 </div>
 
-
-                <!-- DETAILS -->
 
                 <div class="form-group">
 
@@ -2414,9 +2642,13 @@ footer p {
 
         <div class="process-item">
 
-            <div class="number">01</div>
+            <div class="number">
+                01
+            </div>
 
-            <h3>Imagine</h3>
+            <h3>
+                Imagine
+            </h3>
 
             <p>
                 Your idea begins with a thought.
@@ -2427,9 +2659,13 @@ footer p {
 
         <div class="process-item">
 
-            <div class="number">02</div>
+            <div class="number">
+                02
+            </div>
 
-            <h3>Design</h3>
+            <h3>
+                Design
+            </h3>
 
             <p>
                 We shape your vision into a purposeful design.
@@ -2440,9 +2676,13 @@ footer p {
 
         <div class="process-item">
 
-            <div class="number">03</div>
+            <div class="number">
+                03
+            </div>
 
-            <h3>Craft</h3>
+            <h3>
+                Craft
+            </h3>
 
             <p>
                 Precision craftsmanship brings the design to life.
@@ -2453,9 +2693,13 @@ footer p {
 
         <div class="process-item">
 
-            <div class="number">04</div>
+            <div class="number">
+                04
+            </div>
 
-            <h3>Deliver</h3>
+            <h3>
+                Deliver
+            </h3>
 
             <p>
                 Your finished creation arrives ready for its place.
@@ -2490,8 +2734,8 @@ footer p {
 
 
         <p>
-            سوچ means thought —
-            the place where every vision begins.
+            سوچ means thought.
+            The place where every vision begins.
         </p>
 
 
@@ -2665,14 +2909,20 @@ footer p {
 
 <script>
 
-const header = document.getElementById("header");
+const header =
+    document.getElementById("header");
+
 
 window.addEventListener("scroll", () => {
 
     if (window.scrollY > 35) {
+
         header.classList.add("scrolled");
+
     } else {
+
         header.classList.remove("scrolled");
+
     }
 
 });
@@ -2751,26 +3001,33 @@ function openProduct(index) {
 
     currentProduct = product;
 
-    document.getElementById("modalVolume").textContent =
-        product.volume;
+    document
+        .getElementById("modalVolume")
+        .textContent = product.volume;
 
-    document.getElementById("modalTitle").textContent =
-        product.title;
+    document
+        .getElementById("modalTitle")
+        .textContent = product.title;
 
-    document.getElementById("modalSubtitle").textContent =
-        product.subtitle;
+    document
+        .getElementById("modalSubtitle")
+        .textContent = product.subtitle;
 
-    document.getElementById("modalDescription").textContent =
-        product.description;
+    document
+        .getElementById("modalDescription")
+        .textContent = product.description;
 
-    document.getElementById("modalMaterial").textContent =
-        product.material;
+    document
+        .getElementById("modalMaterial")
+        .textContent = product.material;
 
-    document.getElementById("modalCategory").textContent =
-        product.category;
+    document
+        .getElementById("modalCategory")
+        .textContent = product.category;
 
-    document.getElementById("modalPrice").textContent =
-        product.price;
+    document
+        .getElementById("modalPrice")
+        .textContent = product.price;
 
     const image =
         document.getElementById("modalImage");
@@ -2822,7 +3079,9 @@ function closeProductOutside(event) {
         event.target ===
         document.getElementById("productModal")
     ) {
+
         closeProduct();
+
     }
 
 }
@@ -2837,14 +3096,16 @@ document.addEventListener("keydown", function(event) {
             .classList
             .contains("active")
     ) {
+
         closeProduct();
+
     }
 
 });
 
 
 /* =========================================================
-   PRODUCT → WHATSAPP
+   PRODUCT TO WHATSAPP
    ========================================================= */
 
 function orderProduct() {
@@ -2885,7 +3146,72 @@ Thank you.`;
 
 
 /* =========================================================
-   CUSTOM VISION → WHATSAPP
+   PREFERRED FINISH DROPDOWN
+   ========================================================= */
+
+function toggleFinishDropdown() {
+
+    document
+        .getElementById("finishDropdown")
+        .classList
+        .toggle("open");
+
+}
+
+
+function selectFinish(name, colour) {
+
+    const dropdown =
+        document.getElementById("finishDropdown");
+
+    const selectedText =
+        dropdown.querySelector(
+            ".finish-selected-text"
+        );
+
+    const selectedButton =
+        dropdown.querySelector(
+            ".finish-selected"
+        );
+
+    const hiddenInput =
+        document.getElementById("finish");
+
+    selectedText.textContent = name;
+
+    selectedText.style.color = "#eeeae1";
+
+    hiddenInput.value = name;
+
+    selectedButton.style.setProperty(
+        "--selected-finish",
+        colour
+    );
+
+    dropdown.classList.remove("open");
+
+}
+
+
+document.addEventListener("click", function(event) {
+
+    const dropdown =
+        document.getElementById("finishDropdown");
+
+    if (
+        dropdown &&
+        !dropdown.contains(event.target)
+    ) {
+
+        dropdown.classList.remove("open");
+
+    }
+
+});
+
+
+/* =========================================================
+   CUSTOM VISION TO WHATSAPP
    ========================================================= */
 
 function sendVision(event) {
