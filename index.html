@@ -84,6 +84,7 @@ header {
     align-items: center;
     z-index: 1000;
     border-bottom: 1px solid transparent;
+
     transition:
         background .45s ease,
         border-color .45s ease,
@@ -262,9 +263,6 @@ nav a:hover::after {
     will-change: transform;
 }
 
-
-/* 3D COIN FLIP */
-
 @keyframes sochCoinFlip {
 
     0% {
@@ -357,6 +355,7 @@ nav a:hover::after {
     font-size: 8px;
     text-transform: uppercase;
     letter-spacing: 2.3px;
+
     transition:
         background .35s ease,
         color .35s ease,
@@ -463,11 +462,6 @@ nav a:hover::after {
     transform: translateY(-7px);
     border-color: rgba(185,160,108,.45);
 }
-
-
-/* =========================================================
-   PRODUCT IMAGE
-   ========================================================= */
 
 .product-image {
     position: absolute;
@@ -983,6 +977,27 @@ nav a:hover::after {
     border-color: rgba(185,160,108,.65);
 }
 
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #8d846f 50%),
+        linear-gradient(135deg, #8d846f 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 20px,
+        calc(100% - 12px) 20px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+}
+
 .form-group select option {
     background: #11110f;
     color: var(--cream);
@@ -991,6 +1006,181 @@ nav a:hover::after {
 .form-group textarea {
     min-height: 145px;
     resize: vertical;
+}
+
+
+/* =========================================================
+   CUSTOM FINISH SELECT
+   ========================================================= */
+
+.finish-select {
+    position: relative;
+    width: 100%;
+}
+
+.finish-select-trigger {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    background: transparent;
+    color: var(--cream);
+
+    border: 1px solid rgba(238,234,225,.13);
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.finish-select.open .finish-select-trigger,
+.finish-select-trigger:hover {
+    border-color: rgba(185,160,108,.65);
+}
+
+.finish-selected {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: #cfc8bb;
+
+    font-size: 11px;
+}
+
+.finish-arrow {
+    width: 7px;
+    height: 7px;
+
+    border-right: 1px solid #9d927e;
+    border-bottom: 1px solid #9d927e;
+
+    transform: rotate(45deg);
+    transition: transform .3s ease;
+}
+
+.finish-select.open .finish-arrow {
+    transform: rotate(225deg) translate(-2px,-2px);
+}
+
+.finish-options {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+
+    z-index: 100;
+
+    background: #11110f;
+
+    border: 1px solid rgba(238,234,225,.16);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+}
+
+.finish-select.open .finish-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.finish-option {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: transparent;
+
+    border: 0;
+    border-bottom: 1px solid rgba(238,234,225,.07);
+
+    color: #cfc8bb;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.finish-option:last-child {
+    border-bottom: 0;
+}
+
+.finish-option:hover {
+    background: rgba(185,160,108,.08);
+    color: var(--cream);
+}
+
+.finish-option.selected {
+    background: rgba(185,160,108,.10);
+    color: var(--cream);
+}
+
+.finish-swatch {
+    width: 17px;
+    height: 17px;
+
+    flex: 0 0 17px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(238,234,225,.30);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.08),
+        0 2px 8px rgba(0,0,0,.28);
+}
+
+.finish-swatch.coffee {
+    background: #6b432b;
+}
+
+.finish-swatch.dark-brown {
+    background: #3b2418;
+}
+
+.finish-swatch.light-brown {
+    background: #a77b54;
+}
+
+.finish-swatch.black {
+    background: #080807;
+    border-color: rgba(238,234,225,.38);
+}
+
+.finish-hidden-input {
+    display: none;
 }
 
 .builder-submit {
@@ -1013,147 +1203,6 @@ nav a:hover::after {
     background: transparent;
     color: var(--cream);
 }
-
-
-/* =========================================================
-   PREFERRED FINISH
-   ========================================================= */
-
-.finish-dropdown {
-    position: relative;
-    width: 100%;
-}
-
-.finish-selected {
-    width: 100%;
-    min-height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px 14px;
-
-    background: transparent;
-    color: var(--cream);
-
-    border: 1px solid rgba(238,234,225,.13);
-
-    cursor: pointer;
-    outline: none;
-
-    font-size: 11px;
-    text-align: left;
-
-    transition: border-color .3s ease;
-}
-
-.finish-selected:hover,
-.finish-dropdown.open .finish-selected {
-    border-color: rgba(185,160,108,.65);
-}
-
-.finish-selected-text {
-    color: #aaa49a;
-}
-
-.finish-arrow {
-    color: var(--gold);
-    font-size: 16px;
-    line-height: 1;
-
-    transition: transform .3s ease;
-}
-
-.finish-dropdown.open .finish-arrow {
-    transform: rotate(180deg);
-}
-
-.finish-options {
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    top: calc(100% + 6px);
-
-    z-index: 50;
-
-    background: #11110f;
-
-    border: 1px solid rgba(238,234,225,.16);
-
-    box-shadow: 0 18px 45px rgba(0,0,0,.45);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateY(-6px);
-
-    transition:
-        opacity .25s ease,
-        visibility .25s ease,
-        transform .25s ease;
-}
-
-.finish-dropdown.open .finish-options {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.finish-option {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 14px;
-
-    background: transparent;
-    color: #c9c2b6;
-
-    border: none;
-    border-bottom: 1px solid rgba(238,234,225,.07);
-
-    cursor: pointer;
-
-    font-size: 10px;
-    text-align: left;
-
-    transition:
-        background .25s ease,
-        color .25s ease;
-}
-
-.finish-option:last-child {
-    border-bottom: none;
-}
-
-.finish-option:hover {
-    background: rgba(185,160,108,.08);
-    color: var(--cream);
-}
-
-.finish-swatch {
-    width: 18px;
-    height: 18px;
-
-    flex: 0 0 18px;
-
-    border-radius: 2px;
-
-    border: 1px solid rgba(238,234,225,.28);
-
-    box-shadow:
-        inset 0 0 0 1px rgba(0,0,0,.08),
-        0 2px 7px rgba(0,0,0,.25);
-}
-
-
-/* =========================================================
-   BUILDER PREVIEW
-   ========================================================= */
 
 .builder-preview {
     position: relative;
@@ -1840,6 +1889,7 @@ footer p {
 
     <div class="hero-content">
 
+
         <div class="hero-logo-wrap">
 
             <img
@@ -1941,7 +1991,7 @@ footer p {
 
 
         <div class="collection-mark">
-            VOLUME I - IV
+            VOLUME I · IV
         </div>
 
     </div>
@@ -1949,8 +1999,6 @@ footer p {
 
     <div class="products">
 
-
-        <!-- PRODUCT 1 -->
 
         <article
             class="product"
@@ -2001,8 +2049,6 @@ footer p {
         </article>
 
 
-        <!-- PRODUCT 2 -->
-
         <article
             class="product"
             onclick="openProduct(1)"
@@ -2052,8 +2098,6 @@ footer p {
         </article>
 
 
-        <!-- PRODUCT 3 -->
-
         <article
             class="product"
             onclick="openProduct(2)"
@@ -2102,8 +2146,6 @@ footer p {
 
         </article>
 
-
-        <!-- PRODUCT 4 -->
 
         <article
             class="product"
@@ -2368,6 +2410,9 @@ footer p {
                 onsubmit="sendVision(event)"
             >
 
+
+                <!-- NAME -->
+
                 <div class="form-group">
 
                     <label for="clientName">
@@ -2383,6 +2428,8 @@ footer p {
 
                 </div>
 
+
+                <!-- PRODUCT TYPE -->
 
                 <div class="form-group">
 
@@ -2411,6 +2458,8 @@ footer p {
                 </div>
 
 
+                <!-- MATERIAL -->
+
                 <div class="form-group">
 
                     <label for="material">
@@ -2432,9 +2481,7 @@ footer p {
                 </div>
 
 
-                <!-- =====================================================
-                     PREFERRED FINISH
-                     ===================================================== -->
+                <!-- FINISH -->
 
                 <div class="form-group">
 
@@ -2442,39 +2489,57 @@ footer p {
                         Preferred Finish
                     </label>
 
+
                     <div
-                        class="finish-dropdown"
-                        id="finishDropdown"
+                        class="finish-select"
+                        id="finishSelect"
                     >
+
 
                         <button
                             type="button"
-                            class="finish-selected"
-                            onclick="toggleFinishDropdown()"
+                            class="finish-select-trigger"
+                            id="finishTrigger"
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
                         >
 
-                            <span class="finish-selected-text">
-                                Select a finish
+                            <span
+                                class="finish-selected"
+                                id="finishSelected"
+                            >
+
+                                <span
+                                    class="finish-swatch coffee"
+                                ></span>
+
+                                Coffee
+
                             </span>
 
-                            <span class="finish-arrow">
-                                ⌄
-                            </span>
+
+                            <span class="finish-arrow"></span>
 
                         </button>
 
 
-                        <div class="finish-options">
+                        <div
+                            class="finish-options"
+                            id="finishOptions"
+                            role="listbox"
+                        >
+
 
                             <button
                                 type="button"
-                                class="finish-option"
-                                onclick="selectFinish('Coffee', '#6F4E37')"
+                                class="finish-option selected"
+                                data-value="Coffee"
+                                role="option"
+                                aria-selected="true"
                             >
 
                                 <span
-                                    class="finish-swatch"
-                                    style="background:#6F4E37;"
+                                    class="finish-swatch coffee"
                                 ></span>
 
                                 <span>
@@ -2487,12 +2552,13 @@ footer p {
                             <button
                                 type="button"
                                 class="finish-option"
-                                onclick="selectFinish('Dark Brown', '#3B2416')"
+                                data-value="Dark Brown"
+                                role="option"
+                                aria-selected="false"
                             >
 
                                 <span
-                                    class="finish-swatch"
-                                    style="background:#3B2416;"
+                                    class="finish-swatch dark-brown"
                                 ></span>
 
                                 <span>
@@ -2505,12 +2571,13 @@ footer p {
                             <button
                                 type="button"
                                 class="finish-option"
-                                onclick="selectFinish('Light Brown', '#A67B5B')"
+                                data-value="Light Brown"
+                                role="option"
+                                aria-selected="false"
                             >
 
                                 <span
-                                    class="finish-swatch"
-                                    style="background:#A67B5B;"
+                                    class="finish-swatch light-brown"
                                 ></span>
 
                                 <span>
@@ -2523,12 +2590,13 @@ footer p {
                             <button
                                 type="button"
                                 class="finish-option"
-                                onclick="selectFinish('Black', '#090909')"
+                                data-value="Black"
+                                role="option"
+                                aria-selected="false"
                             >
 
                                 <span
-                                    class="finish-swatch"
-                                    style="background:#090909;"
+                                    class="finish-swatch black"
                                 ></span>
 
                                 <span>
@@ -2536,6 +2604,7 @@ footer p {
                                 </span>
 
                             </button>
+
 
                         </div>
 
@@ -2545,11 +2614,13 @@ footer p {
                     <input
                         type="hidden"
                         id="finish"
-                        value=""
+                        value="Coffee"
                     >
 
                 </div>
 
+
+                <!-- SIZE -->
 
                 <div class="form-group">
 
@@ -2565,6 +2636,8 @@ footer p {
 
                 </div>
 
+
+                <!-- DETAILS -->
 
                 <div class="form-group">
 
@@ -2789,6 +2862,7 @@ footer p {
 
         <div class="contact-methods">
 
+
             <a
                 href="https://wa.me/923150674347"
                 class="contact-card"
@@ -2852,6 +2926,7 @@ footer p {
 
             </a>
 
+
         </div>
 
     </div>
@@ -2909,9 +2984,13 @@ footer p {
 
 <script>
 
+
+/* =========================================================
+   HEADER SCROLL
+   ========================================================= */
+
 const header =
     document.getElementById("header");
-
 
 window.addEventListener("scroll", () => {
 
@@ -3001,33 +3080,26 @@ function openProduct(index) {
 
     currentProduct = product;
 
-    document
-        .getElementById("modalVolume")
-        .textContent = product.volume;
+    document.getElementById("modalVolume").textContent =
+        product.volume;
 
-    document
-        .getElementById("modalTitle")
-        .textContent = product.title;
+    document.getElementById("modalTitle").textContent =
+        product.title;
 
-    document
-        .getElementById("modalSubtitle")
-        .textContent = product.subtitle;
+    document.getElementById("modalSubtitle").textContent =
+        product.subtitle;
 
-    document
-        .getElementById("modalDescription")
-        .textContent = product.description;
+    document.getElementById("modalDescription").textContent =
+        product.description;
 
-    document
-        .getElementById("modalMaterial")
-        .textContent = product.material;
+    document.getElementById("modalMaterial").textContent =
+        product.material;
 
-    document
-        .getElementById("modalCategory")
-        .textContent = product.category;
+    document.getElementById("modalCategory").textContent =
+        product.category;
 
-    document
-        .getElementById("modalPrice")
-        .textContent = product.price;
+    document.getElementById("modalPrice").textContent =
+        product.price;
 
     const image =
         document.getElementById("modalImage");
@@ -3146,64 +3218,134 @@ Thank you.`;
 
 
 /* =========================================================
-   PREFERRED FINISH DROPDOWN
+   FINISH SELECT
    ========================================================= */
 
-function toggleFinishDropdown() {
+const finishSelect =
+    document.getElementById("finishSelect");
 
-    document
-        .getElementById("finishDropdown")
-        .classList
-        .toggle("open");
+const finishTrigger =
+    document.getElementById("finishTrigger");
 
-}
+const finishSelected =
+    document.getElementById("finishSelected");
+
+const finishHiddenInput =
+    document.getElementById("finish");
+
+const finishOptions =
+    document.querySelectorAll(".finish-option");
 
 
-function selectFinish(name, colour) {
+finishTrigger.addEventListener("click", function(event) {
 
-    const dropdown =
-        document.getElementById("finishDropdown");
+    event.stopPropagation();
 
-    const selectedText =
-        dropdown.querySelector(
-            ".finish-selected-text"
-        );
+    const isOpen =
+        finishSelect.classList.contains("open");
 
-    const selectedButton =
-        dropdown.querySelector(
-            ".finish-selected"
-        );
+    if (isOpen) {
 
-    const hiddenInput =
-        document.getElementById("finish");
+        closeFinishSelect();
 
-    selectedText.textContent = name;
+    } else {
 
-    selectedText.style.color = "#eeeae1";
+        openFinishSelect();
 
-    hiddenInput.value = name;
+    }
 
-    selectedButton.style.setProperty(
-        "--selected-finish",
-        colour
+});
+
+
+function openFinishSelect() {
+
+    finishSelect.classList.add("open");
+
+    finishTrigger.setAttribute(
+        "aria-expanded",
+        "true"
     );
 
-    dropdown.classList.remove("open");
+}
+
+
+function closeFinishSelect() {
+
+    finishSelect.classList.remove("open");
+
+    finishTrigger.setAttribute(
+        "aria-expanded",
+        "false"
+    );
 
 }
+
+
+finishOptions.forEach(option => {
+
+    option.addEventListener("click", function() {
+
+        const value =
+            this.dataset.value;
+
+        const swatch =
+            this.querySelector(".finish-swatch");
+
+        finishSelected.innerHTML = "";
+
+        const selectedSwatch =
+            document.createElement("span");
+
+        selectedSwatch.className =
+            swatch.className;
+
+        const selectedText =
+            document.createElement("span");
+
+        selectedText.textContent =
+            value;
+
+        finishSelected.appendChild(
+            selectedSwatch
+        );
+
+        finishSelected.appendChild(
+            selectedText
+        );
+
+        finishHiddenInput.value =
+            value;
+
+        finishOptions.forEach(item => {
+
+            item.classList.remove("selected");
+
+            item.setAttribute(
+                "aria-selected",
+                "false"
+            );
+
+        });
+
+        this.classList.add("selected");
+
+        this.setAttribute(
+            "aria-selected",
+            "true"
+        );
+
+        closeFinishSelect();
+
+    });
+
+});
 
 
 document.addEventListener("click", function(event) {
 
-    const dropdown =
-        document.getElementById("finishDropdown");
+    if (!finishSelect.contains(event.target)) {
 
-    if (
-        dropdown &&
-        !dropdown.contains(event.target)
-    ) {
-
-        dropdown.classList.remove("open");
+        closeFinishSelect();
 
     }
 
@@ -3254,6 +3396,7 @@ function sendVision(event) {
             .value
             .trim();
 
+
     const message =
 `Hello 𝑺𝑶𝑪𝑯 - سوچ,
 
@@ -3280,6 +3423,7 @@ ${details}
 I'd like to discuss the design and possibilities.
 
 Thank you.`;
+
 
     const url =
         "https://wa.me/923150674347?text=" +
