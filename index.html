@@ -506,36 +506,39 @@ nav a:hover::after {
         transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
+
+/* LARGER COLLECTION PRODUCT IMAGES */
+
 .product:nth-child(1) .product-image img {
-    transform: translate(-50%, -50%) scale(1.16);
+    transform: translate(-50%, -50%) scale(1.25);
 }
 
 .product:nth-child(2) .product-image img {
-    transform: translate(-50%, -50%) scale(1.14);
+    transform: translate(-50%, -50%) scale(1.23);
 }
 
 .product:nth-child(3) .product-image img {
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: translate(-50%, -50%) scale(1.24);
 }
 
 .product:nth-child(4) .product-image img {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1.08);
 }
 
 .product:nth-child(1):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.195);
+    transform: translate(-50%, -50%) scale(1.285);
 }
 
 .product:nth-child(2):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.175);
+    transform: translate(-50%, -50%) scale(1.265);
 }
 
 .product:nth-child(3):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.185);
+    transform: translate(-50%, -50%) scale(1.275);
 }
 
 .product:nth-child(4):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.035);
+    transform: translate(-50%, -50%) scale(1.115);
 }
 
 .product-image::after {
@@ -716,6 +719,8 @@ nav a:hover::after {
     inset: 0;
     z-index: 2;
     overflow: hidden;
+
+    touch-action: none;
 }
 
 .gallery-track {
@@ -739,6 +744,8 @@ nav a:hover::after {
     justify-content: center;
 
     padding: 30px 55px 75px;
+
+    touch-action: none;
 }
 
 .gallery-slide img {
@@ -753,7 +760,99 @@ nav a:hover::after {
 
     filter:
         drop-shadow(0 20px 35px rgba(0,0,0,.28));
+
+    cursor: zoom-in;
+
+    transform-origin: center center;
+
+    transition:
+        transform .35s cubic-bezier(.22,.61,.36,1);
+
+    will-change: transform;
 }
+
+.gallery-slide.zoomed img {
+    cursor: grab;
+}
+
+.gallery-slide.dragging img {
+    cursor: grabbing;
+    transition: none;
+}
+
+
+/* =========================================================
+   ZOOM CONTROLS
+   ========================================================= */
+
+.zoom-controls {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 12;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px;
+
+    background: rgba(5,5,4,.68);
+
+    border: 1px solid rgba(238,234,225,.16);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.zoom-button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(238,234,225,.18);
+
+    background: rgba(238,234,225,.025);
+
+    color: var(--cream);
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 300;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease;
+}
+
+.zoom-button:hover {
+    background: rgba(185,160,108,.12);
+    border-color: rgba(185,160,108,.65);
+    color: var(--gold);
+}
+
+.zoom-level {
+    min-width: 43px;
+
+    text-align: center;
+
+    color: #aaa398;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   GALLERY NAVIGATION
+   ========================================================= */
 
 .gallery-label {
     position: absolute;
@@ -1793,10 +1892,6 @@ footer p {
         min-height: 360px;
     }
 
-    .process {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
 }
 
 
@@ -1890,37 +1985,41 @@ footer p {
         font-size: 34px;
     }
 
+
+    /* LARGER MOBILE COLLECTION IMAGES */
+
     .product:nth-child(1) .product-image img {
-        transform: translate(-50%, -50%) scale(1.10);
+        transform: translate(-50%, -50%) scale(1.17);
     }
 
     .product:nth-child(2) .product-image img {
-        transform: translate(-50%, -50%) scale(1.09);
+        transform: translate(-50%, -50%) scale(1.16);
     }
 
     .product:nth-child(3) .product-image img {
-        transform: translate(-50%, -50%) scale(1.10);
+        transform: translate(-50%, -50%) scale(1.17);
     }
 
     .product:nth-child(4) .product-image img {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1.04);
     }
 
     .product:nth-child(1):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.13);
+        transform: translate(-50%, -50%) scale(1.20);
     }
 
     .product:nth-child(2):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.12);
+        transform: translate(-50%, -50%) scale(1.19);
     }
 
     .product:nth-child(3):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.13);
+        transform: translate(-50%, -50%) scale(1.20);
     }
 
     .product:nth-child(4):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.025);
+        transform: translate(-50%, -50%) scale(1.065);
     }
+
 
     .bespoke {
         padding: 100px 20px;
@@ -2012,6 +2111,22 @@ footer p {
 
     .modal-content {
         padding: 35px 23px 40px;
+    }
+
+    .zoom-controls {
+        top: 12px;
+        left: 12px;
+    }
+
+    .zoom-button {
+        width: 31px;
+        height: 31px;
+        font-size: 15px;
+    }
+
+    .zoom-level {
+        min-width: 39px;
+        font-size: 7px;
     }
 
 }
@@ -2452,6 +2567,50 @@ footer p {
                     class="gallery-track"
                     id="galleryTrack"
                 ></div>
+
+            </div>
+
+
+            <!-- ZOOM CONTROLS -->
+
+            <div class="zoom-controls">
+
+                <button
+                    class="zoom-button"
+                    id="zoomOut"
+                    type="button"
+                    aria-label="Zoom out"
+                    onclick="zoomOut(event)"
+                >
+                    −
+                </button>
+
+                <div
+                    class="zoom-level"
+                    id="zoomLevel"
+                >
+                    100%
+                </div>
+
+                <button
+                    class="zoom-button"
+                    id="zoomIn"
+                    type="button"
+                    aria-label="Zoom in"
+                    onclick="zoomIn(event)"
+                >
+                    +
+                </button>
+
+                <button
+                    class="zoom-button"
+                    id="zoomReset"
+                    type="button"
+                    aria-label="Reset zoom"
+                    onclick="resetZoom(event)"
+                >
+                    ↺
+                </button>
 
             </div>
 
@@ -3388,9 +3547,6 @@ const products = [
 let currentProduct = null;
 let currentGalleryIndex = 0;
 
-let touchStartX = 0;
-let touchEndX = 0;
-
 
 /* =========================================================
    PRODUCT MODAL + GALLERY
@@ -3402,6 +3558,8 @@ function openProduct(index) {
 
     currentProduct = product;
     currentGalleryIndex = 0;
+
+    resetZoomSilently();
 
 
     document.getElementById("modalVolume").textContent =
@@ -3459,6 +3617,10 @@ function openProduct(index) {
 }
 
 
+/* =========================================================
+   BUILD GALLERY
+   ========================================================= */
+
 function buildGallery() {
 
     if (!currentProduct) return;
@@ -3496,6 +3658,30 @@ function buildGallery() {
                 `${currentProduct.title} — ${item.label}`;
 
             image.draggable = false;
+
+
+            image.addEventListener(
+                "dblclick",
+                function(event) {
+
+                    event.preventDefault();
+
+                    if (imageZoom > 1) {
+
+                        resetZoom();
+
+                    } else {
+
+                        zoomAtPoint(
+                            2.5,
+                            event.clientX,
+                            event.clientY
+                        );
+
+                    }
+
+                }
+            );
 
 
             slide.appendChild(image);
@@ -3537,6 +3723,10 @@ function buildGallery() {
 
 }
 
+
+/* =========================================================
+   UPDATE GALLERY
+   ========================================================= */
 
 function updateGallery() {
 
@@ -3612,8 +3802,16 @@ function updateGallery() {
 
     }
 
+
+    updateZoomDisplay();
+    updateZoomButtons();
+
 }
 
+
+/* =========================================================
+   GALLERY SLIDE
+   ========================================================= */
 
 function goToGallerySlide(index) {
 
@@ -3628,9 +3826,19 @@ function goToGallerySlide(index) {
     }
 
 
+    resetZoomSilently();
+
+
     currentGalleryIndex = index;
 
     updateGallery();
+
+
+    requestAnimationFrame(() => {
+
+        applyImageTransform(false);
+
+    });
 
 }
 
@@ -3670,23 +3878,705 @@ function galleryPrevious(event) {
 
 
 /* =========================================================
-   TOUCH / SWIPE GALLERY
+   PRODUCT IMAGE ZOOM SYSTEM
    ========================================================= */
 
 const galleryViewport =
     document.getElementById("galleryViewport");
 
+const zoomLevel =
+    document.getElementById("zoomLevel");
+
+const zoomInButton =
+    document.getElementById("zoomIn");
+
+const zoomOutButton =
+    document.getElementById("zoomOut");
+
+const zoomResetButton =
+    document.getElementById("zoomReset");
+
+
+let imageZoom = 1;
+
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 4;
+const ZOOM_STEP = 0.5;
+
+let panX = 0;
+let panY = 0;
+
+let isDragging = false;
+
+let dragStartX = 0;
+let dragStartY = 0;
+
+let dragOriginX = 0;
+let dragOriginY = 0;
+
+let lastTapTime = 0;
+
+let pinchStartDistance = 0;
+let pinchStartZoom = 1;
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+let touchLastX = 0;
+let touchLastY = 0;
+
+let touchMoved = false;
+
+
+/* ---------------------------------------------------------
+   CURRENT GALLERY IMAGE
+   --------------------------------------------------------- */
+
+function getCurrentGalleryImage() {
+
+    return document.querySelector(
+        `.gallery-slide:nth-child(${currentGalleryIndex + 1}) img`
+    );
+
+}
+
+
+function getCurrentGallerySlide() {
+
+    return document.querySelector(
+        `.gallery-slide:nth-child(${currentGalleryIndex + 1})`
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   ZOOM DISPLAY
+   --------------------------------------------------------- */
+
+function updateZoomDisplay() {
+
+    if (!zoomLevel) return;
+
+    zoomLevel.textContent =
+        `${Math.round(imageZoom * 100)}%`;
+
+}
+
+
+function updateZoomButtons() {
+
+    if (!zoomInButton || !zoomOutButton) return;
+
+    zoomInButton.style.opacity =
+        imageZoom >= MAX_ZOOM ? ".35" : "1";
+
+    zoomOutButton.style.opacity =
+        imageZoom <= MIN_ZOOM ? ".35" : "1";
+
+}
+
+
+/* ---------------------------------------------------------
+   PAN LIMIT
+   --------------------------------------------------------- */
+
+function getPanLimits() {
+
+    const viewport =
+        galleryViewport.getBoundingClientRect();
+
+    const image =
+        getCurrentGalleryImage();
+
+    if (!image) {
+
+        return {
+            x: 0,
+            y: 0
+        };
+
+    }
+
+
+    const maxX =
+        Math.max(
+            0,
+            (viewport.width * (imageZoom - 1)) / 2
+        );
+
+    const maxY =
+        Math.max(
+            0,
+            (viewport.height * (imageZoom - 1)) / 2
+        );
+
+
+    return {
+        x: maxX,
+        y: maxY
+    };
+
+}
+
+
+function clampPan() {
+
+    const limits =
+        getPanLimits();
+
+
+    panX =
+        Math.max(
+            -limits.x,
+            Math.min(limits.x, panX)
+        );
+
+
+    panY =
+        Math.max(
+            -limits.y,
+            Math.min(limits.y, panY)
+        );
+
+}
+
+
+/* ---------------------------------------------------------
+   APPLY ZOOM / PAN
+   --------------------------------------------------------- */
+
+function applyImageTransform(
+    animate = true
+) {
+
+    const image =
+        getCurrentGalleryImage();
+
+    const slide =
+        getCurrentGallerySlide();
+
+
+    if (!image || !slide) return;
+
+
+    clampPan();
+
+
+    image.style.transition =
+        animate
+            ? "transform .35s cubic-bezier(.22,.61,.36,1)"
+            : "none";
+
+
+    image.style.transform =
+        `translate(${panX}px, ${panY}px) scale(${imageZoom})`;
+
+
+    slide.classList.toggle(
+        "zoomed",
+        imageZoom > 1
+    );
+
+
+    updateZoomDisplay();
+    updateZoomButtons();
+
+}
+
+
+/* ---------------------------------------------------------
+   RESET ZOOM
+   --------------------------------------------------------- */
+
+function resetZoom(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+
+    imageZoom = 1;
+
+    panX = 0;
+    panY = 0;
+
+
+    applyImageTransform(true);
+
+}
+
+
+function resetZoomSilently() {
+
+    imageZoom = 1;
+
+    panX = 0;
+    panY = 0;
+
+}
+
+
+/* ---------------------------------------------------------
+   ZOOM IN
+   --------------------------------------------------------- */
+
+function zoomIn(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+
+    const newZoom =
+        Math.min(
+            MAX_ZOOM,
+            imageZoom + ZOOM_STEP
+        );
+
+
+    if (newZoom === imageZoom) {
+        return;
+    }
+
+
+    imageZoom = newZoom;
+
+
+    applyImageTransform(true);
+
+}
+
+
+/* ---------------------------------------------------------
+   ZOOM OUT
+   --------------------------------------------------------- */
+
+function zoomOut(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+
+    const newZoom =
+        Math.max(
+            MIN_ZOOM,
+            imageZoom - ZOOM_STEP
+        );
+
+
+    imageZoom = newZoom;
+
+
+    if (imageZoom === 1) {
+
+        panX = 0;
+        panY = 0;
+
+    }
+
+
+    applyImageTransform(true);
+
+}
+
+
+/* ---------------------------------------------------------
+   ZOOM AROUND POINTER
+   --------------------------------------------------------- */
+
+function zoomAtPoint(
+    newZoom,
+    clientX,
+    clientY
+) {
+
+    const image =
+        getCurrentGalleryImage();
+
+    if (!image) return;
+
+
+    const rect =
+        image.getBoundingClientRect();
+
+
+    const oldZoom =
+        imageZoom;
+
+
+    const localX =
+        clientX -
+        (rect.left + rect.width / 2);
+
+
+    const localY =
+        clientY -
+        (rect.top + rect.height / 2);
+
+
+    imageZoom =
+        Math.max(
+            MIN_ZOOM,
+            Math.min(MAX_ZOOM, newZoom)
+        );
+
+
+    const ratio =
+        imageZoom / oldZoom;
+
+
+    panX -=
+        localX * (ratio - 1);
+
+    panY -=
+        localY * (ratio - 1);
+
+
+    if (imageZoom === 1) {
+
+        panX = 0;
+        panY = 0;
+
+    }
+
+
+    applyImageTransform(true);
+
+}
+
+
+/* ---------------------------------------------------------
+   MOUSE WHEEL ZOOM
+   --------------------------------------------------------- */
+
+galleryViewport.addEventListener(
+    "wheel",
+    function(event) {
+
+        if (
+            !document
+                .getElementById("productModal")
+                .classList
+                .contains("active")
+        ) {
+            return;
+        }
+
+
+        event.preventDefault();
+
+
+        const direction =
+            event.deltaY < 0
+                ? ZOOM_STEP
+                : -ZOOM_STEP;
+
+
+        zoomAtPoint(
+            imageZoom + direction,
+            event.clientX,
+            event.clientY
+        );
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+/* ---------------------------------------------------------
+   DESKTOP DRAG / PAN
+   --------------------------------------------------------- */
+
+galleryViewport.addEventListener(
+    "mousedown",
+    function(event) {
+
+        if (imageZoom <= 1) {
+            return;
+        }
+
+
+        if (event.button !== 0) {
+            return;
+        }
+
+
+        const image =
+            getCurrentGalleryImage();
+
+        if (!image) return;
+
+
+        isDragging = true;
+
+
+        dragStartX =
+            event.clientX;
+
+        dragStartY =
+            event.clientY;
+
+
+        dragOriginX =
+            panX;
+
+        dragOriginY =
+            panY;
+
+
+        const slide =
+            getCurrentGallerySlide();
+
+        if (slide) {
+            slide.classList.add("dragging");
+        }
+
+
+        event.preventDefault();
+
+    }
+);
+
+
+window.addEventListener(
+    "mousemove",
+    function(event) {
+
+        if (!isDragging) {
+            return;
+        }
+
+
+        panX =
+            dragOriginX +
+            (event.clientX - dragStartX);
+
+
+        panY =
+            dragOriginY +
+            (event.clientY - dragStartY);
+
+
+        applyImageTransform(false);
+
+    }
+);
+
+
+window.addEventListener(
+    "mouseup",
+    function() {
+
+        if (!isDragging) {
+            return;
+        }
+
+
+        isDragging = false;
+
+
+        const slide =
+            getCurrentGallerySlide();
+
+        if (slide) {
+            slide.classList.remove("dragging");
+        }
+
+    }
+);
+
+
+/* ---------------------------------------------------------
+   MOBILE TOUCH / PINCH / SWIPE
+   --------------------------------------------------------- */
 
 galleryViewport.addEventListener(
     "touchstart",
     function(event) {
 
+        if (event.touches.length === 2) {
+
+            const first =
+                event.touches[0];
+
+            const second =
+                event.touches[1];
+
+
+            pinchStartDistance =
+                Math.hypot(
+                    second.clientX - first.clientX,
+                    second.clientY - first.clientY
+                );
+
+
+            pinchStartZoom =
+                imageZoom;
+
+
+            return;
+
+        }
+
+
+        if (event.touches.length !== 1) {
+            return;
+        }
+
+
+        const touch =
+            event.touches[0];
+
+
         touchStartX =
-            event.changedTouches[0].screenX;
+            touch.clientX;
+
+        touchStartY =
+            touch.clientY;
+
+
+        touchLastX =
+            touch.clientX;
+
+        touchLastY =
+            touch.clientY;
+
+
+        touchMoved = false;
 
     },
     {
         passive: true
+    }
+);
+
+
+galleryViewport.addEventListener(
+    "touchmove",
+    function(event) {
+
+        if (event.touches.length === 2) {
+
+            const first =
+                event.touches[0];
+
+            const second =
+                event.touches[1];
+
+
+            const distance =
+                Math.hypot(
+                    second.clientX - first.clientX,
+                    second.clientY - first.clientY
+                );
+
+
+            if (pinchStartDistance > 0) {
+
+                const scale =
+                    distance /
+                    pinchStartDistance;
+
+
+                imageZoom =
+                    Math.max(
+                        MIN_ZOOM,
+                        Math.min(
+                            MAX_ZOOM,
+                            pinchStartZoom * scale
+                        )
+                    );
+
+
+                if (imageZoom === 1) {
+
+                    panX = 0;
+                    panY = 0;
+
+                }
+
+
+                applyImageTransform(false);
+
+
+                event.preventDefault();
+
+            }
+
+
+            return;
+
+        }
+
+
+        if (
+            event.touches.length !== 1
+        ) {
+            return;
+        }
+
+
+        const touch =
+            event.touches[0];
+
+
+        const deltaX =
+            touch.clientX -
+            touchLastX;
+
+
+        const deltaY =
+            touch.clientY -
+            touchLastY;
+
+
+        const totalX =
+            touch.clientX -
+            touchStartX;
+
+
+        const totalY =
+            touch.clientY -
+            touchStartY;
+
+
+        if (
+            Math.abs(totalX) > 8 ||
+            Math.abs(totalY) > 8
+        ) {
+
+            touchMoved = true;
+
+        }
+
+
+        if (imageZoom > 1) {
+
+            panX += deltaX;
+            panY += deltaY;
+
+
+            applyImageTransform(false);
+
+
+            event.preventDefault();
+
+        }
+
+
+        touchLastX =
+            touch.clientX;
+
+        touchLastY =
+            touch.clientY;
+
+    },
+    {
+        passive: false
     }
 );
 
@@ -3695,10 +4585,97 @@ galleryViewport.addEventListener(
     "touchend",
     function(event) {
 
-        touchEndX =
-            event.changedTouches[0].screenX;
+        if (event.touches.length > 0) {
+            return;
+        }
 
-        handleGallerySwipe();
+
+        pinchStartDistance = 0;
+
+
+        const touch =
+            event.changedTouches[0];
+
+
+        const endX =
+            touch.clientX;
+
+        const endY =
+            touch.clientY;
+
+
+        const distanceX =
+            endX - touchStartX;
+
+        const distanceY =
+            endY - touchStartY;
+
+
+        const now =
+            Date.now();
+
+
+        /* DOUBLE TAP */
+
+        if (
+            !touchMoved &&
+            now - lastTapTime < 320
+        ) {
+
+            if (imageZoom > 1) {
+
+                resetZoom();
+
+            } else {
+
+                zoomAtPoint(
+                    2.5,
+                    endX,
+                    endY
+                );
+
+            }
+
+
+            lastTapTime = 0;
+
+            return;
+
+        }
+
+
+        lastTapTime = now;
+
+
+        /*
+           When zoomed, don't turn a pan into
+           gallery navigation.
+        */
+
+        if (imageZoom > 1) {
+            return;
+        }
+
+
+        /* NORMAL SWIPE NAVIGATION */
+
+        if (
+            Math.abs(distanceX) >= 45 &&
+            Math.abs(distanceX) >
+            Math.abs(distanceY)
+        ) {
+
+            if (distanceX < 0) {
+
+                galleryNext();
+
+            } else {
+
+                galleryPrevious();
+
+            }
+
+        }
 
     },
     {
@@ -3707,28 +4684,40 @@ galleryViewport.addEventListener(
 );
 
 
-function handleGallerySwipe() {
+/* ---------------------------------------------------------
+   PREVENT IMAGE DRAGGING
+   --------------------------------------------------------- */
 
-    const distance =
-        touchEndX - touchStartX;
+galleryViewport.addEventListener(
+    "dragstart",
+    function(event) {
 
-
-    if (Math.abs(distance) < 45) {
-        return;
-    }
-
-
-    if (distance < 0) {
-
-        galleryNext();
-
-    } else {
-
-        galleryPrevious();
+        event.preventDefault();
 
     }
+);
 
-}
+
+/* ---------------------------------------------------------
+   ZOOM BUTTON EVENTS
+   --------------------------------------------------------- */
+
+zoomInButton.addEventListener(
+    "click",
+    zoomIn
+);
+
+
+zoomOutButton.addEventListener(
+    "click",
+    zoomOut
+);
+
+
+zoomResetButton.addEventListener(
+    "click",
+    resetZoom
+);
 
 
 /* =========================================================
@@ -3751,6 +4740,8 @@ function closeProduct() {
 
     currentProduct = null;
     currentGalleryIndex = 0;
+
+    resetZoomSilently();
 
 }
 
