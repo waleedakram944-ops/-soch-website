@@ -8,35 +8,26 @@
 
 <title>𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.</title>
 
-<meta
-name="description"
-content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring it to life."
->
+<meta name="description" content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring it to life.">
 
-<!-- Open Graph / social share preview -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="𝑺𝑶𝑪𝑯 - سوچ">
 <meta property="og:title" content="𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.">
 <meta property="og:description" content="Premium décor and custom craftsmanship. Distinctive pieces, crafted with intention — from our collection or made exclusively around your vision.">
 <meta property="og:image" content="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png">
 
-<!-- Twitter card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.">
 <meta name="twitter:description" content="Premium décor and custom craftsmanship. Distinctive pieces, crafted with intention — from our collection or made exclusively around your vision.">
 <meta name="twitter:image" content="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="D14F44D6-93B4-4E04-8871-E823876743A8.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Structured data for search engines -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,7 +102,6 @@ header {
     align-items: center;
     z-index: 1000;
     border-bottom: 1px solid transparent;
-
     transition:
         background .45s ease,
         border-color .45s ease,
@@ -248,10 +238,6 @@ nav a:hover::after {
     max-width: 1050px;
 }
 
-/* =========================================================
-   SOCH HERO LOGO
-   ========================================================= */
-
 .hero-logo-wrap {
     position: relative;
     z-index: 4;
@@ -271,9 +257,7 @@ nav a:hover::after {
 .hero-logo {
     width: 100%;
     height: 100%;
-
     object-fit: contain;
-
     display: block;
 
     filter:
@@ -563,6 +547,10 @@ nav a:hover::after {
     transform: translate(-50%, -50%) scale(1.115);
 }
 
+/* =========================================================
+   TOP + BOTTOM IMAGE BLEND
+   ========================================================= */
+
 .product-image::after {
     content: "";
     position: absolute;
@@ -572,10 +560,15 @@ nav a:hover::after {
     background:
         linear-gradient(
             to bottom,
-            rgba(5,5,4,.02) 25%,
+            rgba(21,19,16,.62) 0%,
+            rgba(21,19,16,.32) 10%,
+            rgba(21,19,16,.08) 21%,
+            rgba(5,5,4,.02) 30%,
             rgba(5,5,4,.10) 46%,
             rgba(5,5,4,.90) 100%
         );
+
+    pointer-events: none;
 }
 
 /* =========================================================
@@ -1798,10 +1791,6 @@ footer p {
         min-height: 540px;
     }
 
-    /* =====================================================
-       MOBILE PRODUCT MODAL
-       ===================================================== */
-
     .modal-box {
         width: 100%;
         height: 94vh;
@@ -2047,10 +2036,6 @@ footer p {
         min-width: 0;
     }
 
-    /* =====================================================
-       SMALL MOBILE PRODUCT MODAL
-       ===================================================== */
-
     .modal-box {
         width: 100%;
         height: 94vh;
@@ -2135,21 +2120,13 @@ footer p {
 
 <body>
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
-
 <header id="header">
 
     <nav class="nav-left">
 
-        <a href="#shop">
-            Shop
-        </a>
+        <a href="#shop">Shop</a>
 
-        <a href="#bespoke">
-            Custom
-        </a>
+        <a href="#bespoke">Custom</a>
 
     </nav>
 
@@ -2179,14 +2156,7 @@ footer p {
 
 </header>
 
-<!-- =========================================================
-     HERO
-     ========================================================= -->
-
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
     <div class="hero-content">
 
@@ -2229,17 +2199,11 @@ footer p {
 
         <div class="buttons">
 
-            <a
-                href="#shop"
-                class="button primary"
-            >
+            <a href="#shop" class="button primary">
                 Explore Collection
             </a>
 
-            <a
-                href="#vision"
-                class="button"
-            >
+            <a href="#vision" class="button">
                 Create Your Vision
             </a>
 
@@ -2249,14 +2213,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     COLLECTION
-     ========================================================= -->
-
-<section
-    class="section"
-    id="shop"
->
+<section class="section" id="shop">
 
     <div class="collection-heading">
 
@@ -2271,11 +2228,9 @@ footer p {
             </h2>
 
             <p class="section-intro">
-
                 Distinctive pieces, crafted with intention.
                 Every creation carries its own character,
                 story and presence.
-
             </p>
 
         </div>
@@ -2288,10 +2243,7 @@ footer p {
 
     <div class="products">
 
-        <article
-            class="product"
-            onclick="openProduct(0)"
-        >
+        <article class="product" onclick="openProduct(0)">
 
             <div
                 class="product-image"
@@ -2336,10 +2288,7 @@ footer p {
 
         </article>
 
-        <article
-            class="product"
-            onclick="openProduct(1)"
-        >
+        <article class="product" onclick="openProduct(1)">
 
             <div
                 class="product-image"
@@ -2384,10 +2333,7 @@ footer p {
 
         </article>
 
-        <article
-            class="product"
-            onclick="openProduct(2)"
-        >
+        <article class="product" onclick="openProduct(2)">
 
             <div
                 class="product-image"
@@ -2432,10 +2378,7 @@ footer p {
 
         </article>
 
-        <article
-            class="product"
-            onclick="openProduct(3)"
-        >
+        <article class="product" onclick="openProduct(3)">
 
             <div
                 class="product-image"
@@ -2484,10 +2427,6 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     PRODUCT MODAL
-     ========================================================= -->
-
 <div
     class="product-modal"
     id="productModal"
@@ -2503,8 +2442,6 @@ footer p {
         >
             ×
         </button>
-
-        <!-- PRODUCT GALLERY -->
 
         <div
             class="modal-image"
@@ -2564,14 +2501,9 @@ footer p {
 
         </div>
 
-        <!-- PRODUCT INFORMATION -->
-
         <div class="modal-content">
 
-            <div
-                class="modal-volume"
-                id="modalVolume"
-            ></div>
+            <div class="modal-volume" id="modalVolume"></div>
 
             <h2 id="modalTitle"></h2>
 
@@ -2639,14 +2571,7 @@ footer p {
 
 </div>
 
-<!-- =========================================================
-     CUSTOM
-     ========================================================= -->
-
-<section
-    class="bespoke"
-    id="bespoke"
->
+<section class="bespoke" id="bespoke">
 
     <div class="bespoke-inner">
 
@@ -2668,17 +2593,11 @@ footer p {
 
         <div class="bespoke-actions">
 
-            <a
-                href="#vision"
-                class="dark-button"
-            >
+            <a href="#vision" class="dark-button">
                 Start Your Project
             </a>
 
-            <a
-                href="#process"
-                class="text-link"
-            >
+            <a href="#process" class="text-link">
                 See How It Works →
             </a>
 
@@ -2688,14 +2607,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     YOUR VISION
-     ========================================================= -->
-
-<section
-    class="builder-section"
-    id="vision"
->
+<section class="builder-section" id="vision">
 
     <div class="builder-container">
 
@@ -2745,10 +2657,7 @@ footer p {
                         What are you imagining?
                     </label>
 
-                    <select
-                        id="productType"
-                        required
-                    >
+                    <select id="productType" required>
 
                         <option value="">
                             Select a category
@@ -2809,9 +2718,7 @@ footer p {
                                 id="finishSelected"
                             >
 
-                                <span
-                                    class="finish-swatch coffee"
-                                ></span>
+                                <span class="finish-swatch coffee"></span>
 
                                 Coffee
 
@@ -2835,9 +2742,7 @@ footer p {
                                 aria-selected="true"
                             >
 
-                                <span
-                                    class="finish-swatch coffee"
-                                ></span>
+                                <span class="finish-swatch coffee"></span>
 
                                 <span>
                                     Coffee
@@ -2853,9 +2758,7 @@ footer p {
                                 aria-selected="false"
                             >
 
-                                <span
-                                    class="finish-swatch dark-brown"
-                                ></span>
+                                <span class="finish-swatch dark-brown"></span>
 
                                 <span>
                                     Dark Brown
@@ -2871,9 +2774,7 @@ footer p {
                                 aria-selected="false"
                             >
 
-                                <span
-                                    class="finish-swatch light-brown"
-                                ></span>
+                                <span class="finish-swatch light-brown"></span>
 
                                 <span>
                                     Light Brown
@@ -2889,9 +2790,7 @@ footer p {
                                 aria-selected="false"
                             >
 
-                                <span
-                                    class="finish-swatch black"
-                                ></span>
+                                <span class="finish-swatch black"></span>
 
                                 <span>
                                     Black
@@ -2973,14 +2872,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     PROCESS
-     ========================================================= -->
-
-<section
-    class="process-section"
-    id="process"
->
+<section class="process-section" id="process">
 
     <div class="section-label">
         OUR PROCESS
@@ -3060,14 +2952,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     STORY
-     ========================================================= -->
-
-<section
-    class="section story"
-    id="story"
->
+<section class="section story" id="story">
 
     <div class="story-content">
 
@@ -3100,14 +2985,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     CONTACT
-     ========================================================= -->
-
-<section
-    class="section contact"
-    id="contact"
->
+<section class="section contact" id="contact">
 
     <div class="contact-inner">
 
@@ -3196,10 +3074,6 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
 <footer>
 
     <div class="footer-brand">
@@ -3236,10 +3110,6 @@ footer p {
 
 </footer>
 
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
-
 <script>
 
 /* =========================================================
@@ -3252,13 +3122,9 @@ const header =
 window.addEventListener("scroll", () => {
 
     if (window.scrollY > 35) {
-
         header.classList.add("scrolled");
-
     } else {
-
         header.classList.remove("scrolled");
-
     }
 
 });
@@ -3278,13 +3144,11 @@ const products = [
         category: "Statement Wall Art",
 
         gallery: [
-
             {
                 image:
                     "FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
                 label: "HERO"
             }
-
         ],
 
         description:
@@ -3300,13 +3164,11 @@ const products = [
         category: "Calligraphic Wall Art",
 
         gallery: [
-
             {
                 image:
                     "EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
                 label: "HERO"
             }
-
         ],
 
         description:
@@ -3322,13 +3184,11 @@ const products = [
         category: "Arabic Calligraphy",
 
         gallery: [
-
             {
                 image:
                     "61F3AE47-AC22-4892-BF90-85C53564A037.png",
                 label: "HERO"
             }
-
         ],
 
         description:
@@ -3344,37 +3204,31 @@ const products = [
         category: "Carved Wood Relief",
 
         gallery: [
-
             {
                 image:
                     "E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png",
                 label: "HERO"
             },
-
             {
                 image:
                     "FB67EC95-FF4F-4620-BDC7-A446E6B111AD.png",
                 label: "LIFESTYLE"
             },
-
             {
                 image:
                     "942F0F5F-B609-416E-A023-EF857A585212.jpeg",
                 label: "CLOSE-UP"
             },
-
             {
                 image:
                     "7399600E-FC24-4F33-9FA2-EF599D650820.png",
                 label: "DETAIL"
             },
-
             {
                 image:
                     "2A395300-1543-40AF-B936-3566FFE43616.png",
                 label: "FINISHING"
             }
-
         ],
 
         description:
@@ -3421,7 +3275,7 @@ function unlockPageScroll() {
 }
 
 /* =========================================================
-   PRODUCT MODAL + GALLERY
+   PRODUCT MODAL
    ========================================================= */
 
 function openProduct(index) {
@@ -3520,24 +3374,19 @@ function buildGallery() {
                     event.preventDefault();
 
                     if (imageZoom > 1) {
-
                         resetZoom();
-
                     } else {
-
                         zoomAtPoint(
                             2.5,
                             event.clientX,
                             event.clientY
                         );
-
                     }
 
                 }
             );
 
             slide.appendChild(image);
-
             track.appendChild(slide);
 
             const dot =
@@ -3619,26 +3468,18 @@ function updateGallery() {
     });
 
     if (currentGalleryIndex === 0) {
-
         prev.classList.add("hidden");
-
     } else {
-
         prev.classList.remove("hidden");
-
     }
 
     if (
         currentGalleryIndex ===
         currentProduct.gallery.length - 1
     ) {
-
         next.classList.add("hidden");
-
     } else {
-
         next.classList.remove("hidden");
-
     }
 
     updateZoomDisplay();
@@ -3668,9 +3509,7 @@ function goToGallerySlide(index) {
     updateGallery();
 
     requestAnimationFrame(() => {
-
         applyImageTransform(false);
-
     });
 
 }
@@ -3704,7 +3543,7 @@ function galleryPrevious(event) {
 }
 
 /* =========================================================
-   PRODUCT IMAGE ZOOM SYSTEM
+   PRODUCT IMAGE ZOOM
    ========================================================= */
 
 const galleryViewport =
@@ -3740,10 +3579,6 @@ let touchLastY = 0;
 
 let touchMoved = false;
 
-/* ---------------------------------------------------------
-   CURRENT GALLERY IMAGE
-   --------------------------------------------------------- */
-
 function getCurrentGalleryImage() {
 
     return document.querySelector(
@@ -3760,21 +3595,11 @@ function getCurrentGallerySlide() {
 
 }
 
-/* ---------------------------------------------------------
-   HIDDEN ZOOM UI FUNCTIONS
-   --------------------------------------------------------- */
-
 function updateZoomDisplay() {
-    /* Zoom controls are intentionally hidden. */
 }
 
 function updateZoomButtons() {
-    /* Zoom controls are intentionally hidden. */
 }
-
-/* ---------------------------------------------------------
-   PAN LIMIT
-   --------------------------------------------------------- */
 
 function getPanLimits() {
 
@@ -3831,10 +3656,6 @@ function clampPan() {
 
 }
 
-/* ---------------------------------------------------------
-   APPLY ZOOM / PAN
-   --------------------------------------------------------- */
-
 function applyImageTransform(
     animate = true
 ) {
@@ -3864,10 +3685,6 @@ function applyImageTransform(
 
 }
 
-/* ---------------------------------------------------------
-   RESET ZOOM
-   --------------------------------------------------------- */
-
 function resetZoom(event) {
 
     if (event) {
@@ -3892,10 +3709,6 @@ function resetZoomSilently() {
 
 }
 
-/* ---------------------------------------------------------
-   ZOOM IN
-   --------------------------------------------------------- */
-
 function zoomIn(event) {
 
     if (event) {
@@ -3917,10 +3730,6 @@ function zoomIn(event) {
     applyImageTransform(true);
 
 }
-
-/* ---------------------------------------------------------
-   ZOOM OUT
-   --------------------------------------------------------- */
 
 function zoomOut(event) {
 
@@ -3946,10 +3755,6 @@ function zoomOut(event) {
     applyImageTransform(true);
 
 }
-
-/* ---------------------------------------------------------
-   ZOOM AROUND POINTER
-   --------------------------------------------------------- */
 
 function zoomAtPoint(
     newZoom,
@@ -4002,9 +3807,9 @@ function zoomAtPoint(
 
 }
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOUSE WHEEL ZOOM
-   --------------------------------------------------------- */
+   ========================================================= */
 
 galleryViewport.addEventListener(
     "wheel",
@@ -4018,11 +3823,6 @@ galleryViewport.addEventListener(
         ) {
             return;
         }
-
-        /*
-           Only capture the wheel for image zoom when
-           the image is already zoomed.
-        */
 
         if (imageZoom <= 1) {
             return;
@@ -4047,9 +3847,9 @@ galleryViewport.addEventListener(
     }
 );
 
-/* ---------------------------------------------------------
+/* =========================================================
    DESKTOP DRAG / PAN
-   --------------------------------------------------------- */
+   ========================================================= */
 
 galleryViewport.addEventListener(
     "mousedown",
@@ -4135,9 +3935,9 @@ window.addEventListener(
     }
 );
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOBILE TOUCH / PINCH / SWIPE
-   --------------------------------------------------------- */
+   ========================================================= */
 
 galleryViewport.addEventListener(
     "touchstart",
@@ -4241,9 +4041,7 @@ galleryViewport.addEventListener(
 
         }
 
-        if (
-            event.touches.length !== 1
-        ) {
+        if (event.touches.length !== 1) {
             return;
         }
 
@@ -4326,8 +4124,6 @@ galleryViewport.addEventListener(
         const now =
             Date.now();
 
-        /* DOUBLE TAP */
-
         if (
             !touchMoved &&
             now - lastTapTime < 320
@@ -4355,16 +4151,9 @@ galleryViewport.addEventListener(
 
         lastTapTime = now;
 
-        /*
-           When zoomed, don't turn a pan into
-           gallery navigation.
-        */
-
         if (imageZoom > 1) {
             return;
         }
-
-        /* NORMAL SWIPE NAVIGATION */
 
         if (
             Math.abs(distanceX) >= 45 &&
@@ -4373,13 +4162,9 @@ galleryViewport.addEventListener(
         ) {
 
             if (distanceX < 0) {
-
                 galleryNext();
-
             } else {
-
                 galleryPrevious();
-
             }
 
         }
@@ -4390,16 +4175,10 @@ galleryViewport.addEventListener(
     }
 );
 
-/* ---------------------------------------------------------
-   PREVENT IMAGE DRAGGING
-   --------------------------------------------------------- */
-
 galleryViewport.addEventListener(
     "dragstart",
     function(event) {
-
         event.preventDefault();
-
     }
 );
 
@@ -4545,13 +4324,9 @@ finishTrigger.addEventListener(
             finishSelect.classList.contains("open");
 
         if (isOpen) {
-
             closeFinishSelect();
-
         } else {
-
             openFinishSelect();
-
         }
 
     }
@@ -4652,9 +4427,7 @@ document.addEventListener(
     function(event) {
 
         if (!finishSelect.contains(event.target)) {
-
             closeFinishSelect();
-
         }
 
     }
