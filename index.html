@@ -464,47 +464,52 @@ nav a:hover::after {
 .products {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 30px;
 }
+
+/* =========================================================
+   PREMIUM PRODUCT PRESENTATION
+   No rigid visible boxes / borders
+   ========================================================= */
 
 .product {
     position: relative;
     min-height: 590px;
     overflow: hidden;
     cursor: pointer;
-    background: #11110f;
-    border: 1px solid rgba(238,234,225,.09);
+
+    background: transparent;
+    border: none;
 
     transition:
-        transform .55s cubic-bezier(.2,.7,.2,1),
-        border-color .45s ease;
+        transform .55s cubic-bezier(.2,.7,.2,1);
 }
 
 .product:hover {
     transform: translateY(-7px);
-    border-color: rgba(185,160,108,.45);
 }
 
 .product-image {
     position: absolute;
     inset: 0;
     overflow: hidden;
-    background: #151512;
+
+    background: #11110f;
 }
 
 .product-image::before {
     content: "";
     position: absolute;
-    inset: -35px;
+    inset: -50px;
 
     background-image: var(--product-image);
     background-position: center;
     background-size: cover;
 
-    filter: blur(32px);
-    transform: scale(1.12);
+    filter: blur(42px);
+    transform: scale(1.18);
 
-    opacity: .42;
+    opacity: .38;
 }
 
 .product-image img {
@@ -529,38 +534,43 @@ nav a:hover::after {
         transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
-/* LARGER COLLECTION PRODUCT IMAGES */
+/*
+   Product images are intentionally larger than the
+   original treatment. Because object-fit remains contain,
+   future products with different proportions can still
+   retain their natural shape without being cropped.
+*/
 
 .product:nth-child(1) .product-image img {
-    transform: translate(-50%, -50%) scale(1.25);
+    transform: translate(-50%, -50%) scale(1.43);
 }
 
 .product:nth-child(2) .product-image img {
-    transform: translate(-50%, -50%) scale(1.23);
+    transform: translate(-50%, -50%) scale(1.40);
 }
 
 .product:nth-child(3) .product-image img {
-    transform: translate(-50%, -50%) scale(1.24);
+    transform: translate(-50%, -50%) scale(1.42);
 }
 
 .product:nth-child(4) .product-image img {
-    transform: translate(-50%, -50%) scale(1.08);
+    transform: translate(-50%, -50%) scale(1.25);
 }
 
 .product:nth-child(1):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.285);
+    transform: translate(-50%, -50%) scale(1.48);
 }
 
 .product:nth-child(2):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.265);
+    transform: translate(-50%, -50%) scale(1.45);
 }
 
 .product:nth-child(3):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.275);
+    transform: translate(-50%, -50%) scale(1.47);
 }
 
 .product:nth-child(4):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.115);
+    transform: translate(-50%, -50%) scale(1.30);
 }
 
 .product-image::after {
@@ -572,9 +582,9 @@ nav a:hover::after {
     background:
         linear-gradient(
             to bottom,
-            rgba(5,5,4,.02) 25%,
-            rgba(5,5,4,.10) 46%,
-            rgba(5,5,4,.90) 100%
+            rgba(5,5,4,.00) 22%,
+            rgba(5,5,4,.04) 45%,
+            rgba(5,5,4,.88) 100%
         );
 }
 
@@ -669,12 +679,12 @@ nav a:hover::after {
 
 .modal-box {
     position: relative;
-    width: min(1040px, 100%);
+    width: min(1120px, 100%);
     max-height: 91vh;
     overflow-y: auto;
 
     display: grid;
-    grid-template-columns: 1.05fr .95fr;
+    grid-template-columns: 1.08fr .92fr;
 
     background: #11110f;
     border: 1px solid rgba(238,234,225,.14);
@@ -711,7 +721,7 @@ nav a:hover::after {
    ========================================================= */
 
 .modal-image {
-    min-height: 620px;
+    min-height: 650px;
     position: relative;
     overflow: hidden;
     background: #151512;
@@ -728,7 +738,7 @@ nav a:hover::after {
     background-size: cover;
     background-position: center;
 
-    filter: blur(32px);
+    filter: blur(34px);
     opacity: .38;
     transform: scale(1.12);
 }
@@ -762,14 +772,14 @@ nav a:hover::after {
     align-items: center;
     justify-content: center;
 
-    padding: 30px 55px 75px;
+    padding: 15px 25px 65px;
 
     touch-action: none;
 }
 
 .gallery-slide img {
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
 
     object-fit: contain;
     object-position: center;
@@ -778,7 +788,7 @@ nav a:hover::after {
     -webkit-user-drag: none;
 
     filter:
-        drop-shadow(0 20px 35px rgba(0,0,0,.28));
+        drop-shadow(0 24px 42px rgba(0,0,0,.32));
 
     cursor: zoom-in;
 
@@ -797,74 +807,6 @@ nav a:hover::after {
 .gallery-slide.dragging img {
     cursor: grabbing;
     transition: none;
-}
-
-/* =========================================================
-   ZOOM CONTROLS
-   ========================================================= */
-
-.zoom-controls {
-    position: absolute;
-
-    top: 18px;
-    left: 18px;
-
-    z-index: 12;
-
-    display: flex;
-    align-items: center;
-    gap: 5px;
-
-    padding: 5px;
-
-    background: rgba(5,5,4,.68);
-
-    border: 1px solid rgba(238,234,225,.16);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.zoom-button {
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(238,234,225,.18);
-
-    background: rgba(238,234,225,.025);
-
-    color: var(--cream);
-
-    cursor: pointer;
-
-    font-size: 16px;
-    font-weight: 300;
-
-    transition:
-        background .25s ease,
-        border-color .25s ease,
-        color .25s ease;
-}
-
-.zoom-button:hover {
-    background: rgba(185,160,108,.12);
-    border-color: rgba(185,160,108,.65);
-    color: var(--gold);
-}
-
-.zoom-level {
-    min-width: 43px;
-
-    text-align: center;
-
-    color: #aaa398;
-
-    font-size: 8px;
-    letter-spacing: 1px;
 }
 
 /* =========================================================
@@ -1860,7 +1802,12 @@ footer p {
     }
 
     .gallery-slide {
-        padding: 25px 30px 65px;
+        padding: 15px 20px 60px;
+    }
+
+    .gallery-slide img {
+        width: 112%;
+        height: 112%;
     }
 
     .gallery-arrow {
@@ -1992,38 +1939,40 @@ footer p {
         font-size: 34px;
     }
 
-    /* LARGER MOBILE COLLECTION IMAGES */
+    /* =====================================================
+       LARGER MOBILE COLLECTION IMAGES
+       ===================================================== */
 
     .product:nth-child(1) .product-image img {
-        transform: translate(-50%, -50%) scale(1.17);
+        transform: translate(-50%, -50%) scale(1.32);
     }
 
     .product:nth-child(2) .product-image img {
-        transform: translate(-50%, -50%) scale(1.16);
+        transform: translate(-50%, -50%) scale(1.29);
     }
 
     .product:nth-child(3) .product-image img {
-        transform: translate(-50%, -50%) scale(1.17);
+        transform: translate(-50%, -50%) scale(1.31);
     }
 
     .product:nth-child(4) .product-image img {
-        transform: translate(-50%, -50%) scale(1.04);
+        transform: translate(-50%, -50%) scale(1.16);
     }
 
     .product:nth-child(1):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.20);
+        transform: translate(-50%, -50%) scale(1.36);
     }
 
     .product:nth-child(2):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.19);
+        transform: translate(-50%, -50%) scale(1.33);
     }
 
     .product:nth-child(3):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.20);
+        transform: translate(-50%, -50%) scale(1.35);
     }
 
     .product:nth-child(4):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.065);
+        transform: translate(-50%, -50%) scale(1.20);
     }
 
     .bespoke {
@@ -2085,12 +2034,15 @@ footer p {
     }
 
     .gallery-slide {
-        padding: 20px 25px 58px;
+        padding: 10px 15px 55px;
     }
 
     .gallery-slide img {
+        width: 116%;
+        height: 116%;
+
         filter:
-            drop-shadow(0 14px 25px rgba(0,0,0,.28));
+            drop-shadow(0 16px 28px rgba(0,0,0,.30));
     }
 
     .gallery-arrow {
@@ -2116,22 +2068,6 @@ footer p {
 
     .modal-content {
         padding: 35px 23px 40px;
-    }
-
-    .zoom-controls {
-        top: 12px;
-        left: 12px;
-    }
-
-    .zoom-button {
-        width: 31px;
-        height: 31px;
-        font-size: 15px;
-    }
-
-    .zoom-level {
-        min-width: 39px;
-        font-size: 7px;
     }
 
 }
@@ -2547,46 +2483,6 @@ footer p {
                     class="gallery-track"
                     id="galleryTrack"
                 ></div>
-
-            </div>
-
-            <!-- ZOOM CONTROLS -->
-
-            <div class="zoom-controls">
-
-                <button
-                    class="zoom-button"
-                    id="zoomOut"
-                    type="button"
-                    aria-label="Zoom out"
-                >
-                    −
-                </button>
-
-                <div
-                    class="zoom-level"
-                    id="zoomLevel"
-                >
-                    100%
-                </div>
-
-                <button
-                    class="zoom-button"
-                    id="zoomIn"
-                    type="button"
-                    aria-label="Zoom in"
-                >
-                    +
-                </button>
-
-                <button
-                    class="zoom-button"
-                    id="zoomReset"
-                    type="button"
-                    aria-label="Reset zoom"
-                >
-                    ↺
-                </button>
 
             </div>
 
@@ -3746,18 +3642,6 @@ function galleryPrevious(event) {
 const galleryViewport =
     document.getElementById("galleryViewport");
 
-const zoomLevel =
-    document.getElementById("zoomLevel");
-
-const zoomInButton =
-    document.getElementById("zoomIn");
-
-const zoomOutButton =
-    document.getElementById("zoomOut");
-
-const zoomResetButton =
-    document.getElementById("zoomReset");
-
 let imageZoom = 1;
 
 const MIN_ZOOM = 1;
@@ -3805,31 +3689,6 @@ function getCurrentGallerySlide() {
     return document.querySelector(
         `.gallery-slide:nth-child(${currentGalleryIndex + 1})`
     );
-
-}
-
-/* ---------------------------------------------------------
-   ZOOM DISPLAY
-   --------------------------------------------------------- */
-
-function updateZoomDisplay() {
-
-    if (!zoomLevel) return;
-
-    zoomLevel.textContent =
-        `${Math.round(imageZoom * 100)}%`;
-
-}
-
-function updateZoomButtons() {
-
-    if (!zoomInButton || !zoomOutButton) return;
-
-    zoomInButton.style.opacity =
-        imageZoom >= MAX_ZOOM ? ".35" : "1";
-
-    zoomOutButton.style.opacity =
-        imageZoom <= MIN_ZOOM ? ".35" : "1";
 
 }
 
@@ -3923,9 +3782,6 @@ function applyImageTransform(
         imageZoom > 1
     );
 
-    updateZoomDisplay();
-    updateZoomButtons();
-
 }
 
 /* ---------------------------------------------------------
@@ -3953,61 +3809,6 @@ function resetZoomSilently() {
 
     panX = 0;
     panY = 0;
-
-}
-
-/* ---------------------------------------------------------
-   ZOOM IN
-   --------------------------------------------------------- */
-
-function zoomIn(event) {
-
-    if (event) {
-        event.stopPropagation();
-    }
-
-    const newZoom =
-        Math.min(
-            MAX_ZOOM,
-            imageZoom + ZOOM_STEP
-        );
-
-    if (newZoom === imageZoom) {
-        return;
-    }
-
-    imageZoom = newZoom;
-
-    applyImageTransform(true);
-
-}
-
-/* ---------------------------------------------------------
-   ZOOM OUT
-   --------------------------------------------------------- */
-
-function zoomOut(event) {
-
-    if (event) {
-        event.stopPropagation();
-    }
-
-    const newZoom =
-        Math.max(
-            MIN_ZOOM,
-            imageZoom - ZOOM_STEP
-        );
-
-    imageZoom = newZoom;
-
-    if (imageZoom === 1) {
-
-        panX = 0;
-        panY = 0;
-
-    }
-
-    applyImageTransform(true);
 
 }
 
@@ -4456,25 +4257,6 @@ galleryViewport.addEventListener(
         event.preventDefault();
 
     }
-);
-
-/* ---------------------------------------------------------
-   ZOOM BUTTON EVENTS
-   --------------------------------------------------------- */
-
-zoomInButton.addEventListener(
-    "click",
-    zoomIn
-);
-
-zoomOutButton.addEventListener(
-    "click",
-    zoomOut
-);
-
-zoomResetButton.addEventListener(
-    "click",
-    resetZoom
 );
 
 /* =========================================================
