@@ -287,7 +287,6 @@ nav a:hover::after {
 
 }
 
-
 .hero-brand {
     display: flex;
     justify-content: center;
@@ -664,7 +663,7 @@ nav a:hover::after {
     position: absolute;
     top: 18px;
     right: 18px;
-    z-index: 10;
+    z-index: 20;
 
     width: 38px;
     height: 38px;
@@ -684,11 +683,18 @@ nav a:hover::after {
     border-color: var(--gold);
 }
 
+
+/* =========================================================
+   PRODUCT GALLERY
+   ========================================================= */
+
 .modal-image {
     min-height: 620px;
     position: relative;
     overflow: hidden;
     background: #151512;
+
+    touch-action: pan-y;
 }
 
 .modal-image::before {
@@ -701,24 +707,178 @@ nav a:hover::after {
     background-position: center;
 
     filter: blur(32px);
-    opacity: .4;
+    opacity: .38;
     transform: scale(1.12);
 }
 
-.modal-image img {
+.gallery-viewport {
     position: absolute;
     inset: 0;
+    z-index: 2;
+    overflow: hidden;
+}
 
+.gallery-track {
+    height: 100%;
+    display: flex;
+
+    transition:
+        transform .55s cubic-bezier(.22,.61,.36,1);
+
+    will-change: transform;
+}
+
+.gallery-slide {
+    min-width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 55px 75px;
+}
+
+.gallery-slide img {
     width: 100%;
     height: 100%;
 
     object-fit: contain;
     object-position: center;
 
-    padding: 25px;
+    user-select: none;
+    -webkit-user-drag: none;
 
-    z-index: 2;
+    filter:
+        drop-shadow(0 20px 35px rgba(0,0,0,.28));
 }
+
+.gallery-label {
+    position: absolute;
+    left: 30px;
+    bottom: 25px;
+
+    z-index: 5;
+
+    color: rgba(238,234,225,.72);
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid rgba(185,160,108,.55);
+}
+
+.gallery-counter {
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+
+    z-index: 5;
+
+    color: rgba(238,234,225,.48);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 8;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(238,234,225,.22);
+
+    background: rgba(5,5,4,.48);
+    color: var(--cream);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        opacity .3s ease;
+}
+
+.gallery-arrow:hover {
+    background: rgba(185,160,108,.12);
+    border-color: rgba(185,160,108,.65);
+    color: var(--gold);
+}
+
+.gallery-arrow.prev {
+    left: 18px;
+}
+
+.gallery-arrow.next {
+    right: 18px;
+}
+
+.gallery-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gallery-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    z-index: 8;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.gallery-dot {
+    width: 5px;
+    height: 5px;
+
+    border: 0;
+    border-radius: 50%;
+
+    padding: 0;
+
+    background: rgba(238,234,225,.28);
+
+    cursor: pointer;
+
+    transition:
+        width .3s ease,
+        background .3s ease;
+}
+
+.gallery-dot.active {
+    width: 18px;
+    border-radius: 10px;
+    background: var(--gold);
+}
+
+
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
 
 .modal-content {
     padding: 72px 55px;
@@ -1589,7 +1749,35 @@ footer p {
     }
 
     .modal-image {
-        min-height: 380px;
+        min-height: 430px;
+    }
+
+    .gallery-slide {
+        padding: 25px 30px 65px;
+    }
+
+    .gallery-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .gallery-arrow.prev {
+        left: 12px;
+    }
+
+    .gallery-arrow.next {
+        right: 12px;
+    }
+
+    .gallery-label {
+        left: 20px;
+        bottom: 22px;
+    }
+
+    .gallery-counter {
+        right: 20px;
+        bottom: 22px;
     }
 
     .modal-content {
@@ -1789,11 +1977,37 @@ footer p {
     }
 
     .modal-image {
-        min-height: 310px;
+        min-height: 330px;
     }
 
-    .modal-image img {
-        padding: 20px;
+    .gallery-slide {
+        padding: 20px 25px 58px;
+    }
+
+    .gallery-slide img {
+        filter:
+            drop-shadow(0 14px 25px rgba(0,0,0,.28));
+    }
+
+    .gallery-arrow {
+        display: none;
+    }
+
+    .gallery-label {
+        left: 18px;
+        bottom: 20px;
+
+        font-size: 7px;
+        letter-spacing: 2.5px;
+    }
+
+    .gallery-counter {
+        right: 18px;
+        bottom: 20px;
+    }
+
+    .gallery-dots {
+        bottom: 43px;
     }
 
     .modal-content {
@@ -2216,24 +2430,79 @@ footer p {
         <button
             class="close-modal"
             onclick="closeProduct()"
+            aria-label="Close product"
         >
             ×
         </button>
 
+
+        <!-- PRODUCT GALLERY -->
 
         <div
             class="modal-image"
             id="modalImageContainer"
         >
 
-            <img
-                id="modalImage"
-                src=""
-                alt=""
+            <div
+                class="gallery-viewport"
+                id="galleryViewport"
             >
+
+                <div
+                    class="gallery-track"
+                    id="galleryTrack"
+                ></div>
+
+            </div>
+
+
+            <button
+                class="gallery-arrow prev hidden"
+                id="galleryPrev"
+                type="button"
+                aria-label="Previous image"
+                onclick="galleryPrevious(event)"
+            >
+                ←
+            </button>
+
+
+            <button
+                class="gallery-arrow next hidden"
+                id="galleryNext"
+                type="button"
+                aria-label="Next image"
+                onclick="galleryNext(event)"
+            >
+                →
+            </button>
+
+
+            <div
+                class="gallery-dots"
+                id="galleryDots"
+            ></div>
+
+
+            <div
+                class="gallery-label"
+                id="galleryLabel"
+            >
+                HERO
+            </div>
+
+
+            <div
+                class="gallery-counter"
+                id="galleryCounter"
+            >
+                01 / 01
+            </div>
 
         </div>
 
+
+        <!-- PRODUCT INFORMATION -->
 
         <div class="modal-content">
 
@@ -2334,7 +2603,7 @@ footer p {
 
 
         <h2>
-            Your idea deserves to exist.
+            Your Idea. Our Craft.
         </h2>
 
 
@@ -2390,7 +2659,7 @@ footer p {
 
 
             <h2>
-                Create Something That Doesn't Exist Yet.
+                Let’s Create Something Unique.
             </h2>
 
 
@@ -2411,8 +2680,6 @@ footer p {
             >
 
 
-                <!-- NAME -->
-
                 <div class="form-group">
 
                     <label for="clientName">
@@ -2428,8 +2695,6 @@ footer p {
 
                 </div>
 
-
-                <!-- PRODUCT TYPE -->
 
                 <div class="form-group">
 
@@ -2458,8 +2723,6 @@ footer p {
                 </div>
 
 
-                <!-- MATERIAL -->
-
                 <div class="form-group">
 
                     <label for="material">
@@ -2481,8 +2744,6 @@ footer p {
                 </div>
 
 
-                <!-- FINISH -->
-
                 <div class="form-group">
 
                     <label>
@@ -2494,7 +2755,6 @@ footer p {
                         class="finish-select"
                         id="finishSelect"
                     >
-
 
                         <button
                             type="button"
@@ -2528,7 +2788,6 @@ footer p {
                             id="finishOptions"
                             role="listbox"
                         >
-
 
                             <button
                                 type="button"
@@ -2605,7 +2864,6 @@ footer p {
 
                             </button>
 
-
                         </div>
 
                     </div>
@@ -2619,8 +2877,6 @@ footer p {
 
                 </div>
 
-
-                <!-- SIZE -->
 
                 <div class="form-group">
 
@@ -2636,8 +2892,6 @@ footer p {
 
                 </div>
 
-
-                <!-- DETAILS -->
 
                 <div class="form-group">
 
@@ -3020,11 +3274,21 @@ const products = [
         price: "PKR 19,999",
         material: "Wood / Lasani",
         category: "Statement Wall Art",
-        image:
-            "FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
+
+        gallery: [
+
+            {
+                image:
+                    "FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
+                label: "HERO"
+            }
+
+        ],
+
         description:
             "A distinctive statement piece crafted to give the wall presence, depth and character. Al-Bayan brings together artistic form and refined craftsmanship in a piece designed to become a focal point within its surroundings."
     },
+
 
     {
         volume: "VOLUME II",
@@ -3033,11 +3297,21 @@ const products = [
         price: "PKR 14,999",
         material: "Wood / Lasani",
         category: "Calligraphic Wall Art",
-        image:
-            "EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
+
+        gallery: [
+
+            {
+                image:
+                    "EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
+                label: "HERO"
+            }
+
+        ],
+
         description:
             "A refined calligraphic statement created to bring meaning and elegance into the space. Noor-e-Sukhan combines expressive lettering with a timeless decorative presence."
     },
+
 
     {
         volume: "VOLUME III",
@@ -3046,11 +3320,21 @@ const products = [
         price: "PKR 16,999",
         material: "Wood / Lasani",
         category: "Arabic Calligraphy",
-        image:
-            "61F3AE47-AC22-4892-BF90-85C53564A037.png",
+
+        gallery: [
+
+            {
+                image:
+                    "61F3AE47-AC22-4892-BF90-85C53564A037.png",
+                label: "HERO"
+            }
+
+        ],
+
         description:
             "An expressive statement in contemporary Arabic calligraphy, crafted to bring depth, character and timeless elegance to the wall. Khatt-e-Wafa is designed to command attention without overwhelming the space."
     },
+
 
     {
         volume: "VOLUME IV",
@@ -3059,19 +3343,57 @@ const products = [
         price: "PKR 24,999",
         material: "Wood",
         category: "Carved Wood Relief",
-        image:
-            "E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png",
+
+        gallery: [
+
+            {
+                image:
+                    "E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png",
+                label: "HERO"
+            },
+
+            {
+                image:
+                    "FB67EC95-FF4F-4620-BDC7-A446E6B111AD.png",
+                label: "LIFESTYLE"
+            },
+
+            {
+                image:
+                    "942F0F5F-B609-416E-A023-EF857A585212.jpeg",
+                label: "CLOSE-UP"
+            },
+
+            {
+                image:
+                    "7399600E-FC24-4F33-9FA2-EF599D650820.png",
+                label: "DETAIL"
+            },
+
+            {
+                image:
+                    "2A395300-1543-40AF-B936-3566FFE43616.png",
+                label: "FINISHING"
+            }
+
+        ],
+
         description:
             "A richly detailed equestrian relief celebrating the strength and beauty of the horse. Asil combines sculptural carving, flowing ornamental detail and warm wood character into a commanding statement piece."
     }
 
 ];
 
+
 let currentProduct = null;
+let currentGalleryIndex = 0;
+
+let touchStartX = 0;
+let touchEndX = 0;
 
 
 /* =========================================================
-   PRODUCT MODAL
+   PRODUCT MODAL + GALLERY
    ========================================================= */
 
 function openProduct(index) {
@@ -3079,46 +3401,55 @@ function openProduct(index) {
     const product = products[index];
 
     currentProduct = product;
+    currentGalleryIndex = 0;
+
 
     document.getElementById("modalVolume").textContent =
         product.volume;
 
+
     document.getElementById("modalTitle").textContent =
         product.title;
+
 
     document.getElementById("modalSubtitle").textContent =
         product.subtitle;
 
+
     document.getElementById("modalDescription").textContent =
         product.description;
+
 
     document.getElementById("modalMaterial").textContent =
         product.material;
 
+
     document.getElementById("modalCategory").textContent =
         product.category;
+
 
     document.getElementById("modalPrice").textContent =
         product.price;
 
-    const image =
-        document.getElementById("modalImage");
 
-    image.src = product.image;
-    image.alt = product.title;
+    const galleryContainer =
+        document.getElementById("modalImageContainer");
 
-    document
-        .getElementById("modalImageContainer")
-        .style
-        .setProperty(
-            "--modal-image",
-            `url('${product.image}')`
-        );
+
+    galleryContainer.style.setProperty(
+        "--modal-image",
+        `url('${product.gallery[0].image}')`
+    );
+
+
+    buildGallery();
+
 
     document
         .getElementById("productModal")
         .classList
         .add("active");
+
 
     document
         .body
@@ -3128,6 +3459,282 @@ function openProduct(index) {
 }
 
 
+function buildGallery() {
+
+    if (!currentProduct) return;
+
+
+    const track =
+        document.getElementById("galleryTrack");
+
+    const dots =
+        document.getElementById("galleryDots");
+
+
+    track.innerHTML = "";
+    dots.innerHTML = "";
+
+
+    currentProduct.gallery.forEach(
+        (item, index) => {
+
+
+            const slide =
+                document.createElement("div");
+
+            slide.className =
+                "gallery-slide";
+
+
+            const image =
+                document.createElement("img");
+
+            image.src =
+                item.image;
+
+            image.alt =
+                `${currentProduct.title} — ${item.label}`;
+
+            image.draggable = false;
+
+
+            slide.appendChild(image);
+
+            track.appendChild(slide);
+
+
+            const dot =
+                document.createElement("button");
+
+            dot.type = "button";
+
+            dot.className =
+                "gallery-dot" +
+                (index === 0 ? " active" : "");
+
+            dot.setAttribute(
+                "aria-label",
+                `View ${item.label}`
+            );
+
+
+            dot.onclick = function(event) {
+
+                event.stopPropagation();
+
+                goToGallerySlide(index);
+
+            };
+
+
+            dots.appendChild(dot);
+
+        }
+    );
+
+
+    updateGallery();
+
+}
+
+
+function updateGallery() {
+
+    if (!currentProduct) return;
+
+
+    const track =
+        document.getElementById("galleryTrack");
+
+    const label =
+        document.getElementById("galleryLabel");
+
+    const counter =
+        document.getElementById("galleryCounter");
+
+    const prev =
+        document.getElementById("galleryPrev");
+
+    const next =
+        document.getElementById("galleryNext");
+
+    const dots =
+        document.querySelectorAll(".gallery-dot");
+
+
+    track.style.transform =
+        `translateX(-${currentGalleryIndex * 100}%)`;
+
+
+    const current =
+        currentProduct.gallery[currentGalleryIndex];
+
+
+    label.textContent =
+        current.label;
+
+
+    counter.textContent =
+        `${String(currentGalleryIndex + 1).padStart(2, "0")} / ${String(currentProduct.gallery.length).padStart(2, "0")}`;
+
+
+    dots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === currentGalleryIndex
+        );
+
+    });
+
+
+    if (currentGalleryIndex === 0) {
+
+        prev.classList.add("hidden");
+
+    } else {
+
+        prev.classList.remove("hidden");
+
+    }
+
+
+    if (
+        currentGalleryIndex ===
+        currentProduct.gallery.length - 1
+    ) {
+
+        next.classList.add("hidden");
+
+    } else {
+
+        next.classList.remove("hidden");
+
+    }
+
+}
+
+
+function goToGallerySlide(index) {
+
+    if (!currentProduct) return;
+
+
+    if (
+        index < 0 ||
+        index >= currentProduct.gallery.length
+    ) {
+        return;
+    }
+
+
+    currentGalleryIndex = index;
+
+    updateGallery();
+
+}
+
+
+function galleryNext(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+
+    if (!currentProduct) return;
+
+
+    goToGallerySlide(
+        currentGalleryIndex + 1
+    );
+
+}
+
+
+function galleryPrevious(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+
+    if (!currentProduct) return;
+
+
+    goToGallerySlide(
+        currentGalleryIndex - 1
+    );
+
+}
+
+
+/* =========================================================
+   TOUCH / SWIPE GALLERY
+   ========================================================= */
+
+const galleryViewport =
+    document.getElementById("galleryViewport");
+
+
+galleryViewport.addEventListener(
+    "touchstart",
+    function(event) {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+galleryViewport.addEventListener(
+    "touchend",
+    function(event) {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        handleGallerySwipe();
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+function handleGallerySwipe() {
+
+    const distance =
+        touchEndX - touchStartX;
+
+
+    if (Math.abs(distance) < 45) {
+        return;
+    }
+
+
+    if (distance < 0) {
+
+        galleryNext();
+
+    } else {
+
+        galleryPrevious();
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE PRODUCT
+   ========================================================= */
+
 function closeProduct() {
 
     document
@@ -3135,12 +3742,15 @@ function closeProduct() {
         .classList
         .remove("active");
 
+
     document
         .body
         .classList
         .remove("modal-open");
 
+
     currentProduct = null;
+    currentGalleryIndex = 0;
 
 }
 
@@ -3159,21 +3769,45 @@ function closeProductOutside(event) {
 }
 
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener(
+    "keydown",
+    function(event) {
 
-    if (
-        event.key === "Escape" &&
-        document
-            .getElementById("productModal")
-            .classList
-            .contains("active")
-    ) {
+        const modal =
+            document.getElementById("productModal");
 
-        closeProduct();
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+
+            closeProduct();
+
+        }
+
+
+        if (
+            event.key === "ArrowRight" &&
+            modal.classList.contains("active")
+        ) {
+
+            galleryNext();
+
+        }
+
+
+        if (
+            event.key === "ArrowLeft" &&
+            modal.classList.contains("active")
+        ) {
+
+            galleryPrevious();
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================================================
@@ -3183,6 +3817,7 @@ document.addEventListener("keydown", function(event) {
 function orderProduct() {
 
     if (!currentProduct) return;
+
 
     const message =
 `Hello 𝑺𝑶𝑪𝑯 - سوچ,
@@ -3208,11 +3843,16 @@ I'd like to confirm availability and discuss the order.
 
 Thank you.`;
 
+
     const url =
         "https://wa.me/923150674347?text=" +
         encodeURIComponent(message);
 
-    window.open(url, "_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
 
 }
 
@@ -3237,24 +3877,29 @@ const finishOptions =
     document.querySelectorAll(".finish-option");
 
 
-finishTrigger.addEventListener("click", function(event) {
+finishTrigger.addEventListener(
+    "click",
+    function(event) {
 
-    event.stopPropagation();
+        event.stopPropagation();
 
-    const isOpen =
-        finishSelect.classList.contains("open");
 
-    if (isOpen) {
+        const isOpen =
+            finishSelect.classList.contains("open");
 
-        closeFinishSelect();
 
-    } else {
+        if (isOpen) {
 
-        openFinishSelect();
+            closeFinishSelect();
+
+        } else {
+
+            openFinishSelect();
+
+        }
 
     }
-
-});
+);
 
 
 function openFinishSelect() {
@@ -3283,73 +3928,99 @@ function closeFinishSelect() {
 
 finishOptions.forEach(option => {
 
-    option.addEventListener("click", function() {
+    option.addEventListener(
+        "click",
+        function() {
 
-        const value =
-            this.dataset.value;
 
-        const swatch =
-            this.querySelector(".finish-swatch");
+            const value =
+                this.dataset.value;
 
-        finishSelected.innerHTML = "";
 
-        const selectedSwatch =
-            document.createElement("span");
+            const swatch =
+                this.querySelector(
+                    ".finish-swatch"
+                );
 
-        selectedSwatch.className =
-            swatch.className;
 
-        const selectedText =
-            document.createElement("span");
+            finishSelected.innerHTML = "";
 
-        selectedText.textContent =
-            value;
 
-        finishSelected.appendChild(
-            selectedSwatch
-        );
+            const selectedSwatch =
+                document.createElement("span");
 
-        finishSelected.appendChild(
-            selectedText
-        );
 
-        finishHiddenInput.value =
-            value;
+            selectedSwatch.className =
+                swatch.className;
 
-        finishOptions.forEach(item => {
 
-            item.classList.remove("selected");
+            const selectedText =
+                document.createElement("span");
 
-            item.setAttribute(
-                "aria-selected",
-                "false"
+
+            selectedText.textContent =
+                value;
+
+
+            finishSelected.appendChild(
+                selectedSwatch
             );
 
-        });
 
-        this.classList.add("selected");
+            finishSelected.appendChild(
+                selectedText
+            );
 
-        this.setAttribute(
-            "aria-selected",
-            "true"
-        );
 
-        closeFinishSelect();
+            finishHiddenInput.value =
+                value;
 
-    });
+
+            finishOptions.forEach(item => {
+
+                item.classList.remove(
+                    "selected"
+                );
+
+                item.setAttribute(
+                    "aria-selected",
+                    "false"
+                );
+
+            });
+
+
+            this.classList.add(
+                "selected"
+            );
+
+
+            this.setAttribute(
+                "aria-selected",
+                "true"
+            );
+
+
+            closeFinishSelect();
+
+        }
+    );
 
 });
 
 
-document.addEventListener("click", function(event) {
+document.addEventListener(
+    "click",
+    function(event) {
 
-    if (!finishSelect.contains(event.target)) {
+        if (!finishSelect.contains(event.target)) {
 
-        closeFinishSelect();
+            closeFinishSelect();
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================================================
@@ -3360,16 +4031,19 @@ function sendVision(event) {
 
     event.preventDefault();
 
+
     const name =
         document
             .getElementById("clientName")
             .value
             .trim();
 
+
     const product =
         document
             .getElementById("productType")
             .value;
+
 
     const material =
         document
@@ -3377,11 +4051,13 @@ function sendVision(event) {
             .value ||
         "Not specified";
 
+
     const finish =
         document
             .getElementById("finish")
             .value ||
         "Not specified";
+
 
     const size =
         document
@@ -3389,6 +4065,7 @@ function sendVision(event) {
             .value
             .trim() ||
         "Not specified";
+
 
     const details =
         document
@@ -3429,7 +4106,11 @@ Thank you.`;
         "https://wa.me/923150674347?text=" +
         encodeURIComponent(message);
 
-    window.open(url, "_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
 
 }
 
@@ -3442,21 +4123,24 @@ document
     .querySelectorAll("header a")
     .forEach(link => {
 
-        link.addEventListener("click", () => {
+        link.addEventListener(
+            "click",
+            () => {
 
-            if (
-                window.innerWidth <= 550 &&
-                link.getAttribute("href") === "#home"
-            ) {
+                if (
+                    window.innerWidth <= 550 &&
+                    link.getAttribute("href") === "#home"
+                ) {
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }
 
             }
-
-        });
+        );
 
     });
 
