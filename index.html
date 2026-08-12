@@ -1,135 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.</title>
 
 <meta
-  name="description"
-  content="SOCH — Custom décor and craftsmanship. You bring the vision. We bring it to life."
+name="description"
+content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring it to life."
 >
 
-<meta name="theme-color" content="#080808">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap"
+rel="stylesheet">
 
 <style>
-/* =========================================================
-   SOCH — FINAL DESIGN
-   ========================================================= */
 
 :root {
-  --bg: #080808;
-  --bg-soft: #0d0d0d;
-  --gold: #c9a45c;
-  --gold-light: #e0c27d;
-  --white: #f5f2eb;
-  --muted: #aaa49a;
-  --line: rgba(201,164,92,.18);
-  --max: 1280px;
-  --ease: cubic-bezier(.22,.61,.36,1);
+    --black: #080807;
+    --black-2: #0d0d0c;
+    --panel: #11110f;
+    --cream: #eeeae1;
+    --muted: #9c988f;
+    --soft: #c0b9aa;
+    --gold: #b9a06c;
+    --line: rgba(238,234,225,.11);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
-  background: var(--bg);
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+    background: var(--black);
+    color: var(--cream);
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
 }
 
 body.modal-open {
-  overflow: hidden;
+    overflow: hidden;
 }
 
-img {
-  display: block;
-  max-width: 100%;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button {
-  font: inherit;
+input,
+select,
+textarea {
+    font-family: inherit;
 }
 
 /* =========================================================
-   HEADER
+   NAVIGATION
    ========================================================= */
 
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 22px 5%;
-  transition:
-    background .35s ease,
-    backdrop-filter .35s ease,
-    padding .35s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 86px;
+    padding: 0 5.5vw;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid transparent;
+
+    transition:
+        background .45s ease,
+        border-color .45s ease,
+        height .45s ease;
 }
 
 header.scrolled {
-  background: rgba(8,8,8,.78);
-  backdrop-filter: blur(14px);
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255,255,255,.04);
+    height: 72px;
+    background: rgba(8,8,7,.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-color: var(--line);
 }
 
-.nav {
-  max-width: var(--max);
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 31px;
 }
 
-.nav-logo {
-  color: var(--white);
-  text-decoration: none;
-  font-size: 22px;
-  letter-spacing: .08em;
-  line-height: 1;
+.nav-left {
+    justify-content: flex-start;
 }
 
-.nav-logo span {
-  color: var(--gold);
-  margin-left: 7px;
-  font-size: 19px;
+.nav-right {
+    justify-content: flex-end;
 }
 
-.nav-links {
-  display: flex;
-  gap: 32px;
-  align-items: center;
+nav a {
+    position: relative;
+    color: rgba(238,234,225,.68);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    transition: color .3s ease;
 }
 
-.nav-links a {
-  color: rgba(245,242,235,.82);
-  text-decoration: none;
-  font-size: 12px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  transition: color .25s ease;
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width .3s ease;
 }
 
-.nav-links a:hover {
-  color: var(--gold-light);
+nav a:hover {
+    color: var(--cream);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.center-logo {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.center-logo .logo-main {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 29px;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -.7px;
+}
+
+.center-logo .logo-urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 24px;
 }
 
 /* =========================================================
@@ -137,342 +167,1433 @@ header.scrolled {
    ========================================================= */
 
 .hero {
-  min-height: 100svh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 150px 25px 100px;
+
+    background:
+        linear-gradient(
+            rgba(5,5,4,.30),
+            rgba(5,5,4,.77)
+        ),
+        url("37A2CC13-446E-4AAA-A0A4-DFF3AAFB59A9.png")
+        center / cover no-repeat;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.25) 0%,
-      rgba(0,0,0,.48) 65%,
-      rgba(8,8,8,1) 100%
-    );
-  z-index: 1;
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 8%,
+            rgba(0,0,0,.25) 58%,
+            rgba(0,0,0,.75) 100%
+        );
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: brightness(.67);
-  transform: scale(1.02);
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 35%;
+
+    background:
+        linear-gradient(
+            transparent,
+            #080807
+        );
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 100px 24px 60px;
-  max-width: 900px;
-}
-
-.hero-logo {
-  width: min(330px, 72vw);
-  margin: 0 auto 35px;
-  mix-blend-mode: screen;
-  filter:
-    drop-shadow(0 0 14px rgba(201,164,92,.18))
-    drop-shadow(0 0 35px rgba(201,164,92,.08));
-}
-
-.hero-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(38px, 6vw, 76px);
-  font-weight: 400;
-  line-height: 1.06;
-  letter-spacing: -.025em;
-  margin-bottom: 22px;
-}
-
-.hero-title em {
-  color: var(--gold-light);
-  font-style: normal;
-}
-
-.hero-subtitle {
-  max-width: 610px;
-  margin: auto;
-  color: rgba(245,242,235,.73);
-  font-size: 15px;
-  line-height: 1.9;
-  letter-spacing: .04em;
-}
-
-.hero-cta {
-  margin-top: 38px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 180px;
-  padding: 15px 26px;
-  border: 1px solid rgba(201,164,92,.55);
-  color: var(--white);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: .17em;
-  font-size: 11px;
-  transition:
-    background .3s ease,
-    color .3s ease,
-    border-color .3s ease,
-    transform .3s ease;
-}
-
-.hero-cta:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #090909;
-  transform: translateY(-2px);
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  color: rgba(255,255,255,.5);
-  font-size: 9px;
-  letter-spacing: .28em;
-  text-transform: uppercase;
+    position: relative;
+    z-index: 3;
+    max-width: 1050px;
 }
 
 /* =========================================================
-   GENERAL SECTIONS
+   SOCH HERO LOGO
    ========================================================= */
 
-section {
-  width: 100%;
+.hero-logo-wrap {
+    position: relative;
+    z-index: 4;
+
+    width: clamp(180px, 25vw, 310px);
+    height: clamp(110px, 15vw, 180px);
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1000px;
 }
 
-.section-inner {
-  width: min(var(--max), 90%);
-  margin: auto;
+.hero-logo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 8px 18px rgba(0,0,0,.45))
+        drop-shadow(0 0 12px rgba(185,160,108,.12));
+
+    transform-style: preserve-3d;
+
+    animation:
+        sochCoinFlip 5.5s cubic-bezier(.45,.05,.55,.95) infinite;
+
+    will-change: transform;
 }
 
-.section-heading {
-  text-align: center;
-  margin-bottom: 65px;
+@keyframes sochCoinFlip {
+
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    18% {
+        transform: rotateY(0deg);
+    }
+
+    42% {
+        transform: rotateY(180deg);
+    }
+
+    58% {
+        transform: rotateY(360deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+
+}
+
+.hero-brand {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 28px;
+    opacity: .94;
+}
+
+.hero-brand .english {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: .5px;
+}
+
+.hero-brand .urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 23px;
 }
 
 .eyebrow {
-  display: block;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: .28em;
-  font-size: 10px;
-  margin-bottom: 17px;
+    color: #b9b09e;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
 }
 
-.section-heading h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(34px, 5vw, 58px);
-  font-weight: 400;
-  line-height: 1.1;
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(58px, 9vw, 110px);
+    font-weight: 300;
+    line-height: .82;
+    letter-spacing: -2.5px;
+    margin-bottom: 35px;
 }
 
-.section-heading p {
-  max-width: 620px;
-  margin: 20px auto 0;
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
+.hero h1 span {
+    color: #c1ae83;
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 530px;
+    margin: auto;
+    color: rgba(238,234,225,.64);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 38px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.button {
+    min-width: 180px;
+    padding: 15px 24px;
+    border: 1px solid rgba(238,234,225,.30);
+    color: var(--cream);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        transform .35s ease,
+        border-color .35s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    border-color: rgba(238,234,225,.75);
+}
+
+.button.primary {
+    background: var(--cream);
+    color: #090908;
+    border-color: var(--cream);
+}
+
+.button.primary:hover {
+    background: transparent;
+    color: var(--cream);
+}
+
+/* =========================================================
+   SECTION SYSTEM
+   ========================================================= */
+
+.section {
+    max-width: 1220px;
+    margin: auto;
+    padding: 135px 5.5vw;
+}
+
+.section-label {
+    color: var(--gold);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(50px, 6.5vw, 78px);
+    font-weight: 300;
+    line-height: .88;
+    letter-spacing: -1px;
+}
+
+.section-intro {
+    color: var(--muted);
+    max-width: 570px;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 24px;
 }
 
 /* =========================================================
    COLLECTION
-   NO BORDERS
-   NO RIGID CARDS
-   NATURAL IMAGE RATIO
    ========================================================= */
 
-.collection {
-  padding: 125px 0 140px;
-  background: var(--bg);
+.collection-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 50px;
+    margin-bottom: 70px;
 }
 
-.collection-grid {
-  width: min(1180px, 92%);
-  margin: auto;
-
-  /*
-    CSS columns allow every image to keep its natural
-    aspect ratio and natural height.
-  */
-  columns: 3 280px;
-  column-gap: 28px;
+.collection-heading .section-intro {
+    margin-bottom: 0;
 }
 
-.product-card {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin: 0 0 28px;
-
-  /*
-    IMPORTANT:
-    No fixed height.
-    No border.
-    No background box.
-    No object-fit.
-  */
-  border: 0;
-  background: transparent;
-  padding: 0;
-
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-
-  cursor: pointer;
-  overflow: visible;
+.collection-mark {
+    color: #68645d;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
 }
 
-.product-card img {
-  width: 100%;
-  height: auto;
-
-  /*
-    Preserve original proportions.
-  */
-  object-fit: contain;
-  object-position: center;
-
-  transition:
-    transform .65s var(--ease),
-    opacity .45s ease,
-    filter .45s ease;
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
-.product-card:hover img {
-  transform: scale(1.012);
+.product {
+    position: relative;
+    min-height: 590px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #11110f;
+    border: 1px solid rgba(238,234,225,.09);
+
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        border-color .45s ease;
 }
+
+.product:hover {
+    transform: translateY(-7px);
+    border-color: rgba(185,160,108,.45);
+}
+
+.product-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: #151512;
+}
+
+.product-image::before {
+    content: "";
+    position: absolute;
+    inset: -35px;
+
+    background-image: var(--product-image);
+    background-position: center;
+    background-size: cover;
+
+    filter: blur(32px);
+    transform: scale(1.12);
+
+    opacity: .42;
+}
+
+.product-image img {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    padding: 0;
+
+    z-index: 1;
+
+    transform: translate(-50%, -50%) scale(1);
+
+    transition:
+        transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+/* LARGER COLLECTION PRODUCT IMAGES */
+
+.product:nth-child(1) .product-image img {
+    transform: translate(-50%, -50%) scale(1.25);
+}
+
+.product:nth-child(2) .product-image img {
+    transform: translate(-50%, -50%) scale(1.23);
+}
+
+.product:nth-child(3) .product-image img {
+    transform: translate(-50%, -50%) scale(1.24);
+}
+
+.product:nth-child(4) .product-image img {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.product:nth-child(1):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.285);
+}
+
+.product:nth-child(2):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.265);
+}
+
+.product:nth-child(3):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.275);
+}
+
+.product:nth-child(4):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.115);
+}
+
+.product-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(5,5,4,.02) 25%,
+            rgba(5,5,4,.10) 46%,
+            rgba(5,5,4,.90) 100%
+        );
+}
+
+/* =========================================================
+   PRODUCT INFORMATION
+   ========================================================= */
 
 .product-info {
-  padding: 15px 2px 5px;
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+    z-index: 5;
 }
 
-.product-name {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 18px;
-  font-weight: 400;
+.product-number {
+    color: #aa9161;
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-bottom: 9px;
 }
 
-.product-type {
-  margin-top: 6px;
-  color: #77736d;
-  font-size: 9px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
+.product h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 39px;
+    line-height: .95;
+    font-weight: 400;
+    margin-bottom: 7px;
 }
 
-/* =========================================================
-   VISION SECTION
-   ========================================================= */
-
-.vision {
-  padding: 145px 0;
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(201,164,92,.08),
-      transparent 42%
-    ),
-    var(--bg-soft);
+.product-tagline {
+    color: #aaa295;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
 }
 
-.vision-content {
-  width: min(900px, 90%);
-  margin: auto;
-  text-align: center;
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.vision-content h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(39px, 6vw, 70px);
-  font-weight: 400;
-  line-height: 1.05;
+.product-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    color: #d0bb8d;
 }
 
-.vision-content h2 span {
-  color: var(--gold-light);
-}
-
-.vision-content > p {
-  max-width: 650px;
-  margin: 28px auto 0;
-  color: var(--muted);
-  line-height: 1.9;
-  font-size: 15px;
-}
-
-.vision-button {
-  display: inline-flex;
-  margin-top: 38px;
-  padding: 16px 29px;
-  border: 1px solid rgba(201,164,92,.5);
-  color: var(--white);
-  text-decoration: none;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  transition: .3s ease;
-}
-
-.vision-button:hover {
-  background: var(--gold);
-  color: #090909;
+.view-product {
+    color: #c4b9a5;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #635943;
+    padding-bottom: 4px;
 }
 
 /* =========================================================
-   CUSTOM PROCESS
+   PRODUCT MODAL
    ========================================================= */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(4,4,3,.94);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+.product-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    position: relative;
+    width: min(1040px, 100%);
+    max-height: 91vh;
+    overflow-y: auto;
+
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+
+    background: #11110f;
+    border: 1px solid rgba(238,234,225,.14);
+
+    box-shadow: 0 40px 120px rgba(0,0,0,.65);
+}
+
+.close-modal {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 20;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(238,234,225,.25);
+    background: rgba(5,5,4,.7);
+
+    color: var(--cream);
+    cursor: pointer;
+    font-size: 19px;
+
+    transition: .3s ease;
+}
+
+.close-modal:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+/* =========================================================
+   PRODUCT GALLERY
+   ========================================================= */
+
+.modal-image {
+    min-height: 620px;
+    position: relative;
+    overflow: hidden;
+    background: #151512;
+
+    touch-action: pan-y;
+}
+
+.modal-image::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+
+    background-image: var(--modal-image);
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(32px);
+    opacity: .38;
+    transform: scale(1.12);
+}
+
+.gallery-viewport {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+
+    touch-action: none;
+}
+
+.gallery-track {
+    height: 100%;
+    display: flex;
+
+    transition:
+        transform .55s cubic-bezier(.22,.61,.36,1);
+
+    will-change: transform;
+}
+
+.gallery-slide {
+    min-width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 55px 75px;
+
+    touch-action: none;
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    user-select: none;
+    -webkit-user-drag: none;
+
+    filter:
+        drop-shadow(0 20px 35px rgba(0,0,0,.28));
+
+    cursor: zoom-in;
+
+    transform-origin: center center;
+
+    transition:
+        transform .35s cubic-bezier(.22,.61,.36,1);
+
+    will-change: transform;
+}
+
+.gallery-slide.zoomed img {
+    cursor: grab;
+}
+
+.gallery-slide.dragging img {
+    cursor: grabbing;
+    transition: none;
+}
+
+/* =========================================================
+   ZOOM CONTROLS
+   ========================================================= */
+
+.zoom-controls {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 12;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px;
+
+    background: rgba(5,5,4,.68);
+
+    border: 1px solid rgba(238,234,225,.16);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.zoom-button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(238,234,225,.18);
+
+    background: rgba(238,234,225,.025);
+
+    color: var(--cream);
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 300;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease;
+}
+
+.zoom-button:hover {
+    background: rgba(185,160,108,.12);
+    border-color: rgba(185,160,108,.65);
+    color: var(--gold);
+}
+
+.zoom-level {
+    min-width: 43px;
+
+    text-align: center;
+
+    color: #aaa398;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   GALLERY NAVIGATION
+   ========================================================= */
+
+.gallery-label {
+    position: absolute;
+    left: 30px;
+    bottom: 25px;
+
+    z-index: 5;
+
+    color: rgba(238,234,225,.72);
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid rgba(185,160,108,.55);
+}
+
+.gallery-counter {
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+
+    z-index: 5;
+
+    color: rgba(238,234,225,.48);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 8;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(238,234,225,.22);
+
+    background: rgba(5,5,4,.48);
+    color: var(--cream);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        opacity .3s ease;
+}
+
+.gallery-arrow:hover {
+    background: rgba(185,160,108,.12);
+    border-color: rgba(185,160,108,.65);
+    color: var(--gold);
+}
+
+.gallery-arrow.prev {
+    left: 18px;
+}
+
+.gallery-arrow.next {
+    right: 18px;
+}
+
+.gallery-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gallery-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    z-index: 8;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.gallery-dot {
+    width: 5px;
+    height: 5px;
+
+    border: 0;
+    border-radius: 50%;
+
+    padding: 0;
+
+    background: rgba(238,234,225,.28);
+
+    cursor: pointer;
+
+    transition:
+        width .3s ease,
+        background .3s ease;
+}
+
+.gallery-dot.active {
+    width: 18px;
+    border-radius: 10px;
+    background: var(--gold);
+}
+
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
+
+.modal-content {
+    padding: 72px 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-volume {
+    color: var(--gold);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 17px;
+}
+
+.modal-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 6vw, 74px);
+    font-weight: 300;
+    line-height: .86;
+    margin-bottom: 11px;
+}
+
+.modal-subtitle {
+    color: #ae9563;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.modal-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.95;
+    margin-bottom: 27px;
+}
+
+.modal-details {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    margin-bottom: 28px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 6px 0;
+    font-size: 9px;
+}
+
+.detail-row span:first-child {
+    color: #706d66;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.detail-row span:last-child {
+    color: #cec4b4;
+    text-align: right;
+}
+
+.modal-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 35px;
+    color: #d0bb8d;
+    margin-bottom: 25px;
+}
+
+.order-button {
+    width: 100%;
+    border: 1px solid var(--cream);
+    background: var(--cream);
+    color: #090908;
+    padding: 17px;
+    cursor: pointer;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .3s ease;
+}
+
+.order-button:hover {
+    background: transparent;
+    color: var(--cream);
+}
+
+/* =========================================================
+   CUSTOM
+   ========================================================= */
+
+.bespoke {
+    max-width: none;
+    padding: 145px 5.5vw;
+
+    background:
+        radial-gradient(
+            circle at 80% 35%,
+            rgba(190,159,101,.08),
+            transparent 28%
+        ),
+        #eeeae1;
+
+    color: #10100e;
+}
+
+.bespoke-inner {
+    max-width: 1220px;
+    margin: auto;
+}
+
+.bespoke .section-label {
+    color: #716a5e;
+}
+
+.bespoke h2 {
+    max-width: 900px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(58px, 8vw, 105px);
+    line-height: .82;
+    font-weight: 300;
+    letter-spacing: -2px;
+}
+
+.bespoke p {
+    max-width: 620px;
+    margin-top: 30px;
+
+    color: #5c584f;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.bespoke-actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 38px;
+}
+
+.dark-button {
+    padding: 16px 25px;
+    background: #10100e;
+    color: var(--cream);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .35s ease;
+}
+
+.dark-button:hover {
+    transform: translateY(-3px);
+}
+
+.text-link {
+    color: #4f4b43;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* =========================================================
+   VISION BUILDER
+   ========================================================= */
+
+.builder-section {
+    padding: 140px 5.5vw;
+    background: #0c0c0b;
+}
+
+.builder-container {
+    max-width: 1220px;
+    margin: auto;
+}
+
+.builder-heading {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.builder-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 7vw, 82px);
+    font-weight: 300;
+    line-height: .86;
+    letter-spacing: -1.5px;
+}
+
+.builder-heading p {
+    max-width: 570px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 24px;
+}
+
+.builder {
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+    gap: 70px;
+    align-items: stretch;
+}
+
+.builder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #817b70;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 14px;
+
+    background: transparent;
+    color: var(--cream);
+
+    border: 1px solid rgba(238,234,225,.13);
+
+    outline: none;
+
+    font-size: 11px;
+
+    transition: border-color .3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #55534e;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: rgba(185,160,108,.65);
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #8d846f 50%),
+        linear-gradient(135deg, #8d846f 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 20px,
+        calc(100% - 12px) 20px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: #11110f;
+    color: var(--cream);
+}
+
+.form-group textarea {
+    min-height: 145px;
+    resize: vertical;
+}
+
+/* =========================================================
+   CUSTOM FINISH SELECT
+   ========================================================= */
+
+.finish-select {
+    position: relative;
+    width: 100%;
+}
+
+.finish-select-trigger {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    background: transparent;
+    color: var(--cream);
+
+    border: 1px solid rgba(238,234,225,.13);
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.finish-select.open .finish-select-trigger,
+.finish-select-trigger:hover {
+    border-color: rgba(185,160,108,.65);
+}
+
+.finish-selected {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: #cfc8bb;
+
+    font-size: 11px;
+}
+
+.finish-arrow {
+    width: 7px;
+    height: 7px;
+
+    border-right: 1px solid #9d927e;
+    border-bottom: 1px solid #9d927e;
+
+    transform: rotate(45deg);
+    transition: transform .3s ease;
+}
+
+.finish-select.open .finish-arrow {
+    transform: rotate(225deg) translate(-2px,-2px);
+}
+
+.finish-options {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+
+    z-index: 100;
+
+    background: #11110f;
+
+    border: 1px solid rgba(238,234,225,.16);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+}
+
+.finish-select.open .finish-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.finish-option {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: transparent;
+
+    border: 0;
+    border-bottom: 1px solid rgba(238,234,225,.07);
+
+    color: #cfc8bb;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.finish-option:last-child {
+    border-bottom: 0;
+}
+
+.finish-option:hover {
+    background: rgba(185,160,108,.08);
+    color: var(--cream);
+}
+
+.finish-option.selected {
+    background: rgba(185,160,108,.10);
+    color: var(--cream);
+}
+
+.finish-swatch {
+    width: 17px;
+    height: 17px;
+
+    flex: 0 0 17px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(238,234,225,.30);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.08),
+        0 2px 8px rgba(0,0,0,.28);
+}
+
+.finish-swatch.coffee {
+    background: #6b432b;
+}
+
+.finish-swatch.dark-brown {
+    background: #3b2418;
+}
+
+.finish-swatch.light-brown {
+    background: #a77b54;
+}
+
+.finish-swatch.black {
+    background: #080807;
+    border-color: rgba(238,234,225,.38);
+}
+
+.finish-hidden-input {
+    display: none;
+}
+
+.builder-submit {
+    border: 1px solid var(--cream);
+    background: var(--cream);
+    color: #090908;
+
+    padding: 17px;
+
+    cursor: pointer;
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    transition: .35s ease;
+}
+
+.builder-submit:hover {
+    background: transparent;
+    color: var(--cream);
+}
+
+.builder-preview {
+    position: relative;
+    min-height: 500px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 50px;
+
+    border: 1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at center,
+            #24231f,
+            #090908 72%
+        );
+
+    text-align: center;
+}
+
+.builder-preview::before {
+    content: "سوچ";
+
+    position: absolute;
+
+    font-family: "Noto Naskh Arabic", serif;
+
+    font-size: 250px;
+
+    color: rgba(238,234,225,.025);
+
+    transform: rotate(-8deg);
+}
+
+.preview-label {
+    position: relative;
+    z-index: 2;
+
+    color: var(--gold);
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    margin-bottom: 24px;
+}
+
+.preview-title {
+    position: relative;
+    z-index: 2;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 48px;
+    line-height: .9;
+}
+
+.preview-text {
+    position: relative;
+    z-index: 2;
+
+    max-width: 330px;
+
+    margin: 23px auto 0;
+
+    color: #858178;
+
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-section {
+    max-width: 1220px;
+    margin: auto;
+    padding: 140px 5.5vw;
+}
 
 .process {
-  padding: 130px 0;
-}
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
 
-.process-grid {
-  width: min(1050px, 90%);
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+    background: #292824;
+
+    margin-top: 65px;
 }
 
 .process-item {
-  text-align: center;
+    min-height: 250px;
+    padding: 34px 28px;
+    background: #0a0a09;
 }
 
-.process-number {
-  color: var(--gold);
-  font-family: Georgia, serif;
-  font-size: 22px;
-  margin-bottom: 22px;
+.number {
+    color: var(--gold);
+    font-size: 8px;
+    letter-spacing: 2.5px;
 }
 
-.process-item h3 {
-  font-family: Georgia, serif;
-  font-size: 22px;
-  font-weight: 400;
-  margin-bottom: 13px;
+.process h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 400;
+    margin: 25px 0 10px;
 }
 
-.process-item p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.8;
+.process p {
+    max-width: 190px;
+    color: #77736c;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   STORY
+   ========================================================= */
+
+.story {
+    text-align: center;
+}
+
+.story-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.story h2 {
+    margin-bottom: 30px;
+}
+
+.story p {
+    max-width: 620px;
+    margin: 0 auto 15px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.95;
 }
 
 /* =========================================================
@@ -480,52 +1601,126 @@ section {
    ========================================================= */
 
 .contact {
-  padding: 125px 0 110px;
-  border-top: 1px solid rgba(255,255,255,.04);
+    max-width: none;
+
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(185,160,108,.08),
+            transparent 35%
+        ),
+        #0a0a09;
+}
+
+.contact::before {
+    content: "𝑺𝑶𝑪𝑯";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    white-space: nowrap;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(120px, 20vw, 260px);
+
+    font-style: italic;
+
+    color: rgba(238,234,225,.025);
+
+    pointer-events: none;
 }
 
 .contact-inner {
-  width: min(800px, 90%);
-  margin: auto;
-  text-align: center;
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+    margin: auto;
 }
 
 .contact h2 {
-  font-family: Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(38px, 5vw, 60px);
+    font-size: clamp(58px, 8vw, 100px);
 }
 
-.contact p {
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 570px;
-  margin: 20px auto 35px;
+.contact .section-intro {
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.contact-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 13px;
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+
+    margin-top: 40px;
 }
 
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 14px 21px;
-  color: var(--white);
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,.1);
-  font-size: 11px;
-  letter-spacing: .08em;
-  transition: .3s ease;
+.contact-card {
+    min-width: 220px;
+
+    padding: 27px 25px;
+
+    background: rgba(17,17,15,.72);
+
+    border: 1px solid rgba(238,234,225,.11);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease;
 }
 
-.contact-link:hover {
-  border-color: var(--gold);
-  color: var(--gold-light);
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(185,160,108,.5);
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto 15px;
+
+    border: 1px solid #625a49;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #c4b083;
+}
+
+.contact-card strong {
+    display: block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.contact-card span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #74716a;
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
 }
 
 /* =========================================================
@@ -533,1530 +1728,3094 @@ section {
    ========================================================= */
 
 footer {
-  padding: 30px 5%;
-  border-top: 1px solid rgba(255,255,255,.05);
-  text-align: center;
-  color: #66625c;
-  font-size: 10px;
-  letter-spacing: .12em;
+    padding: 55px 25px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--line);
+
+    background: #080807;
 }
 
-/* =========================================================
-   PRODUCT VIEWER / MODAL
-   ========================================================= */
+.footer-brand {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
 
-.viewer {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
+    gap: 4px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 35px;
-
-  background: rgba(3,3,3,.96);
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition:
-    opacity .35s ease,
-    visibility .35s ease;
+    margin-bottom: 14px;
 }
 
-.viewer.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+.footer-brand .english {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 31px;
+    font-style: italic;
 }
 
-/*
-  No border.
-  No box.
-  No fake image background.
-*/
-.viewer-stage {
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  touch-action: none;
-  cursor: default;
+.footer-brand .urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 27px;
 }
 
-.viewer-image {
-  display: block;
-
-  max-width: 94%;
-  max-height: 92%;
-
-  width: auto;
-  height: auto;
-
-  object-fit: contain;
-
-  user-select: none;
-  -webkit-user-drag: none;
-
-  transform-origin: center center;
-
-  will-change: transform;
-
-  transition:
-    transform .38s var(--ease),
-    opacity .22s ease;
+footer p {
+    color: #65625b;
+    font-size: 8px;
+    letter-spacing: 1px;
 }
 
-.viewer-image.zoomed {
-  transition: none;
-  cursor: grab;
+.footer-social {
+    margin-top: 18px;
 }
 
-.viewer-image.zoomed:active {
-  cursor: grabbing;
-}
+.footer-social a {
+    color: #a19a8d;
 
-/* =========================================================
-   VIEWER BUTTONS
-   Only navigation/close remain.
-   No zoom +/− UI.
-   ========================================================= */
+    font-size: 8px;
 
-.viewer-close,
-.viewer-prev,
-.viewer-next {
-  position: absolute;
-  z-index: 5;
+    text-transform: uppercase;
 
-  border: 0;
-  background: transparent;
-
-  color: rgba(255,255,255,.82);
-
-  cursor: pointer;
-
-  transition:
-    color .25s ease,
-    opacity .25s ease,
-    transform .25s ease;
-}
-
-.viewer-close:hover,
-.viewer-prev:hover,
-.viewer-next:hover {
-  color: var(--gold-light);
-}
-
-.viewer-close {
-  top: 23px;
-  right: 28px;
-  width: 42px;
-  height: 42px;
-  font-size: 28px;
-  font-weight: 200;
-}
-
-.viewer-prev,
-.viewer-next {
-  top: 50%;
-  transform: translateY(-50%);
-  width: 55px;
-  height: 70px;
-  font-size: 34px;
-  opacity: .62;
-}
-
-.viewer-prev:hover,
-.viewer-next:hover {
-  opacity: 1;
-}
-
-.viewer-prev {
-  left: 17px;
-}
-
-.viewer-next {
-  right: 17px;
-}
-
-.viewer-hint {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  color: rgba(255,255,255,.36);
-
-  font-size: 9px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-
-  pointer-events: none;
-  white-space: nowrap;
+    letter-spacing: 2px;
 }
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
-  .nav-links {
-    gap: 17px;
-  }
+    header {
+        padding: 0 22px;
+    }
 
-  .nav-links a {
-    font-size: 9px;
-    letter-spacing: .11em;
-  }
+    .nav-left,
+    .nav-right {
+        gap: 17px;
+    }
 
-  .hero-content {
-    padding-top: 110px;
-  }
+    nav a {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
 
-  .hero-logo {
-    width: min(270px, 70vw);
-    margin-bottom: 28px;
-  }
+    .center-logo .logo-main {
+        font-size: 25px;
+    }
 
-  .collection {
-    padding-top: 95px;
-    padding-bottom: 100px;
-  }
+    .center-logo .logo-urdu {
+        font-size: 21px;
+    }
 
-  .collection-grid {
-    columns: 2 160px;
-    column-gap: 18px;
-  }
+    .collection-heading {
+        display: block;
+    }
 
-  .product-card {
-    margin-bottom: 20px;
-  }
+    .collection-mark {
+        margin-top: 25px;
+    }
 
-  .product-info {
-    padding-top: 10px;
-  }
+    .products {
+        grid-template-columns: 1fr;
+    }
 
-  .product-name {
-    font-size: 15px;
-  }
+    .product {
+        min-height: 540px;
+    }
 
-  .process {
-    padding: 100px 0;
-  }
+    .modal-box {
+        grid-template-columns: 1fr;
+        max-height: 94vh;
+    }
 
-  .process-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
+    .modal-image {
+        min-height: 430px;
+    }
 
-  .viewer {
-    padding: 12px;
-  }
+    .gallery-slide {
+        padding: 25px 30px 65px;
+    }
 
-  .viewer-image {
-    max-width: 96%;
-    max-height: 87%;
-  }
+    .gallery-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
 
-  .viewer-prev,
-  .viewer-next {
-    width: 40px;
-    font-size: 27px;
-  }
+    .gallery-arrow.prev {
+        left: 12px;
+    }
 
-  .viewer-prev {
-    left: 3px;
-  }
+    .gallery-arrow.next {
+        right: 12px;
+    }
 
-  .viewer-next {
-    right: 3px;
-  }
+    .gallery-label {
+        left: 20px;
+        bottom: 22px;
+    }
 
-  .viewer-close {
-    top: 12px;
-    right: 12px;
-  }
+    .gallery-counter {
+        right: 20px;
+        bottom: 22px;
+    }
+
+    .modal-content {
+        padding: 45px 32px;
+    }
+
+    .builder {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .builder-preview {
+        min-height: 360px;
+    }
+
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
 
-  header {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+    header {
+        height: 72px;
+        padding: 0 15px;
+    }
 
-  .nav-logo {
-    font-size: 18px;
-  }
+    header.scrolled {
+        height: 65px;
+    }
 
-  .nav-logo span {
-    font-size: 16px;
-  }
+    .nav-left,
+    .nav-right {
+        gap: 10px;
+    }
 
-  .nav-links {
-    gap: 12px;
-  }
+    nav a {
+        font-size: 6.5px;
+        letter-spacing: 1.1px;
+    }
 
-  .nav-links a {
-    font-size: 8px;
-  }
+    .center-logo .logo-main {
+        font-size: 22px;
+    }
 
-  .collection-grid {
-    columns: 1;
-  }
+    .center-logo .logo-urdu {
+        font-size: 19px;
+    }
 
-  .product-card {
-    margin-bottom: 35px;
-  }
+    .hero {
+        padding: 135px 20px 80px;
+        background-position: center;
+    }
 
-  .hero-title {
-    font-size: 40px;
-  }
+    .hero-logo-wrap {
+        width: 205px;
+        height: 125px;
+        margin-bottom: 12px;
+    }
 
-  .hero-subtitle {
-    font-size: 13px;
-  }
+    .hero-brand .english {
+        font-size: 22px;
+    }
 
-  .viewer-hint {
-    font-size: 8px;
-  }
+    .hero-brand .urdu {
+        font-size: 20px;
+    }
+
+    .eyebrow {
+        font-size: 6.5px;
+        letter-spacing: 2.4px;
+    }
+
+    .hero h1 {
+        font-size: 54px;
+        letter-spacing: -1.2px;
+    }
+
+    .hero p {
+        font-size: 12px;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 285px;
+    }
+
+    .section,
+    .process-section {
+        padding: 95px 20px;
+    }
+
+    .section h2 {
+        font-size: 50px;
+    }
+
+    .product {
+        min-height: 455px;
+    }
+
+    .product-info {
+        left: 20px;
+        right: 20px;
+        bottom: 21px;
+    }
+
+    .product h3 {
+        font-size: 34px;
+    }
+
+    /* LARGER MOBILE COLLECTION IMAGES */
+
+    .product:nth-child(1) .product-image img {
+        transform: translate(-50%, -50%) scale(1.17);
+    }
+
+    .product:nth-child(2) .product-image img {
+        transform: translate(-50%, -50%) scale(1.16);
+    }
+
+    .product:nth-child(3) .product-image img {
+        transform: translate(-50%, -50%) scale(1.17);
+    }
+
+    .product:nth-child(4) .product-image img {
+        transform: translate(-50%, -50%) scale(1.04);
+    }
+
+    .product:nth-child(1):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.20);
+    }
+
+    .product:nth-child(2):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.19);
+    }
+
+    .product:nth-child(3):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.20);
+    }
+
+    .product:nth-child(4):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.065);
+    }
+
+    .bespoke {
+        padding: 100px 20px;
+    }
+
+    .bespoke h2 {
+        font-size: 61px;
+    }
+
+    .bespoke-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dark-button {
+        text-align: center;
+    }
+
+    .builder-section {
+        padding: 100px 20px;
+    }
+
+    .builder {
+        padding: 0;
+    }
+
+    .builder-preview {
+        padding: 30px 20px;
+    }
+
+    .preview-title {
+        font-size: 38px;
+    }
+
+    .process {
+        grid-template-columns: 1fr;
+    }
+
+    .process-item {
+        min-height: 190px;
+    }
+
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+    }
+
+    .contact-card {
+        min-width: 0;
+    }
+
+    .modal-image {
+        min-height: 330px;
+    }
+
+    .gallery-slide {
+        padding: 20px 25px 58px;
+    }
+
+    .gallery-slide img {
+        filter:
+            drop-shadow(0 14px 25px rgba(0,0,0,.28));
+    }
+
+    .gallery-arrow {
+        display: none;
+    }
+
+    .gallery-label {
+        left: 18px;
+        bottom: 20px;
+
+        font-size: 7px;
+        letter-spacing: 2.5px;
+    }
+
+    .gallery-counter {
+        right: 18px;
+        bottom: 20px;
+    }
+
+    .gallery-dots {
+        bottom: 43px;
+    }
+
+    .modal-content {
+        padding: 35px 23px 40px;
+    }
+
+    .zoom-controls {
+        top: 12px;
+        left: 12px;
+    }
+
+    .zoom-button {
+        width: 31px;
+        height: 31px;
+        font-size: 15px;
+    }
+
+    .zoom-level {
+        min-width: 39px;
+        font-size: 7px;
+    }
+
 }
 
 /* =========================================================
-   REDUCED MOTION
+   SCROLLBAR
    ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-  }
+::-webkit-scrollbar {
+    width: 5px;
 }
+
+::-webkit-scrollbar-track {
+    background: #080807;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #37342d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6d6048;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<!-- =======================================================
+<!-- =========================================================
      HEADER
-     ======================================================= -->
+     ========================================================= -->
 
 <header id="header">
-  <nav class="nav">
 
-    <a href="#" class="nav-logo">
-      𝑺𝑶𝑪𝑯 <span>سوچ</span>
+    <nav class="nav-left">
+
+        <a href="#shop">
+            Shop
+        </a>
+
+        <a href="#bespoke">
+            Custom
+        </a>
+
+    </nav>
+
+    <a href="#home" class="center-logo">
+
+        <span class="logo-main">
+            𝑺𝑶𝑪𝑯
+        </span>
+
+        <span class="logo-urdu">
+            سوچ
+        </span>
+
     </a>
 
-    <div class="nav-links">
-      <a href="#collection">Collection</a>
-      <a href="#vision">Your Vision</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <nav class="nav-right">
 
-  </nav>
+        <a href="#vision">
+            Your Vision
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
+
 </header>
 
-
-<!-- =======================================================
+<!-- =========================================================
      HERO
-     ======================================================= -->
-
-<section class="hero">
-
-  <img
-    src="hero.jpg"
-    alt="SOCH"
-    class="hero-bg"
-  >
-
-  <div class="hero-content">
-
-    <img
-      src="IMG_7695.jpeg"
-      alt="SOCH logo"
-      class="hero-logo"
-    >
-
-    <h1 class="hero-title">
-      You Bring the <em>Vision.</em><br>
-      We Bring It to Life.
-    </h1>
-
-    <p class="hero-subtitle">
-      Custom pieces, thoughtful design, and craftsmanship
-      made around the idea you already have in your mind.
-    </p>
-
-    <a href="#collection" class="hero-cta">
-      Explore Collection
-    </a>
-
-  </div>
-
-  <div class="scroll-indicator">
-    Scroll to explore
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     COLLECTION
-     ======================================================= -->
-
-<section class="collection" id="collection">
-
-  <div class="section-inner">
-
-    <div class="section-heading">
-
-      <span class="eyebrow">The Collection</span>
-
-      <h2>Made to Be Seen.</h2>
-
-      <p>
-        Every piece begins with an idea and becomes something
-        tangible through design, detail, and craftsmanship.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <!--
-    IMPORTANT:
-    There are NO fixed image boxes here.
-
-    Each image keeps its natural aspect ratio.
-    The masonry-style column layout automatically
-    accommodates different image heights.
-  -->
-
-  <div class="collection-grid">
-
-    <button
-      class="product-card"
-      type="button"
-      data-image="product-1.jpg"
-      data-title="Custom Piece"
-      aria-label="View Custom Piece"
-    >
-      <img
-        src="product-1.jpg"
-        alt="SOCH custom décor piece"
-        loading="lazy"
-      >
-
-      <div class="product-info">
-        <div class="product-name">Custom Piece</div>
-        <div class="product-type">SOCH Collection</div>
-      </div>
-    </button>
-
-
-    <button
-      class="product-card"
-      type="button"
-      data-image="product-2.jpg"
-      data-title="Statement Piece"
-      aria-label="View Statement Piece"
-    >
-      <img
-        src="product-2.jpg"
-        alt="SOCH statement décor piece"
-        loading="lazy"
-      >
-
-      <div class="product-info">
-        <div class="product-name">Statement Piece</div>
-        <div class="product-type">SOCH Collection</div>
-      </div>
-    </button>
-
-
-    <button
-      class="product-card"
-      type="button"
-      data-image="product-3.jpg"
-      data-title="Custom Creation"
-      aria-label="View Custom Creation"
-    >
-      <img
-        src="product-3.jpg"
-        alt="SOCH custom creation"
-        loading="lazy"
-      >
-
-      <div class="product-info">
-        <div class="product-name">Custom Creation</div>
-        <div class="product-type">SOCH Collection</div>
-      </div>
-    </button>
-
-
-    <button
-      class="product-card"
-      type="button"
-      data-image="product-4.jpg"
-      data-title="Designed for You"
-      aria-label="View Designed for You"
-    >
-      <img
-        src="product-4.jpg"
-        alt="SOCH designed décor piece"
-        loading="lazy"
-      >
-
-      <div class="product-info">
-        <div class="product-name">Designed for You</div>
-        <div class="product-type">SOCH Collection</div>
-      </div>
-    </button>
-
-
-    <button
-      class="product-card"
-      type="button"
-      data-image="product-5.jpg"
-      data-title="Art in Detail"
-      aria-label="View Art in Detail"
-    >
-      <img
-        src="product-5.jpg"
-        alt="SOCH art piece"
-        loading="lazy"
-      >
-
-      <div class="product-info">
-        <div class="product-name">Art in Detail</div>
-        <div class="product-type">SOCH Collection</div>
-      </div>
-    </button>
-
-
-    <button
-      class="product-card"
-      type="button"
-      data-image="product-6.jpg"
-      data-title="Made Your Way"
-      aria-label="View Made Your Way"
-    >
-      <img
-        src="product-6.jpg"
-        alt="SOCH custom product"
-        loading="lazy"
-      >
-
-      <div class="product-info">
-        <div class="product-name">Made Your Way</div>
-        <div class="product-type">SOCH Collection</div>
-      </div>
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     YOUR VISION
-     ======================================================= -->
-
-<section class="vision" id="vision">
-
-  <div class="vision-content">
-
-    <span class="eyebrow">Your Vision. Our Craft.</span>
-
-    <h2>
-      Let’s Create Something
-      <span>Unique.</span>
-    </h2>
-
-    <p>
-      Have an idea that doesn't exist yet?
-      Tell us what you're imagining. We'll work with you
-      to turn that thought into a piece made specifically
-      for your space.
-    </p>
-
-    <a
-      href="https://wa.me/923001234567?text=Hi%20SOCH%2C%20I%20have%20a%20custom%20idea."
-      class="vision-button"
-      target="_blank"
-      rel="noopener"
-    >
-      Bring Your Vision
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     PROCESS
-     ======================================================= -->
-
-<section class="process">
-
-  <div class="section-heading section-inner">
-
-    <span class="eyebrow">How It Works</span>
-
-    <h2>Your Idea. Our Craft.</h2>
-
-  </div>
-
-  <div class="process-grid">
-
-    <div class="process-item">
-      <div class="process-number">01</div>
-      <h3>Share the Idea</h3>
-      <p>
-        Tell us what you have in mind, whether it is a
-        reference, sketch, concept, or simply an idea.
-      </p>
-    </div>
-
-    <div class="process-item">
-      <div class="process-number">02</div>
-      <h3>We Shape It</h3>
-      <p>
-        We develop the concept around your space,
-        proportions, materials, and desired finish.
-      </p>
-    </div>
-
-    <div class="process-item">
-      <div class="process-number">03</div>
-      <h3>We Bring It to Life</h3>
-      <p>
-        Your final piece is crafted with attention to
-        detail and made specifically for you.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     CONTACT
-     ======================================================= -->
-
-<section class="contact" id="contact">
-
-  <div class="contact-inner">
-
-    <span class="eyebrow">Start Something</span>
-
-    <h2>Have a Vision?</h2>
-
-    <p>
-      Whether you already know exactly what you want
-      or you're still figuring it out, let's talk.
-    </p>
-
-    <div class="contact-links">
-
-      <a
-        href="https://wa.me/923001234567"
-        target="_blank"
-        rel="noopener"
-        class="contact-link"
-      >
-        <span>◉</span>
-        WhatsApp
-      </a>
-
-      <a
-        href="https://instagram.com/soch.pk"
-        target="_blank"
-        rel="noopener"
-        class="contact-link"
-      >
-        <span>◎</span>
-        @soch.pk
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     FOOTER
-     ======================================================= -->
-
-<footer>
-  𝑺𝑶𝑪𝑯 — سوچ &nbsp;•&nbsp; You Bring the Vision. We Bring It to Life.
-</footer>
-
-
-<!-- =======================================================
-     PRODUCT VIEWER
-     ======================================================= -->
-
-<div
-  class="viewer"
-  id="viewer"
-  aria-hidden="true"
+     ========================================================= -->
+
+<section
+    class="hero"
+    id="home"
 >
 
-  <button
-    class="viewer-close"
-    id="viewerClose"
-    aria-label="Close image viewer"
-  >
-    ×
-  </button>
+    <div class="hero-content">
 
-  <button
-    class="viewer-prev"
-    id="viewerPrev"
-    aria-label="Previous image"
-  >
-    ‹
-  </button>
+        <div class="hero-logo-wrap">
 
-  <div
-    class="viewer-stage"
-    id="viewerStage"
-  >
+            <img
+                src="D14F44D6-93B4-4E04-8871-E823876743A8.png"
+                alt="SOCH - سوچ"
+                class="hero-logo"
+            >
 
-    <img
-      src=""
-      alt=""
-      class="viewer-image"
-      id="viewerImage"
-      draggable="false"
-    >
+        </div>
 
-  </div>
+        <div class="hero-brand">
 
-  <button
-    class="viewer-next"
-    id="viewerNext"
-    aria-label="Next image"
-  >
-    ›
-  </button>
+            <span class="english">
+                𝑺𝑶𝑪𝑯
+            </span>
 
-  <div class="viewer-hint">
-    Double tap to zoom · Drag to move
-  </div>
+            <span class="urdu">
+                سوچ
+            </span>
+
+        </div>
+
+        <div class="eyebrow">
+            PREMIUM DÉCOR · CUSTOM CRAFTSMANSHIP
+        </div>
+
+        <h1>
+            You Bring the <span>Vision.</span><br>
+            We Bring It to Life.
+        </h1>
+
+        <p>
+            Distinctive pieces, crafted with intention.
+            From our collection to creations made exclusively
+            around your vision.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="#shop"
+                class="button primary"
+            >
+                Explore Collection
+            </a>
+
+            <a
+                href="#vision"
+                class="button"
+            >
+                Create Your Vision
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     COLLECTION
+     ========================================================= -->
+
+<section
+    class="section"
+    id="shop"
+>
+
+    <div class="collection-heading">
+
+        <div>
+
+            <div class="section-label">
+                THE COLLECTION
+            </div>
+
+            <h2>
+                Made to Be Seen.
+            </h2>
+
+            <p class="section-intro">
+
+                Distinctive pieces, crafted with intention.
+                Every creation carries its own character,
+                story and presence.
+
+            </p>
+
+        </div>
+
+        <div class="collection-mark">
+            VOLUME I · IV
+        </div>
+
+    </div>
+
+    <div class="products">
+
+        <article
+            class="product"
+            onclick="openProduct(0)"
+        >
+
+            <div
+                class="product-image"
+                style="--product-image:url('FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png');"
+            >
+
+                <img
+                    src="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png"
+                    alt="Al-Bayan decorative wall art"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME I
+                </div>
+
+                <h3>
+                    Al-Bayan
+                </h3>
+
+                <div class="product-tagline">
+                    The Expression Piece
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 19,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <article
+            class="product"
+            onclick="openProduct(1)"
+        >
+
+            <div
+                class="product-image"
+                style="--product-image:url('EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png');"
+            >
+
+                <img
+                    src="EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png"
+                    alt="Noor-e-Sukhan decorative wall art"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME II
+                </div>
+
+                <h3>
+                    Noor-e-Sukhan
+                </h3>
+
+                <div class="product-tagline">
+                    The Words of Light
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 14,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <article
+            class="product"
+            onclick="openProduct(2)"
+        >
+
+            <div
+                class="product-image"
+                style="--product-image:url('61F3AE47-AC22-4892-BF90-85C53564A037.png');"
+            >
+
+                <img
+                    src="61F3AE47-AC22-4892-BF90-85C53564A037.png"
+                    alt="Khatt-e-Wafa Arabic calligraphy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME III
+                </div>
+
+                <h3>
+                    Khatt-e-Wafa
+                </h3>
+
+                <div class="product-tagline">
+                    The Calligraphy Statement
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 16,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <article
+            class="product"
+            onclick="openProduct(3)"
+        >
+
+            <div
+                class="product-image"
+                style="--product-image:url('E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png');"
+            >
+
+                <img
+                    src="E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png"
+                    alt="Asil equestrian wood relief"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME IV
+                </div>
+
+                <h3>
+                    Asil
+                </h3>
+
+                <div class="product-tagline">
+                    The Equestrian Relief
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 24,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     PRODUCT MODAL
+     ========================================================= -->
+
+<div
+    class="product-modal"
+    id="productModal"
+    onclick="closeProductOutside(event)"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeProduct()"
+            aria-label="Close product"
+        >
+            ×
+        </button>
+
+        <!-- PRODUCT GALLERY -->
+
+        <div
+            class="modal-image"
+            id="modalImageContainer"
+        >
+
+            <div
+                class="gallery-viewport"
+                id="galleryViewport"
+            >
+
+                <div
+                    class="gallery-track"
+                    id="galleryTrack"
+                ></div>
+
+            </div>
+
+            <!-- ZOOM CONTROLS -->
+
+            <div class="zoom-controls">
+
+                <button
+                    class="zoom-button"
+                    id="zoomOut"
+                    type="button"
+                    aria-label="Zoom out"
+                    onclick="zoomOut(event)"
+                >
+                    −
+                </button>
+
+                <div
+                    class="zoom-level"
+                    id="zoomLevel"
+                >
+                    100%
+                </div>
+
+                <button
+                    class="zoom-button"
+                    id="zoomIn"
+                    type="button"
+                    aria-label="Zoom in"
+                    onclick="zoomIn(event)"
+                >
+                    +
+                </button>
+
+                <button
+                    class="zoom-button"
+                    id="zoomReset"
+                    type="button"
+                    aria-label="Reset zoom"
+                    onclick="resetZoom(event)"
+                >
+                    ↺
+                </button>
+
+            </div>
+
+            <button
+                class="gallery-arrow prev hidden"
+                id="galleryPrev"
+                type="button"
+                aria-label="Previous image"
+                onclick="galleryPrevious(event)"
+            >
+                ←
+            </button>
+
+            <button
+                class="gallery-arrow next hidden"
+                id="galleryNext"
+                type="button"
+                aria-label="Next image"
+                onclick="galleryNext(event)"
+            >
+                →
+            </button>
+
+            <div
+                class="gallery-dots"
+                id="galleryDots"
+            ></div>
+
+            <div
+                class="gallery-label"
+                id="galleryLabel"
+            >
+                HERO
+            </div>
+
+            <div
+                class="gallery-counter"
+                id="galleryCounter"
+            >
+                01 / 01
+            </div>
+
+        </div>
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="modal-content">
+
+            <div
+                class="modal-volume"
+                id="modalVolume"
+            ></div>
+
+            <h2 id="modalTitle"></h2>
+
+            <div
+                class="modal-subtitle"
+                id="modalSubtitle"
+            ></div>
+
+            <p
+                class="modal-description"
+                id="modalDescription"
+            ></p>
+
+            <div class="modal-details">
+
+                <div class="detail-row">
+
+                    <span>
+                        Material
+                    </span>
+
+                    <span id="modalMaterial"></span>
+
+                </div>
+
+                <div class="detail-row">
+
+                    <span>
+                        Category
+                    </span>
+
+                    <span id="modalCategory"></span>
+
+                </div>
+
+                <div class="detail-row">
+
+                    <span>
+                        Collection
+                    </span>
+
+                    <span>
+                        SOCH - سوچ
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div
+                class="modal-price"
+                id="modalPrice"
+            ></div>
+
+            <button
+                class="order-button"
+                onclick="orderProduct()"
+            >
+                Order Now →
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
+<!-- =========================================================
+     CUSTOM
+     ========================================================= -->
+
+<section
+    class="bespoke"
+    id="bespoke"
+>
+
+    <div class="bespoke-inner">
+
+        <div class="section-label">
+            CUSTOM
+        </div>
+
+        <h2>
+            Your Idea. Our Craft.
+        </h2>
+
+        <p>
+            No catalogue. No limitations.
+            Bring us your vision, reference, sketch,
+            or simply an idea.
+
+            We design and craft it specifically for you.
+        </p>
+
+        <div class="bespoke-actions">
+
+            <a
+                href="#vision"
+                class="dark-button"
+            >
+                Start Your Project
+            </a>
+
+            <a
+                href="#process"
+                class="text-link"
+            >
+                See How It Works →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     YOUR VISION
+     ========================================================= -->
+
+<section
+    class="builder-section"
+    id="vision"
+>
+
+    <div class="builder-container">
+
+        <div class="builder-heading">
+
+            <div class="section-label">
+                YOUR VISION
+            </div>
+
+            <h2>
+                Let’s Create Something Unique.
+            </h2>
+
+            <p>
+                Tell us what you're imagining.
+                You don't need a finished design.
+                That's what we're here for.
+            </p>
+
+        </div>
+
+        <div class="builder">
+
+            <form
+                class="builder-form"
+                onsubmit="sendVision(event)"
+            >
+
+                <div class="form-group">
+
+                    <label for="clientName">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="clientName"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="productType">
+                        What are you imagining?
+                    </label>
+
+                    <select
+                        id="productType"
+                        required
+                    >
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option>Wall Décor</option>
+                        <option>Calligraphy</option>
+                        <option>Custom Logo / Nameplate</option>
+                        <option>Art / Statement Piece</option>
+                        <option>Custom Gift</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="material">
+                        Preferred Material
+                    </label>
+
+                    <select id="material">
+
+                        <option value="Not sure yet">
+                            Not sure yet
+                        </option>
+
+                        <option>Lasani Sheet</option>
+                        <option>Mixed Materials</option>
+                        <option>Let 𝑺𝑶𝑪𝑯 Recommend</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Preferred Finish
+                    </label>
+
+                    <div
+                        class="finish-select"
+                        id="finishSelect"
+                    >
+
+                        <button
+                            type="button"
+                            class="finish-select-trigger"
+                            id="finishTrigger"
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
+                        >
+
+                            <span
+                                class="finish-selected"
+                                id="finishSelected"
+                            >
+
+                                <span
+                                    class="finish-swatch coffee"
+                                ></span>
+
+                                Coffee
+
+                            </span>
+
+                            <span class="finish-arrow"></span>
+
+                        </button>
+
+                        <div
+                            class="finish-options"
+                            id="finishOptions"
+                            role="listbox"
+                        >
+
+                            <button
+                                type="button"
+                                class="finish-option selected"
+                                data-value="Coffee"
+                                role="option"
+                                aria-selected="true"
+                            >
+
+                                <span
+                                    class="finish-swatch coffee"
+                                ></span>
+
+                                <span>
+                                    Coffee
+                                </span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="finish-option"
+                                data-value="Dark Brown"
+                                role="option"
+                                aria-selected="false"
+                            >
+
+                                <span
+                                    class="finish-swatch dark-brown"
+                                ></span>
+
+                                <span>
+                                    Dark Brown
+                                </span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="finish-option"
+                                data-value="Light Brown"
+                                role="option"
+                                aria-selected="false"
+                            >
+
+                                <span
+                                    class="finish-swatch light-brown"
+                                ></span>
+
+                                <span>
+                                    Light Brown
+                                </span>
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="finish-option"
+                                data-value="Black"
+                                role="option"
+                                aria-selected="false"
+                            >
+
+                                <span
+                                    class="finish-swatch black"
+                                ></span>
+
+                                <span>
+                                    Black
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="hidden"
+                        id="finish"
+                        value="Coffee"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="size">
+                        Approximate Size
+                    </label>
+
+                    <input
+                        type="text"
+                        id="size"
+                        placeholder="e.g. 4ft × 2ft"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="details">
+                        Tell Us Your Vision
+                    </label>
+
+                    <textarea
+                        id="details"
+                        placeholder="Describe the design, colours, style, purpose, reference, or anything else you have in mind..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="builder-submit"
+                >
+                    Send My Vision on WhatsApp →
+                </button>
+
+            </form>
+
+            <div class="builder-preview">
+
+                <div class="preview-label">
+                    THE 𝑺𝑶𝑪𝑯 APPROACH
+                </div>
+
+                <div class="preview-title">
+                    You imagine it.<br>
+                    We shape it.
+                </div>
+
+                <div class="preview-text">
+                    Your idea doesn't need to be perfect.
+                    Give us the thought behind it and we'll
+                    help turn it into something real.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     PROCESS
+     ========================================================= -->
+
+<section
+    class="process-section"
+    id="process"
+>
+
+    <div class="section-label">
+        OUR PROCESS
+    </div>
+
+    <h2>
+        From Thought to Form.
+    </h2>
+
+    <div class="process">
+
+        <div class="process-item">
+
+            <div class="number">
+                01
+            </div>
+
+            <h3>
+                Imagine
+            </h3>
+
+            <p>
+                Your idea begins with a thought.
+            </p>
+
+        </div>
+
+        <div class="process-item">
+
+            <div class="number">
+                02
+            </div>
+
+            <h3>
+                Design
+            </h3>
+
+            <p>
+                We shape your vision into a purposeful design.
+            </p>
+
+        </div>
+
+        <div class="process-item">
+
+            <div class="number">
+                03
+            </div>
+
+            <h3>
+                Craft
+            </h3>
+
+            <p>
+                Precision craftsmanship brings the design to life.
+            </p>
+
+        </div>
+
+        <div class="process-item">
+
+            <div class="number">
+                04
+            </div>
+
+            <h3>
+                Deliver
+            </h3>
+
+            <p>
+                Your finished creation arrives ready for its place.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     STORY
+     ========================================================= -->
+
+<section
+    class="section story"
+    id="story"
+>
+
+    <div class="story-content">
+
+        <div class="section-label">
+            THE 𝑺𝑶𝑪𝑯 PHILOSOPHY
+        </div>
+
+        <h2>
+            Every creation begins with a thought.
+        </h2>
+
+        <p>
+            سوچ means thought.
+            The place where every vision begins.
+        </p>
+
+        <p>
+            We believe the most meaningful pieces
+            aren't simply bought.
+
+            They're imagined, designed and brought
+            into existence.
+        </p>
+
+        <p>
+            That's what 𝑺𝑶𝑪𝑯 exists to do.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
+
+<section
+    class="section contact"
+    id="contact"
+>
+
+    <div class="contact-inner">
+
+        <div class="section-label">
+            LET'S CREATE
+        </div>
+
+        <h2>
+            Have a Vision?
+        </h2>
+
+        <p class="section-intro">
+            Have a question, a custom idea,
+            or simply want to talk about something
+            you're imagining?
+
+            We're one message away.
+        </p>
+
+        <div class="contact-methods">
+
+            <a
+                href="https://wa.me/923150674347"
+                class="contact-card"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <div class="contact-icon">
+                    ◉
+                </div>
+
+                <strong>
+                    WhatsApp
+                </strong>
+
+                <span>
+                    Start a conversation
+                </span>
+
+            </a>
+
+            <a
+                href="tel:+923150674347"
+                class="contact-card"
+            >
+
+                <div class="contact-icon">
+                    ☎
+                </div>
+
+                <strong>
+                    Call Us
+                </strong>
+
+                <span>
+                    +92 315 0674347
+                </span>
+
+            </a>
+
+            <a
+                href="https://www.instagram.com/soch.pk/"
+                class="contact-card"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <div class="contact-icon">
+                    ◎
+                </div>
+
+                <strong>
+                    Instagram
+                </strong>
+
+                <span>
+                    @soch.pk
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="footer-brand">
+
+        <span class="english">
+            𝑺𝑶𝑪𝑯
+        </span>
+
+        <span class="urdu">
+            سوچ
+        </span>
+
+    </div>
+
+    <p>
+        You Bring the Vision. We Bring It to Life.
+    </p>
+
+    <div class="footer-social">
+
+        <a
+            href="https://www.instagram.com/soch.pk/"
+            target="_blank"
+            rel="noopener"
+        >
+            Instagram · @soch.pk
+        </a>
+
+    </div>
+
+    <p style="margin-top:20px;">
+        © 2026 𝑺𝑶𝑪𝑯 - سوچ. All Rights Reserved.
+    </p>
+
+</footer>
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
 <script>
+
 /* =========================================================
-   SOCH — JAVASCRIPT
+   HEADER SCROLL
    ========================================================= */
 
-(() => {
+const header =
+    document.getElementById("header");
 
-  "use strict";
+window.addEventListener("scroll", () => {
 
+    if (window.scrollY > 35) {
 
-  /* =======================================================
-     HEADER
-     ======================================================= */
+        header.classList.add("scrolled");
 
-  const header = document.getElementById("header");
-
-  function updateHeader() {
-    if (window.scrollY > 40) {
-      header.classList.add("scrolled");
     } else {
-      header.classList.remove("scrolled");
-    }
-  }
 
-  window.addEventListener("scroll", updateHeader, {
-    passive: true
-  });
+        header.classList.remove("scrolled");
 
-  updateHeader();
-
-
-  /* =======================================================
-     PRODUCT DATA
-     ======================================================= */
-
-  const cards = Array.from(
-    document.querySelectorAll(".product-card")
-  );
-
-  const products = cards.map(card => ({
-    image: card.dataset.image,
-    title: card.dataset.title || ""
-  }));
-
-
-  /* =======================================================
-     VIEWER ELEMENTS
-     ======================================================= */
-
-  const viewer = document.getElementById("viewer");
-  const stage = document.getElementById("viewerStage");
-  const viewerImage = document.getElementById("viewerImage");
-
-  const closeButton =
-    document.getElementById("viewerClose");
-
-  const prevButton =
-    document.getElementById("viewerPrev");
-
-  const nextButton =
-    document.getElementById("viewerNext");
-
-
-  /* =======================================================
-     VIEWER STATE
-     ======================================================= */
-
-  let currentIndex = 0;
-
-  let scale = 1;
-
-  let translateX = 0;
-  let translateY = 0;
-
-  const MIN_SCALE = 1;
-  const MAX_SCALE = 4;
-
-  let isDragging = false;
-
-  let dragStartX = 0;
-  let dragStartY = 0;
-
-  let startTranslateX = 0;
-  let startTranslateY = 0;
-
-
-  /* =======================================================
-     PINCH STATE
-     ======================================================= */
-
-  let pinchStartDistance = 0;
-  let pinchStartScale = 1;
-
-  let pinchCenterX = 0;
-  let pinchCenterY = 0;
-
-
-  /* =======================================================
-     APPLY TRANSFORM
-     ======================================================= */
-
-  function applyTransform(animated = false) {
-
-    if (animated) {
-      viewerImage.style.transition =
-        "transform .38s cubic-bezier(.22,.61,.36,1)";
-    } else {
-      viewerImage.style.transition = "none";
     }
 
-    viewerImage.style.transform =
-      `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+});
 
-    if (scale > 1) {
-      viewerImage.classList.add("zoomed");
-    } else {
-      viewerImage.classList.remove("zoomed");
-    }
-  }
+/* =========================================================
+   PRODUCT DATA
+   ========================================================= */
 
+const products = [
 
-  /* =======================================================
-     RESET ZOOM
-     ======================================================= */
+    {
+        volume: "VOLUME I",
+        title: "Al-Bayan",
+        subtitle: "The Expression Piece",
+        price: "PKR 19,999",
+        material: "Wood / Lasani",
+        category: "Statement Wall Art",
 
-  function resetZoom(animated = false) {
+        gallery: [
 
-    scale = 1;
+            {
+                image:
+                    "FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
+                label: "HERO"
+            }
 
-    translateX = 0;
-    translateY = 0;
+        ],
 
-    applyTransform(animated);
-  }
+        description:
+            "A distinctive statement piece crafted to give the wall presence, depth and character. Al-Bayan brings together artistic form and refined craftsmanship in a piece designed to become a focal point within its surroundings."
+    },
 
+    {
+        volume: "VOLUME II",
+        title: "Noor-e-Sukhan",
+        subtitle: "The Words of Light",
+        price: "PKR 14,999",
+        material: "Wood / Lasani",
+        category: "Calligraphic Wall Art",
 
-  /* =======================================================
-     OPEN VIEWER
-     ======================================================= */
+        gallery: [
 
-  function openViewer(index) {
+            {
+                image:
+                    "EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
+                label: "HERO"
+            }
 
-    if (!products.length) return;
+        ],
 
-    currentIndex =
-      (index + products.length) %
-      products.length;
+        description:
+            "A refined calligraphic statement created to bring meaning and elegance into the space. Noor-e-Sukhan combines expressive lettering with a timeless decorative presence."
+    },
 
-    resetZoom(false);
+    {
+        volume: "VOLUME III",
+        title: "Khatt-e-Wafa",
+        subtitle: "The Calligraphy Statement",
+        price: "PKR 16,999",
+        material: "Wood / Lasani",
+        category: "Arabic Calligraphy",
 
-    viewerImage.style.opacity = "0";
+        gallery: [
 
-    viewer.classList.add("active");
-    viewer.setAttribute("aria-hidden", "false");
+            {
+                image:
+                    "61F3AE47-AC22-4892-BF90-85C53564A037.png",
+                label: "HERO"
+            }
 
-    document.body.classList.add("modal-open");
+        ],
 
-    loadCurrentImage();
+        description:
+            "An expressive statement in contemporary Arabic calligraphy, crafted to bring depth, character and timeless elegance to the wall. Khatt-e-Wafa is designed to command attention without overwhelming the space."
+    },
 
-    setTimeout(() => {
-      viewerImage.style.opacity = "1";
-    }, 30);
-  }
+    {
+        volume: "VOLUME IV",
+        title: "Asil",
+        subtitle: "The Equestrian Relief",
+        price: "PKR 24,999",
+        material: "Wood",
+        category: "Carved Wood Relief",
 
+        gallery: [
 
-  /* =======================================================
-     CLOSE VIEWER
-     ======================================================= */
+            {
+                image:
+                    "E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png",
+                label: "HERO"
+            },
 
-  function closeViewer() {
+            {
+                image:
+                    "FB67EC95-FF4F-4620-BDC7-A446E6B111AD.png",
+                label: "LIFESTYLE"
+            },
 
-    viewer.classList.remove("active");
-    viewer.setAttribute("aria-hidden", "true");
+            {
+                image:
+                    "942F0F5F-B609-416E-A023-EF857A585212.jpeg",
+                label: "CLOSE-UP"
+            },
 
-    document.body.classList.remove("modal-open");
+            {
+                image:
+                    "7399600E-FC24-4F33-9FA2-EF599D650820.png",
+                label: "DETAIL"
+            },
 
-    resetZoom(false);
+            {
+                image:
+                    "2A395300-1543-40AF-B936-3566FFE43616.png",
+                label: "FINISHING"
+            }
 
-    isDragging = false;
-  }
+        ],
 
-
-  /* =======================================================
-     LOAD IMAGE
-     ======================================================= */
-
-  function loadCurrentImage() {
-
-    const product = products[currentIndex];
-
-    if (!product) return;
-
-    /*
-      Zoom ALWAYS resets when changing images.
-    */
-    resetZoom(false);
-
-    viewerImage.style.opacity = "0";
-
-    const nextImage = new Image();
-
-    nextImage.onload = () => {
-
-      viewerImage.src = product.image;
-      viewerImage.alt = product.title;
-
-      requestAnimationFrame(() => {
-        viewerImage.style.opacity = "1";
-        resetZoom(false);
-      });
-
-    };
-
-    nextImage.src = product.image;
-  }
-
-
-  /* =======================================================
-     NEXT / PREVIOUS
-     ======================================================= */
-
-  function nextImage() {
-
-    if (scale > 1) {
-      resetZoom(true);
-      return;
-    }
-
-    currentIndex =
-      (currentIndex + 1) %
-      products.length;
-
-    loadCurrentImage();
-  }
-
-
-  function previousImage() {
-
-    if (scale > 1) {
-      resetZoom(true);
-      return;
+        description:
+            "A richly detailed equestrian relief celebrating the strength and beauty of the horse. Asil combines sculptural carving, flowing ornamental detail and warm wood character into a commanding statement piece."
     }
 
-    currentIndex =
-      (currentIndex - 1 + products.length) %
-      products.length;
+];
 
-    loadCurrentImage();
-  }
+let currentProduct = null;
+let currentGalleryIndex = 0;
 
+/* =========================================================
+   PRODUCT MODAL + GALLERY
+   ========================================================= */
 
-  /* =======================================================
-     CLICK PRODUCT
-     ======================================================= */
+function openProduct(index) {
 
-  cards.forEach((card, index) => {
+    const product = products[index];
 
-    card.addEventListener("click", () => {
-      openViewer(index);
+    currentProduct = product;
+    currentGalleryIndex = 0;
+
+    resetZoomSilently();
+
+    document.getElementById("modalVolume").textContent =
+        product.volume;
+
+    document.getElementById("modalTitle").textContent =
+        product.title;
+
+    document.getElementById("modalSubtitle").textContent =
+        product.subtitle;
+
+    document.getElementById("modalDescription").textContent =
+        product.description;
+
+    document.getElementById("modalMaterial").textContent =
+        product.material;
+
+    document.getElementById("modalCategory").textContent =
+        product.category;
+
+    document.getElementById("modalPrice").textContent =
+        product.price;
+
+    const galleryContainer =
+        document.getElementById("modalImageContainer");
+
+    galleryContainer.style.setProperty(
+        "--modal-image",
+        `url('${product.gallery[0].image}')`
+    );
+
+    buildGallery();
+
+    document
+        .getElementById("productModal")
+        .classList
+        .add("active");
+
+    document
+        .body
+        .classList
+        .add("modal-open");
+
+}
+
+/* =========================================================
+   BUILD GALLERY
+   ========================================================= */
+
+function buildGallery() {
+
+    if (!currentProduct) return;
+
+    const track =
+        document.getElementById("galleryTrack");
+
+    const dots =
+        document.getElementById("galleryDots");
+
+    track.innerHTML = "";
+    dots.innerHTML = "";
+
+    currentProduct.gallery.forEach(
+        (item, index) => {
+
+            const slide =
+                document.createElement("div");
+
+            slide.className =
+                "gallery-slide";
+
+            const image =
+                document.createElement("img");
+
+            image.src =
+                item.image;
+
+            image.alt =
+                `${currentProduct.title} — ${item.label}`;
+
+            image.draggable = false;
+
+            image.addEventListener(
+                "dblclick",
+                function(event) {
+
+                    event.preventDefault();
+
+                    if (imageZoom > 1) {
+
+                        resetZoom();
+
+                    } else {
+
+                        zoomAtPoint(
+                            2.5,
+                            event.clientX,
+                            event.clientY
+                        );
+
+                    }
+
+                }
+            );
+
+            slide.appendChild(image);
+
+            track.appendChild(slide);
+
+            const dot =
+                document.createElement("button");
+
+            dot.type = "button";
+
+            dot.className =
+                "gallery-dot" +
+                (index === 0 ? " active" : "");
+
+            dot.setAttribute(
+                "aria-label",
+                `View ${item.label}`
+            );
+
+            dot.onclick = function(event) {
+
+                event.stopPropagation();
+
+                goToGallerySlide(index);
+
+            };
+
+            dots.appendChild(dot);
+
+        }
+    );
+
+    updateGallery();
+
+}
+
+/* =========================================================
+   UPDATE GALLERY
+   ========================================================= */
+
+function updateGallery() {
+
+    if (!currentProduct) return;
+
+    const track =
+        document.getElementById("galleryTrack");
+
+    const label =
+        document.getElementById("galleryLabel");
+
+    const counter =
+        document.getElementById("galleryCounter");
+
+    const prev =
+        document.getElementById("galleryPrev");
+
+    const next =
+        document.getElementById("galleryNext");
+
+    const dots =
+        document.querySelectorAll(".gallery-dot");
+
+    track.style.transform =
+        `translateX(-${currentGalleryIndex * 100}%)`;
+
+    const current =
+        currentProduct.gallery[currentGalleryIndex];
+
+    label.textContent =
+        current.label;
+
+    counter.textContent =
+        `${String(currentGalleryIndex + 1).padStart(2, "0")} / ${String(currentProduct.gallery.length).padStart(2, "0")}`;
+
+    dots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === currentGalleryIndex
+        );
+
     });
 
-  });
+    if (currentGalleryIndex === 0) {
 
-
-  /* =======================================================
-     BUTTONS
-     ======================================================= */
-
-  closeButton.addEventListener("click", closeViewer);
-
-  nextButton.addEventListener("click", nextImage);
-
-  prevButton.addEventListener("click", previousImage);
-
-
-  /* =======================================================
-     BACKGROUND CLICK
-     ======================================================= */
-
-  stage.addEventListener("click", event => {
-
-    /*
-      Only close when clicking the empty stage,
-      not the actual image.
-    */
-
-    if (
-      event.target === stage &&
-      scale === 1
-    ) {
-      closeViewer();
-    }
-
-  });
-
-
-  /* =======================================================
-     DOUBLE CLICK / DOUBLE TAP
-     ======================================================= */
-
-  let lastTap = 0;
-
-  function toggleZoom(clientX, clientY) {
-
-    if (scale === 1) {
-
-      const rect =
-        viewerImage.getBoundingClientRect();
-
-      const offsetX =
-        clientX - (rect.left + rect.width / 2);
-
-      const offsetY =
-        clientY - (rect.top + rect.height / 2);
-
-      scale = 2.4;
-
-      /*
-        Move the tapped point toward the
-        center of the viewer.
-      */
-
-      translateX = -offsetX * .8;
-      translateY = -offsetY * .8;
-
-      applyTransform(true);
+        prev.classList.add("hidden");
 
     } else {
 
-      resetZoom(true);
+        prev.classList.remove("hidden");
 
     }
 
-  }
+    if (
+        currentGalleryIndex ===
+        currentProduct.gallery.length - 1
+    ) {
 
+        next.classList.add("hidden");
 
-  viewerImage.addEventListener(
-    "dblclick",
-    event => {
+    } else {
 
-      event.preventDefault();
-
-      toggleZoom(
-        event.clientX,
-        event.clientY
-      );
+        next.classList.remove("hidden");
 
     }
-  );
 
+    updateZoomDisplay();
+    updateZoomButtons();
 
-  /* =======================================================
-     TOUCH DOUBLE TAP
-     ======================================================= */
+}
 
-  viewerImage.addEventListener(
-    "touchend",
-    event => {
+/* =========================================================
+   GALLERY SLIDE
+   ========================================================= */
 
-      if (event.touches.length > 0) return;
+function goToGallerySlide(index) {
 
-      const now = Date.now();
+    if (!currentProduct) return;
 
-      if (now - lastTap < 320) {
-
-        event.preventDefault();
-
-        const touch =
-          event.changedTouches[0];
-
-        toggleZoom(
-          touch.clientX,
-          touch.clientY
-        );
-
-      }
-
-      lastTap = now;
-
-    },
-    {
-      passive: false
-    }
-  );
-
-
-  /* =======================================================
-     MOUSE WHEEL ZOOM
-     ======================================================= */
-
-  stage.addEventListener(
-    "wheel",
-    event => {
-
-      if (!viewer.classList.contains("active")) {
+    if (
+        index < 0 ||
+        index >= currentProduct.gallery.length
+    ) {
         return;
-      }
-
-      event.preventDefault();
-
-      const oldScale = scale;
-
-      const direction =
-        event.deltaY < 0 ? 1 : -1;
-
-      const step =
-        direction > 0 ? 0.25 : -0.25;
-
-      const newScale =
-        Math.min(
-          MAX_SCALE,
-          Math.max(
-            MIN_SCALE,
-            scale + step
-          )
-        );
-
-      if (newScale === oldScale) {
-        return;
-      }
-
-      const rect =
-        viewerImage.getBoundingClientRect();
-
-      const pointX =
-        event.clientX -
-        (rect.left + rect.width / 2);
-
-      const pointY =
-        event.clientY -
-        (rect.top + rect.height / 2);
-
-      const ratio =
-        newScale / oldScale;
-
-      translateX -=
-        pointX * (ratio - 1);
-
-      translateY -=
-        pointY * (ratio - 1);
-
-      scale = newScale;
-
-      if (scale === 1) {
-        translateX = 0;
-        translateY = 0;
-      }
-
-      applyTransform(false);
-
-    },
-    {
-      passive: false
     }
-  );
 
+    resetZoomSilently();
 
-  /* =======================================================
-     MOUSE DRAG / PAN
-     ======================================================= */
+    currentGalleryIndex = index;
 
-  viewerImage.addEventListener(
-    "pointerdown",
-    event => {
+    updateGallery();
 
-      if (scale <= 1) return;
+    requestAnimationFrame(() => {
 
-      event.preventDefault();
+        applyImageTransform(false);
 
-      isDragging = true;
+    });
 
-      viewerImage.setPointerCapture(
-        event.pointerId
-      );
+}
 
-      dragStartX = event.clientX;
-      dragStartY = event.clientY;
+function galleryNext(event) {
 
-      startTranslateX = translateX;
-      startTranslateY = translateY;
-
-      viewerImage.style.transition = "none";
+    if (event) {
+        event.stopPropagation();
     }
-  );
 
+    if (!currentProduct) return;
 
-  viewerImage.addEventListener(
-    "pointermove",
-    event => {
-
-      if (!isDragging || scale <= 1) {
-        return;
-      }
-
-      translateX =
-        startTranslateX +
-        (event.clientX - dragStartX);
-
-      translateY =
-        startTranslateY +
-        (event.clientY - dragStartY);
-
-      applyTransform(false);
-    }
-  );
-
-
-  function endDrag(event) {
-
-    if (!isDragging) return;
-
-    isDragging = false;
-
-    try {
-      viewerImage.releasePointerCapture(
-        event.pointerId
-      );
-    } catch (_) {}
-
-  }
-
-  viewerImage.addEventListener(
-    "pointerup",
-    endDrag
-  );
-
-  viewerImage.addEventListener(
-    "pointercancel",
-    endDrag
-  );
-
-
-  /* =======================================================
-     PINCH ZOOM
-     ======================================================= */
-
-  function distanceBetweenTouches(touches) {
-
-    const a = touches[0];
-    const b = touches[1];
-
-    const x =
-      a.clientX - b.clientX;
-
-    const y =
-      a.clientY - b.clientY;
-
-    return Math.sqrt(
-      x * x + y * y
+    goToGallerySlide(
+        currentGalleryIndex + 1
     );
-  }
 
+}
 
-  function centerBetweenTouches(touches) {
+function galleryPrevious(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    if (!currentProduct) return;
+
+    goToGallerySlide(
+        currentGalleryIndex - 1
+    );
+
+}
+
+/* =========================================================
+   PRODUCT IMAGE ZOOM SYSTEM
+   ========================================================= */
+
+const galleryViewport =
+    document.getElementById("galleryViewport");
+
+const zoomLevel =
+    document.getElementById("zoomLevel");
+
+const zoomInButton =
+    document.getElementById("zoomIn");
+
+const zoomOutButton =
+    document.getElementById("zoomOut");
+
+const zoomResetButton =
+    document.getElementById("zoomReset");
+
+let imageZoom = 1;
+
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 4;
+const ZOOM_STEP = 0.5;
+
+let panX = 0;
+let panY = 0;
+
+let isDragging = false;
+
+let dragStartX = 0;
+let dragStartY = 0;
+
+let dragOriginX = 0;
+let dragOriginY = 0;
+
+let lastTapTime = 0;
+
+let pinchStartDistance = 0;
+let pinchStartZoom = 1;
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+let touchLastX = 0;
+let touchLastY = 0;
+
+let touchMoved = false;
+
+/* ---------------------------------------------------------
+   CURRENT GALLERY IMAGE
+   --------------------------------------------------------- */
+
+function getCurrentGalleryImage() {
+
+    return document.querySelector(
+        `.gallery-slide:nth-child(${currentGalleryIndex + 1}) img`
+    );
+
+}
+
+function getCurrentGallerySlide() {
+
+    return document.querySelector(
+        `.gallery-slide:nth-child(${currentGalleryIndex + 1})`
+    );
+
+}
+
+/* ---------------------------------------------------------
+   ZOOM DISPLAY
+   --------------------------------------------------------- */
+
+function updateZoomDisplay() {
+
+    if (!zoomLevel) return;
+
+    zoomLevel.textContent =
+        `${Math.round(imageZoom * 100)}%`;
+
+}
+
+function updateZoomButtons() {
+
+    if (!zoomInButton || !zoomOutButton) return;
+
+    zoomInButton.style.opacity =
+        imageZoom >= MAX_ZOOM ? ".35" : "1";
+
+    zoomOutButton.style.opacity =
+        imageZoom <= MIN_ZOOM ? ".35" : "1";
+
+}
+
+/* ---------------------------------------------------------
+   PAN LIMIT
+   --------------------------------------------------------- */
+
+function getPanLimits() {
+
+    const viewport =
+        galleryViewport.getBoundingClientRect();
+
+    const image =
+        getCurrentGalleryImage();
+
+    if (!image) {
+
+        return {
+            x: 0,
+            y: 0
+        };
+
+    }
+
+    const maxX =
+        Math.max(
+            0,
+            (viewport.width * (imageZoom - 1)) / 2
+        );
+
+    const maxY =
+        Math.max(
+            0,
+            (viewport.height * (imageZoom - 1)) / 2
+        );
 
     return {
-      x:
-        (touches[0].clientX +
-          touches[1].clientX) / 2,
-
-      y:
-        (touches[0].clientY +
-          touches[1].clientY) / 2
+        x: maxX,
+        y: maxY
     };
 
-  }
+}
 
+function clampPan() {
 
-  viewerImage.addEventListener(
-    "touchstart",
-    event => {
+    const limits =
+        getPanLimits();
 
-      if (event.touches.length === 2) {
+    panX =
+        Math.max(
+            -limits.x,
+            Math.min(limits.x, panX)
+        );
+
+    panY =
+        Math.max(
+            -limits.y,
+            Math.min(limits.y, panY)
+        );
+
+}
+
+/* ---------------------------------------------------------
+   APPLY ZOOM / PAN
+   --------------------------------------------------------- */
+
+function applyImageTransform(
+    animate = true
+) {
+
+    const image =
+        getCurrentGalleryImage();
+
+    const slide =
+        getCurrentGallerySlide();
+
+    if (!image || !slide) return;
+
+    clampPan();
+
+    image.style.transition =
+        animate
+            ? "transform .35s cubic-bezier(.22,.61,.36,1)"
+            : "none";
+
+    image.style.transform =
+        `translate(${panX}px, ${panY}px) scale(${imageZoom})`;
+
+    slide.classList.toggle(
+        "zoomed",
+        imageZoom > 1
+    );
+
+    updateZoomDisplay();
+    updateZoomButtons();
+
+}
+
+/* ---------------------------------------------------------
+   RESET ZOOM
+   --------------------------------------------------------- */
+
+function resetZoom(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    imageZoom = 1;
+
+    panX = 0;
+    panY = 0;
+
+    applyImageTransform(true);
+
+}
+
+function resetZoomSilently() {
+
+    imageZoom = 1;
+
+    panX = 0;
+    panY = 0;
+
+}
+
+/* ---------------------------------------------------------
+   ZOOM IN
+   --------------------------------------------------------- */
+
+function zoomIn(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    const newZoom =
+        Math.min(
+            MAX_ZOOM,
+            imageZoom + ZOOM_STEP
+        );
+
+    if (newZoom === imageZoom) {
+        return;
+    }
+
+    imageZoom = newZoom;
+
+    applyImageTransform(true);
+
+}
+
+/* ---------------------------------------------------------
+   ZOOM OUT
+   --------------------------------------------------------- */
+
+function zoomOut(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    const newZoom =
+        Math.max(
+            MIN_ZOOM,
+            imageZoom - ZOOM_STEP
+        );
+
+    imageZoom = newZoom;
+
+    if (imageZoom === 1) {
+
+        panX = 0;
+        panY = 0;
+
+    }
+
+    applyImageTransform(true);
+
+}
+
+/* ---------------------------------------------------------
+   ZOOM AROUND POINTER
+   --------------------------------------------------------- */
+
+function zoomAtPoint(
+    newZoom,
+    clientX,
+    clientY
+) {
+
+    const image =
+        getCurrentGalleryImage();
+
+    if (!image) return;
+
+    const rect =
+        image.getBoundingClientRect();
+
+    const oldZoom =
+        imageZoom;
+
+    const localX =
+        clientX -
+        (rect.left + rect.width / 2);
+
+    const localY =
+        clientY -
+        (rect.top + rect.height / 2);
+
+    imageZoom =
+        Math.max(
+            MIN_ZOOM,
+            Math.min(MAX_ZOOM, newZoom)
+        );
+
+    const ratio =
+        imageZoom / oldZoom;
+
+    panX -=
+        localX * (ratio - 1);
+
+    panY -=
+        localY * (ratio - 1);
+
+    if (imageZoom === 1) {
+
+        panX = 0;
+        panY = 0;
+
+    }
+
+    applyImageTransform(true);
+
+}
+
+/* ---------------------------------------------------------
+   MOUSE WHEEL ZOOM
+   --------------------------------------------------------- */
+
+galleryViewport.addEventListener(
+    "wheel",
+    function(event) {
+
+        if (
+            !document
+                .getElementById("productModal")
+                .classList
+                .contains("active")
+        ) {
+            return;
+        }
 
         event.preventDefault();
 
-        pinchStartDistance =
-          distanceBetweenTouches(
-            event.touches
-          );
+        const direction =
+            event.deltaY < 0
+                ? ZOOM_STEP
+                : -ZOOM_STEP;
 
-        pinchStartScale = scale;
-
-        const center =
-          centerBetweenTouches(
-            event.touches
-          );
-
-        pinchCenterX = center.x;
-        pinchCenterY = center.y;
-
-        viewerImage.style.transition =
-          "none";
-      }
-
-    },
-    {
-      passive: false
-    }
-  );
-
-
-  viewerImage.addEventListener(
-    "touchmove",
-    event => {
-
-      if (event.touches.length !== 2) {
-        return;
-      }
-
-      event.preventDefault();
-
-      const currentDistance =
-        distanceBetweenTouches(
-          event.touches
+        zoomAtPoint(
+            imageZoom + direction,
+            event.clientX,
+            event.clientY
         );
 
-      if (!pinchStartDistance) {
-        return;
-      }
-
-      const ratio =
-        currentDistance /
-        pinchStartDistance;
-
-      let newScale =
-        pinchStartScale * ratio;
-
-      newScale =
-        Math.min(
-          MAX_SCALE,
-          Math.max(
-            MIN_SCALE,
-            newScale
-          )
-        );
-
-      scale = newScale;
-
-      if (scale === 1) {
-        translateX = 0;
-        translateY = 0;
-      }
-
-      applyTransform(false);
     },
     {
-      passive: false
+        passive: false
     }
-  );
+);
 
+/* ---------------------------------------------------------
+   DESKTOP DRAG / PAN
+   --------------------------------------------------------- */
 
-  viewerImage.addEventListener(
-    "touchend",
-    event => {
+galleryViewport.addEventListener(
+    "mousedown",
+    function(event) {
 
-      if (event.touches.length < 2) {
-        pinchStartDistance = 0;
-      }
-
-    }
-  );
-
-
-  /* =======================================================
-     SWIPE NAVIGATION
-     ======================================================= */
-
-  let swipeStartX = 0;
-  let swipeStartY = 0;
-  let swipeStartTime = 0;
-
-
-  stage.addEventListener(
-    "touchstart",
-    event => {
-
-      if (event.touches.length !== 1) {
-        return;
-      }
-
-      swipeStartX =
-        event.touches[0].clientX;
-
-      swipeStartY =
-        event.touches[0].clientY;
-
-      swipeStartTime = Date.now();
-
-    },
-    {
-      passive: true
-    }
-  );
-
-
-  stage.addEventListener(
-    "touchend",
-    event => {
-
-      if (
-        scale > 1 ||
-        event.changedTouches.length !== 1
-      ) {
-        return;
-      }
-
-      const touch =
-        event.changedTouches[0];
-
-      const dx =
-        touch.clientX - swipeStartX;
-
-      const dy =
-        touch.clientY - swipeStartY;
-
-      const elapsed =
-        Date.now() - swipeStartTime;
-
-      /*
-        Only treat a quick horizontal gesture
-        as gallery navigation.
-      */
-
-      if (
-        elapsed < 650 &&
-        Math.abs(dx) > 55 &&
-        Math.abs(dx) > Math.abs(dy) * 1.25
-      ) {
-
-        if (dx < 0) {
-          nextImage();
-        } else {
-          previousImage();
+        if (imageZoom <= 1) {
+            return;
         }
 
-      }
+        if (event.button !== 0) {
+            return;
+        }
+
+        const image =
+            getCurrentGalleryImage();
+
+        if (!image) return;
+
+        isDragging = true;
+
+        dragStartX =
+            event.clientX;
+
+        dragStartY =
+            event.clientY;
+
+        dragOriginX =
+            panX;
+
+        dragOriginY =
+            panY;
+
+        const slide =
+            getCurrentGallerySlide();
+
+        if (slide) {
+            slide.classList.add("dragging");
+        }
+
+        event.preventDefault();
+
+    }
+);
+
+window.addEventListener(
+    "mousemove",
+    function(event) {
+
+        if (!isDragging) {
+            return;
+        }
+
+        panX =
+            dragOriginX +
+            (event.clientX - dragStartX);
+
+        panY =
+            dragOriginY +
+            (event.clientY - dragStartY);
+
+        applyImageTransform(false);
+
+    }
+);
+
+window.addEventListener(
+    "mouseup",
+    function() {
+
+        if (!isDragging) {
+            return;
+        }
+
+        isDragging = false;
+
+        const slide =
+            getCurrentGallerySlide();
+
+        if (slide) {
+            slide.classList.remove("dragging");
+        }
+
+    }
+);
+
+/* ---------------------------------------------------------
+   MOBILE TOUCH / PINCH / SWIPE
+   --------------------------------------------------------- */
+
+galleryViewport.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (event.touches.length === 2) {
+
+            const first =
+                event.touches[0];
+
+            const second =
+                event.touches[1];
+
+            pinchStartDistance =
+                Math.hypot(
+                    second.clientX - first.clientX,
+                    second.clientY - first.clientY
+                );
+
+            pinchStartZoom =
+                imageZoom;
+
+            return;
+
+        }
+
+        if (event.touches.length !== 1) {
+            return;
+        }
+
+        const touch =
+            event.touches[0];
+
+        touchStartX =
+            touch.clientX;
+
+        touchStartY =
+            touch.clientY;
+
+        touchLastX =
+            touch.clientX;
+
+        touchLastY =
+            touch.clientY;
+
+        touchMoved = false;
 
     },
     {
-      passive: true
+        passive: true
     }
-  );
+);
 
+galleryViewport.addEventListener(
+    "touchmove",
+    function(event) {
 
-  /* =======================================================
-     KEYBOARD
-     ======================================================= */
+        if (event.touches.length === 2) {
 
-  document.addEventListener(
-    "keydown",
-    event => {
+            const first =
+                event.touches[0];
 
-      if (
-        !viewer.classList.contains("active")
-      ) {
-        return;
-      }
+            const second =
+                event.touches[1];
 
-      if (event.key === "Escape") {
-        closeViewer();
-      }
+            const distance =
+                Math.hypot(
+                    second.clientX - first.clientX,
+                    second.clientY - first.clientY
+                );
 
-      if (event.key === "ArrowRight") {
-        nextImage();
-      }
+            if (pinchStartDistance > 0) {
 
-      if (event.key === "ArrowLeft") {
-        previousImage();
-      }
+                const scale =
+                    distance /
+                    pinchStartDistance;
 
+                imageZoom =
+                    Math.max(
+                        MIN_ZOOM,
+                        Math.min(
+                            MAX_ZOOM,
+                            pinchStartZoom * scale
+                        )
+                    );
+
+                if (imageZoom === 1) {
+
+                    panX = 0;
+                    panY = 0;
+
+                }
+
+                applyImageTransform(false);
+
+                event.preventDefault();
+
+            }
+
+            return;
+
+        }
+
+        if (
+            event.touches.length !== 1
+        ) {
+            return;
+        }
+
+        const touch =
+            event.touches[0];
+
+        const deltaX =
+            touch.clientX -
+            touchLastX;
+
+        const deltaY =
+            touch.clientY -
+            touchLastY;
+
+        const totalX =
+            touch.clientX -
+            touchStartX;
+
+        const totalY =
+            touch.clientY -
+            touchStartY;
+
+        if (
+            Math.abs(totalX) > 8 ||
+            Math.abs(totalY) > 8
+        ) {
+
+            touchMoved = true;
+
+        }
+
+        if (imageZoom > 1) {
+
+            panX += deltaX;
+            panY += deltaY;
+
+            applyImageTransform(false);
+
+            event.preventDefault();
+
+        }
+
+        touchLastX =
+            touch.clientX;
+
+        touchLastY =
+            touch.clientY;
+
+    },
+    {
+        passive: false
     }
-  );
+);
 
+galleryViewport.addEventListener(
+    "touchend",
+    function(event) {
 
-  /* =======================================================
-     PREVENT IMAGE DRAGGING
-     ======================================================= */
+        if (event.touches.length > 0) {
+            return;
+        }
 
-  viewerImage.addEventListener(
+        pinchStartDistance = 0;
+
+        const touch =
+            event.changedTouches[0];
+
+        const endX =
+            touch.clientX;
+
+        const endY =
+            touch.clientY;
+
+        const distanceX =
+            endX - touchStartX;
+
+        const distanceY =
+            endY - touchStartY;
+
+        const now =
+            Date.now();
+
+        /* DOUBLE TAP */
+
+        if (
+            !touchMoved &&
+            now - lastTapTime < 320
+        ) {
+
+            if (imageZoom > 1) {
+
+                resetZoom();
+
+            } else {
+
+                zoomAtPoint(
+                    2.5,
+                    endX,
+                    endY
+                );
+
+            }
+
+            lastTapTime = 0;
+
+            return;
+
+        }
+
+        lastTapTime = now;
+
+        /*
+           When zoomed, don't turn a pan into
+           gallery navigation.
+        */
+
+        if (imageZoom > 1) {
+            return;
+        }
+
+        /* NORMAL SWIPE NAVIGATION */
+
+        if (
+            Math.abs(distanceX) >= 45 &&
+            Math.abs(distanceX) >
+            Math.abs(distanceY)
+        ) {
+
+            if (distanceX < 0) {
+
+                galleryNext();
+
+            } else {
+
+                galleryPrevious();
+
+            }
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+/* ---------------------------------------------------------
+   PREVENT IMAGE DRAGGING
+   --------------------------------------------------------- */
+
+galleryViewport.addEventListener(
     "dragstart",
-    event => {
-      event.preventDefault();
+    function(event) {
+
+        event.preventDefault();
+
     }
-  );
+);
 
+/* ---------------------------------------------------------
+   ZOOM BUTTON EVENTS
+   --------------------------------------------------------- */
 
-})();
+zoomInButton.addEventListener(
+    "click",
+    zoomIn
+);
+
+zoomOutButton.addEventListener(
+    "click",
+    zoomOut
+);
+
+zoomResetButton.addEventListener(
+    "click",
+    resetZoom
+);
+
+/* =========================================================
+   CLOSE PRODUCT
+   ========================================================= */
+
+function closeProduct() {
+
+    document
+        .getElementById("productModal")
+        .classList
+        .remove("active");
+
+    document
+        .body
+        .classList
+        .remove("modal-open");
+
+    currentProduct = null;
+    currentGalleryIndex = 0;
+
+    resetZoomSilently();
+
+}
+
+function closeProductOutside(event) {
+
+    if (
+        event.target ===
+        document.getElementById("productModal")
+    ) {
+
+        closeProduct();
+
+    }
+
+}
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const modal =
+            document.getElementById("productModal");
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+
+            closeProduct();
+
+        }
+
+        if (
+            event.key === "ArrowRight" &&
+            modal.classList.contains("active")
+        ) {
+
+            galleryNext();
+
+        }
+
+        if (
+            event.key === "ArrowLeft" &&
+            modal.classList.contains("active")
+        ) {
+
+            galleryPrevious();
+
+        }
+
+    }
+);
+
+/* =========================================================
+   PRODUCT TO WHATSAPP
+   ========================================================= */
+
+function orderProduct() {
+
+    if (!currentProduct) return;
+
+    const message =
+`Hello 𝑺𝑶𝑪𝑯 - سوچ,
+
+I'd like to order a piece from your collection.
+
+Product:
+${currentProduct.title}
+
+Volume:
+${currentProduct.volume}
+
+Material:
+${currentProduct.material}
+
+Category:
+${currentProduct.category}
+
+Price:
+${currentProduct.price}
+
+I'd like to confirm availability and discuss the order.
+
+Thank you.`;
+
+    const url =
+        "https://wa.me/923150674347?text=" +
+        encodeURIComponent(message);
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+/* =========================================================
+   FINISH SELECT
+   ========================================================= */
+
+const finishSelect =
+    document.getElementById("finishSelect");
+
+const finishTrigger =
+    document.getElementById("finishTrigger");
+
+const finishSelected =
+    document.getElementById("finishSelected");
+
+const finishHiddenInput =
+    document.getElementById("finish");
+
+const finishOptions =
+    document.querySelectorAll(".finish-option");
+
+finishTrigger.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        const isOpen =
+            finishSelect.classList.contains("open");
+
+        if (isOpen) {
+
+            closeFinishSelect();
+
+        } else {
+
+            openFinishSelect();
+
+        }
+
+    }
+);
+
+function openFinishSelect() {
+
+    finishSelect.classList.add("open");
+
+    finishTrigger.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+}
+
+function closeFinishSelect() {
+
+    finishSelect.classList.remove("open");
+
+    finishTrigger.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+}
+
+finishOptions.forEach(option => {
+
+    option.addEventListener(
+        "click",
+        function() {
+
+            const value =
+                this.dataset.value;
+
+            const swatch =
+                this.querySelector(
+                    ".finish-swatch"
+                );
+
+            finishSelected.innerHTML = "";
+
+            const selectedSwatch =
+                document.createElement("span");
+
+            selectedSwatch.className =
+                swatch.className;
+
+            const selectedText =
+                document.createElement("span");
+
+            selectedText.textContent =
+                value;
+
+            finishSelected.appendChild(
+                selectedSwatch
+            );
+
+            finishSelected.appendChild(
+                selectedText
+            );
+
+            finishHiddenInput.value =
+                value;
+
+            finishOptions.forEach(item => {
+
+                item.classList.remove(
+                    "selected"
+                );
+
+                item.setAttribute(
+                    "aria-selected",
+                    "false"
+                );
+
+            });
+
+            this.classList.add(
+                "selected"
+            );
+
+            this.setAttribute(
+                "aria-selected",
+                "true"
+            );
+
+            closeFinishSelect();
+
+        }
+    );
+
+});
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (!finishSelect.contains(event.target)) {
+
+            closeFinishSelect();
+
+        }
+
+    }
+);
+
+/* =========================================================
+   CUSTOM VISION TO WHATSAPP
+   ========================================================= */
+
+function sendVision(event) {
+
+    event.preventDefault();
+
+    const name =
+        document
+            .getElementById("clientName")
+            .value
+            .trim();
+
+    const product =
+        document
+            .getElementById("productType")
+            .value;
+
+    const material =
+        document
+            .getElementById("material")
+            .value ||
+        "Not specified";
+
+    const finish =
+        document
+            .getElementById("finish")
+            .value ||
+        "Not specified";
+
+    const size =
+        document
+            .getElementById("size")
+            .value
+            .trim() ||
+        "Not specified";
+
+    const details =
+        document
+            .getElementById("details")
+            .value
+            .trim();
+
+    const message =
+`Hello 𝑺𝑶𝑪𝑯 - سوچ,
+
+I'd like to create something custom.
+
+Name:
+${name}
+
+What I'm imagining:
+${product}
+
+Preferred Material:
+${material}
+
+Preferred Finish:
+${finish}
+
+Approximate Size:
+${size}
+
+My Vision:
+${details}
+
+I'd like to discuss the design and possibilities.
+
+Thank you.`;
+
+    const url =
+        "https://wa.me/923150674347?text=" +
+        encodeURIComponent(message);
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+/* =========================================================
+   MOBILE NAV
+   ========================================================= */
+
+document
+    .querySelectorAll("header a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    window.innerWidth <= 550 &&
+                    link.getAttribute("href") === "#home"
+                ) {
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    });
+
 </script>
 
 </body>
