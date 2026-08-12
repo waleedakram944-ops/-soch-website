@@ -657,6 +657,8 @@ nav a:hover::after {
     opacity: 0;
     visibility: hidden;
 
+    overflow: hidden;
+
     transition:
         opacity .35s ease,
         visibility .35s ease;
@@ -669,12 +671,15 @@ nav a:hover::after {
 
 .modal-box {
     position: relative;
-    width: min(1040px, 100%);
-    max-height: 91vh;
-    overflow-y: auto;
+
+    width: min(1120px, 100%);
+    height: min(92vh, 820px);
+    max-height: 92vh;
+
+    overflow: hidden;
 
     display: grid;
-    grid-template-columns: 1.05fr .95fr;
+    grid-template-columns: 1.15fr .85fr;
 
     background: #11110f;
     border: 1px solid rgba(238,234,225,.14);
@@ -711,9 +716,12 @@ nav a:hover::after {
    ========================================================= */
 
 .modal-image {
-    min-height: 620px;
+    min-height: 0;
+    height: 100%;
+
     position: relative;
     overflow: hidden;
+
     background: #151512;
 
     touch-action: pan-y;
@@ -737,9 +745,10 @@ nav a:hover::after {
     position: absolute;
     inset: 0;
     z-index: 2;
+
     overflow: hidden;
 
-    touch-action: none;
+    touch-action: pan-y;
 }
 
 .gallery-track {
@@ -762,9 +771,9 @@ nav a:hover::after {
     align-items: center;
     justify-content: center;
 
-    padding: 30px 55px 75px;
+    padding: 18px 42px 65px;
 
-    touch-action: none;
+    touch-action: pan-y;
 }
 
 .gallery-slide img {
@@ -928,7 +937,14 @@ nav a:hover::after {
    ========================================================= */
 
 .modal-content {
-    padding: 72px 55px;
+    padding: 65px 48px;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
 
     display: flex;
     flex-direction: column;
@@ -1782,17 +1798,35 @@ footer p {
         min-height: 540px;
     }
 
+    /* =====================================================
+       MOBILE PRODUCT MODAL
+       ===================================================== */
+
     .modal-box {
-        grid-template-columns: 1fr;
+        width: 100%;
+        height: 94vh;
         max-height: 94vh;
+
+        grid-template-columns: 1fr;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
     }
 
     .modal-image {
+        height: 62vh;
         min-height: 430px;
+
+        flex-shrink: 0;
+
+        touch-action: pan-y;
     }
 
     .gallery-slide {
-        padding: 25px 30px 65px;
+        padding: 18px 30px 65px;
     }
 
     .gallery-arrow {
@@ -1821,6 +1855,7 @@ footer p {
 
     .modal-content {
         padding: 45px 32px;
+        overflow: visible;
     }
 
     .builder {
@@ -2012,12 +2047,33 @@ footer p {
         min-width: 0;
     }
 
+    /* =====================================================
+       SMALL MOBILE PRODUCT MODAL
+       ===================================================== */
+
+    .modal-box {
+        width: 100%;
+        height: 94vh;
+        max-height: 94vh;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
     .modal-image {
-        min-height: 330px;
+        height: 55vh;
+        min-height: 350px;
+
+        flex-shrink: 0;
+
+        touch-action: pan-y;
     }
 
     .gallery-slide {
-        padding: 20px 25px 58px;
+        padding: 15px 22px 58px;
     }
 
     .gallery-slide img {
@@ -2048,6 +2104,7 @@ footer p {
 
     .modal-content {
         padding: 35px 23px 40px;
+        overflow: visible;
     }
 
 }
@@ -3330,6 +3387,40 @@ let currentProduct = null;
 let currentGalleryIndex = 0;
 
 /* =========================================================
+   PAGE SCROLL LOCK
+   ========================================================= */
+
+let savedScrollY = 0;
+
+function lockPageScroll() {
+
+    savedScrollY = window.scrollY;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${savedScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+
+    document.body.classList.add("modal-open");
+
+}
+
+function unlockPageScroll() {
+
+    document.body.classList.remove("modal-open");
+
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+
+    window.scrollTo(0, savedScrollY);
+
+}
+
+/* =========================================================
    PRODUCT MODAL + GALLERY
    ========================================================= */
 
@@ -3378,10 +3469,7 @@ function openProduct(index) {
         .classList
         .add("active");
 
-    document
-        .body
-        .classList
-        .add("modal-open");
+    lockPageScroll();
 
 }
 
@@ -3931,6 +4019,15 @@ galleryViewport.addEventListener(
             return;
         }
 
+        /*
+           Only capture the wheel for image zoom when
+           the image is already zoomed.
+        */
+
+        if (imageZoom <= 1) {
+            return;
+        }
+
         event.preventDefault();
 
         const direction =
@@ -4317,10 +4414,7 @@ function closeProduct() {
         .classList
         .remove("active");
 
-    document
-        .body
-        .classList
-        .remove("modal-open");
+    unlockPageScroll();
 
     currentProduct = null;
     currentGalleryIndex = 0;
