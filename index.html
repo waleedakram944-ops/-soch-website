@@ -1,2176 +1,4498 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.</title>
-<meta name="description" content="SOCH — Bespoke décor and craftsmanship. You bring the vision. We bring it to life.">
+
+<meta name="description" content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring it to life.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="𝑺𝑶𝑪𝑯 - سوچ">
+<meta property="og:title" content="𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.">
+<meta property="og:description" content="Premium décor and custom craftsmanship. Distinctive pieces, crafted with intention — from our collection or made exclusively around your vision.">
+<meta property="og:image" content="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.">
+<meta name="twitter:description" content="Premium décor and custom craftsmanship. Distinctive pieces, crafted with intention — from our collection or made exclusively around your vision.">
+<meta name="twitter:image" content="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png">
+
+<link rel="icon" type="image/png" href="D14F44D6-93B4-4E04-8871-E823876743A8.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "SOCH - سوچ",
+  "description": "Custom décor and craftsmanship. You bring the vision, we bring it to life.",
+  "telephone": "+923150674347",
+  "sameAs": [
+    "https://www.instagram.com/soch.pk/"
+  ]
+}
+</script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root {
+    --black: #080807;
+    --cream: #eeeae1;
+    --muted: #9c988f;
+    --soft: #c0b9aa;
+    --gold: #b9a06c;
+    --line: rgba(238,234,225,.11);
 }
 
-html{
-    scroll-behavior:smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#0a0a09;
-    color:#eeeae1;
-    font-family:Inter,sans-serif;
-    font-weight:300;
-    line-height:1.6;
+html {
+    scroll-behavior: smooth;
 }
 
-body.modal-open{
-    overflow:hidden !important;
-    position:fixed !important;
-    width:100% !important;
-    left:0;
-    right:0;
+body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+body.modal-open {
+    overflow: hidden;
 }
 
-button,input,select,textarea{
-    font-family:inherit;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-/* HEADER */
-
-header{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    padding:24px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:50;
-}
-
-.logo{
-    display:flex;
-    align-items:baseline;
-    gap:7px;
-    color:#eeeae1;
-}
-
-.logo-main{
-    font-family:'Cormorant Garamond',serif;
-    font-size:31px;
-    font-style:italic;
-    font-weight:600;
-    letter-spacing:-1px;
-}
-
-.logo-urdu{
-    font-family:serif;
-    font-size:29px;
-}
-
-nav{
-    display:flex;
-    gap:25px;
-    font-size:9px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-}
-
-nav a{
-    opacity:.75;
-    transition:.3s ease;
-}
-
-nav a:hover{
-    opacity:1;
-}
-
-/* HERO */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:125px 25px 80px;
-    position:relative;
-    overflow:hidden;
-    background:
-        linear-gradient(rgba(5,5,4,.43),rgba(5,5,4,.84)),
-        url('37A2CC13-446E-4AAA-A0A4-DFF3AAFB59A9.png')
-        center/cover no-repeat;
-}
-
-.hero:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:radial-gradient(
-        circle at center,
-        transparent 18%,
-        rgba(0,0,0,.35) 100%
-    );
-    pointer-events:none;
-}
-
-.hero-content{
-    max-width:900px;
-    position:relative;
-    z-index:2;
-}
-
-.brand-mark{
-    display:flex;
-    justify-content:center;
-    align-items:baseline;
-    gap:9px;
-    margin-bottom:30px;
-}
-
-.brand-mark .english{
-    font-family:'Cormorant Garamond',serif;
-    font-size:25px;
-    font-style:italic;
-    letter-spacing:1px;
-}
-
-.brand-mark .urdu{
-    font-family:serif;
-    font-size:23px;
-}
-
-.eyebrow{
-    text-transform:uppercase;
-    letter-spacing:4px;
-    font-size:9px;
-    color:#b5ad9c;
-    margin-bottom:27px;
-}
-
-.hero h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(52px,12vw,105px);
-    font-weight:400;
-    line-height:.9;
-    letter-spacing:-1.5px;
-    margin-bottom:32px;
-}
-
-.hero h1 span{
-    color:#b8ad98;
-    font-style:italic;
-}
-
-.hero p{
-    max-width:580px;
-    margin:0 auto 42px;
-    color:#b0aba1;
-    font-size:14px;
-    line-height:1.9;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.button{
-    padding:15px 25px;
-    border:1px solid rgba(238,234,225,.45);
-    font-size:9px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    transition:.3s ease;
-}
-
-.button.primary{
-    background:#eeeae1;
-    color:#0a0a09;
-    border-color:#eeeae1;
-}
-
-.button:hover{
-    transform:translateY(-3px);
-    border-color:#eeeae1;
-}
-
-/* SECTIONS */
-
-.section{
-    padding:115px 25px;
-    max-width:1200px;
-    margin:auto;
-}
-
-.section-label{
-    font-size:9px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:#918876;
-    margin-bottom:20px;
-}
-
-.section h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(42px,8vw,70px);
-    font-weight:400;
-    line-height:.95;
-    margin-bottom:25px;
-}
-
-.section-intro{
-    color:#aaa59b;
-    max-width:600px;
-    margin-bottom:50px;
-    font-size:14px;
-    line-height:1.8;
-}
-
-/* COLLECTION */
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.product{
-    min-height:520px;
-    padding:0;
-    cursor:pointer;
-    position:relative;
-    overflow:hidden;
-    background:#11110f;
-    border:1px solid #292824;
-    transition:
-        transform .45s ease,
-        border-color .45s ease;
-}
-
-.product:hover{
-    transform:translateY(-6px);
-    border-color:#777164;
-}
-
-.product-image{
-    position:absolute;
-    inset:0;
-    background-position:center;
-    background-size:cover;
-    background-repeat:no-repeat;
-    transition:transform .8s cubic-bezier(.2,.7,.2,1);
-}
-
-.product:hover .product-image{
-    transform:scale(1.045);
-}
-
-.product-one-image{
-    background-image:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.02) 35%,
-            rgba(0,0,0,.82) 100%
-        ),
-        url('FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png');
-}
-
-.product-two-image{
-    background-image:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.02) 35%,
-            rgba(0,0,0,.82) 100%
-        ),
-        url('EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png');
-}
-
-.product:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.92),
-            rgba(0,0,0,.18) 48%,
-            transparent 75%
-        );
-    pointer-events:none;
-}
-
-.product-info{
-    position:absolute;
-    left:28px;
-    right:28px;
-    bottom:26px;
-    z-index:3;
-}
-
-.product-number{
-    color:#aaa18f;
-    font-size:8px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    margin-bottom:8px;
-}
-
-.product h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:36px;
-    line-height:1;
-    font-weight:500;
-    margin-bottom:7px;
-}
-
-.product p{
-    color:#b7b2a8;
-    font-size:9px;
-    letter-spacing:1.8px;
-    text-transform:uppercase;
-}
-
-.view-product{
-    display:inline-block;
-    margin-top:18px;
-    padding-bottom:5px;
-    border-bottom:1px solid rgba(238,234,225,.45);
-    font-size:8px;
-    letter-spacing:2.5px;
-    text-transform:uppercase;
-    color:#eeeae1;
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
 }
 
 /* =========================================================
-   PRODUCT DETAIL MODAL
+   NAVIGATION
    ========================================================= */
 
-.product-modal{
-    position:fixed;
-    inset:0;
-    z-index:200;
-    background:rgba(5,5,4,.985);
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 86px;
+    padding: 0 5.5vw;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid transparent;
+    transition:
+        background .45s ease,
+        border-color .45s ease,
+        height .45s ease;
+}
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+header.scrolled {
+    height: 72px;
+    background: rgba(8,8,7,.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-color: var(--line);
+}
 
-    padding:18px;
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+}
 
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
+.nav-left {
+    justify-content: flex-start;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+nav a {
+    position: relative;
+    color: rgba(238,234,225,.68);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    transition: color .3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width .3s ease;
+}
+
+nav a:hover {
+    color: var(--cream);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.center-logo {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.center-logo .logo-main {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 29px;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -.7px;
+}
+
+.center-logo .logo-urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 24px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 150px 25px 100px;
+
+    background:
+        linear-gradient(
+            rgba(5,5,4,.30),
+            rgba(5,5,4,.77)
+        ),
+        url("37A2CC13-446E-4AAA-A0A4-DFF3AAFB59A9.png")
+        center / cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 8%,
+            rgba(0,0,0,.25) 58%,
+            rgba(0,0,0,.75) 100%
+        );
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 35%;
+
+    background:
+        linear-gradient(
+            transparent,
+            #080807
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1050px;
+}
+
+.hero-logo-wrap {
+    position: relative;
+    z-index: 4;
+
+    width: clamp(180px, 25vw, 310px);
+    height: clamp(110px, 15vw, 180px);
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 1000px;
+}
+
+.hero-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+
+    filter:
+        drop-shadow(0 8px 18px rgba(0,0,0,.45))
+        drop-shadow(0 0 12px rgba(185,160,108,.12));
+
+    transform-style: preserve-3d;
+
+    animation:
+        sochCoinFlip 5.5s cubic-bezier(.45,.05,.55,.95) infinite;
+
+    will-change: transform;
+}
+
+@keyframes sochCoinFlip {
+
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    18% {
+        transform: rotateY(0deg);
+    }
+
+    42% {
+        transform: rotateY(180deg);
+    }
+
+    58% {
+        transform: rotateY(360deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+
+}
+
+.hero-brand {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 28px;
+    opacity: .94;
+}
+
+.hero-brand .english {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: .5px;
+}
+
+.hero-brand .urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 23px;
+}
+
+.eyebrow {
+    color: #b9b09e;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(58px, 9vw, 110px);
+    font-weight: 300;
+    line-height: .82;
+    letter-spacing: -2.5px;
+    margin-bottom: 35px;
+}
+
+.hero h1 span {
+    color: #c1ae83;
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 530px;
+    margin: auto;
+    color: rgba(238,234,225,.64);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 38px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.button {
+    min-width: 180px;
+    padding: 15px 24px;
+    border: 1px solid rgba(238,234,225,.30);
+    color: var(--cream);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
 
     transition:
-        opacity .3s ease,
-        visibility .3s ease;
-
-    overflow:hidden;
-
-    overscroll-behavior:contain;
-    touch-action:none;
+        background .35s ease,
+        color .35s ease,
+        transform .35s ease,
+        border-color .35s ease;
 }
 
-.product-modal.active{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
+.button:hover {
+    transform: translateY(-3px);
+    border-color: rgba(238,234,225,.75);
 }
 
-/* LARGE DESKTOP DETAIL PANEL */
-
-.product-modal-inner{
-    width:min(1250px,100%);
-    height:min(94vh,900px);
-
-    display:grid;
-    grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);
-
-    background:#11110f;
-    border:1px solid #302f2b;
-
-    position:relative;
-
-    transform:translateY(20px);
-    transition:transform .4s ease;
-
-    overflow:hidden;
-
-    overscroll-behavior:contain;
-    touch-action:pan-y;
+.button.primary {
+    background: var(--cream);
+    color: #090908;
+    border-color: var(--cream);
 }
 
-.product-modal.active .product-modal-inner{
-    transform:translateY(0);
+.button.primary:hover {
+    background: transparent;
+    color: var(--cream);
 }
 
-/*
-   IMPORTANT:
-   The product detail image is NOT cropped.
-   It uses contain instead of cover.
-*/
+/* =========================================================
+   SECTION SYSTEM
+   ========================================================= */
 
-.product-modal-image{
-    width:100%;
-    height:100%;
-
-    min-height:0;
-
-    background-position:center;
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-color:#0c0c0b;
-
-    overflow:hidden;
-
-    touch-action:none;
-    user-select:none;
-    -webkit-user-select:none;
+.section {
+    max-width: 1220px;
+    margin: auto;
+    padding: 135px 5.5vw;
 }
 
-/* DETAIL TEXT */
-
-.product-modal-content{
-    min-width:0;
-    min-height:0;
-
-    padding:55px 45px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-
-    overflow-y:auto;
-    overflow-x:hidden;
-
-    overscroll-behavior:contain;
-    -webkit-overflow-scrolling:touch;
+.section-label {
+    color: var(--gold);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    margin-bottom: 20px;
 }
 
-.modal-label{
-    color:#918876;
-    font-size:8px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    margin-bottom:20px;
+.section h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(50px, 6.5vw, 78px);
+    font-weight: 300;
+    line-height: .88;
+    letter-spacing: -1px;
 }
 
-.product-modal-content h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(45px,6vw,68px);
-    font-weight:400;
-    line-height:.92;
-    margin-bottom:25px;
+.section-intro {
+    color: var(--muted);
+    max-width: 570px;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 24px;
 }
 
-.modal-description{
-    color:#aaa59b;
-    font-size:13px;
-    line-height:1.9;
-    margin-bottom:30px;
+/* =========================================================
+   COLLECTION
+   ========================================================= */
+
+.collection-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 50px;
+    margin-bottom: 70px;
 }
 
-.modal-specs{
-    border-top:1px solid #302f2b;
-    border-bottom:1px solid #302f2b;
-    padding:18px 0;
-    margin-bottom:30px;
+.collection-heading .section-intro {
+    margin-bottom: 0;
 }
 
-.modal-spec{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    padding:7px 0;
-    font-size:10px;
+.collection-mark {
+    color: #68645d;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
 }
 
-.modal-spec span:first-child{
-    color:#77736b;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
-.modal-spec span:last-child{
-    color:#d6d1c7;
-    text-align:right;
+.product {
+    position: relative;
+    min-height: 590px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #11110f;
+    border: 1px solid rgba(238,234,225,.09);
+
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        border-color .45s ease;
 }
 
-.modal-price{
-    font-family:'Cormorant Garamond',serif;
-    font-size:28px;
-    margin-bottom:25px;
+.product:hover {
+    transform: translateY(-7px);
+    border-color: rgba(185,160,108,.45);
 }
 
-.modal-order{
-    display:block;
-    width:100%;
-    padding:17px;
-    text-align:center;
-    background:#eeeae1;
-    color:#0a0a09;
-    font-size:9px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    transition:.3s ease;
+.product-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: #151512;
 }
 
-.modal-order:hover{
-    transform:translateY(-3px);
+.product-image::before {
+    content: "";
+    position: absolute;
+    inset: -35px;
+
+    background-image: var(--product-image);
+    background-position: center;
+    background-size: cover;
+
+    filter: blur(32px);
+    transform: scale(1.12);
+
+    opacity: .42;
 }
 
-.modal-custom{
-    display:block;
-    text-align:center;
-    margin-top:15px;
-    color:#aaa59b;
-    font-size:9px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
+.product-image img {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    padding: 0;
+
+    z-index: 1;
+
+    transform: translate(-50%, -50%) scale(1);
+
+    transition:
+        transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
-/* CLOSE BUTTON */
+/* LARGER COLLECTION PRODUCT IMAGES */
 
-.modal-close{
-    position:absolute;
-    top:16px;
-    right:16px;
-    z-index:10;
-
-    width:38px;
-    height:38px;
-
-    border:1px solid #555149;
-    background:rgba(10,10,9,.82);
-    color:#eeeae1;
-
-    cursor:pointer;
-
-    font-size:18px;
-    line-height:1;
-
-    transition:.3s ease;
+.product:nth-child(1) .product-image img {
+    transform: translate(-50%, -50%) scale(1.25);
 }
 
-.modal-close:hover{
-    background:#eeeae1;
-    color:#0a0a09;
+.product:nth-child(2) .product-image img {
+    transform: translate(-50%, -50%) scale(1.23);
 }
 
-/* BESPOKE */
-
-.bespoke{
-    background:#eeeae1;
-    color:#10100e;
-    max-width:none;
-    padding:115px 25px;
+.product:nth-child(3) .product-image img {
+    transform: translate(-50%, -50%) scale(1.24);
 }
 
-.bespoke-inner{
-    max-width:1200px;
-    margin:auto;
+.product:nth-child(4) .product-image img {
+    transform: translate(-50%, -50%) scale(1.08);
 }
 
-.bespoke .section-label{
-    color:#70695c;
+.product:nth-child(1):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.285);
 }
 
-.bespoke h2{
-    max-width:800px;
+.product:nth-child(2):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.265);
 }
 
-.bespoke p{
-    max-width:620px;
-    color:#5d594f;
-    margin-bottom:38px;
-    line-height:1.8;
+.product:nth-child(3):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.275);
 }
 
-.bespoke-actions{
-    display:flex;
-    align-items:center;
-    gap:25px;
-    flex-wrap:wrap;
+.product:nth-child(4):hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.115);
 }
 
-.dark-button{
-    display:inline-block;
-    padding:15px 25px;
-    background:#10100e;
-    color:#eeeae1;
-    font-size:9px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    transition:.3s ease;
+/* =========================================================
+   TOP + BOTTOM IMAGE BLEND
+   ========================================================= */
+
+.product-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(21,19,16,.62) 0%,
+            rgba(21,19,16,.32) 10%,
+            rgba(21,19,16,.08) 21%,
+            rgba(5,5,4,.02) 30%,
+            rgba(5,5,4,.10) 46%,
+            rgba(5,5,4,.90) 100%
+        );
+
+    pointer-events: none;
 }
 
-.dark-button:hover{
-    transform:translateY(-3px);
+/* =========================================================
+   PRODUCT INFORMATION
+   ========================================================= */
+
+.product-info {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+    z-index: 5;
 }
 
-.text-link{
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#403d37;
+.product-number {
+    color: #aa9161;
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-bottom: 9px;
 }
 
-/* BUILDER */
-
-.builder-section{
-    background:#0d0d0c;
-    padding:120px 25px;
+.product h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 39px;
+    line-height: .95;
+    font-weight: 400;
+    margin-bottom: 7px;
 }
 
-.builder-container{
-    max-width:1100px;
-    margin:auto;
+.product-tagline {
+    color: #aaa295;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
 }
 
-.builder-heading{
-    max-width:700px;
-    margin-bottom:55px;
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.builder-heading h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(45px,8vw,72px);
-    font-weight:400;
-    line-height:.95;
-    margin-bottom:22px;
+.product-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    color: #d0bb8d;
 }
 
-.builder-heading p{
-    color:#99958d;
-    font-size:14px;
-    line-height:1.8;
+.view-product {
+    color: #c4b9a5;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #635943;
+    padding-bottom: 4px;
 }
 
-.builder{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:45px;
-    padding:40px;
-    border:1px solid #292824;
-    background:#11110f;
+/* =========================================================
+   PRODUCT MODAL
+   ========================================================= */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(4,4,3,.94);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    overflow: hidden;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
 }
 
-.builder-form{
-    display:flex;
-    flex-direction:column;
-    gap:23px;
+.product-modal.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-.form-group{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+.modal-box {
+    position: relative;
+
+    width: min(1120px, 100%);
+    height: min(92vh, 820px);
+    max-height: 92vh;
+
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+
+    background: #11110f;
+    border: 1px solid rgba(238,234,225,.14);
+
+    box-shadow: 0 40px 120px rgba(0,0,0,.65);
 }
 
-.form-group label{
-    font-size:9px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    color:#918876;
+.close-modal {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 20;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(238,234,225,.25);
+    background: rgba(5,5,4,.7);
+
+    color: var(--cream);
+    cursor: pointer;
+    font-size: 19px;
+
+    transition: .3s ease;
+}
+
+.close-modal:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+/* =========================================================
+   PRODUCT GALLERY
+   ========================================================= */
+
+.modal-image {
+    min-height: 0;
+    height: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #151512;
+
+    touch-action: pan-y;
+}
+
+.modal-image::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+
+    background-image: var(--modal-image);
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(32px);
+    opacity: .38;
+    transform: scale(1.12);
+}
+
+.gallery-viewport {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+}
+
+.gallery-track {
+    height: 100%;
+    display: flex;
+
+    transition:
+        transform .55s cubic-bezier(.22,.61,.36,1);
+
+    will-change: transform;
+}
+
+.gallery-slide {
+    min-width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px 42px 65px;
+
+    touch-action: pan-y;
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    user-select: none;
+    -webkit-user-drag: none;
+
+    filter:
+        drop-shadow(0 20px 35px rgba(0,0,0,.28));
+
+    cursor: zoom-in;
+
+    transform-origin: center center;
+
+    transition:
+        transform .35s cubic-bezier(.22,.61,.36,1);
+
+    will-change: transform;
+}
+
+.gallery-slide.zoomed img {
+    cursor: grab;
+}
+
+.gallery-slide.dragging img {
+    cursor: grabbing;
+    transition: none;
+}
+
+/* =========================================================
+   GALLERY NAVIGATION
+   ========================================================= */
+
+.gallery-label {
+    position: absolute;
+    left: 30px;
+    bottom: 25px;
+
+    z-index: 5;
+
+    color: rgba(238,234,225,.72);
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid rgba(185,160,108,.55);
+}
+
+.gallery-counter {
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+
+    z-index: 5;
+
+    color: rgba(238,234,225,.48);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 8;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(238,234,225,.22);
+
+    background: rgba(5,5,4,.48);
+    color: var(--cream);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        opacity .3s ease;
+}
+
+.gallery-arrow:hover {
+    background: rgba(185,160,108,.12);
+    border-color: rgba(185,160,108,.65);
+    color: var(--gold);
+}
+
+.gallery-arrow.prev {
+    left: 18px;
+}
+
+.gallery-arrow.next {
+    right: 18px;
+}
+
+.gallery-arrow.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gallery-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    z-index: 8;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.gallery-dot {
+    width: 5px;
+    height: 5px;
+
+    border: 0;
+    border-radius: 50%;
+
+    padding: 0;
+
+    background: rgba(238,234,225,.28);
+
+    cursor: pointer;
+
+    transition:
+        width .3s ease,
+        background .3s ease;
+}
+
+.gallery-dot.active {
+    width: 18px;
+    border-radius: 10px;
+    background: var(--gold);
+}
+
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
+
+.modal-content {
+    padding: 65px 48px;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-volume {
+    color: var(--gold);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 17px;
+}
+
+.modal-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 6vw, 74px);
+    font-weight: 300;
+    line-height: .86;
+    margin-bottom: 11px;
+}
+
+.modal-subtitle {
+    color: #ae9563;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.modal-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.95;
+    margin-bottom: 27px;
+}
+
+.modal-details {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    margin-bottom: 28px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 6px 0;
+    font-size: 9px;
+}
+
+.detail-row span:first-child {
+    color: #706d66;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.detail-row span:last-child {
+    color: #cec4b4;
+    text-align: right;
+}
+
+.modal-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 35px;
+    color: #d0bb8d;
+    margin-bottom: 25px;
+}
+
+.order-button {
+    width: 100%;
+    border: 1px solid var(--cream);
+    background: var(--cream);
+    color: #090908;
+    padding: 17px;
+    cursor: pointer;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .3s ease;
+}
+
+.order-button:hover {
+    background: transparent;
+    color: var(--cream);
+}
+
+/* =========================================================
+   CUSTOM
+   ========================================================= */
+
+.bespoke {
+    max-width: none;
+    padding: 145px 5.5vw;
+
+    background:
+        radial-gradient(
+            circle at 80% 35%,
+            rgba(190,159,101,.08),
+            transparent 28%
+        ),
+        #eeeae1;
+
+    color: #10100e;
+}
+
+.bespoke-inner {
+    max-width: 1220px;
+    margin: auto;
+}
+
+.bespoke .section-label {
+    color: #716a5e;
+}
+
+.bespoke h2 {
+    max-width: 900px;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(58px, 8vw, 105px);
+    line-height: .82;
+    font-weight: 300;
+    letter-spacing: -2px;
+}
+
+.bespoke p {
+    max-width: 620px;
+    margin-top: 30px;
+
+    color: #5c584f;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.bespoke-actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-top: 38px;
+}
+
+.dark-button {
+    padding: 16px 25px;
+    background: #10100e;
+    color: var(--cream);
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: .35s ease;
+}
+
+.dark-button:hover {
+    transform: translateY(-3px);
+}
+
+.text-link {
+    color: #4f4b43;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* =========================================================
+   VISION BUILDER
+   ========================================================= */
+
+.builder-section {
+    padding: 140px 5.5vw;
+    background: #0c0c0b;
+}
+
+.builder-container {
+    max-width: 1220px;
+    margin: auto;
+}
+
+.builder-heading {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.builder-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 7vw, 82px);
+    font-weight: 300;
+    line-height: .86;
+    letter-spacing: -1.5px;
+}
+
+.builder-heading p {
+    max-width: 570px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 24px;
+}
+
+.builder {
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+    gap: 70px;
+    align-items: stretch;
+}
+
+.builder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #817b70;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .form-group input,
 .form-group select,
-.form-group textarea{
-    width:100%;
-    background:#0a0a09;
-    border:1px solid #34332e;
-    color:#eeeae1;
-    padding:14px 15px;
-    font-size:12px;
-    outline:none;
-    transition:.3s ease;
+.form-group textarea {
+    width: 100%;
+    padding: 15px 14px;
+
+    background: transparent;
+    color: var(--cream);
+
+    border: 1px solid rgba(238,234,225,.13);
+
+    outline: none;
+
+    font-size: 11px;
+
+    transition: border-color .3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #55534e;
 }
 
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus{
-    border-color:#918876;
+.form-group textarea:focus {
+    border-color: rgba(185,160,108,.65);
 }
 
-.form-group textarea{
-    min-height:130px;
-    resize:vertical;
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, #8d846f 50%),
+        linear-gradient(135deg, #8d846f 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 20px,
+        calc(100% - 12px) 20px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+
+    cursor: pointer;
 }
 
-.form-group select{
-    appearance:none;
+.form-group select option {
+    background: #11110f;
+    color: var(--cream);
 }
 
-.builder-preview{
-    min-height:100%;
-    border:1px solid #292824;
-    background:radial-gradient(circle at center,#24231f,#0b0b0a 72%);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:45px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.builder-preview:before{
-    content:"سوچ";
-    position:absolute;
-    font-family:serif;
-    font-size:210px;
-    color:rgba(238,234,225,.025);
-    transform:rotate(-10deg);
-}
-
-.preview-label,
-.preview-title,
-.preview-text{
-    position:relative;
-    z-index:2;
-}
-
-.preview-label{
-    color:#918876;
-    font-size:9px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    margin-bottom:22px;
-}
-
-.preview-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:43px;
-    line-height:1;
-    margin-bottom:20px;
-}
-
-.preview-text{
-    color:#aaa59b;
-    font-size:12px;
-    line-height:1.8;
-}
-
-.builder-submit{
-    width:100%;
-    border:none;
-    cursor:pointer;
-    padding:17px;
-    background:#eeeae1;
-    color:#0a0a09;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    font-size:9px;
-    transition:.3s ease;
-}
-
-.builder-submit:hover{
-    transform:translateY(-3px);
-}
-
-/* PROCESS */
-
-.process-section{
-    max-width:1200px;
-    margin:auto;
-    padding:115px 25px;
-}
-
-.process{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1px;
-    background:#302f2b;
-    margin-top:55px;
-}
-
-.process-item{
-    background:#0a0a09;
-    padding:35px 25px;
-    min-height:230px;
-}
-
-.number{
-    color:#918876;
-    font-size:10px;
-    letter-spacing:2px;
-}
-
-.process h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:29px;
-    font-weight:400;
-    margin:18px 0 8px;
-}
-
-.process p{
-    color:#969188;
-    font-size:11px;
-    line-height:1.7;
-}
-
-/* STORY */
-
-.story{
-    text-align:center;
-}
-
-.story-content{
-    max-width:720px;
-    margin:auto;
-}
-
-.story h2{
-    margin-bottom:30px;
-}
-
-.story p{
-    color:#aaa59b;
-    margin-bottom:17px;
-    font-size:14px;
-    line-height:1.9;
-}
-
-/* CONTACT */
-
-.contact{
-    max-width:none;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-    background:
-        linear-gradient(
-            rgba(17,17,15,.94),
-            rgba(10,10,9,.98)
-        );
-}
-
-.contact:before{
-    content:"𝑺𝑶𝑪𝑯";
-    position:absolute;
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    font-size:220px;
-    color:rgba(238,234,225,.025);
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    white-space:nowrap;
-    pointer-events:none;
-}
-
-.contact-inner{
-    max-width:850px;
-    margin:auto;
-    position:relative;
-    z-index:2;
-}
-
-.contact h2{
-    font-size:clamp(50px,9vw,78px);
-}
-
-.contact .section-intro{
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.contact-methods{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:35px;
-}
-
-.contact-card{
-    min-width:210px;
-    padding:25px 22px;
-    border:1px solid #393833;
-    background:rgba(18,18,16,.75);
-    transition:.3s ease;
-}
-
-.contact-card:hover{
-    transform:translateY(-4px);
-    border-color:#918876;
-}
-
-.contact-icon{
-    width:45px;
-    height:45px;
-    margin:0 auto 15px;
-    border:1px solid #777164;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:18px;
-}
-
-.contact-card strong{
-    display:block;
-    font-family:'Cormorant Garamond',serif;
-    font-size:23px;
-    font-weight:500;
-}
-
-.contact-card span{
-    display:block;
-    color:#8d8980;
-    font-size:9px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    margin-top:4px;
-}
-
-/* FOOTER */
-
-footer{
-    padding:55px 24px;
-    border-top:1px solid #272622;
-    text-align:center;
-}
-
-.footer-brand{
-    display:flex;
-    justify-content:center;
-    align-items:baseline;
-    gap:7px;
-    margin-bottom:12px;
-}
-
-.footer-brand .english{
-    font-family:'Cormorant Garamond',serif;
-    font-size:32px;
-    font-style:italic;
-}
-
-.footer-brand .urdu{
-    font-family:serif;
-    font-size:29px;
-}
-
-.footer-social{
-    margin-top:20px;
-}
-
-.footer-social a{
-    color:#aaa59b;
-    font-size:9px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    transition:.3s ease;
-}
-
-.footer-social a:hover{
-    color:#eeeae1;
-}
-
-footer p{
-    color:#716e67;
-    font-size:9px;
-    letter-spacing:1px;
+.form-group textarea {
+    min-height: 145px;
+    resize: vertical;
 }
 
 /* =========================================================
-   TABLET
+   CUSTOM FINISH SELECT
    ========================================================= */
 
-@media(max-width:850px){
+.finish-select {
+    position: relative;
+    width: 100%;
+}
 
-    header{
-        padding:20px;
-    }
+.finish-select-trigger {
+    width: 100%;
+    min-height: 48px;
 
-    nav{
-        gap:14px;
-    }
+    padding: 0 14px;
 
-    .builder{
-        grid-template-columns:1fr;
-        padding:25px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 
-    .builder-preview{
-        min-height:300px;
-    }
+    background: transparent;
+    color: var(--cream);
 
-    .process{
-        grid-template-columns:repeat(2,1fr);
-    }
+    border: 1px solid rgba(238,234,225,.13);
 
-    /* DETAIL MODAL TABLET */
+    cursor: pointer;
 
-    .product-modal-inner{
-        width:96vw;
-        height:94vh;
-        grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
-    }
+    text-align: left;
 
-    .product-modal-image{
-        min-height:0;
-        background-size:contain;
-    }
+    transition:
+        border-color .3s ease,
+        background .3s ease;
+}
 
-    .product-modal-content{
-        padding:45px 30px;
-    }
+.finish-select.open .finish-select-trigger,
+.finish-select-trigger:hover {
+    border-color: rgba(185,160,108,.65);
+}
+
+.finish-selected {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: #cfc8bb;
+
+    font-size: 11px;
+}
+
+.finish-arrow {
+    width: 7px;
+    height: 7px;
+
+    border-right: 1px solid #9d927e;
+    border-bottom: 1px solid #9d927e;
+
+    transform: rotate(45deg);
+    transition: transform .3s ease;
+}
+
+.finish-select.open .finish-arrow {
+    transform: rotate(225deg) translate(-2px,-2px);
+}
+
+.finish-options {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+
+    z-index: 100;
+
+    background: #11110f;
+
+    border: 1px solid rgba(238,234,225,.16);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+}
+
+.finish-select.open .finish-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.finish-option {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: transparent;
+
+    border: 0;
+    border-bottom: 1px solid rgba(238,234,225,.07);
+
+    color: #cfc8bb;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.finish-option:last-child {
+    border-bottom: 0;
+}
+
+.finish-option:hover {
+    background: rgba(185,160,108,.08);
+    color: var(--cream);
+}
+
+.finish-option.selected {
+    background: rgba(185,160,108,.10);
+    color: var(--cream);
+}
+
+.finish-swatch {
+    width: 17px;
+    height: 17px;
+
+    flex: 0 0 17px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(238,234,225,.30);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.08),
+        0 2px 8px rgba(0,0,0,.28);
+}
+
+.finish-swatch.coffee {
+    background: #6b432b;
+}
+
+.finish-swatch.dark-brown {
+    background: #3b2418;
+}
+
+.finish-swatch.light-brown {
+    background: #a77b54;
+}
+
+.finish-swatch.black {
+    background: #080807;
+    border-color: rgba(238,234,225,.38);
+}
+
+.finish-hidden-input {
+    display: none;
+}
+
+.builder-submit {
+    border: 1px solid var(--cream);
+    background: var(--cream);
+    color: #090908;
+
+    padding: 17px;
+
+    cursor: pointer;
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    transition: .35s ease;
+}
+
+.builder-submit:hover {
+    background: transparent;
+    color: var(--cream);
+}
+
+.builder-preview {
+    position: relative;
+    min-height: 500px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 50px;
+
+    border: 1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at center,
+            #24231f,
+            #090908 72%
+        );
+
+    text-align: center;
+}
+
+.builder-preview::before {
+    content: "سوچ";
+
+    position: absolute;
+
+    font-family: "Noto Naskh Arabic", serif;
+
+    font-size: 250px;
+
+    color: rgba(238,234,225,.025);
+
+    transform: rotate(-8deg);
+}
+
+.preview-label {
+    position: relative;
+    z-index: 2;
+
+    color: var(--gold);
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    margin-bottom: 24px;
+}
+
+.preview-title {
+    position: relative;
+    z-index: 2;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 48px;
+    line-height: .9;
+}
+
+.preview-text {
+    position: relative;
+    z-index: 2;
+
+    max-width: 330px;
+
+    margin: 23px auto 0;
+
+    color: #858178;
+
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-section {
+    max-width: 1220px;
+    margin: auto;
+    padding: 140px 5.5vw;
+}
+
+.process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+
+    background: #292824;
+
+    margin-top: 65px;
+}
+
+.process-item {
+    min-height: 250px;
+    padding: 34px 28px;
+    background: #0a0a09;
+}
+
+.number {
+    color: var(--gold);
+    font-size: 8px;
+    letter-spacing: 2.5px;
+}
+
+.process h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 400;
+    margin: 25px 0 10px;
+}
+
+.process p {
+    max-width: 190px;
+    color: #77736c;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   STORY
+   ========================================================= */
+
+.story {
+    text-align: center;
+}
+
+.story-content {
+    max-width: 750px;
+    margin: auto;
+}
+
+.story h2 {
+    margin-bottom: 30px;
+}
+
+.story p {
+    max-width: 620px;
+    margin: 0 auto 15px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.95;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact {
+    max-width: none;
+
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(185,160,108,.08),
+            transparent 35%
+        ),
+        #0a0a09;
+}
+
+.contact::before {
+    content: "𝑺𝑶𝑪𝑯";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    white-space: nowrap;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(120px, 20vw, 260px);
+
+    font-style: italic;
+
+    color: rgba(238,234,225,.025);
+
+    pointer-events: none;
+}
+
+.contact-inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+    margin: auto;
+}
+
+.contact h2 {
+    font-size: clamp(58px, 8vw, 100px);
+}
+
+.contact .section-intro {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+
+    margin-top: 40px;
+}
+
+.contact-card {
+    min-width: 220px;
+
+    padding: 27px 25px;
+
+    background: rgba(17,17,15,.72);
+
+    border: 1px solid rgba(238,234,225,.11);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(185,160,108,.5);
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto 15px;
+
+    border: 1px solid #625a49;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #c4b083;
+}
+
+.contact-card strong {
+    display: block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.contact-card span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #74716a;
+
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    padding: 55px 25px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--line);
+
+    background: #080807;
+}
+
+.footer-brand {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    gap: 4px;
+
+    margin-bottom: 14px;
+}
+
+.footer-brand .english {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 31px;
+    font-style: italic;
+}
+
+.footer-brand .urdu {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 27px;
+}
+
+footer p {
+    color: #65625b;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.footer-social {
+    margin-top: 18px;
+}
+
+.footer-social a {
+    color: #a19a8d;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
 }
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
-@media(max-width:700px){
+@media (max-width: 850px) {
 
-    .products{
-        grid-template-columns:1fr;
+    header {
+        padding: 0 22px;
     }
 
-    .product{
-        min-height:460px;
+    .nav-left,
+    .nav-right {
+        gap: 17px;
     }
 
-    /*
-       MOBILE PRODUCT DETAIL:
-       The image now occupies most of the screen.
-       It remains fully visible and is never cropped.
-    */
-
-    .product-modal{
-        padding:0;
-        align-items:stretch;
-        justify-content:stretch;
+    nav a {
+        font-size: 7px;
+        letter-spacing: 1.5px;
     }
 
-    .product-modal-inner{
-        width:100%;
-        height:100dvh;
-        max-height:none;
-
-        display:flex;
-        flex-direction:column;
-
-        border:none;
-        border-radius:0;
-
-        background:#0c0c0b;
-
-        overflow:hidden;
-
-        transform:translateY(30px);
+    .center-logo .logo-main {
+        font-size: 25px;
     }
 
-    .product-modal.active .product-modal-inner{
-        transform:translateY(0);
+    .center-logo .logo-urdu {
+        font-size: 21px;
     }
 
-    .product-modal-image{
-        flex:0 0 64dvh;
-
-        width:100%;
-        height:64dvh;
-        min-height:0;
-
-        background-size:contain;
-        background-position:center;
-        background-repeat:no-repeat;
-        background-color:#0c0c0b;
-
-        border-bottom:1px solid #292824;
+    .collection-heading {
+        display: block;
     }
 
-    .product-modal-content{
-        flex:1 1 auto;
-
-        width:100%;
-        min-height:0;
-
-        padding:32px 24px 35px;
-
-        display:block;
-
-        overflow-y:auto;
-        overflow-x:hidden;
-
-        -webkit-overflow-scrolling:touch;
-        overscroll-behavior:contain;
-        touch-action:pan-y;
+    .collection-mark {
+        margin-top: 25px;
     }
 
-    .modal-label{
-        margin-bottom:14px;
+    .products {
+        grid-template-columns: 1fr;
     }
 
-    .product-modal-content h2{
-        font-size:48px;
-        margin-bottom:20px;
+    .product {
+        min-height: 540px;
     }
 
-    .modal-description{
-        font-size:12px;
-        line-height:1.8;
-        margin-bottom:24px;
+    .modal-box {
+        width: 100%;
+        height: 94vh;
+        max-height: 94vh;
+
+        grid-template-columns: 1fr;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
     }
 
-    .modal-specs{
-        margin-bottom:24px;
+    .modal-image {
+        height: 62vh;
+        min-height: 430px;
+
+        flex-shrink: 0;
+
+        touch-action: pan-y;
     }
 
-    .modal-price{
-        font-size:27px;
-        margin-bottom:20px;
+    .gallery-slide {
+        padding: 18px 30px 65px;
     }
 
-    .modal-close{
-        top:14px;
-        right:14px;
-
-        width:40px;
-        height:40px;
-
-        background:rgba(10,10,9,.88);
+    .gallery-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
     }
+
+    .gallery-arrow.prev {
+        left: 12px;
+    }
+
+    .gallery-arrow.next {
+        right: 12px;
+    }
+
+    .gallery-label {
+        left: 20px;
+        bottom: 22px;
+    }
+
+    .gallery-counter {
+        right: 20px;
+        bottom: 22px;
+    }
+
+    .modal-content {
+        padding: 45px 32px;
+        overflow: visible;
+    }
+
+    .builder {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .builder-preview {
+        min-height: 360px;
+    }
+
 }
 
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
+@media (max-width: 550px) {
 
-@media(max-width:550px){
-
-    header{
-        padding:18px 17px;
+    header {
+        height: 72px;
+        padding: 0 15px;
     }
 
-    .logo-main{
-        font-size:27px;
+    header.scrolled {
+        height: 65px;
     }
 
-    .logo-urdu{
-        font-size:26px;
+    .nav-left,
+    .nav-right {
+        gap: 10px;
     }
 
-    nav{
-        gap:11px;
-        font-size:7px;
+    nav a {
+        font-size: 6.5px;
+        letter-spacing: 1.1px;
     }
 
-    nav a:nth-child(n+3){
-        display:none;
+    .center-logo .logo-main {
+        font-size: 22px;
     }
 
-    .hero{
-        padding:115px 20px 70px;
+    .center-logo .logo-urdu {
+        font-size: 19px;
     }
 
-    .brand-mark{
-        gap:7px;
+    .hero {
+        padding: 135px 20px 80px;
+        background-position: center;
     }
 
-    .brand-mark .english{
-        font-size:22px;
+    .hero-logo-wrap {
+        width: 205px;
+        height: 125px;
+        margin-bottom: 12px;
     }
 
-    .brand-mark .urdu{
-        font-size:21px;
+    .hero-brand .english {
+        font-size: 22px;
     }
 
-    .eyebrow{
-        font-size:7px;
-        letter-spacing:2.5px;
+    .hero-brand .urdu {
+        font-size: 20px;
     }
 
-    .hero h1{
-        font-size:53px;
-        line-height:.92;
+    .eyebrow {
+        font-size: 6.5px;
+        letter-spacing: 2.4px;
     }
 
-    .hero p{
-        font-size:13px;
+    .hero h1 {
+        font-size: 54px;
+        letter-spacing: -1.2px;
     }
 
-    .button{
-        width:100%;
-        max-width:280px;
+    .hero p {
+        font-size: 12px;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 285px;
     }
 
     .section,
-    .process-section{
-        padding:90px 20px;
+    .process-section {
+        padding: 95px 20px;
     }
 
-    .section h2{
-        font-size:48px;
+    .section h2 {
+        font-size: 50px;
     }
 
-    .bespoke,
-    .builder-section{
-        padding:90px 20px;
+    .product {
+        min-height: 455px;
     }
 
-    .bespoke-actions{
-        flex-direction:column;
-        align-items:flex-start;
+    .product-info {
+        left: 20px;
+        right: 20px;
+        bottom: 21px;
     }
 
-    .dark-button{
-        width:100%;
-        text-align:center;
+    .product h3 {
+        font-size: 34px;
     }
 
-    .builder{
-        padding:18px;
+    /* LARGER MOBILE COLLECTION IMAGES */
+
+    .product:nth-child(1) .product-image img {
+        transform: translate(-50%, -50%) scale(1.17);
     }
 
-    .builder-preview{
-        padding:30px 20px;
+    .product:nth-child(2) .product-image img {
+        transform: translate(-50%, -50%) scale(1.16);
     }
 
-    .preview-title{
-        font-size:36px;
+    .product:nth-child(3) .product-image img {
+        transform: translate(-50%, -50%) scale(1.17);
     }
 
-    .process{
-        grid-template-columns:1fr;
+    .product:nth-child(4) .product-image img {
+        transform: translate(-50%, -50%) scale(1.04);
     }
 
-    .process-item{
-        min-height:auto;
+    .product:nth-child(1):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.20);
     }
 
-    .contact-methods{
-        flex-direction:column;
-        align-items:stretch;
+    .product:nth-child(2):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.19);
     }
 
-    .contact-card{
-        min-width:0;
+    .product:nth-child(3):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.20);
     }
 
-    .contact:before{
-        font-size:110px;
+    .product:nth-child(4):hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.065);
     }
 
-    /*
-       EXTRA SPACE FOR THE PRODUCT IMAGE ON SMALL PHONES
-    */
-
-    .product-modal-image{
-        flex-basis:68dvh;
-        height:68dvh;
+    .bespoke {
+        padding: 100px 20px;
     }
 
-    .product-modal-content{
-        padding:28px 21px 32px;
+    .bespoke h2 {
+        font-size: 61px;
     }
 
-    .product-modal-content h2{
-        font-size:44px;
+    .bespoke-actions {
+        flex-direction: column;
+        align-items: stretch;
     }
+
+    .dark-button {
+        text-align: center;
+    }
+
+    .builder-section {
+        padding: 100px 20px;
+    }
+
+    .builder {
+        padding: 0;
+    }
+
+    .builder-preview {
+        padding: 30px 20px;
+    }
+
+    .preview-title {
+        font-size: 38px;
+    }
+
+    .process {
+        grid-template-columns: 1fr;
+    }
+
+    .process-item {
+        min-height: 190px;
+    }
+
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+    }
+
+    .contact-card {
+        min-width: 0;
+    }
+
+    .modal-box {
+        width: 100%;
+        height: 94vh;
+        max-height: 94vh;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-image {
+        height: 55vh;
+        min-height: 350px;
+
+        flex-shrink: 0;
+
+        touch-action: pan-y;
+    }
+
+    .gallery-slide {
+        padding: 15px 22px 58px;
+    }
+
+    .gallery-slide img {
+        filter:
+            drop-shadow(0 14px 25px rgba(0,0,0,.28));
+    }
+
+    .gallery-arrow {
+        display: none;
+    }
+
+    .gallery-label {
+        left: 18px;
+        bottom: 20px;
+
+        font-size: 7px;
+        letter-spacing: 2.5px;
+    }
+
+    .gallery-counter {
+        right: 18px;
+        bottom: 20px;
+    }
+
+    .gallery-dots {
+        bottom: 43px;
+    }
+
+    .modal-content {
+        padding: 35px 23px 40px;
+        overflow: visible;
+    }
+
 }
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080807;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #37342d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6d6048;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-<a href="#" class="logo">
-<span class="logo-main">𝑺𝑶𝑪𝑯</span>
-<span class="logo-urdu">سوچ</span>
-</a>
+<header id="header">
 
-<nav>
-<a href="#shop">Shop</a>
-<a href="#bespoke">Bespoke</a>
-<a href="#vision">Your Vision</a>
-<a href="#contact">Contact</a>
-</nav>
+    <nav class="nav-left">
+
+        <a href="#shop">Shop</a>
+
+        <a href="#bespoke">Custom</a>
+
+    </nav>
+
+    <a href="#home" class="center-logo">
+
+        <span class="logo-main">
+            𝑺𝑶𝑪𝑯
+        </span>
+
+        <span class="logo-urdu">
+            سوچ
+        </span>
+
+    </a>
+
+    <nav class="nav-right">
+
+        <a href="#vision">
+            Your Vision
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
+
 </header>
 
-<section class="hero">
-<div class="hero-content">
+<section class="hero" id="home">
 
-<div class="brand-mark">
-<span class="english">𝑺𝑶𝑪𝑯</span>
-<span class="urdu">سوچ</span>
-</div>
+    <div class="hero-content">
 
-<div class="eyebrow">
-PREMIUM DÉCOR · BESPOKE CRAFTSMANSHIP
-</div>
+        <div class="hero-logo-wrap">
 
-<h1>
-You Bring the <span>Vision.</span><br>
-We Bring It to Life.
-</h1>
+            <img
+                src="D14F44D6-93B4-4E04-8871-E823876743A8.png"
+                alt="SOCH - سوچ"
+                class="hero-logo"
+            >
 
-<p>
-Distinctive pieces, crafted with intention.
-From our collection to creations made exclusively around your vision.
-</p>
+        </div>
 
-<div class="buttons">
-<a href="#shop" class="button primary">Explore Collection</a>
-<a href="#vision" class="button">Create Your Vision</a>
-</div>
+        <div class="hero-brand">
 
-</div>
+            <span class="english">
+                𝑺𝑶𝑪𝑯
+            </span>
+
+            <span class="urdu">
+                سوچ
+            </span>
+
+        </div>
+
+        <div class="eyebrow">
+            PREMIUM DÉCOR · CUSTOM CRAFTSMANSHIP
+        </div>
+
+        <h1>
+            You Bring the <span>Vision.</span><br>
+            We Bring It to Life.
+        </h1>
+
+        <p>
+            Distinctive pieces, crafted with intention.
+            From our collection to creations made exclusively
+            around your vision.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#shop" class="button primary">
+                Explore Collection
+            </a>
+
+            <a href="#vision" class="button">
+                Create Your Vision
+            </a>
+
+        </div>
+
+    </div>
+
 </section>
 
 <section class="section" id="shop">
 
-<div class="section-label">The Collection</div>
+    <div class="collection-heading">
 
-<h2>Made to Be Seen.</h2>
+        <div>
 
-<p class="section-intro">
-Distinctive pieces crafted with intention.
-Explore the first SOCH creations, or commission something entirely your own.
-</p>
+            <div class="section-label">
+                THE COLLECTION
+            </div>
 
-<div class="products">
+            <h2>
+                Made to Be Seen.
+            </h2>
 
-<article
-class="product"
-onclick="openProduct('product1')"
-tabindex="0"
-role="button"
-aria-label="View The Contour Piece"
->
+            <p class="section-intro">
+                Distinctive pieces, crafted with intention.
+                Every creation carries its own character,
+                story and presence.
+            </p>
 
-<div class="product-image product-one-image"></div>
+        </div>
 
-<div class="product-info">
+        <div class="collection-mark">
+            VOLUME I · IV
+        </div>
 
-<div class="product-number">
-01 · SOCH ORIGINAL
-</div>
+    </div>
 
-<h3>The Contour Piece</h3>
+    <div class="products">
 
-<p>Sculptural wall décor</p>
+        <article class="product" onclick="openProduct(0)">
 
-<span class="view-product">
-View Piece →
-</span>
+            <div
+                class="product-image"
+                style="--product-image:url('FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png');"
+            >
 
-</div>
-</article>
+                <img
+                    src="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png"
+                    alt="Al-Bayan decorative wall art"
+                    loading="lazy"
+                >
 
+            </div>
 
-<article
-class="product"
-onclick="openProduct('product2')"
-tabindex="0"
-role="button"
-aria-label="View The Form Study"
->
+            <div class="product-info">
 
-<div class="product-image product-two-image"></div>
+                <div class="product-number">
+                    VOLUME I
+                </div>
 
-<div class="product-info">
+                <h3>
+                    Al-Bayan
+                </h3>
 
-<div class="product-number">
-02 · SOCH ORIGINAL
-</div>
+                <div class="product-tagline">
+                    The Expression Piece
+                </div>
 
-<h3>The Form Study</h3>
+                <div class="product-bottom">
 
-<p>Contemporary statement décor</p>
+                    <div class="product-price">
+                        PKR 19,999
+                    </div>
 
-<span class="view-product">
-View Piece →
-</span>
+                    <div class="view-product">
+                        View Piece →
+                    </div>
 
-</div>
-</article>
+                </div>
 
-</div>
+            </div>
+
+        </article>
+
+        <article class="product" onclick="openProduct(1)">
+
+            <div
+                class="product-image"
+                style="--product-image:url('EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png');"
+            >
+
+                <img
+                    src="EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png"
+                    alt="Noor-e-Sukhan decorative wall art"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME II
+                </div>
+
+                <h3>
+                    Noor-e-Sukhan
+                </h3>
+
+                <div class="product-tagline">
+                    The Words of Light
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 14,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <article class="product" onclick="openProduct(2)">
+
+            <div
+                class="product-image"
+                style="--product-image:url('61F3AE47-AC22-4892-BF90-85C53564A037.png');"
+            >
+
+                <img
+                    src="61F3AE47-AC22-4892-BF90-85C53564A037.png"
+                    alt="Khatt-e-Wafa Arabic calligraphy"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME III
+                </div>
+
+                <h3>
+                    Khatt-e-Wafa
+                </h3>
+
+                <div class="product-tagline">
+                    The Calligraphy Statement
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 16,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        <article class="product" onclick="openProduct(3)">
+
+            <div
+                class="product-image"
+                style="--product-image:url('E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png');"
+            >
+
+                <img
+                    src="E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png"
+                    alt="Asil equestrian wood relief"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    VOLUME IV
+                </div>
+
+                <h3>
+                    Asil
+                </h3>
+
+                <div class="product-tagline">
+                    The Equestrian Relief
+                </div>
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+                        PKR 24,999
+                    </div>
+
+                    <div class="view-product">
+                        View Piece →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
 </section>
 
+<div
+    class="product-modal"
+    id="productModal"
+    onclick="closeProductOutside(event)"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeProduct()"
+            aria-label="Close product"
+        >
+            ×
+        </button>
+
+        <div
+            class="modal-image"
+            id="modalImageContainer"
+        >
+
+            <div
+                class="gallery-viewport"
+                id="galleryViewport"
+            >
+
+                <div
+                    class="gallery-track"
+                    id="galleryTrack"
+                ></div>
+
+            </div>
+
+            <button
+                class="gallery-arrow prev hidden"
+                id="galleryPrev"
+                type="button"
+                aria-label="Previous image"
+                onclick="galleryPrevious(event)"
+            >
+                ←
+            </button>
+
+            <button
+                class="gallery-arrow next hidden"
+                id="galleryNext"
+                type="button"
+                aria-label="Next image"
+                onclick="galleryNext(event)"
+            >
+                →
+            </button>
+
+            <div
+                class="gallery-dots"
+                id="galleryDots"
+            ></div>
+
+            <div
+                class="gallery-label"
+                id="galleryLabel"
+            >
+                HERO
+            </div>
+
+            <div
+                class="gallery-counter"
+                id="galleryCounter"
+            >
+                01 / 01
+            </div>
+
+        </div>
+
+        <div class="modal-content">
+
+            <div class="modal-volume" id="modalVolume"></div>
+
+            <h2 id="modalTitle"></h2>
+
+            <div
+                class="modal-subtitle"
+                id="modalSubtitle"
+            ></div>
+
+            <p
+                class="modal-description"
+                id="modalDescription"
+            ></p>
+
+            <div class="modal-details">
+
+                <div class="detail-row">
+
+                    <span>
+                        Material
+                    </span>
+
+                    <span id="modalMaterial"></span>
+
+                </div>
+
+                <div class="detail-row">
+
+                    <span>
+                        Category
+                    </span>
+
+                    <span id="modalCategory"></span>
+
+                </div>
+
+                <div class="detail-row">
+
+                    <span>
+                        Collection
+                    </span>
+
+                    <span>
+                        SOCH - سوچ
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div
+                class="modal-price"
+                id="modalPrice"
+            ></div>
+
+            <button
+                class="order-button"
+                onclick="orderProduct()"
+            >
+                Order Now →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 <section class="bespoke" id="bespoke">
 
-<div class="bespoke-inner">
+    <div class="bespoke-inner">
 
-<div class="section-label">
-BESPOKE
-</div>
+        <div class="section-label">
+            CUSTOM
+        </div>
 
-<h2>
-Your idea deserves to exist.
-</h2>
+        <h2>
+            Your Idea. Our Craft.
+        </h2>
 
-<p>
-No catalogue. No limitations.
-Bring us your vision, reference, sketch,
-or simply an idea. We design and craft it specifically for you.
-</p>
+        <p>
+            No catalogue. No limitations.
+            Bring us your vision, reference, sketch,
+            or simply an idea.
 
-<div class="bespoke-actions">
+            We design and craft it specifically for you.
+        </p>
 
-<a href="#vision" class="dark-button">
-Start Your Project
-</a>
+        <div class="bespoke-actions">
 
-<a href="#process" class="text-link">
-See How It Works →
-</a>
+            <a href="#vision" class="dark-button">
+                Start Your Project
+            </a>
 
-</div>
+            <a href="#process" class="text-link">
+                See How It Works →
+            </a>
 
-</div>
+        </div>
+
+    </div>
+
 </section>
-
 
 <section class="builder-section" id="vision">
 
-<div class="builder-container">
+    <div class="builder-container">
 
-<div class="builder-heading">
+        <div class="builder-heading">
 
-<div class="section-label">
-YOUR VISION
-</div>
+            <div class="section-label">
+                YOUR VISION
+            </div>
 
-<h2>
-Create Something That Doesn't Exist Yet.
-</h2>
+            <h2>
+                Let’s Create Something Unique.
+            </h2>
 
-<p>
-Tell us what you're imagining.
-Choose the basics below and describe the details.
-You don't need a finished design — that's what we're here for.
-</p>
+            <p>
+                Tell us what you're imagining.
+                You don't need a finished design.
+                That's what we're here for.
+            </p>
 
-</div>
+        </div>
 
+        <div class="builder">
 
-<div class="builder">
+            <form
+                class="builder-form"
+                onsubmit="sendVision(event)"
+            >
 
-<form
-class="builder-form"
-id="visionForm"
-onsubmit="sendVision(event)"
->
+                <div class="form-group">
 
-<div class="form-group">
+                    <label for="clientName">
+                        Your Name
+                    </label>
 
-<label for="clientName">
-Your Name
-</label>
+                    <input
+                        type="text"
+                        id="clientName"
+                        placeholder="Your name"
+                        required
+                    >
 
-<input
-type="text"
-id="clientName"
-placeholder="Your name"
-required
->
+                </div>
 
-</div>
+                <div class="form-group">
 
+                    <label for="productType">
+                        What are you imagining?
+                    </label>
 
-<div class="form-group">
+                    <select id="productType" required>
 
-<label for="productType">
-What are you imagining?
-</label>
+                        <option value="">
+                            Select a category
+                        </option>
 
-<select id="productType" required>
+                        <option>Wall Décor</option>
+                        <option>Calligraphy</option>
+                        <option>Custom Logo / Nameplate</option>
+                        <option>Art / Statement Piece</option>
+                        <option>Custom Gift</option>
+                        <option>Other</option>
 
-<option value="">
-Select a category
-</option>
+                    </select>
 
-<option>Wall Décor</option>
-<option>Furniture</option>
-<option>Lighting</option>
-<option>Signage</option>
-<option>Art / Statement Piece</option>
-<option>Custom Gift</option>
-<option>Other</option>
+                </div>
 
-</select>
+                <div class="form-group">
 
-</div>
+                    <label for="material">
+                        Preferred Material
+                    </label>
 
+                    <select id="material">
 
-<div class="form-group">
+                        <option value="Not sure yet">
+                            Not sure yet
+                        </option>
 
-<label for="material">
-Preferred Material
-</label>
+                        <option>Lasani Sheet</option>
+                        <option>Mixed Materials</option>
+                        <option>Let 𝑺𝑶𝑪𝑯 Recommend</option>
 
-<select id="material">
+                    </select>
 
-<option value="">
-Not sure yet
-</option>
+                </div>
 
-<option>Wood</option>
-<option>MDF</option>
-<option>Acrylic</option>
-<option>Metal</option>
-<option>Mixed Materials</option>
-<option>Let 𝑺𝑶𝑪𝑯 Recommend</option>
+                <div class="form-group">
 
-</select>
+                    <label>
+                        Preferred Finish
+                    </label>
 
-</div>
+                    <div
+                        class="finish-select"
+                        id="finishSelect"
+                    >
 
+                        <button
+                            type="button"
+                            class="finish-select-trigger"
+                            id="finishTrigger"
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
+                        >
 
-<div class="form-group">
+                            <span
+                                class="finish-selected"
+                                id="finishSelected"
+                            >
 
-<label for="size">
-Approximate Size
-</label>
+                                <span class="finish-swatch coffee"></span>
 
-<input
-type="text"
-id="size"
-placeholder="e.g. 4ft × 2ft"
->
+                                Coffee
 
-</div>
+                            </span>
 
+                            <span class="finish-arrow"></span>
 
-<div class="form-group">
+                        </button>
 
-<label for="details">
-Tell Us Your Vision
-</label>
+                        <div
+                            class="finish-options"
+                            id="finishOptions"
+                            role="listbox"
+                        >
 
-<textarea
-id="details"
-placeholder="Describe the design, colours, style, purpose, reference, or anything else you have in mind..."
-required
-></textarea>
+                            <button
+                                type="button"
+                                class="finish-option selected"
+                                data-value="Coffee"
+                                role="option"
+                                aria-selected="true"
+                            >
 
-</div>
+                                <span class="finish-swatch coffee"></span>
 
+                                <span>
+                                    Coffee
+                                </span>
 
-<button
-type="submit"
-class="builder-submit"
->
-Send My Vision on WhatsApp →
-</button>
+                            </button>
 
-</form>
+                            <button
+                                type="button"
+                                class="finish-option"
+                                data-value="Dark Brown"
+                                role="option"
+                                aria-selected="false"
+                            >
 
+                                <span class="finish-swatch dark-brown"></span>
 
-<div class="builder-preview">
+                                <span>
+                                    Dark Brown
+                                </span>
 
-<div class="preview-label">
-The 𝑺𝑶𝑪𝑯 Approach
-</div>
+                            </button>
 
-<div class="preview-title">
-You imagine it.<br>
-We shape it.
-</div>
+                            <button
+                                type="button"
+                                class="finish-option"
+                                data-value="Light Brown"
+                                role="option"
+                                aria-selected="false"
+                            >
 
-<div class="preview-text">
-Your idea doesn't need to be perfect.
-Give us the thought behind it and we'll help turn it into something real.
-</div>
+                                <span class="finish-swatch light-brown"></span>
 
-</div>
+                                <span>
+                                    Light Brown
+                                </span>
 
-</div>
-</div>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="finish-option"
+                                data-value="Black"
+                                role="option"
+                                aria-selected="false"
+                            >
+
+                                <span class="finish-swatch black"></span>
+
+                                <span>
+                                    Black
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <input
+                        type="hidden"
+                        id="finish"
+                        value="Coffee"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="size">
+                        Approximate Size
+                    </label>
+
+                    <input
+                        type="text"
+                        id="size"
+                        placeholder="e.g. 4ft × 2ft"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="details">
+                        Tell Us Your Vision
+                    </label>
+
+                    <textarea
+                        id="details"
+                        placeholder="Describe the design, colours, style, purpose, reference, or anything else you have in mind..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="builder-submit"
+                >
+                    Send My Vision on WhatsApp →
+                </button>
+
+            </form>
+
+            <div class="builder-preview">
+
+                <div class="preview-label">
+                    THE 𝑺𝑶𝑪𝑯 APPROACH
+                </div>
+
+                <div class="preview-title">
+                    You imagine it.<br>
+                    We shape it.
+                </div>
+
+                <div class="preview-text">
+                    Your idea doesn't need to be perfect.
+                    Give us the thought behind it and we'll
+                    help turn it into something real.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
-
 
 <section class="process-section" id="process">
 
-<div class="section-label">
-Our Process
-</div>
+    <div class="section-label">
+        OUR PROCESS
+    </div>
 
-<h2>
-From Thought to Form.
-</h2>
+    <h2>
+        From Thought to Form.
+    </h2>
 
-<div class="process">
+    <div class="process">
 
-<div class="process-item">
-<div class="number">01</div>
-<h3>Imagine</h3>
-<p>Your idea begins with a thought.</p>
-</div>
+        <div class="process-item">
 
-<div class="process-item">
-<div class="number">02</div>
-<h3>Design</h3>
-<p>We shape your vision into a purposeful design.</p>
-</div>
+            <div class="number">
+                01
+            </div>
 
-<div class="process-item">
-<div class="number">03</div>
-<h3>Craft</h3>
-<p>Precision craftsmanship brings the design to life.</p>
-</div>
+            <h3>
+                Imagine
+            </h3>
 
-<div class="process-item">
-<div class="number">04</div>
-<h3>Deliver</h3>
-<p>Your finished creation arrives ready for its place.</p>
-</div>
+            <p>
+                Your idea begins with a thought.
+            </p>
 
-</div>
+        </div>
+
+        <div class="process-item">
+
+            <div class="number">
+                02
+            </div>
+
+            <h3>
+                Design
+            </h3>
+
+            <p>
+                We shape your vision into a purposeful design.
+            </p>
+
+        </div>
+
+        <div class="process-item">
+
+            <div class="number">
+                03
+            </div>
+
+            <h3>
+                Craft
+            </h3>
+
+            <p>
+                Precision craftsmanship brings the design to life.
+            </p>
+
+        </div>
+
+        <div class="process-item">
+
+            <div class="number">
+                04
+            </div>
+
+            <h3>
+                Deliver
+            </h3>
+
+            <p>
+                Your finished creation arrives ready for its place.
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
-
 
 <section class="section story" id="story">
 
-<div class="story-content">
+    <div class="story-content">
 
-<div class="section-label">
-The 𝑺𝑶𝑪𝑯 Philosophy
-</div>
+        <div class="section-label">
+            THE 𝑺𝑶𝑪𝑯 PHILOSOPHY
+        </div>
 
-<h2>
-Every creation begins with a thought.
-</h2>
+        <h2>
+            Every creation begins with a thought.
+        </h2>
 
-<p>
-سوچ means thought — the place where every vision begins.
-</p>
+        <p>
+            سوچ means thought.
+            The place where every vision begins.
+        </p>
 
-<p>
-We believe the most meaningful pieces aren't simply bought.
-They're imagined, designed and brought into existence.
-</p>
+        <p>
+            We believe the most meaningful pieces
+            aren't simply bought.
 
-<p>
-That's what 𝑺𝑶𝑪𝑯 exists to do.
-</p>
+            They're imagined, designed and brought
+            into existence.
+        </p>
 
-</div>
+        <p>
+            That's what 𝑺𝑶𝑪𝑯 exists to do.
+        </p>
+
+    </div>
+
 </section>
-
 
 <section class="section contact" id="contact">
 
-<div class="contact-inner">
+    <div class="contact-inner">
 
-<div class="section-label">
-LET'S CREATE
-</div>
+        <div class="section-label">
+            LET'S CREATE
+        </div>
 
-<h2>
-Have a Vision?
-</h2>
+        <h2>
+            Have a Vision?
+        </h2>
 
-<p class="section-intro">
-Have a question, a custom idea,
-or simply want to talk about something you're imagining?
-We're one message away.
-</p>
+        <p class="section-intro">
+            Have a question, a custom idea,
+            or simply want to talk about something
+            you're imagining?
 
-<div class="contact-methods">
+            We're one message away.
+        </p>
 
-<a
-href="https://wa.me/923150674347"
-class="contact-card"
-target="_blank"
-rel="noopener"
->
+        <div class="contact-methods">
 
-<div class="contact-icon">◉</div>
+            <a
+                href="https://wa.me/923150674347"
+                class="contact-card"
+                target="_blank"
+                rel="noopener"
+            >
 
-<strong>WhatsApp</strong>
+                <div class="contact-icon">
+                    ◉
+                </div>
 
-<span>
-Start a conversation
-</span>
+                <strong>
+                    WhatsApp
+                </strong>
 
-</a>
+                <span>
+                    Start a conversation
+                </span>
 
+            </a>
 
-<a
-href="tel:+923150674347"
-class="contact-card"
->
+            <a
+                href="tel:+923150674347"
+                class="contact-card"
+            >
 
-<div class="contact-icon">☎</div>
+                <div class="contact-icon">
+                    ☎
+                </div>
 
-<strong>Call Us</strong>
+                <strong>
+                    Call Us
+                </strong>
 
-<span>
-+92 315 0674347
-</span>
+                <span>
+                    +92 315 0674347
+                </span>
 
-</a>
+            </a>
 
+            <a
+                href="https://www.instagram.com/soch.pk/"
+                class="contact-card"
+                target="_blank"
+                rel="noopener"
+            >
 
-<a
-href="https://www.instagram.com/soch.pk/"
-class="contact-card"
-target="_blank"
-rel="noopener"
->
+                <div class="contact-icon">
+                    ◎
+                </div>
 
-<div class="contact-icon">◎</div>
+                <strong>
+                    Instagram
+                </strong>
 
-<strong>Instagram</strong>
+                <span>
+                    @soch.pk
+                </span>
 
-<span>
-@soch.pk
-</span>
+            </a>
 
-</a>
+        </div>
 
-</div>
-</div>
+    </div>
+
 </section>
-
 
 <footer>
 
-<div class="footer-brand">
+    <div class="footer-brand">
 
-<span class="english">
-𝑺𝑶𝑪𝑯
-</span>
+        <span class="english">
+            𝑺𝑶𝑪𝑯
+        </span>
 
-<span class="urdu">
-سوچ
-</span>
+        <span class="urdu">
+            سوچ
+        </span>
 
-</div>
+    </div>
 
-<p>
-You Bring the Vision. We Bring It to Life.
-</p>
+    <p>
+        You Bring the Vision. We Bring It to Life.
+    </p>
 
-<div class="footer-social">
+    <div class="footer-social">
 
-<a
-href="https://www.instagram.com/soch.pk/"
-target="_blank"
-rel="noopener"
->
-Instagram · @soch.pk
-</a>
+        <a
+            href="https://www.instagram.com/soch.pk/"
+            target="_blank"
+            rel="noopener"
+        >
+            Instagram · @soch.pk
+        </a>
 
-</div>
+    </div>
 
-<p style="margin-top:20px;">
-© 2026 𝑺𝑶𝑪𝑯 - سوچ. All Rights Reserved.
-</p>
+    <p style="margin-top:20px;">
+        © 2026 𝑺𝑶𝑪𝑯 - سوچ. All Rights Reserved.
+    </p>
 
 </footer>
 
-
-<!-- =====================================================
-     PRODUCT DETAIL MODAL
-     ===================================================== -->
-
-<div
-class="product-modal"
-id="productModal"
-onclick="closeProduct(event)"
->
-
-<div
-class="product-modal-inner"
-onclick="event.stopPropagation()"
->
-
-<button
-class="modal-close"
-onclick="closeProduct()"
-aria-label="Close product"
->
-×
-</button>
-
-
-<div
-class="product-modal-image"
-id="modalProductImage"
->
-</div>
-
-
-<div class="product-modal-content">
-
-<div
-class="modal-label"
-id="modalLabel"
->
-SOCH ORIGINAL
-</div>
-
-<h2 id="modalTitle">
-The Contour Piece
-</h2>
-
-<p
-class="modal-description"
-id="modalDescription"
->
-</p>
-
-
-<div class="modal-specs">
-
-<div class="modal-spec">
-<span>Category</span>
-<span id="modalCategory">
-Wall Décor
-</span>
-</div>
-
-<div class="modal-spec">
-<span>Material</span>
-<span id="modalMaterial">
-Crafted to specification
-</span>
-</div>
-
-<div class="modal-spec">
-<span>Availability</span>
-<span>
-Made to order
-</span>
-</div>
-
-</div>
-
-
-<div
-class="modal-price"
-id="modalPrice"
->
-Price on Request
-</div>
-
-
-<a
-href="#"
-class="modal-order"
-id="modalOrder"
-target="_blank"
-rel="noopener"
->
-Order This Piece →
-</a>
-
-
-<a
-href="#vision"
-class="modal-custom"
-onclick="closeProduct()"
->
-Want a different size or finish?
-Request Customisation →
-</a>
-
-</div>
-</div>
-</div>
-
-
 <script>
 
-const products = {
+/* =========================================================
+   HEADER SCROLL
+   ========================================================= */
 
-product1:{
-title:"The Contour Piece",
-label:"01 · SOCH ORIGINAL",
-category:"Sculptural Wall Décor",
-material:"Crafted to specification",
-price:"Price on Request",
-image:"FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
-description:"A sculptural statement piece designed to bring depth, movement and character into a space. The composition plays with form and shadow, creating a piece that feels equally at home in a refined interior or as the focal point of a carefully curated wall."
-},
+const header =
+    document.getElementById("header");
 
-product2:{
-title:"The Form Study",
-label:"02 · SOCH ORIGINAL",
-category:"Contemporary Statement Décor",
-material:"Crafted to specification",
-price:"Price on Request",
-image:"EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
-description:"A contemporary study in shape, proportion and texture. Designed to stand apart without overpowering its surroundings, this piece brings an architectural quality to the interior while retaining the unmistakable character of handmade craftsmanship."
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 35) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+
+});
+
+/* =========================================================
+   PRODUCT DATA
+   ========================================================= */
+
+const products = [
+
+    {
+        volume: "VOLUME I",
+        title: "Al-Bayan",
+        subtitle: "The Expression Piece",
+        price: "PKR 19,999",
+        material: "Wood / Lasani",
+        category: "Statement Wall Art",
+
+        gallery: [
+            {
+                image:
+                    "FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png",
+                label: "HERO"
+            }
+        ],
+
+        description:
+            "A distinctive statement piece crafted to give the wall presence, depth and character. Al-Bayan brings together artistic form and refined craftsmanship in a piece designed to become a focal point within its surroundings."
+    },
+
+    {
+        volume: "VOLUME II",
+        title: "Noor-e-Sukhan",
+        subtitle: "The Words of Light",
+        price: "PKR 14,999",
+        material: "Wood / Lasani",
+        category: "Calligraphic Wall Art",
+
+        gallery: [
+            {
+                image:
+                    "EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png",
+                label: "HERO"
+            }
+        ],
+
+        description:
+            "A refined calligraphic statement created to bring meaning and elegance into the space. Noor-e-Sukhan combines expressive lettering with a timeless decorative presence."
+    },
+
+    {
+        volume: "VOLUME III",
+        title: "Khatt-e-Wafa",
+        subtitle: "The Calligraphy Statement",
+        price: "PKR 16,999",
+        material: "Wood / Lasani",
+        category: "Arabic Calligraphy",
+
+        gallery: [
+            {
+                image:
+                    "61F3AE47-AC22-4892-BF90-85C53564A037.png",
+                label: "HERO"
+            }
+        ],
+
+        description:
+            "An expressive statement in contemporary Arabic calligraphy, crafted to bring depth, character and timeless elegance to the wall. Khatt-e-Wafa is designed to command attention without overwhelming the space."
+    },
+
+    {
+        volume: "VOLUME IV",
+        title: "Asil",
+        subtitle: "The Equestrian Relief",
+        price: "PKR 24,999",
+        material: "Wood",
+        category: "Carved Wood Relief",
+
+        gallery: [
+            {
+                image:
+                    "E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png",
+                label: "HERO"
+            },
+            {
+                image:
+                    "FB67EC95-FF4F-4620-BDC7-A446E6B111AD.png",
+                label: "LIFESTYLE"
+            },
+            {
+                image:
+                    "942F0F5F-B609-416E-A023-EF857A585212.jpeg",
+                label: "CLOSE-UP"
+            },
+            {
+                image:
+                    "7399600E-FC24-4F33-9FA2-EF599D650820.png",
+                label: "DETAIL"
+            },
+            {
+                image:
+                    "2A395300-1543-40AF-B936-3566FFE43616.png",
+                label: "FINISHING"
+            }
+        ],
+
+        description:
+            "A richly detailed equestrian relief celebrating the strength and beauty of the horse. Asil combines sculptural carving, flowing ornamental detail and warm wood character into a commanding statement piece."
+    }
+
+];
+
+let currentProduct = null;
+let currentGalleryIndex = 0;
+
+/* =========================================================
+   PAGE SCROLL LOCK
+   ========================================================= */
+
+let savedScrollY = 0;
+
+function lockPageScroll() {
+
+    savedScrollY = window.scrollY;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${savedScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+
+    document.body.classList.add("modal-open");
+
 }
 
-};
+function unlockPageScroll() {
 
+    document.body.classList.remove("modal-open");
 
-/* =====================================================
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+
+    window.scrollTo(0, savedScrollY);
+
+}
+
+/* =========================================================
    PRODUCT MODAL
-   ===================================================== */
+   ========================================================= */
 
-let savedScrollPosition = 0;
+function openProduct(index) {
 
+    const product = products[index];
 
-function openProduct(productId){
+    currentProduct = product;
+    currentGalleryIndex = 0;
 
-    const product = products[productId];
+    resetZoomSilently();
 
-    if(!product) return;
-
-
-    document.getElementById("modalProductImage").style.backgroundImage =
-        "url('" + product.image + "')";
-
+    document.getElementById("modalVolume").textContent =
+        product.volume;
 
     document.getElementById("modalTitle").textContent =
         product.title;
 
-
-    document.getElementById("modalLabel").textContent =
-        product.label;
-
+    document.getElementById("modalSubtitle").textContent =
+        product.subtitle;
 
     document.getElementById("modalDescription").textContent =
         product.description;
 
+    document.getElementById("modalMaterial").textContent =
+        product.material;
 
     document.getElementById("modalCategory").textContent =
         product.category;
 
-
-    document.getElementById("modalMaterial").textContent =
-        product.material;
-
-
     document.getElementById("modalPrice").textContent =
         product.price;
 
+    const galleryContainer =
+        document.getElementById("modalImageContainer");
+
+    galleryContainer.style.setProperty(
+        "--modal-image",
+        `url('${product.gallery[0].image}')`
+    );
+
+    buildGallery();
+
+    document
+        .getElementById("productModal")
+        .classList
+        .add("active");
+
+    lockPageScroll();
+
+}
+
+/* =========================================================
+   BUILD GALLERY
+   ========================================================= */
+
+function buildGallery() {
+
+    if (!currentProduct) return;
+
+    const track =
+        document.getElementById("galleryTrack");
+
+    const dots =
+        document.getElementById("galleryDots");
+
+    track.innerHTML = "";
+    dots.innerHTML = "";
+
+    currentProduct.gallery.forEach(
+        (item, index) => {
+
+            const slide =
+                document.createElement("div");
+
+            slide.className =
+                "gallery-slide";
+
+            const image =
+                document.createElement("img");
+
+            image.src =
+                item.image;
+
+            image.alt =
+                `${currentProduct.title} — ${item.label}`;
+
+            image.draggable = false;
+
+            image.loading =
+                index === 0 ? "eager" : "lazy";
+
+            image.addEventListener(
+                "dblclick",
+                function(event) {
+
+                    event.preventDefault();
+
+                    if (imageZoom > 1) {
+                        resetZoom();
+                    } else {
+                        zoomAtPoint(
+                            2.5,
+                            event.clientX,
+                            event.clientY
+                        );
+                    }
+
+                }
+            );
+
+            slide.appendChild(image);
+            track.appendChild(slide);
+
+            const dot =
+                document.createElement("button");
+
+            dot.type = "button";
+
+            dot.className =
+                "gallery-dot" +
+                (index === 0 ? " active" : "");
+
+            dot.setAttribute(
+                "aria-label",
+                `View ${item.label}`
+            );
+
+            dot.onclick = function(event) {
+
+                event.stopPropagation();
+
+                goToGallerySlide(index);
+
+            };
+
+            dots.appendChild(dot);
+
+        }
+    );
+
+    updateGallery();
+
+}
+
+/* =========================================================
+   UPDATE GALLERY
+   ========================================================= */
+
+function updateGallery() {
+
+    if (!currentProduct) return;
+
+    const track =
+        document.getElementById("galleryTrack");
+
+    const label =
+        document.getElementById("galleryLabel");
+
+    const counter =
+        document.getElementById("galleryCounter");
+
+    const prev =
+        document.getElementById("galleryPrev");
+
+    const next =
+        document.getElementById("galleryNext");
+
+    const dots =
+        document.querySelectorAll(".gallery-dot");
+
+    track.style.transform =
+        `translateX(-${currentGalleryIndex * 100}%)`;
+
+    const current =
+        currentProduct.gallery[currentGalleryIndex];
+
+    label.textContent =
+        current.label;
+
+    counter.textContent =
+        `${String(currentGalleryIndex + 1).padStart(2, "0")} / ${String(currentProduct.gallery.length).padStart(2, "0")}`;
+
+    dots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === currentGalleryIndex
+        );
+
+    });
+
+    if (currentGalleryIndex === 0) {
+        prev.classList.add("hidden");
+    } else {
+        prev.classList.remove("hidden");
+    }
+
+    if (
+        currentGalleryIndex ===
+        currentProduct.gallery.length - 1
+    ) {
+        next.classList.add("hidden");
+    } else {
+        next.classList.remove("hidden");
+    }
+
+    updateZoomDisplay();
+    updateZoomButtons();
+
+}
+
+/* =========================================================
+   GALLERY SLIDE
+   ========================================================= */
+
+function goToGallerySlide(index) {
+
+    if (!currentProduct) return;
+
+    if (
+        index < 0 ||
+        index >= currentProduct.gallery.length
+    ) {
+        return;
+    }
+
+    resetZoomSilently();
+
+    currentGalleryIndex = index;
+
+    updateGallery();
+
+    requestAnimationFrame(() => {
+        applyImageTransform(false);
+    });
+
+}
+
+function galleryNext(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    if (!currentProduct) return;
+
+    goToGallerySlide(
+        currentGalleryIndex + 1
+    );
+
+}
+
+function galleryPrevious(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    if (!currentProduct) return;
+
+    goToGallerySlide(
+        currentGalleryIndex - 1
+    );
+
+}
+
+/* =========================================================
+   PRODUCT IMAGE ZOOM
+   ========================================================= */
+
+const galleryViewport =
+    document.getElementById("galleryViewport");
+
+let imageZoom = 1;
+
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 4;
+const ZOOM_STEP = 0.5;
+
+let panX = 0;
+let panY = 0;
+
+let isDragging = false;
+
+let dragStartX = 0;
+let dragStartY = 0;
+
+let dragOriginX = 0;
+let dragOriginY = 0;
+
+let lastTapTime = 0;
+
+let pinchStartDistance = 0;
+let pinchStartZoom = 1;
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+let touchLastX = 0;
+let touchLastY = 0;
+
+let touchMoved = false;
+
+function getCurrentGalleryImage() {
+
+    return document.querySelector(
+        `.gallery-slide:nth-child(${currentGalleryIndex + 1}) img`
+    );
+
+}
+
+function getCurrentGallerySlide() {
+
+    return document.querySelector(
+        `.gallery-slide:nth-child(${currentGalleryIndex + 1})`
+    );
+
+}
+
+function updateZoomDisplay() {
+}
+
+function updateZoomButtons() {
+}
+
+function getPanLimits() {
+
+    const viewport =
+        galleryViewport.getBoundingClientRect();
+
+    const image =
+        getCurrentGalleryImage();
+
+    if (!image) {
+
+        return {
+            x: 0,
+            y: 0
+        };
+
+    }
+
+    const maxX =
+        Math.max(
+            0,
+            (viewport.width * (imageZoom - 1)) / 2
+        );
+
+    const maxY =
+        Math.max(
+            0,
+            (viewport.height * (imageZoom - 1)) / 2
+        );
+
+    return {
+        x: maxX,
+        y: maxY
+    };
+
+}
+
+function clampPan() {
+
+    const limits =
+        getPanLimits();
+
+    panX =
+        Math.max(
+            -limits.x,
+            Math.min(limits.x, panX)
+        );
+
+    panY =
+        Math.max(
+            -limits.y,
+            Math.min(limits.y, panY)
+        );
+
+}
+
+function applyImageTransform(
+    animate = true
+) {
+
+    const image =
+        getCurrentGalleryImage();
+
+    const slide =
+        getCurrentGallerySlide();
+
+    if (!image || !slide) return;
+
+    clampPan();
+
+    image.style.transition =
+        animate
+            ? "transform .35s cubic-bezier(.22,.61,.36,1)"
+            : "none";
+
+    image.style.transform =
+        `translate(${panX}px, ${panY}px) scale(${imageZoom})`;
+
+    slide.classList.toggle(
+        "zoomed",
+        imageZoom > 1
+    );
+
+}
+
+function resetZoom(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    imageZoom = 1;
+
+    panX = 0;
+    panY = 0;
+
+    applyImageTransform(true);
+
+}
+
+function resetZoomSilently() {
+
+    imageZoom = 1;
+
+    panX = 0;
+    panY = 0;
+
+}
+
+function zoomIn(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    const newZoom =
+        Math.min(
+            MAX_ZOOM,
+            imageZoom + ZOOM_STEP
+        );
+
+    if (newZoom === imageZoom) {
+        return;
+    }
+
+    imageZoom = newZoom;
+
+    applyImageTransform(true);
+
+}
+
+function zoomOut(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    const newZoom =
+        Math.max(
+            MIN_ZOOM,
+            imageZoom - ZOOM_STEP
+        );
+
+    imageZoom = newZoom;
+
+    if (imageZoom === 1) {
+
+        panX = 0;
+        panY = 0;
+
+    }
+
+    applyImageTransform(true);
+
+}
+
+function zoomAtPoint(
+    newZoom,
+    clientX,
+    clientY
+) {
+
+    const image =
+        getCurrentGalleryImage();
+
+    if (!image) return;
+
+    const rect =
+        image.getBoundingClientRect();
+
+    const oldZoom =
+        imageZoom;
+
+    const localX =
+        clientX -
+        (rect.left + rect.width / 2);
+
+    const localY =
+        clientY -
+        (rect.top + rect.height / 2);
+
+    imageZoom =
+        Math.max(
+            MIN_ZOOM,
+            Math.min(MAX_ZOOM, newZoom)
+        );
+
+    const ratio =
+        imageZoom / oldZoom;
+
+    panX -=
+        localX * (ratio - 1);
+
+    panY -=
+        localY * (ratio - 1);
+
+    if (imageZoom === 1) {
+
+        panX = 0;
+        panY = 0;
+
+    }
+
+    applyImageTransform(true);
+
+}
+
+/* =========================================================
+   MOUSE WHEEL ZOOM
+   ========================================================= */
+
+galleryViewport.addEventListener(
+    "wheel",
+    function(event) {
+
+        if (
+            !document
+                .getElementById("productModal")
+                .classList
+                .contains("active")
+        ) {
+            return;
+        }
+
+        if (imageZoom <= 1) {
+            return;
+        }
+
+        event.preventDefault();
+
+        const direction =
+            event.deltaY < 0
+                ? ZOOM_STEP
+                : -ZOOM_STEP;
+
+        zoomAtPoint(
+            imageZoom + direction,
+            event.clientX,
+            event.clientY
+        );
+
+    },
+    {
+        passive: false
+    }
+);
+
+/* =========================================================
+   DESKTOP DRAG / PAN
+   ========================================================= */
+
+galleryViewport.addEventListener(
+    "mousedown",
+    function(event) {
+
+        if (imageZoom <= 1) {
+            return;
+        }
+
+        if (event.button !== 0) {
+            return;
+        }
+
+        const image =
+            getCurrentGalleryImage();
+
+        if (!image) return;
+
+        isDragging = true;
+
+        dragStartX =
+            event.clientX;
+
+        dragStartY =
+            event.clientY;
+
+        dragOriginX =
+            panX;
+
+        dragOriginY =
+            panY;
+
+        const slide =
+            getCurrentGallerySlide();
+
+        if (slide) {
+            slide.classList.add("dragging");
+        }
+
+        event.preventDefault();
+
+    }
+);
+
+window.addEventListener(
+    "mousemove",
+    function(event) {
+
+        if (!isDragging) {
+            return;
+        }
+
+        panX =
+            dragOriginX +
+            (event.clientX - dragStartX);
+
+        panY =
+            dragOriginY +
+            (event.clientY - dragStartY);
+
+        applyImageTransform(false);
+
+    }
+);
+
+window.addEventListener(
+    "mouseup",
+    function() {
+
+        if (!isDragging) {
+            return;
+        }
+
+        isDragging = false;
+
+        const slide =
+            getCurrentGallerySlide();
+
+        if (slide) {
+            slide.classList.remove("dragging");
+        }
+
+    }
+);
+
+/* =========================================================
+   MOBILE TOUCH / PINCH / SWIPE
+   ========================================================= */
+
+galleryViewport.addEventListener(
+    "touchstart",
+    function(event) {
+
+        if (event.touches.length === 2) {
+
+            const first =
+                event.touches[0];
+
+            const second =
+                event.touches[1];
+
+            pinchStartDistance =
+                Math.hypot(
+                    second.clientX - first.clientX,
+                    second.clientY - first.clientY
+                );
+
+            pinchStartZoom =
+                imageZoom;
+
+            return;
+
+        }
+
+        if (event.touches.length !== 1) {
+            return;
+        }
+
+        const touch =
+            event.touches[0];
+
+        touchStartX =
+            touch.clientX;
+
+        touchStartY =
+            touch.clientY;
+
+        touchLastX =
+            touch.clientX;
+
+        touchLastY =
+            touch.clientY;
+
+        touchMoved = false;
+
+    },
+    {
+        passive: true
+    }
+);
+
+galleryViewport.addEventListener(
+    "touchmove",
+    function(event) {
+
+        if (event.touches.length === 2) {
+
+            const first =
+                event.touches[0];
+
+            const second =
+                event.touches[1];
+
+            const distance =
+                Math.hypot(
+                    second.clientX - first.clientX,
+                    second.clientY - first.clientY
+                );
+
+            if (pinchStartDistance > 0) {
+
+                const scale =
+                    distance /
+                    pinchStartDistance;
+
+                imageZoom =
+                    Math.max(
+                        MIN_ZOOM,
+                        Math.min(
+                            MAX_ZOOM,
+                            pinchStartZoom * scale
+                        )
+                    );
+
+                if (imageZoom === 1) {
+
+                    panX = 0;
+                    panY = 0;
+
+                }
+
+                applyImageTransform(false);
+
+                event.preventDefault();
+
+            }
+
+            return;
+
+        }
+
+        if (event.touches.length !== 1) {
+            return;
+        }
+
+        const touch =
+            event.touches[0];
+
+        const deltaX =
+            touch.clientX -
+            touchLastX;
+
+        const deltaY =
+            touch.clientY -
+            touchLastY;
+
+        const totalX =
+            touch.clientX -
+            touchStartX;
+
+        const totalY =
+            touch.clientY -
+            touchStartY;
+
+        if (
+            Math.abs(totalX) > 8 ||
+            Math.abs(totalY) > 8
+        ) {
+
+            touchMoved = true;
+
+        }
+
+        if (imageZoom > 1) {
+
+            panX += deltaX;
+            panY += deltaY;
+
+            applyImageTransform(false);
+
+            event.preventDefault();
+
+        }
+
+        touchLastX =
+            touch.clientX;
+
+        touchLastY =
+            touch.clientY;
+
+    },
+    {
+        passive: false
+    }
+);
+
+galleryViewport.addEventListener(
+    "touchend",
+    function(event) {
+
+        if (event.touches.length > 0) {
+            return;
+        }
+
+        pinchStartDistance = 0;
+
+        const touch =
+            event.changedTouches[0];
+
+        const endX =
+            touch.clientX;
+
+        const endY =
+            touch.clientY;
+
+        const distanceX =
+            endX - touchStartX;
+
+        const distanceY =
+            endY - touchStartY;
+
+        const now =
+            Date.now();
+
+        if (
+            !touchMoved &&
+            now - lastTapTime < 320
+        ) {
+
+            if (imageZoom > 1) {
+
+                resetZoom();
+
+            } else {
+
+                zoomAtPoint(
+                    2.5,
+                    endX,
+                    endY
+                );
+
+            }
+
+            lastTapTime = 0;
+
+            return;
+
+        }
+
+        lastTapTime = now;
+
+        if (imageZoom > 1) {
+            return;
+        }
+
+        if (
+            Math.abs(distanceX) >= 45 &&
+            Math.abs(distanceX) >
+            Math.abs(distanceY)
+        ) {
+
+            if (distanceX < 0) {
+                galleryNext();
+            } else {
+                galleryPrevious();
+            }
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+galleryViewport.addEventListener(
+    "dragstart",
+    function(event) {
+        event.preventDefault();
+    }
+);
+
+/* =========================================================
+   CLOSE PRODUCT
+   ========================================================= */
+
+function closeProduct() {
+
+    document
+        .getElementById("productModal")
+        .classList
+        .remove("active");
+
+    unlockPageScroll();
+
+    currentProduct = null;
+    currentGalleryIndex = 0;
+
+    resetZoomSilently();
+
+}
+
+function closeProductOutside(event) {
+
+    if (
+        event.target ===
+        document.getElementById("productModal")
+    ) {
+
+        closeProduct();
+
+    }
+
+}
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const modal =
+            document.getElementById("productModal");
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("active")
+        ) {
+
+            closeProduct();
+
+        }
+
+        if (
+            event.key === "ArrowRight" &&
+            modal.classList.contains("active")
+        ) {
+
+            galleryNext();
+
+        }
+
+        if (
+            event.key === "ArrowLeft" &&
+            modal.classList.contains("active")
+        ) {
+
+            galleryPrevious();
+
+        }
+
+    }
+);
+
+/* =========================================================
+   PRODUCT TO WHATSAPP
+   ========================================================= */
+
+function orderProduct() {
+
+    if (!currentProduct) return;
 
     const message =
 `Hello 𝑺𝑶𝑪𝑯 - سوچ,
 
-I'd like to order:
+I'd like to order a piece from your collection.
 
-Product: ${product.title}
+Product:
+${currentProduct.title}
 
-Please share the availability, pricing and ordering details.
+Volume:
+${currentProduct.volume}
+
+Material:
+${currentProduct.material}
+
+Category:
+${currentProduct.category}
+
+Price:
+${currentProduct.price}
+
+I'd like to confirm availability and discuss the order.
 
 Thank you.`;
 
-
-    document.getElementById("modalOrder").href =
+    const url =
         "https://wa.me/923150674347?text=" +
         encodeURIComponent(message);
 
-
-    /*
-       SAVE THE EXACT HOMEPAGE POSITION
-       BEFORE LOCKING THE BODY.
-    */
-
-    savedScrollPosition =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        0;
-
-
-    /*
-       iPhone / iPad SAFE SCROLL LOCK.
-       The homepage becomes fixed behind the modal.
-    */
-
-    document.body.style.top =
-        "-" + savedScrollPosition + "px";
-
-
-    document.body.classList.add("modal-open");
-
-
-    document.getElementById("productModal")
-        .classList.add("active");
-
-
-    /*
-       Make sure the detail content starts at the top.
-    */
-
-    const content =
-        document.querySelector(".product-modal-content");
-
-    if(content){
-        content.scrollTop = 0;
-    }
-
-}
-
-
-/* =====================================================
-   CLOSE PRODUCT
-   ===================================================== */
-
-function closeProduct(event){
-
-    /*
-       If the user taps the dark background,
-       close the modal.
-    */
-
-    if(
-        event &&
-        event.target !== document.getElementById("productModal")
-    ){
-        return;
-    }
-
-
-    document.getElementById("productModal")
-        .classList.remove("active");
-
-
-    /*
-       Remove fixed-body lock.
-    */
-
-    document.body.classList.remove("modal-open");
-
-
-    document.body.style.top = "";
-
-
-    /*
-       Return homepage to EXACT previous position.
-    */
-
-    window.scrollTo(
-        0,
-        savedScrollPosition
+    window.open(
+        url,
+        "_blank"
     );
+
 }
 
+/* =========================================================
+   FINISH SELECT
+   ========================================================= */
 
-/* =====================================================
-   ESCAPE KEY
-   ===================================================== */
+const finishSelect =
+    document.getElementById("finishSelect");
+
+const finishTrigger =
+    document.getElementById("finishTrigger");
+
+const finishSelected =
+    document.getElementById("finishSelected");
+
+const finishHiddenInput =
+    document.getElementById("finish");
+
+const finishOptions =
+    document.querySelectorAll(".finish-option");
+
+finishTrigger.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        const isOpen =
+            finishSelect.classList.contains("open");
+
+        if (isOpen) {
+            closeFinishSelect();
+        } else {
+            openFinishSelect();
+        }
+
+    }
+);
+
+function openFinishSelect() {
+
+    finishSelect.classList.add("open");
+
+    finishTrigger.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+}
+
+function closeFinishSelect() {
+
+    finishSelect.classList.remove("open");
+
+    finishTrigger.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+}
+
+finishOptions.forEach(option => {
+
+    option.addEventListener(
+        "click",
+        function() {
+
+            const value =
+                this.dataset.value;
+
+            const swatch =
+                this.querySelector(
+                    ".finish-swatch"
+                );
+
+            finishSelected.innerHTML = "";
+
+            const selectedSwatch =
+                document.createElement("span");
+
+            selectedSwatch.className =
+                swatch.className;
+
+            const selectedText =
+                document.createElement("span");
+
+            selectedText.textContent =
+                value;
+
+            finishSelected.appendChild(
+                selectedSwatch
+            );
+
+            finishSelected.appendChild(
+                selectedText
+            );
+
+            finishHiddenInput.value =
+                value;
+
+            finishOptions.forEach(item => {
+
+                item.classList.remove(
+                    "selected"
+                );
+
+                item.setAttribute(
+                    "aria-selected",
+                    "false"
+                );
+
+            });
+
+            this.classList.add(
+                "selected"
+            );
+
+            this.setAttribute(
+                "aria-selected",
+                "true"
+            );
+
+            closeFinishSelect();
+
+        }
+    );
+
+});
 
 document.addEventListener(
-    "keydown",
-    function(event){
+    "click",
+    function(event) {
 
-        if(event.key === "Escape"){
-
-            const modal =
-                document.getElementById("productModal");
-
-            if(modal.classList.contains("active")){
-
-                modal.classList.remove("active");
-
-                document.body.classList.remove("modal-open");
-
-                document.body.style.top = "";
-
-                window.scrollTo(
-                    0,
-                    savedScrollPosition
-                );
-            }
+        if (!finishSelect.contains(event.target)) {
+            closeFinishSelect();
         }
-    }
-);
-
-
-/* =====================================================
-   KEYBOARD ACCESSIBILITY
-   ===================================================== */
-
-document.querySelectorAll(".product").forEach(
-    function(product){
-
-        product.addEventListener(
-            "keydown",
-            function(event){
-
-                if(
-                    event.key === "Enter" ||
-                    event.key === " "
-                ){
-
-                    event.preventDefault();
-
-                    product.click();
-                }
-            }
-        );
 
     }
 );
 
+/* =========================================================
+   CUSTOM VISION TO WHATSAPP
+   ========================================================= */
 
-/* =====================================================
-   VISION FORM
-   ===================================================== */
-
-function sendVision(event){
+function sendVision(event) {
 
     event.preventDefault();
 
-
     const name =
-        document.getElementById("clientName")
-        .value
-        .trim();
-
+        document
+            .getElementById("clientName")
+            .value
+            .trim();
 
     const product =
-        document.getElementById("productType")
-        .value;
-
+        document
+            .getElementById("productType")
+            .value;
 
     const material =
-        document.getElementById("material")
-        .value ||
+        document
+            .getElementById("material")
+            .value ||
         "Not specified";
 
+    const finish =
+        document
+            .getElementById("finish")
+            .value ||
+        "Not specified";
 
     const size =
-        document.getElementById("size")
-        .value
-        .trim() ||
+        document
+            .getElementById("size")
+            .value
+            .trim() ||
         "Not specified";
 
-
     const details =
-        document.getElementById("details")
-        .value
-        .trim();
-
+        document
+            .getElementById("details")
+            .value
+            .trim();
 
     const message =
 `Hello 𝑺𝑶𝑪𝑯 - سوچ,
 
 I'd like to create something custom.
 
-Name: ${name}
+Name:
+${name}
 
 What I'm imagining:
 ${product}
 
 Preferred Material:
 ${material}
+
+Preferred Finish:
+${finish}
 
 Approximate Size:
 ${size}
@@ -2182,13 +4504,45 @@ I'd like to discuss the design and possibilities.
 
 Thank you.`;
 
+    const url =
+        "https://wa.me/923150674347?text=" +
+        encodeURIComponent(message);
 
     window.open(
-        "https://wa.me/923150674347?text=" +
-        encodeURIComponent(message),
+        url,
         "_blank"
     );
+
 }
+
+/* =========================================================
+   MOBILE NAV
+   ========================================================= */
+
+document
+    .querySelectorAll("header a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    window.innerWidth <= 550 &&
+                    link.getAttribute("href") === "#home"
+                ) {
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    });
 
 </script>
 
