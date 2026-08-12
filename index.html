@@ -8,25 +8,20 @@
 
 <title>𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.</title>
 
-<meta
-name="description"
-content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring it to life."
->
+<meta name="description"
+content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring it to life.">
 
-<!-- Open Graph / social share preview -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="𝑺𝑶𝑪𝑯 - سوچ">
 <meta property="og:title" content="𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.">
 <meta property="og:description" content="Premium décor and custom craftsmanship. Distinctive pieces, crafted with intention — from our collection or made exclusively around your vision.">
 <meta property="og:image" content="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png">
 
-<!-- Twitter card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.">
 <meta name="twitter:description" content="Premium décor and custom craftsmanship. Distinctive pieces, crafted with intention — from our collection or made exclusively around your vision.">
 <meta name="twitter:image" content="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="D14F44D6-93B4-4E04-8871-E823876743A8.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +31,6 @@ content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring 
 href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap"
 rel="stylesheet">
 
-<!-- Structured data for search engines -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -111,7 +105,6 @@ header {
     align-items: center;
     z-index: 1000;
     border-bottom: 1px solid transparent;
-
     transition:
         background .45s ease,
         border-color .45s ease,
@@ -248,10 +241,6 @@ nav a:hover::after {
     max-width: 1050px;
 }
 
-/* =========================================================
-   SOCH HERO LOGO
-   ========================================================= */
-
 .hero-logo-wrap {
     position: relative;
     z-index: 4;
@@ -271,9 +260,7 @@ nav a:hover::after {
 .hero-logo {
     width: 100%;
     height: 100%;
-
     object-fit: contain;
-
     display: block;
 
     filter:
@@ -464,53 +451,54 @@ nav a:hover::after {
 .products {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 20px;
 }
-
-/* =========================================================
-   PREMIUM PRODUCT PRESENTATION
-   No rigid visible boxes / borders
-   ========================================================= */
 
 .product {
     position: relative;
     min-height: 590px;
     overflow: hidden;
     cursor: pointer;
-
-    background: transparent;
-    border: none;
+    background: #11110f;
+    border: 1px solid rgba(238,234,225,.09);
 
     transition:
-        transform .55s cubic-bezier(.2,.7,.2,1);
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        border-color .45s ease;
 }
 
 .product:hover {
     transform: translateY(-7px);
+    border-color: rgba(185,160,108,.45);
 }
 
 .product-image {
     position: absolute;
     inset: 0;
     overflow: hidden;
-
-    background: #11110f;
+    background: #151512;
 }
 
 .product-image::before {
     content: "";
     position: absolute;
-    inset: -50px;
+    inset: -35px;
 
     background-image: var(--product-image);
     background-position: center;
     background-size: cover;
 
-    filter: blur(42px);
-    transform: scale(1.18);
+    filter: blur(32px);
+    transform: scale(1.12);
 
-    opacity: .38;
+    opacity: .42;
 }
+
+/*
+   FIX:
+   Product photographs now preserve their actual proportions.
+   No product-specific enlargement is applied.
+*/
 
 .product-image img {
     position: absolute;
@@ -524,7 +512,7 @@ nav a:hover::after {
     object-fit: contain;
     object-position: center;
 
-    padding: 0;
+    padding: 22px;
 
     z-index: 1;
 
@@ -534,43 +522,8 @@ nav a:hover::after {
         transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
-/*
-   Product images are intentionally larger than the
-   original treatment. Because object-fit remains contain,
-   future products with different proportions can still
-   retain their natural shape without being cropped.
-*/
-
-.product:nth-child(1) .product-image img {
-    transform: translate(-50%, -50%) scale(1.43);
-}
-
-.product:nth-child(2) .product-image img {
-    transform: translate(-50%, -50%) scale(1.40);
-}
-
-.product:nth-child(3) .product-image img {
-    transform: translate(-50%, -50%) scale(1.42);
-}
-
-.product:nth-child(4) .product-image img {
-    transform: translate(-50%, -50%) scale(1.25);
-}
-
-.product:nth-child(1):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.48);
-}
-
-.product:nth-child(2):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.45);
-}
-
-.product:nth-child(3):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.47);
-}
-
-.product:nth-child(4):hover .product-image img {
-    transform: translate(-50%, -50%) scale(1.30);
+.product:hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.025);
 }
 
 .product-image::after {
@@ -582,9 +535,9 @@ nav a:hover::after {
     background:
         linear-gradient(
             to bottom,
-            rgba(5,5,4,.00) 22%,
-            rgba(5,5,4,.04) 45%,
-            rgba(5,5,4,.88) 100%
+            rgba(5,5,4,.02) 25%,
+            rgba(5,5,4,.10) 46%,
+            rgba(5,5,4,.90) 100%
         );
 }
 
@@ -679,12 +632,12 @@ nav a:hover::after {
 
 .modal-box {
     position: relative;
-    width: min(1120px, 100%);
+    width: min(1040px, 100%);
     max-height: 91vh;
     overflow-y: auto;
 
     display: grid;
-    grid-template-columns: 1.08fr .92fr;
+    grid-template-columns: 1.05fr .95fr;
 
     background: #11110f;
     border: 1px solid rgba(238,234,225,.14);
@@ -721,7 +674,7 @@ nav a:hover::after {
    ========================================================= */
 
 .modal-image {
-    min-height: 650px;
+    min-height: 620px;
     position: relative;
     overflow: hidden;
     background: #151512;
@@ -738,7 +691,7 @@ nav a:hover::after {
     background-size: cover;
     background-position: center;
 
-    filter: blur(34px);
+    filter: blur(32px);
     opacity: .38;
     transform: scale(1.12);
 }
@@ -772,14 +725,14 @@ nav a:hover::after {
     align-items: center;
     justify-content: center;
 
-    padding: 15px 25px 65px;
+    padding: 30px 55px 75px;
 
     touch-action: none;
 }
 
 .gallery-slide img {
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
 
     object-fit: contain;
     object-position: center;
@@ -788,7 +741,7 @@ nav a:hover::after {
     -webkit-user-drag: none;
 
     filter:
-        drop-shadow(0 24px 42px rgba(0,0,0,.32));
+        drop-shadow(0 20px 35px rgba(0,0,0,.28));
 
     cursor: zoom-in;
 
@@ -807,6 +760,88 @@ nav a:hover::after {
 .gallery-slide.dragging img {
     cursor: grabbing;
     transition: none;
+}
+
+.gallery-slide.image-error::after {
+    content: "IMAGE UNAVAILABLE";
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #77736c;
+    font-size: 8px;
+    letter-spacing: 2px;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   ZOOM CONTROLS
+   ========================================================= */
+
+.zoom-controls {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 12;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px;
+
+    background: rgba(5,5,4,.68);
+
+    border: 1px solid rgba(238,234,225,.16);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.zoom-button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(238,234,225,.18);
+
+    background: rgba(238,234,225,.025);
+
+    color: var(--cream);
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 300;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease;
+}
+
+.zoom-button:hover {
+    background: rgba(185,160,108,.12);
+    border-color: rgba(185,160,108,.65);
+    color: var(--gold);
+}
+
+.zoom-level {
+    min-width: 43px;
+    text-align: center;
+    color: #aaa398;
+    font-size: 8px;
+    letter-spacing: 1px;
 }
 
 /* =========================================================
@@ -1802,12 +1837,7 @@ footer p {
     }
 
     .gallery-slide {
-        padding: 15px 20px 60px;
-    }
-
-    .gallery-slide img {
-        width: 112%;
-        height: 112%;
+        padding: 25px 30px 65px;
     }
 
     .gallery-arrow {
@@ -1939,40 +1969,17 @@ footer p {
         font-size: 34px;
     }
 
-    /* =====================================================
-       LARGER MOBILE COLLECTION IMAGES
-       ===================================================== */
+    /*
+       Mobile collection images also remain at natural proportions.
+       No product-specific scaling is applied.
+    */
 
-    .product:nth-child(1) .product-image img {
-        transform: translate(-50%, -50%) scale(1.32);
+    .product-image img {
+        padding: 18px;
     }
 
-    .product:nth-child(2) .product-image img {
-        transform: translate(-50%, -50%) scale(1.29);
-    }
-
-    .product:nth-child(3) .product-image img {
-        transform: translate(-50%, -50%) scale(1.31);
-    }
-
-    .product:nth-child(4) .product-image img {
-        transform: translate(-50%, -50%) scale(1.16);
-    }
-
-    .product:nth-child(1):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.36);
-    }
-
-    .product:nth-child(2):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.33);
-    }
-
-    .product:nth-child(3):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.35);
-    }
-
-    .product:nth-child(4):hover .product-image img {
-        transform: translate(-50%, -50%) scale(1.20);
+    .product:hover .product-image img {
+        transform: translate(-50%, -50%) scale(1.02);
     }
 
     .bespoke {
@@ -2034,15 +2041,12 @@ footer p {
     }
 
     .gallery-slide {
-        padding: 10px 15px 55px;
+        padding: 20px 25px 58px;
     }
 
     .gallery-slide img {
-        width: 116%;
-        height: 116%;
-
         filter:
-            drop-shadow(0 16px 28px rgba(0,0,0,.30));
+            drop-shadow(0 14px 25px rgba(0,0,0,.28));
     }
 
     .gallery-arrow {
@@ -2068,6 +2072,22 @@ footer p {
 
     .modal-content {
         padding: 35px 23px 40px;
+    }
+
+    .zoom-controls {
+        top: 12px;
+        left: 12px;
+    }
+
+    .zoom-button {
+        width: 31px;
+        height: 31px;
+        font-size: 15px;
+    }
+
+    .zoom-level {
+        min-width: 39px;
+        font-size: 7px;
     }
 
 }
@@ -2098,21 +2118,13 @@ footer p {
 
 <body>
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
-
 <header id="header">
 
     <nav class="nav-left">
 
-        <a href="#shop">
-            Shop
-        </a>
+        <a href="#shop">Shop</a>
 
-        <a href="#bespoke">
-            Custom
-        </a>
+        <a href="#bespoke">Custom</a>
 
     </nav>
 
@@ -2130,26 +2142,15 @@ footer p {
 
     <nav class="nav-right">
 
-        <a href="#vision">
-            Your Vision
-        </a>
+        <a href="#vision">Your Vision</a>
 
-        <a href="#contact">
-            Contact
-        </a>
+        <a href="#contact">Contact</a>
 
     </nav>
 
 </header>
 
-<!-- =========================================================
-     HERO
-     ========================================================= -->
-
-<section
-    class="hero"
-    id="home"
->
+<section class="hero" id="home">
 
     <div class="hero-content">
 
@@ -2192,17 +2193,11 @@ footer p {
 
         <div class="buttons">
 
-            <a
-                href="#shop"
-                class="button primary"
-            >
+            <a href="#shop" class="button primary">
                 Explore Collection
             </a>
 
-            <a
-                href="#vision"
-                class="button"
-            >
+            <a href="#vision" class="button">
                 Create Your Vision
             </a>
 
@@ -2212,14 +2207,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     COLLECTION
-     ========================================================= -->
-
-<section
-    class="section"
-    id="shop"
->
+<section class="section" id="shop">
 
     <div class="collection-heading">
 
@@ -2234,11 +2222,9 @@ footer p {
             </h2>
 
             <p class="section-intro">
-
                 Distinctive pieces, crafted with intention.
                 Every creation carries its own character,
                 story and presence.
-
             </p>
 
         </div>
@@ -2251,10 +2237,7 @@ footer p {
 
     <div class="products">
 
-        <article
-            class="product"
-            onclick="openProduct(0)"
-        >
+        <article class="product" onclick="openProduct(0)">
 
             <div
                 class="product-image"
@@ -2299,10 +2282,7 @@ footer p {
 
         </article>
 
-        <article
-            class="product"
-            onclick="openProduct(1)"
-        >
+        <article class="product" onclick="openProduct(1)">
 
             <div
                 class="product-image"
@@ -2347,10 +2327,7 @@ footer p {
 
         </article>
 
-        <article
-            class="product"
-            onclick="openProduct(2)"
-        >
+        <article class="product" onclick="openProduct(2)">
 
             <div
                 class="product-image"
@@ -2395,10 +2372,7 @@ footer p {
 
         </article>
 
-        <article
-            class="product"
-            onclick="openProduct(3)"
-        >
+        <article class="product" onclick="openProduct(3)">
 
             <div
                 class="product-image"
@@ -2447,10 +2421,6 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     PRODUCT MODAL
-     ========================================================= -->
-
 <div
     class="product-modal"
     id="productModal"
@@ -2467,8 +2437,6 @@ footer p {
             ×
         </button>
 
-        <!-- PRODUCT GALLERY -->
-
         <div
             class="modal-image"
             id="modalImageContainer"
@@ -2483,6 +2451,44 @@ footer p {
                     class="gallery-track"
                     id="galleryTrack"
                 ></div>
+
+            </div>
+
+            <div class="zoom-controls">
+
+                <button
+                    class="zoom-button"
+                    id="zoomOut"
+                    type="button"
+                    aria-label="Zoom out"
+                >
+                    −
+                </button>
+
+                <div
+                    class="zoom-level"
+                    id="zoomLevel"
+                >
+                    100%
+                </div>
+
+                <button
+                    class="zoom-button"
+                    id="zoomIn"
+                    type="button"
+                    aria-label="Zoom in"
+                >
+                    +
+                </button>
+
+                <button
+                    class="zoom-button"
+                    id="zoomReset"
+                    type="button"
+                    aria-label="Reset zoom"
+                >
+                    ↺
+                </button>
 
             </div>
 
@@ -2526,8 +2532,6 @@ footer p {
             </div>
 
         </div>
-
-        <!-- PRODUCT INFORMATION -->
 
         <div class="modal-content">
 
@@ -2602,14 +2606,7 @@ footer p {
 
 </div>
 
-<!-- =========================================================
-     CUSTOM
-     ========================================================= -->
-
-<section
-    class="bespoke"
-    id="bespoke"
->
+<section class="bespoke" id="bespoke">
 
     <div class="bespoke-inner">
 
@@ -2631,17 +2628,11 @@ footer p {
 
         <div class="bespoke-actions">
 
-            <a
-                href="#vision"
-                class="dark-button"
-            >
+            <a href="#vision" class="dark-button">
                 Start Your Project
             </a>
 
-            <a
-                href="#process"
-                class="text-link"
-            >
+            <a href="#process" class="text-link">
                 See How It Works →
             </a>
 
@@ -2651,14 +2642,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     YOUR VISION
-     ========================================================= -->
-
-<section
-    class="builder-section"
-    id="vision"
->
+<section class="builder-section" id="vision">
 
     <div class="builder-container">
 
@@ -2708,10 +2692,7 @@ footer p {
                         What are you imagining?
                     </label>
 
-                    <select
-                        id="productType"
-                        required
-                    >
+                    <select id="productType" required>
 
                         <option value="">
                             Select a category
@@ -2772,9 +2753,7 @@ footer p {
                                 id="finishSelected"
                             >
 
-                                <span
-                                    class="finish-swatch coffee"
-                                ></span>
+                                <span class="finish-swatch coffee"></span>
 
                                 Coffee
 
@@ -2798,9 +2777,7 @@ footer p {
                                 aria-selected="true"
                             >
 
-                                <span
-                                    class="finish-swatch coffee"
-                                ></span>
+                                <span class="finish-swatch coffee"></span>
 
                                 <span>
                                     Coffee
@@ -2816,9 +2793,7 @@ footer p {
                                 aria-selected="false"
                             >
 
-                                <span
-                                    class="finish-swatch dark-brown"
-                                ></span>
+                                <span class="finish-swatch dark-brown"></span>
 
                                 <span>
                                     Dark Brown
@@ -2834,9 +2809,7 @@ footer p {
                                 aria-selected="false"
                             >
 
-                                <span
-                                    class="finish-swatch light-brown"
-                                ></span>
+                                <span class="finish-swatch light-brown"></span>
 
                                 <span>
                                     Light Brown
@@ -2852,9 +2825,7 @@ footer p {
                                 aria-selected="false"
                             >
 
-                                <span
-                                    class="finish-swatch black"
-                                ></span>
+                                <span class="finish-swatch black"></span>
 
                                 <span>
                                     Black
@@ -2936,14 +2907,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     PROCESS
-     ========================================================= -->
-
-<section
-    class="process-section"
-    id="process"
->
+<section class="process-section" id="process">
 
     <div class="section-label">
         OUR PROCESS
@@ -3023,14 +2987,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     STORY
-     ========================================================= -->
-
-<section
-    class="section story"
-    id="story"
->
+<section class="section story" id="story">
 
     <div class="story-content">
 
@@ -3063,14 +3020,7 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     CONTACT
-     ========================================================= -->
-
-<section
-    class="section contact"
-    id="contact"
->
+<section class="section contact" id="contact">
 
     <div class="contact-inner">
 
@@ -3159,10 +3109,6 @@ footer p {
 
 </section>
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
 <footer>
 
     <div class="footer-brand">
@@ -3198,10 +3144,6 @@ footer p {
     </p>
 
 </footer>
-
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
 
 <script>
 
@@ -3350,7 +3292,7 @@ let currentProduct = null;
 let currentGalleryIndex = 0;
 
 /* =========================================================
-   PRODUCT MODAL + GALLERY
+   PRODUCT MODAL
    ========================================================= */
 
 function openProduct(index) {
@@ -3411,7 +3353,7 @@ function openProduct(index) {
 
 function buildGallery() {
 
-    if (!currentProduct) return;
+    if (!currentProduct || !currentProduct.gallery) return;
 
     const track =
         document.getElementById("galleryTrack");
@@ -3422,82 +3364,95 @@ function buildGallery() {
     track.innerHTML = "";
     dots.innerHTML = "";
 
-    currentProduct.gallery.forEach(
-        (item, index) => {
+    currentProduct.gallery.forEach((item, index) => {
 
-            const slide =
-                document.createElement("div");
+        const slide =
+            document.createElement("div");
 
-            slide.className =
-                "gallery-slide";
+        slide.className =
+            "gallery-slide";
 
-            const image =
-                document.createElement("img");
+        const image =
+            document.createElement("img");
 
-            image.src =
-                item.image;
+        image.src =
+            item.image;
 
-            image.alt =
-                `${currentProduct.title} — ${item.label}`;
+        image.alt =
+            `${currentProduct.title} — ${item.label}`;
 
-            image.draggable = false;
+        image.draggable = false;
 
-            image.loading =
-                index === 0 ? "eager" : "lazy";
+        image.style.objectFit = "contain";
 
-            image.addEventListener(
-                "dblclick",
-                function(event) {
+        image.loading =
+            index === 0 ? "eager" : "lazy";
 
-                    event.preventDefault();
+        image.addEventListener(
+            "dblclick",
+            function(event) {
 
-                    if (imageZoom > 1) {
+                event.preventDefault();
 
-                        resetZoom();
+                if (imageZoom > 1) {
 
-                    } else {
+                    resetZoom();
 
-                        zoomAtPoint(
-                            2.5,
-                            event.clientX,
-                            event.clientY
-                        );
+                } else {
 
-                    }
+                    zoomAtPoint(
+                        2.5,
+                        event.clientX,
+                        event.clientY
+                    );
 
                 }
-            );
 
-            slide.appendChild(image);
+            }
+        );
 
-            track.appendChild(slide);
+        image.addEventListener(
+            "error",
+            function() {
 
-            const dot =
-                document.createElement("button");
+                console.error(
+                    `SOCH gallery image failed to load: ${item.image}`
+                );
 
-            dot.type = "button";
+                slide.classList.add("image-error");
 
-            dot.className =
-                "gallery-dot" +
-                (index === 0 ? " active" : "");
+            }
+        );
 
-            dot.setAttribute(
-                "aria-label",
-                `View ${item.label}`
-            );
+        slide.appendChild(image);
 
-            dot.onclick = function(event) {
+        track.appendChild(slide);
 
-                event.stopPropagation();
+        const dot =
+            document.createElement("button");
 
-                goToGallerySlide(index);
+        dot.type = "button";
 
-            };
+        dot.className =
+            "gallery-dot" +
+            (index === 0 ? " active" : "");
 
-            dots.appendChild(dot);
+        dot.setAttribute(
+            "aria-label",
+            `View ${item.label}`
+        );
 
-        }
-    );
+        dot.onclick = function(event) {
+
+            event.stopPropagation();
+
+            goToGallerySlide(index);
+
+        };
+
+        dots.appendChild(dot);
+
+    });
 
     updateGallery();
 
@@ -3636,11 +3591,23 @@ function galleryPrevious(event) {
 }
 
 /* =========================================================
-   PRODUCT IMAGE ZOOM SYSTEM
+   ZOOM SYSTEM
    ========================================================= */
 
 const galleryViewport =
     document.getElementById("galleryViewport");
+
+const zoomLevel =
+    document.getElementById("zoomLevel");
+
+const zoomInButton =
+    document.getElementById("zoomIn");
+
+const zoomOutButton =
+    document.getElementById("zoomOut");
+
+const zoomResetButton =
+    document.getElementById("zoomReset");
 
 let imageZoom = 1;
 
@@ -3672,10 +3639,6 @@ let touchLastY = 0;
 
 let touchMoved = false;
 
-/* ---------------------------------------------------------
-   CURRENT GALLERY IMAGE
-   --------------------------------------------------------- */
-
 function getCurrentGalleryImage() {
 
     return document.querySelector(
@@ -3692,9 +3655,26 @@ function getCurrentGallerySlide() {
 
 }
 
-/* ---------------------------------------------------------
-   PAN LIMIT
-   --------------------------------------------------------- */
+function updateZoomDisplay() {
+
+    if (!zoomLevel) return;
+
+    zoomLevel.textContent =
+        `${Math.round(imageZoom * 100)}%`;
+
+}
+
+function updateZoomButtons() {
+
+    if (!zoomInButton || !zoomOutButton) return;
+
+    zoomInButton.style.opacity =
+        imageZoom >= MAX_ZOOM ? ".35" : "1";
+
+    zoomOutButton.style.opacity =
+        imageZoom <= MIN_ZOOM ? ".35" : "1";
+
+}
 
 function getPanLimits() {
 
@@ -3751,13 +3731,7 @@ function clampPan() {
 
 }
 
-/* ---------------------------------------------------------
-   APPLY ZOOM / PAN
-   --------------------------------------------------------- */
-
-function applyImageTransform(
-    animate = true
-) {
+function applyImageTransform(animate = true) {
 
     const image =
         getCurrentGalleryImage();
@@ -3782,11 +3756,10 @@ function applyImageTransform(
         imageZoom > 1
     );
 
-}
+    updateZoomDisplay();
+    updateZoomButtons();
 
-/* ---------------------------------------------------------
-   RESET ZOOM
-   --------------------------------------------------------- */
+}
 
 function resetZoom(event) {
 
@@ -3812,9 +3785,52 @@ function resetZoomSilently() {
 
 }
 
-/* ---------------------------------------------------------
-   ZOOM AROUND POINTER
-   --------------------------------------------------------- */
+function zoomIn(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    const newZoom =
+        Math.min(
+            MAX_ZOOM,
+            imageZoom + ZOOM_STEP
+        );
+
+    if (newZoom === imageZoom) {
+        return;
+    }
+
+    imageZoom = newZoom;
+
+    applyImageTransform(true);
+
+}
+
+function zoomOut(event) {
+
+    if (event) {
+        event.stopPropagation();
+    }
+
+    const newZoom =
+        Math.max(
+            MIN_ZOOM,
+            imageZoom - ZOOM_STEP
+        );
+
+    imageZoom = newZoom;
+
+    if (imageZoom === 1) {
+
+        panX = 0;
+        panY = 0;
+
+    }
+
+    applyImageTransform(true);
+
+}
 
 function zoomAtPoint(
     newZoom,
@@ -3867,9 +3883,9 @@ function zoomAtPoint(
 
 }
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOUSE WHEEL ZOOM
-   --------------------------------------------------------- */
+   ========================================================= */
 
 galleryViewport.addEventListener(
     "wheel",
@@ -3903,9 +3919,9 @@ galleryViewport.addEventListener(
     }
 );
 
-/* ---------------------------------------------------------
+/* =========================================================
    DESKTOP DRAG / PAN
-   --------------------------------------------------------- */
+   ========================================================= */
 
 galleryViewport.addEventListener(
     "mousedown",
@@ -3991,9 +4007,9 @@ window.addEventListener(
     }
 );
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOBILE TOUCH / PINCH / SWIPE
-   --------------------------------------------------------- */
+   ========================================================= */
 
 galleryViewport.addEventListener(
     "touchstart",
@@ -4097,9 +4113,7 @@ galleryViewport.addEventListener(
 
         }
 
-        if (
-            event.touches.length !== 1
-        ) {
+        if (event.touches.length !== 1) {
             return;
         }
 
@@ -4182,8 +4196,6 @@ galleryViewport.addEventListener(
         const now =
             Date.now();
 
-        /* DOUBLE TAP */
-
         if (
             !touchMoved &&
             now - lastTapTime < 320
@@ -4211,16 +4223,9 @@ galleryViewport.addEventListener(
 
         lastTapTime = now;
 
-        /*
-           When zoomed, don't turn a pan into
-           gallery navigation.
-        */
-
         if (imageZoom > 1) {
             return;
         }
-
-        /* NORMAL SWIPE NAVIGATION */
 
         if (
             Math.abs(distanceX) >= 45 &&
@@ -4246,10 +4251,6 @@ galleryViewport.addEventListener(
     }
 );
 
-/* ---------------------------------------------------------
-   PREVENT IMAGE DRAGGING
-   --------------------------------------------------------- */
-
 galleryViewport.addEventListener(
     "dragstart",
     function(event) {
@@ -4257,6 +4258,21 @@ galleryViewport.addEventListener(
         event.preventDefault();
 
     }
+);
+
+zoomInButton.addEventListener(
+    "click",
+    zoomIn
+);
+
+zoomOutButton.addEventListener(
+    "click",
+    zoomOut
+);
+
+zoomResetButton.addEventListener(
+    "click",
+    resetZoom
 );
 
 /* =========================================================
