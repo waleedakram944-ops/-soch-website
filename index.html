@@ -1,3 +1,4 @@
+cat > /home/claude/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +14,22 @@ name="description"
 content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring it to life."
 >
 
+<!-- Open Graph / social share preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="𝑺𝑶𝑪𝑯 - سوچ">
+<meta property="og:title" content="𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.">
+<meta property="og:description" content="Premium décor and custom craftsmanship. Distinctive pieces, crafted with intention — from our collection or made exclusively around your vision.">
+<meta property="og:image" content="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="𝑺𝑶𝑪𝑯 - سوچ | You Bring the Vision. We Bring It to Life.">
+<meta name="twitter:description" content="Premium décor and custom craftsmanship. Distinctive pieces, crafted with intention — from our collection or made exclusively around your vision.">
+<meta name="twitter:image" content="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="D14F44D6-93B4-4E04-8871-E823876743A8.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -20,12 +37,24 @@ content="SOCH - Custom décor and craftsmanship. You bring the vision. We bring 
 href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap"
 rel="stylesheet">
 
+<!-- Structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "SOCH - سوچ",
+  "description": "Custom décor and craftsmanship. You bring the vision, we bring it to life.",
+  "telephone": "+923150674347",
+  "sameAs": [
+    "https://www.instagram.com/soch.pk/"
+  ]
+}
+</script>
+
 <style>
 
 :root {
     --black: #080807;
-    --black-2: #0d0d0c;
-    --panel: #11110f;
     --cream: #eeeae1;
     --muted: #9c988f;
     --soft: #c0b9aa;
@@ -2300,6 +2329,7 @@ footer p {
                 <img
                     src="FE17D6E3-5A88-4F35-97AD-F765E7687C8D.png"
                     alt="Al-Bayan decorative wall art"
+                    loading="lazy"
                 >
 
             </div>
@@ -2347,6 +2377,7 @@ footer p {
                 <img
                     src="EB0F5DD4-0F68-40C4-86DB-8F3C50B9B483.png"
                     alt="Noor-e-Sukhan decorative wall art"
+                    loading="lazy"
                 >
 
             </div>
@@ -2394,6 +2425,7 @@ footer p {
                 <img
                     src="61F3AE47-AC22-4892-BF90-85C53564A037.png"
                     alt="Khatt-e-Wafa Arabic calligraphy"
+                    loading="lazy"
                 >
 
             </div>
@@ -2441,6 +2473,7 @@ footer p {
                 <img
                     src="E8FABC4B-1917-49FB-BE6E-6323AAD0D22E.png"
                     alt="Asil equestrian wood relief"
+                    loading="lazy"
                 >
 
             </div>
@@ -2527,7 +2560,6 @@ footer p {
                     id="zoomOut"
                     type="button"
                     aria-label="Zoom out"
-                    onclick="zoomOut(event)"
                 >
                     −
                 </button>
@@ -2544,7 +2576,6 @@ footer p {
                     id="zoomIn"
                     type="button"
                     aria-label="Zoom in"
-                    onclick="zoomIn(event)"
                 >
                     +
                 </button>
@@ -2554,7 +2585,6 @@ footer p {
                     id="zoomReset"
                     type="button"
                     aria-label="Reset zoom"
-                    onclick="resetZoom(event)"
                 >
                     ↺
                 </button>
@@ -3516,6 +3546,9 @@ function buildGallery() {
                 `${currentProduct.title} — ${item.label}`;
 
             image.draggable = false;
+
+            image.loading =
+                index === 0 ? "eager" : "lazy";
 
             image.addEventListener(
                 "dblclick",
@@ -4820,3 +4853,5 @@ document
 
 </body>
 </html>
+HTMLEOF
+echo "Written: $(wc -l < /home/claude/index.html) lines"
